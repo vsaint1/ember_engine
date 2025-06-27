@@ -1,14 +1,20 @@
 var searchData=
 [
-  ['mesh_131',['Mesh',['../classMesh.html#a2af137f1571af89172b9c102302c416b',1,'Mesh::Mesh()'],['../classMesh.html#aa2b11de72a76485fcdf1cc717eb2fd83',1,'Mesh::Mesh(const std::vector&lt; Vertex &gt; &amp;vertices, const std::vector&lt; unsigned int &gt; &amp;indices={})'],['../classMesh.html',1,'Mesh']]],
-  ['mesh_2ecpp_132',['mesh.cpp',['../mesh_8cpp.html',1,'']]],
-  ['mesh_2eh_133',['mesh.h',['../mesh_8h.html',1,'']]],
-  ['metal_134',['METAL',['../ember__core_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea1d94993b8bf3e32473e513152cfa1c68',1,'ember_core.h']]],
-  ['metrics_135',['Metrics',['../structCore.html#ade3c43510d33978111678cc31aadbc9a',1,'Core']]],
-  ['mix_5floadaudio_136',['Mix_LoadAudio',['../ember__audio_8cpp.html#a0ecbfb10ae42714535ce97f729b0c12e',1,'Mix_LoadAudio(const std::string &amp;file_Path):&#160;ember_audio.cpp'],['../ember__audio_8h.html#a0ecbfb10ae42714535ce97f729b0c12e',1,'Mix_LoadAudio(const std::string &amp;file_Path):&#160;ember_audio.cpp']]],
-  ['mix_5fpauseaudio_137',['Mix_PauseAudio',['../ember__audio_8cpp.html#aa71ebe5434c09bb4032cb8774d4f58ed',1,'Mix_PauseAudio(Audio *audio):&#160;ember_audio.cpp'],['../ember__audio_8h.html#aa71ebe5434c09bb4032cb8774d4f58ed',1,'Mix_PauseAudio(Audio *audio):&#160;ember_audio.cpp']]],
-  ['mix_5fplayaudio_138',['Mix_PlayAudio',['../ember__audio_8cpp.html#a21c164f12e2effd2a44787c2b8a3c9eb',1,'Mix_PlayAudio(Audio *audio, bool loop):&#160;ember_audio.cpp'],['../ember__audio_8h.html#a72b9294d5cb05ee34e1d707a155888fc',1,'Mix_PlayAudio(Audio *audio, bool loop=false):&#160;ember_audio.cpp']]],
-  ['mix_5fsetglobalvolume_139',['Mix_SetGlobalVolume',['../ember__audio_8cpp.html#a72b0c1c545c8acf2fb0aa446984bf57c',1,'Mix_SetGlobalVolume(float volume):&#160;ember_audio.cpp'],['../ember__audio_8h.html#a72b0c1c545c8acf2fb0aa446984bf57c',1,'Mix_SetGlobalVolume(float volume):&#160;ember_audio.cpp']]],
-  ['mix_5fsetvolume_140',['Mix_SetVolume',['../ember__audio_8cpp.html#acd4f28d1d8906fbb21f057057da02a0f',1,'Mix_SetVolume(Audio *audio, float volume):&#160;ember_audio.cpp'],['../ember__audio_8h.html#acd4f28d1d8906fbb21f057057da02a0f',1,'Mix_SetVolume(Audio *audio, float volume):&#160;ember_audio.cpp']]],
-  ['mix_5funloadaudio_141',['Mix_UnloadAudio',['../ember__audio_8cpp.html#a2dfb2d160da85d51bddcab140b8f3377',1,'Mix_UnloadAudio(Audio *audio):&#160;ember_audio.cpp'],['../ember__audio_8h.html#a2dfb2d160da85d51bddcab140b8f3377',1,'Mix_UnloadAudio(Audio *audio):&#160;ember_audio.cpp']]]
+  ['line_5fgap_153',['line_gap',['../structFont.html#aa391fd08bc194e972a87997db975f9fe',1,'Font']]],
+  ['load_154',['Load',['../classAudio.html#aa02fe2ec9938b6db22cdf0e170da61fc',1,'Audio']]],
+  ['loadassetsfile_155',['LoadAssetsFile',['../file__system_8cpp.html#a40d1357c1525d821eb7d846c404aa75a',1,'LoadAssetsFile(const std::string &amp;file_path):&#160;file_system.cpp'],['../file__system_8h.html#a40d1357c1525d821eb7d846c404aa75a',1,'LoadAssetsFile(const std::string &amp;file_path):&#160;file_system.cpp']]],
+  ['loadfileintomemory_156',['LoadFileIntoMemory',['../file__system_8cpp.html#a7fc4975571bfb41e6143425e07afea5a',1,'LoadFileIntoMemory(const std::string &amp;file_path):&#160;file_system.cpp'],['../file__system_8h.html#a7fc4975571bfb41e6143425e07afea5a',1,'LoadFileIntoMemory(const std::string &amp;file_path):&#160;file_system.cpp']]],
+  ['loadfont_157',['LoadFont',['../structRenderer.html#a4b3e4402378198c0d50e8fe18010a5e1',1,'Renderer::LoadFont()'],['../classOpenglRenderer.html#abb79751fe46cf0e9e2c3b250574d495e',1,'OpenglRenderer::LoadFont()']]],
+  ['loadtexture_158',['LoadTexture',['../structRenderer.html#a513be2e7143b39666132be55242dba94',1,'Renderer::LoadTexture()'],['../classOpenglRenderer.html#a6da5f85430a226e88672ea2468341c70',1,'OpenglRenderer::LoadTexture()']]],
+  ['log_5fcritical_159',['LOG_CRITICAL',['../logging_8h.html#a4091a2d7d849a8b5eded40d8723b8768',1,'logging.h']]],
+  ['log_5fdebug_160',['LOG_DEBUG',['../logging_8h.html#a754b3d074e0af4ad3c7b918dd77ecb2d',1,'logging.h']]],
+  ['log_5ferror_161',['LOG_ERROR',['../logging_8h.html#ad4a9117ce894e3319e903142347a0f63',1,'logging.h']]],
+  ['log_5finfo_162',['LOG_INFO',['../logging_8h.html#a378e28bfcb78d17285210d6bbb70a083',1,'logging.h']]],
+  ['log_5fquit_5fon_5ffail_163',['LOG_QUIT_ON_FAIL',['../logging_8h.html#a8847f12f1553de3ae733f93a25b26a52',1,'logging.h']]],
+  ['log_5ftrace_164',['LOG_TRACE',['../logging_8h.html#a58c994180e09d2f6400133b19b1d7036',1,'logging.h']]],
+  ['log_5fverbose_165',['LOG_VERBOSE',['../logging_8h.html#a9e7072460e1de0d89f6c8e5b7fcf1260',1,'logging.h']]],
+  ['log_5fwarn_166',['LOG_WARN',['../logging_8h.html#add82efa459e0af380b68522c29b9fd44',1,'logging.h']]],
+  ['logger_167',['Logger',['../classLogger.html',1,'']]],
+  ['logging_2ecpp_168',['logging.cpp',['../logging_8cpp.html',1,'']]],
+  ['logging_2eh_169',['logging.h',['../logging_8h.html',1,'']]]
 ];

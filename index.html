@@ -68,7 +68,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
-<p><b>Ember</b> is a lightweight and modular <b>2D/3D game engine/framework</b> written in <b>C/C++</b>, designed to be simple yet powerful. It aims to provide developers with a flexible cross-platform solution to build 2D/3D games and applications.</p>
+<p><b>Ember</b> is a lightweight and modular <b>2D/3D game engine/framework</b> written in <b>C/C++</b>, designed to be simple yet powerful. It aims to provide developers with a flexible **_cross-platform_** solution to build 2D/3D games and applications.</p>
 <blockquote class="doxtable">
 <p>⚠️ <b>Note:</b> Currently has no Editor. </p>
 </blockquote>
@@ -89,28 +89,29 @@ $(function() {
 <li>Metal (macOS, iOS) **(coming soon)**</li>
 </ul>
 </li>
-<li>🛠️ <b>Lightweight <a class="el" href="structCore.html">Core</a></b>: Minimal dependencies for fast builds and portability.</li>
-<li>🎮 <b>Input, <a class="el" href="structAudio.html">Audio</a>, and <a class="el" href="structTexture.html">Texture</a> Management</b>: Simple and extensible input, audio, and texture management.</li>
+<li>🛠️ <b>Lightweight Core</b>: Minimal dependencies for fast builds and portability.</li>
+<li>🎮 <b>Input, <a class="el" href="classAudio.html" title="Audio struct.">Audio</a>, and <a class="el" href="structTexture.html">Texture</a> Management</b>: Simple and extensible input, audio, and texture management.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md2"></a>
 📂 File Types</h2>
 <ul>
-<li>📸 <b>Image</b>: PNG, JPEG, WEBP, GIF, etc...</li>
+<li>📸 <b>Image</b>: PNG, JPEG, WEBP, GIF, TGA, BMP, etc...</li>
 <li>🔠 <b><a class="el" href="structFont.html">Font</a></b>: TTF, SDF, etc...</li>
-<li>🔈 <b><a class="el" href="structAudio.html">Audio</a></b>: WAV, MP3, FLAC, OGG, etc...</li>
+<li>🔈 <b><a class="el" href="classAudio.html" title="Audio struct.">Audio</a></b>: WAV, MP3, FLAC, OGG, etc...</li>
 <li>🟥 <b>Model</b>: <code>TODO</code></li>
 </ul>
 <hr  />
 <h2><a class="anchor" id="autotoc_md4"></a>
 📦 Dependencies</h2>
 <ul>
-<li><a href="https://github.com/libsdl-org/SDL">sdl3</a> (Windowing, Inputs, Events, <a class="el" href="structAudio.html">Audio</a>, ...)</li>
+<li><a href="https://github.com/libsdl-org/SDL">sdl3</a> (Windowing, Inputs, Events, <a class="el" href="classAudio.html" title="Audio struct.">Audio</a>, ...)</li>
 <li><a href="https://github.com/nothings/stb">stb_image</a> (Image loader)</li>
 <li><a href="https://github.com/nothings/stb">stb_truetype</a> (TrueType/SDF font loader)</li>
 <li><a href="https://github.com/nothings/stb">stb_vorbis</a> (OGG Vorbis audio loader/decoder)</li>
-<li><a href="https://github.com/mackron/miniaudio">mini_audio</a> (<a class="el" href="structAudio.html">Audio</a> Engine backend)</li>
+<li><a href="https://github.com/mackron/miniaudio">mini_audio</a> (<a class="el" href="classAudio.html" title="Audio struct.">Audio</a> <a class="el" href="classEngine.html">Engine</a> backend)</li>
 <li><a href="https://github.com/Dav1dde/glad">glad</a> (OpenGL/ES Loader)</li>
 <li><a href="https://github.com/g-truc/glm">glm</a> (C++ math library)</li>
+<li><a href="https://github.com/leethomason/tinyxml2">tinyxml2</a> (XML Parser)</li>
 </ul>
 <hr  />
 <h2><a class="anchor" id="autotoc_md6"></a>
@@ -146,7 +147,7 @@ $(function() {
 <hr  />
 <h2><a class="anchor" id="autotoc_md10"></a>
 🛠️ Build System</h2>
-<p>Ember Engine uses <a href="https://cmake.org/">cmake</a> as its build system and supports the following toolchains:</p><ul>
+<p>Ember <a class="el" href="classEngine.html">Engine</a> uses <a href="https://cmake.org/">cmake</a> as its build system and supports the following toolchains:</p><ul>
 <li>Visual Studio (Windows)</li>
 <li>GCC / Clang (Linux / macOS)</li>
 <li>Android NDK (Android)</li>
@@ -155,10 +156,23 @@ $(function() {
 </ul>
 <hr  />
 <h2><a class="anchor" id="autotoc_md12"></a>
+🏗️ Building</h2>
+<ul>
+<li><a href="https://emscripten.org/docs/getting_started/downloads.html">Emscripten Install and Setup</a></li>
+</ul>
+<div class="fragment"><div class="line">git clone https://github.com/vsaint1/ember_engine.git &amp;&amp; cd ember_engine</div>
+<div class="line">git submodule update --init --recursive</div>
+<div class="line"> </div>
+<div class="line">cmake --list-presets</div>
+<div class="line"> </div>
+<div class="line">emcmake cmake --preset=web-release</div>
+<div class="line"> </div>
+<div class="line">emmake cmake --build build/webgl/release</div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md13"></a>
 ⚠️ Disclaimer</h2>
 <p>This project was created for educational and personal purposes. It is <b>not</b> intended for commercial use.</p>
 <hr  />
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md15"></a>
 📝 License</h2>
 <p>This project is distributed under the <a href="https://opensource.org/licenses/MIT">MIT License</a>. </p>
 </div></div><!-- PageDoc -->

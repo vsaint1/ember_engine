@@ -120,40 +120,35 @@ $(function() {
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordflow">return</span> this-&gt;fps;</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    }</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classTimeManager.html#a5b2b2416185071db4da4de9a9fd6e1ff">   50</a></span>&#160;    std::string <a class="code" href="classTimeManager.html#a5b2b2416185071db4da4de9a9fd6e1ff">GetFpsText</a>() {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> std::to_string(this-&gt;fps);</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classTimeManager.html#a868708b9047399b9dd9c5aac965ef8f0">   50</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classTimeManager.html#a868708b9047399b9dd9c5aac965ef8f0">IsPaused</a>() {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordflow">return</span> this-&gt;bIsPaused;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    }</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classTimeManager.html#a868708b9047399b9dd9c5aac965ef8f0">   54</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classTimeManager.html#a868708b9047399b9dd9c5aac965ef8f0">IsPaused</a>() {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> this-&gt;bIsPaused;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTimeManager.html#a77760dd750a7dee52344cd12e4f97629">Pause</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTimeManager.html#a6a00edea4405c3aa48cde96d9f7bc4a1">Resume</a>();</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTimeManager.html#a77760dd750a7dee52344cd12e4f97629">Pause</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d">Update</a>();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTimeManager.html#a6a00edea4405c3aa48cde96d9f7bc4a1">Resume</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d">Update</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="comment">/* max_fps = 1 -&gt; UNLIMITED */</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTimeManager.html#af02a970a66bfa278d9d93a982f4400eb">FixedFrameRate</a>(Uint32 max_fps = 60);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;};</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">/* MAX_FPS = 1 -&gt; UNLIMITED */</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTimeManager.html#a9203e627f5bfc534dcb4f39e622bf2d0">FixedFrameRate</a>(Uint32 MAX_FPS = 60);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="ttc" id="aclassTimeManager_html"><div class="ttname"><a href="classTimeManager.html">TimeManager</a></div><div class="ttdef"><b>Definition:</b> time_manager.h:4</div></div>
 <div class="ttc" id="aclassTimeManager_html_a393ecee0bb577f045d780ef9d02b1ee2"><div class="ttname"><a href="classTimeManager.html#a393ecee0bb577f045d780ef9d02b1ee2">TimeManager::GetElapsedTime</a></div><div class="ttdeci">float GetElapsedTime()</div><div class="ttdef"><b>Definition:</b> time_manager.h:36</div></div>
-<div class="ttc" id="aclassTimeManager_html_a5b2b2416185071db4da4de9a9fd6e1ff"><div class="ttname"><a href="classTimeManager.html#a5b2b2416185071db4da4de9a9fd6e1ff">TimeManager::GetFpsText</a></div><div class="ttdeci">std::string GetFpsText()</div><div class="ttdef"><b>Definition:</b> time_manager.h:50</div></div>
 <div class="ttc" id="aclassTimeManager_html_a62c87c9e17c1e8bb62b9510ee18b9a9a"><div class="ttname"><a href="classTimeManager.html#a62c87c9e17c1e8bb62b9510ee18b9a9a">TimeManager::GetFps</a></div><div class="ttdeci">float GetFps()</div><div class="ttdef"><b>Definition:</b> time_manager.h:46</div></div>
 <div class="ttc" id="aclassTimeManager_html_a6a00edea4405c3aa48cde96d9f7bc4a1"><div class="ttname"><a href="classTimeManager.html#a6a00edea4405c3aa48cde96d9f7bc4a1">TimeManager::Resume</a></div><div class="ttdeci">void Resume()</div><div class="ttdef"><b>Definition:</b> time_manager.cpp:10</div></div>
 <div class="ttc" id="aclassTimeManager_html_a77760dd750a7dee52344cd12e4f97629"><div class="ttname"><a href="classTimeManager.html#a77760dd750a7dee52344cd12e4f97629">TimeManager::Pause</a></div><div class="ttdeci">void Pause()</div><div class="ttdef"><b>Definition:</b> time_manager.cpp:3</div></div>
-<div class="ttc" id="aclassTimeManager_html_a868708b9047399b9dd9c5aac965ef8f0"><div class="ttname"><a href="classTimeManager.html#a868708b9047399b9dd9c5aac965ef8f0">TimeManager::IsPaused</a></div><div class="ttdeci">bool IsPaused()</div><div class="ttdef"><b>Definition:</b> time_manager.h:54</div></div>
-<div class="ttc" id="aclassTimeManager_html_a9203e627f5bfc534dcb4f39e622bf2d0"><div class="ttname"><a href="classTimeManager.html#a9203e627f5bfc534dcb4f39e622bf2d0">TimeManager::FixedFrameRate</a></div><div class="ttdeci">void FixedFrameRate(Uint32 MAX_FPS=60)</div><div class="ttdef"><b>Definition:</b> time_manager.cpp:49</div></div>
+<div class="ttc" id="aclassTimeManager_html_a868708b9047399b9dd9c5aac965ef8f0"><div class="ttname"><a href="classTimeManager.html#a868708b9047399b9dd9c5aac965ef8f0">TimeManager::IsPaused</a></div><div class="ttdeci">bool IsPaused()</div><div class="ttdef"><b>Definition:</b> time_manager.h:50</div></div>
 <div class="ttc" id="aclassTimeManager_html_a9ed5b59c92eaf26fbefdba795a1d96af"><div class="ttname"><a href="classTimeManager.html#a9ed5b59c92eaf26fbefdba795a1d96af">TimeManager::GetFrameCount</a></div><div class="ttdeci">Uint64 GetFrameCount()</div><div class="ttdef"><b>Definition:</b> time_manager.h:32</div></div>
 <div class="ttc" id="aclassTimeManager_html_ab1c3cbb48ad68d928bb8b9a4ef210ed6"><div class="ttname"><a href="classTimeManager.html#ab1c3cbb48ad68d928bb8b9a4ef210ed6">TimeManager::TimeManager</a></div><div class="ttdeci">TimeManager()</div><div class="ttdef"><b>Definition:</b> time_manager.h:20</div></div>
 <div class="ttc" id="aclassTimeManager_html_acd125083ca801a4c45fed14ab67eb86c"><div class="ttname"><a href="classTimeManager.html#acd125083ca801a4c45fed14ab67eb86c">TimeManager::SetMaxFps</a></div><div class="ttdeci">void SetMaxFps(Uint32 fps)</div><div class="ttdef"><b>Definition:</b> time_manager.h:40</div></div>
 <div class="ttc" id="aclassTimeManager_html_acf155ec6dba10ab11008afbbe8869e4e"><div class="ttname"><a href="classTimeManager.html#acf155ec6dba10ab11008afbbe8869e4e">TimeManager::GetDeltaTime</a></div><div class="ttdeci">float GetDeltaTime()</div><div class="ttdef"><b>Definition:</b> time_manager.h:24</div></div>
+<div class="ttc" id="aclassTimeManager_html_af02a970a66bfa278d9d93a982f4400eb"><div class="ttname"><a href="classTimeManager.html#af02a970a66bfa278d9d93a982f4400eb">TimeManager::FixedFrameRate</a></div><div class="ttdeci">void FixedFrameRate(Uint32 max_fps=60)</div><div class="ttdef"><b>Definition:</b> time_manager.cpp:50</div></div>
 <div class="ttc" id="aclassTimeManager_html_afdf5ccb706dfd5cd71882424ddf4301d"><div class="ttname"><a href="classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d">TimeManager::Update</a></div><div class="ttdeci">void Update()</div><div class="ttdef"><b>Definition:</b> time_manager.cpp:18</div></div>
 <div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
-<div class="ttc" id="alogging_8h_html_a378e28bfcb78d17285210d6bbb70a083"><div class="ttname"><a href="logging_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(...)</div><div class="ttdoc">INFO logging.</div><div class="ttdef"><b>Definition:</b> logging.h:26</div></div>
+<div class="ttc" id="alogging_8h_html_a378e28bfcb78d17285210d6bbb70a083"><div class="ttname"><a href="logging_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(...)</div><div class="ttdoc">INFO logging.</div><div class="ttdef"><b>Definition:</b> logging.h:75</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -69,31 +69,77 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">engine.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="file__system_8h_source.html">core/file_system.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="input__manager_8h_source.html">core/input/input_manager.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="file__system_8h_source.html">core/io/file_system.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="time__manager_8h_source.html">core/time_manager.h</a>&quot;</code><br />
 </div>
 <p><a href="engine_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structCore.html">Core</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html">Engine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ae9c668e3a273ce92b9f4e134d0cbd6ce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a> { <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea4cd6ad65d345a77065fda71b3751ec24">OPENGL</a>
+, <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea1d94993b8bf3e32473e513152cfa1c68">METAL</a>
+ }</td></tr>
+<tr class="memdesc:ae9c668e3a273ce92b9f4e134d0cbd6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backend <code>OpenGL</code> or <code>Metal</code>  <a href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">More...</a><br /></td></tr>
+<tr class="separator:ae9c668e3a273ce92b9f4e134d0cbd6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a9dd63150de1598d744144a2d8e750fc2"><td class="memItemLeft" align="right" valign="top">ma_engine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8h.html#a9dd63150de1598d744144a2d8e750fc2">engine</a></td></tr>
-<tr class="separator:a9dd63150de1598d744144a2d8e750fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac514708823258c25eb965ca7319b1d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCore.html">Core</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8h.html#ac514708823258c25eb965ca7319b1d95">core</a></td></tr>
-<tr class="separator:ac514708823258c25eb965ca7319b1d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86ef02718d8da83f5f144ddb6237c9ee"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classEngine.html">Engine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8h.html#a86ef02718d8da83f5f144ddb6237c9ee">GEngine</a></td></tr>
+<tr class="separator:a86ef02718d8da83f5f144ddb6237c9ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d35f1c9963920ee5b646c65b714d22a"><td class="memItemLeft" align="right" valign="top">ma_engine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8h.html#a5d35f1c9963920ee5b646c65b714d22a">audio_engine</a></td></tr>
+<tr class="separator:a5d35f1c9963920ee5b646c65b714d22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ae9c668e3a273ce92b9f4e134d0cbd6ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c668e3a273ce92b9f4e134d0cbd6ce">&#9670;&nbsp;</a></span>RendererType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Backend <code>OpenGL</code> or <code>Metal</code> </p>
+<ul>
+<li>Choose the graphics backend Type: OpenGL <blockquote class="doxtable">
+<p>WEB: WebGL 3.0</p>
+<p></p>
+</blockquote>
+</li>
+<li>DESKTOP: OpenGL 3.3 <blockquote class="doxtable">
+<p>MOBILE: OpenGLES 3.0 </p>
+</blockquote>
+Type: Metal <blockquote class="doxtable">
+<p>Apple Devices only </p>
+</blockquote>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
+</li>
+</ul>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae9c668e3a273ce92b9f4e134d0cbd6cea4cd6ad65d345a77065fda71b3751ec24"></a>OPENGL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae9c668e3a273ce92b9f4e134d0cbd6cea1d94993b8bf3e32473e513152cfa1c68"></a>METAL&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="ac514708823258c25eb965ca7319b1d95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac514708823258c25eb965ca7319b1d95">&#9670;&nbsp;</a></span>core</h2>
+<a id="a5d35f1c9963920ee5b646c65b714d22a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d35f1c9963920ee5b646c65b714d22a">&#9670;&nbsp;</a></span>audio_engine</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -102,7 +148,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCore.html">Core</a> core</td>
+          <td class="memname">ma_engine audio_engine</td>
         </tr>
       </table>
   </td>
@@ -114,8 +160,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a9dd63150de1598d744144a2d8e750fc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dd63150de1598d744144a2d8e750fc2">&#9670;&nbsp;</a></span>engine</h2>
+<a id="a86ef02718d8da83f5f144ddb6237c9ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86ef02718d8da83f5f144ddb6237c9ee">&#9670;&nbsp;</a></span>GEngine</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +170,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ma_engine engine</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classEngine.html">Engine</a>&gt; GEngine</td>
         </tr>
       </table>
   </td>

@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['camera2d_277',['Camera2D',['../structCamera2D.html#a1d68c29b9e23a0db0c623e9643fa26dc',1,'Camera2D']]],
-  ['clearbackground_278',['ClearBackground',['../ember__gl_8cpp.html#aa387874e93a8677e850379e9895756c2',1,'ClearBackground(Color color):&#160;ember_gl.cpp'],['../ember__gl_8h.html#aa387874e93a8677e850379e9895756c2',1,'ClearBackground(Color color):&#160;ember_gl.cpp']]],
-  ['closeaudio_279',['CloseAudio',['../ember__audio_8cpp.html#a3a1171e6a1ac0bae09f6789d2da49c53',1,'CloseAudio():&#160;ember_audio.cpp'],['../ember__audio_8h.html#a3a1171e6a1ac0bae09f6789d2da49c53',1,'CloseAudio():&#160;ember_audio.cpp']]],
-  ['closewindow_280',['CloseWindow',['../ember__core_8cpp.html#aa8951e1fd9e5e3d5220c5dbd29fd8b01',1,'CloseWindow():&#160;ember_core.cpp'],['../ember__core_8h.html#aa8951e1fd9e5e3d5220c5dbd29fd8b01',1,'CloseWindow():&#160;ember_core.cpp']]],
-  ['createrenderer_281',['CreateRenderer',['../ember__core_8cpp.html#a1e25563447bf5532ea51dd09e480d358',1,'CreateRenderer(SDL_Window *window, int view_width, int view_height, RendererType type):&#160;ember_core.cpp'],['../ember__core_8h.html#a1e25563447bf5532ea51dd09e480d358',1,'CreateRenderer(SDL_Window *window, int view_width, int view_height, RendererType type):&#160;ember_core.cpp']]],
-  ['createrenderergl_282',['CreateRendererGL',['../ember__gl_8cpp.html#a513d877bee9aadff35abe4cd27ef1b10',1,'CreateRendererGL(SDL_Window *window, int view_width, int view_height):&#160;ember_gl.cpp'],['../ember__core_8h.html#a513d877bee9aadff35abe4cd27ef1b10',1,'CreateRendererGL(SDL_Window *window, int view_width, int view_height):&#160;ember_gl.cpp']]]
+  ['begincanvas_373',['BeginCanvas',['../structRenderer.html#a6928c290b4b66afa3d9727ad31b530f4',1,'Renderer::BeginCanvas()'],['../classOpenglRenderer.html#a4ff33912aae4acd0e6d89aca46e5ed99',1,'OpenglRenderer::BeginCanvas()']]],
+  ['begindrawing_374',['BeginDrawing',['../structRenderer.html#a148efc56d2d00db765159785eeec67b5',1,'Renderer::BeginDrawing()'],['../classOpenglRenderer.html#ae62ff815ba5015f6cf2c9c2a9a4eeac1',1,'OpenglRenderer::BeginDrawing()']]],
+  ['beginmode2d_375',['BeginMode2D',['../structRenderer.html#a1c3993595df34bd9a758f57ad77f9555',1,'Renderer::BeginMode2D()'],['../classOpenglRenderer.html#ace7a5556b55495d87c7daafe6e3ac3a4',1,'OpenglRenderer::BeginMode2D()']]],
+  ['bind_376',['Bind',['../classMesh.html#a8f574e21179fd5887544a90631d392b7',1,'Mesh::Bind()'],['../classOpenglShader.html#a318625c188dc92aad3f09d98bb69b2e1',1,'OpenglShader::Bind()'],['../classShader.html#a5966a05c4cac85e5bd2f5699b17b765c',1,'Shader::Bind()']]],
+  ['button_377',['Button',['../classButton.html#a29d67b81d803e588ebf4c4c2075262bf',1,'Button::Button()=default'],['../classButton.html#a46fb9cc08599ab85a395d588033ed5a7',1,'Button::Button(Font &amp;font, const std::string &amp;label, ember::Rectangle rect, float font_size=0.0f)']]]
 ];

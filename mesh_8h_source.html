@@ -84,33 +84,35 @@ $(function() {
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="classMesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a>();</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="classMesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a>(<span class="keyword">const</span> std::vector&lt;Vertex&gt;&amp; vertices, <span class="keyword">const</span> std::vector&lt;unsigned int&gt;&amp; indices = {});</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a>(<span class="keyword">const</span> std::vector&lt;Vertex&gt;&amp; vertices, <span class="keyword">const</span> std::vector&lt;Uint32&gt;&amp; indices = {});</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classMesh.html#a5efe4da1a4c0971cfb037bd70304c303">~Mesh</a>();</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a8f574e21179fd5887544a90631d392b7">Bind</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a568b541e5ac9a4a24feb59d63d5c36d9">Draw</a>(GLenum mode = GL_TRIANGLES) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a61f21e657767120186fe21ccf7dd9bbf">Draw</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mode = GL_TRIANGLES) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a8fce819a6739c2abe5a73fe73d9a7270">Update</a>(<span class="keyword">const</span> std::vector&lt;Vertex&gt;&amp; newVertices);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a04822aa5c824a2940a80d292e9031ae7">Update</a>(<span class="keyword">const</span> std::vector&lt;Vertex&gt;&amp; new_vertices, <span class="keyword">const</span> std::vector&lt;Uint32&gt;&amp; new_indices = {});</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classMesh.html#a54bff60f565d980e734d777ec9bcf666">GetVertexCount</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">private</span>:</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> VAO, VBO, EBO;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::vector&lt;Vertex&gt; vertices;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::vector&lt;unsigned int&gt; indices;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::vector&lt;Uint32&gt; indices;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> Setup();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">bool</span> bIsDirty = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
 <div class="ttc" id="aclassMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">Mesh class.</div><div class="ttdef"><b>Definition:</b> mesh.h:21</div></div>
+<div class="ttc" id="aclassMesh_html_a04822aa5c824a2940a80d292e9031ae7"><div class="ttname"><a href="classMesh.html#a04822aa5c824a2940a80d292e9031ae7">Mesh::Update</a></div><div class="ttdeci">void Update(const std::vector&lt; Vertex &gt; &amp;new_vertices, const std::vector&lt; Uint32 &gt; &amp;new_indices={})</div><div class="ttdef"><b>Definition:</b> mesh.cpp:49</div></div>
 <div class="ttc" id="aclassMesh_html_a2af137f1571af89172b9c102302c416b"><div class="ttname"><a href="classMesh.html#a2af137f1571af89172b9c102302c416b">Mesh::Mesh</a></div><div class="ttdeci">Mesh()</div><div class="ttdef"><b>Definition:</b> mesh.cpp:3</div></div>
-<div class="ttc" id="aclassMesh_html_a54bff60f565d980e734d777ec9bcf666"><div class="ttname"><a href="classMesh.html#a54bff60f565d980e734d777ec9bcf666">Mesh::GetVertexCount</a></div><div class="ttdeci">size_t GetVertexCount() const</div><div class="ttdef"><b>Definition:</b> mesh.cpp:31</div></div>
-<div class="ttc" id="aclassMesh_html_a568b541e5ac9a4a24feb59d63d5c36d9"><div class="ttname"><a href="classMesh.html#a568b541e5ac9a4a24feb59d63d5c36d9">Mesh::Draw</a></div><div class="ttdeci">void Draw(GLenum mode=GL_TRIANGLES) const</div><div class="ttdef"><b>Definition:</b> mesh.cpp:35</div></div>
+<div class="ttc" id="aclassMesh_html_a54bff60f565d980e734d777ec9bcf666"><div class="ttname"><a href="classMesh.html#a54bff60f565d980e734d777ec9bcf666">Mesh::GetVertexCount</a></div><div class="ttdeci">size_t GetVertexCount() const</div><div class="ttdef"><b>Definition:</b> mesh.cpp:33</div></div>
 <div class="ttc" id="aclassMesh_html_a5efe4da1a4c0971cfb037bd70304c303"><div class="ttname"><a href="classMesh.html#a5efe4da1a4c0971cfb037bd70304c303">Mesh::~Mesh</a></div><div class="ttdeci">~Mesh()</div><div class="ttdef"><b>Definition:</b> mesh.cpp:21</div></div>
-<div class="ttc" id="aclassMesh_html_a8f574e21179fd5887544a90631d392b7"><div class="ttname"><a href="classMesh.html#a8f574e21179fd5887544a90631d392b7">Mesh::Bind</a></div><div class="ttdeci">void Bind() const</div><div class="ttdef"><b>Definition:</b> mesh.cpp:27</div></div>
-<div class="ttc" id="aclassMesh_html_a8fce819a6739c2abe5a73fe73d9a7270"><div class="ttname"><a href="classMesh.html#a8fce819a6739c2abe5a73fe73d9a7270">Mesh::Update</a></div><div class="ttdeci">void Update(const std::vector&lt; Vertex &gt; &amp;newVertices)</div><div class="ttdef"><b>Definition:</b> mesh.cpp:47</div></div>
+<div class="ttc" id="aclassMesh_html_a61f21e657767120186fe21ccf7dd9bbf"><div class="ttname"><a href="classMesh.html#a61f21e657767120186fe21ccf7dd9bbf">Mesh::Draw</a></div><div class="ttdeci">void Draw(unsigned int mode=GL_TRIANGLES) const</div><div class="ttdef"><b>Definition:</b> mesh.cpp:37</div></div>
+<div class="ttc" id="aclassMesh_html_a8f574e21179fd5887544a90631d392b7"><div class="ttname"><a href="classMesh.html#a8f574e21179fd5887544a90631d392b7">Mesh::Bind</a></div><div class="ttdeci">void Bind() const</div><div class="ttdef"><b>Definition:</b> mesh.cpp:29</div></div>
 <div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
 <div class="ttc" id="astructVertex_html"><div class="ttname"><a href="structVertex.html">Vertex</a></div><div class="ttdoc">Vertex struct.</div><div class="ttdef"><b>Definition:</b> mesh.h:9</div></div>
 <div class="ttc" id="astructVertex_html_a030819fdc241743bbd3e180a6b132ed3"><div class="ttname"><a href="structVertex.html#a030819fdc241743bbd3e180a6b132ed3">Vertex::position</a></div><div class="ttdeci">glm::vec3 position</div><div class="ttdef"><b>Definition:</b> mesh.h:10</div></div>

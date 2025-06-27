@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['r_148',['r',['../structColor.html#ab9a9c7134511f9b116a6fcc81a303ba6',1,'Color']]],
-  ['readme_2emd_149',['README.md',['../README_8md.html',1,'']]],
-  ['rectangle_150',['Rectangle',['../structember_1_1Rectangle.html',1,'ember']]],
-  ['renderer_151',['Renderer',['../structRenderer.html',1,'']]],
-  ['renderer_152',['renderer',['../ember__core_8h.html#aee5ec0ba39c124cbd88d9b038566b03c',1,'ember_core.h']]],
-  ['renderertype_153',['RendererType',['../ember__core_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce',1,'ember_core.h']]],
-  ['resize_154',['Resize',['../structCamera2D.html#a69a45f73a59c995d0b6eb3bf705b19fe',1,'Camera2D::Resize()'],['../structRenderer.html#a33ba908322e18a336765583ea25bb3bc',1,'Renderer::Resize()'],['../structCore.html#a6c1253f39c567df8068298975d540809',1,'Core::Resize()']]],
-  ['resume_155',['Resume',['../classTimeManager.html#a6a00edea4405c3aa48cde96d9f7bc4a1',1,'TimeManager']]],
-  ['rotation_156',['rotation',['../structTransform.html#aefd4a6bf41e01cf5898fd57430d93dea',1,'Transform']]],
-  ['rw_157',['rw',['../structSDL__File.html#acb9e079f01924967d6eed4e3a741371c',1,'SDL_File']]]
+  ['pause_181',['Pause',['../classAudio.html#a4344357ce631213d469fba37dfabfab8',1,'Audio::Pause()'],['../classTimeManager.html#a77760dd750a7dee52344cd12e4f97629',1,'TimeManager::Pause()']]],
+  ['pixel_5foffset_182',['pixel_offset',['../classShaderEffect.html#a937ade9e2456faddaf47c68956ea6878',1,'ShaderEffect']]],
+  ['platform_5fexpert_183',['platform_expert',['../system__info__macos_8mm.html#a4ab608d603a167ed8bc4371232b26825',1,'system_info_macos.mm']]],
+  ['play_184',['Play',['../classAudio.html#a9681e52f6f0015644c0e3753a98db800',1,'Audio']]],
+  ['position_185',['position',['../structTransform.html#aa357f8eb780f4ef195027d1c636baa36',1,'Transform::position()'],['../structTouchPoint.html#a17119c2e953166ea006c833020fd8e36',1,'TouchPoint::position()'],['../structVertex.html#a030819fdc241743bbd3e180a6b132ed3',1,'Vertex::position()']]],
+  ['processevents_186',['ProcessEvents',['../classInputManager.html#a9d5558b84c15fa83d2881c289d2cf376',1,'InputManager']]],
+  ['progress_5fbar_2ecpp_187',['progress_bar.cpp',['../progress__bar_8cpp.html',1,'']]],
+  ['progress_5fbar_2eh_188',['progress_bar.h',['../progress__bar_8h.html',1,'']]],
+  ['progressbar_189',['ProgressBar',['../classProgressBar.html',1,'ProgressBar'],['../classProgressBar.html#aabdebc9823af01c7567e7546d9f0016f',1,'ProgressBar::ProgressBar()']]],
+  ['push_190',['Push',['../classLogger.html#ab637249ad3a374f153169761ef9b2398',1,'Logger']]]
 ];

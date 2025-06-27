@@ -65,62 +65,82 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classShader-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Shader Class Reference</div>  </div>
+<div class="title">Shader Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classShader.html" title="Shader class.">Shader</a> class.  
+<p><a class="el" href="classShader.html" title="Shader Abstract class.">Shader</a> Abstract class.  
  <a href="classShader.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="shader_8h_source.html">shader.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Shader:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classShader.png" usemap="#Shader_map" alt=""/>
+  <map id="Shader_map" name="Shader_map">
+<area href="classOpenglShader.html" title="Opengl Shader implementation." alt="OpenglShader" shape="rect" coords="0,56,94,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aedc63e240e965b496f246ffc214918b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#aedc63e240e965b496f246ffc214918b4">Shader</a> ()=default</td></tr>
 <tr class="separator:aedc63e240e965b496f246ffc214918b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8c9bd5e8338d2f49ede3c77ff091565"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#ad8c9bd5e8338d2f49ede3c77ff091565">Shader</a> (const std::string &amp;vertex, const std::string &amp;fragment)</td></tr>
-<tr class="separator:ad8c9bd5e8338d2f49ede3c77ff091565"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11a2de17d1d077ec34acd4f7cd57f6b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a11a2de17d1d077ec34acd4f7cd57f6b1">Use</a> () const</td></tr>
-<tr class="separator:a11a2de17d1d077ec34acd4f7cd57f6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25b4fb52a124a99864348755140336aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a25b4fb52a124a99864348755140336aa">SetValue</a> (const std::string &amp;name, float value) const</td></tr>
-<tr class="separator:a25b4fb52a124a99864348755140336aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94bc2686ef90caa910bb822e338c4cb6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a94bc2686ef90caa910bb822e338c4cb6">SetValue</a> (const std::string &amp;name, int value) const</td></tr>
-<tr class="separator:a94bc2686ef90caa910bb822e338c4cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a035a008519b0b0ae211d686a74cb285e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a035a008519b0b0ae211d686a74cb285e">SetValue</a> (const std::string &amp;name, glm::mat4 value) const</td></tr>
-<tr class="separator:a035a008519b0b0ae211d686a74cb285e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78b07cce2c963a4495081e74e7eea06e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a78b07cce2c963a4495081e74e7eea06e">SetValue</a> (const std::string &amp;name, glm::vec2 value) const</td></tr>
-<tr class="separator:a78b07cce2c963a4495081e74e7eea06e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb9be633f2899a79238897a72604f984"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#adb9be633f2899a79238897a72604f984">SetValue</a> (const std::string &amp;name, glm::vec3 value) const</td></tr>
-<tr class="separator:adb9be633f2899a79238897a72604f984"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad430d1fe71ad769a8ed07fdb7c4ddfd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#aad430d1fe71ad769a8ed07fdb7c4ddfd">SetValue</a> (const std::string &amp;name, glm::vec4 value) const</td></tr>
-<tr class="separator:aad430d1fe71ad769a8ed07fdb7c4ddfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6fc1a824cb122fcb0c902397e20f72f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#ab6fc1a824cb122fcb0c902397e20f72f">Destroy</a> ()</td></tr>
-<tr class="separator:ab6fc1a824cb122fcb0c902397e20f72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c12bedaaa026e0fe6e7ce5cb1eb2d60"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a9c12bedaaa026e0fe6e7ce5cb1eb2d60">GetID</a> () const</td></tr>
-<tr class="separator:a9c12bedaaa026e0fe6e7ce5cb1eb2d60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6992a0ec571c77d3941387f96285454f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a6992a0ec571c77d3941387f96285454f">IsValid</a> () const</td></tr>
-<tr class="separator:a6992a0ec571c77d3941387f96285454f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5875638f21a17c547bd38dac2d803738"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a5875638f21a17c547bd38dac2d803738">~Shader</a> ()=default</td></tr>
+<tr class="separator:a5875638f21a17c547bd38dac2d803738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5966a05c4cac85e5bd2f5699b17b765c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a5966a05c4cac85e5bd2f5699b17b765c">Bind</a> () const =0</td></tr>
+<tr class="separator:a5966a05c4cac85e5bd2f5699b17b765c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa134b55ce3e93862c75ea73e54977cbe"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#aa134b55ce3e93862c75ea73e54977cbe">SetValue</a> (const std::string &amp;name, float value)=0</td></tr>
+<tr class="separator:aa134b55ce3e93862c75ea73e54977cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d97392bc7ca070ce700d6f1db2d0b4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#ac0d97392bc7ca070ce700d6f1db2d0b4">SetValue</a> (const std::string &amp;name, int value)=0</td></tr>
+<tr class="separator:ac0d97392bc7ca070ce700d6f1db2d0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bfd146656d3b66104eb262d6618b48e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a7bfd146656d3b66104eb262d6618b48e">SetValue</a> (const std::string &amp;name, glm::mat4 value)=0</td></tr>
+<tr class="separator:a7bfd146656d3b66104eb262d6618b48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b9bb481660ef8e52a878027350c82b7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a1b9bb481660ef8e52a878027350c82b7">SetValue</a> (const std::string &amp;name, glm::vec2 value)=0</td></tr>
+<tr class="separator:a1b9bb481660ef8e52a878027350c82b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc206f22140457aeb60a125ccbdf91c4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#acc206f22140457aeb60a125ccbdf91c4">SetValue</a> (const std::string &amp;name, glm::vec3 value)=0</td></tr>
+<tr class="separator:acc206f22140457aeb60a125ccbdf91c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab10d7b14b57d07a0f9be6beb8535a48a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#ab10d7b14b57d07a0f9be6beb8535a48a">SetValue</a> (const std::string &amp;name, glm::vec4 value)=0</td></tr>
+<tr class="separator:ab10d7b14b57d07a0f9be6beb8535a48a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6174d64c892014bfc7c65c86492fb18"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#af6174d64c892014bfc7c65c86492fb18">Destroy</a> ()=0</td></tr>
+<tr class="separator:af6174d64c892014bfc7c65c86492fb18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa988ac30b08282309efacff7ce876e81"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#aa988ac30b08282309efacff7ce876e81">GetID</a> () const =0</td></tr>
+<tr class="separator:aa988ac30b08282309efacff7ce876e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d2f0480edb6b18f8fb4bb82ff62d373"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#a5d2f0480edb6b18f8fb4bb82ff62d373">IsValid</a> () const =0</td></tr>
+<tr class="separator:a5d2f0480edb6b18f8fb4bb82ff62d373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:af3eee7628d291077cfa66dcc83df83a2"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#af3eee7628d291077cfa66dcc83df83a2">id</a></td></tr>
+<tr class="separator:af3eee7628d291077cfa66dcc83df83a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa82dc1930f5314b33e9a334aefbb2ffe"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classShader.html#aa82dc1930f5314b33e9a334aefbb2ffe">uniforms</a></td></tr>
+<tr class="separator:aa82dc1930f5314b33e9a334aefbb2ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classShader.html" title="Shader class.">Shader</a> class. </p>
+<div class="textblock"><p><a class="el" href="classShader.html" title="Shader Abstract class.">Shader</a> Abstract class. </p>
 <ul>
 <li>Compile the shader</li>
-<li>Use the shader</li>
+<li>Bind the shader</li>
 <li>Send uniforms</li>
 </ul>
-<dl class="section version"><dt>Version</dt><dd>0.0.2 </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<dl class="section version"><dt>Version</dt><dd></dd></dl>
+<ul>
+<li>* 0.0.2 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">string</td><td>vertex The shader source </td></tr>
     <tr><td class="paramname">string</td><td>fragment The shader source </td></tr>
   </table>
   </dd>
 </dl>
+</li>
+</ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aedc63e240e965b496f246ffc214918b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedc63e240e965b496f246ffc214918b4">&#9670;&nbsp;</a></span>Shader() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aedc63e240e965b496f246ffc214918b4">&#9670;&nbsp;</a></span>Shader()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -144,94 +164,151 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad8c9bd5e8338d2f49ede3c77ff091565"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8c9bd5e8338d2f49ede3c77ff091565">&#9670;&nbsp;</a></span>Shader() <span class="overload">[2/2]</span></h2>
+<a id="a5875638f21a17c547bd38dac2d803738"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5875638f21a17c547bd38dac2d803738">&#9670;&nbsp;</a></span>~Shader()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Shader::Shader </td>
+          <td class="memname">virtual Shader::~Shader </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>vertex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>fragment</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab6fc1a824cb122fcb0c902397e20f72f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6fc1a824cb122fcb0c902397e20f72f">&#9670;&nbsp;</a></span>Destroy()</h2>
+<a id="a5966a05c4cac85e5bd2f5699b17b765c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5966a05c4cac85e5bd2f5699b17b765c">&#9670;&nbsp;</a></span>Bind()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Shader::Destroy </td>
+          <td class="memname">virtual void Shader::Bind </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#a318625c188dc92aad3f09d98bb69b2e1">OpenglShader</a>.</p>
+
+</div>
+</div>
+<a id="af6174d64c892014bfc7c65c86492fb18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6174d64c892014bfc7c65c86492fb18">&#9670;&nbsp;</a></span>Destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Shader::Destroy </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#afc06087a753d752f54ede7cdb6e2bb20">OpenglShader</a>.</p>
 
 </div>
 </div>
-<a id="a9c12bedaaa026e0fe6e7ce5cb1eb2d60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c12bedaaa026e0fe6e7ce5cb1eb2d60">&#9670;&nbsp;</a></span>GetID()</h2>
+<a id="aa988ac30b08282309efacff7ce876e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa988ac30b08282309efacff7ce876e81">&#9670;&nbsp;</a></span>GetID()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int Shader::GetID </td>
+          <td class="memname">virtual unsigned int Shader::GetID </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#a3256cf2784ad3851bf74f33a34ecca5b">OpenglShader</a>.</p>
 
 </div>
 </div>
-<a id="a6992a0ec571c77d3941387f96285454f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6992a0ec571c77d3941387f96285454f">&#9670;&nbsp;</a></span>IsValid()</h2>
+<a id="a5d2f0480edb6b18f8fb4bb82ff62d373"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2f0480edb6b18f8fb4bb82ff62d373">&#9670;&nbsp;</a></span>IsValid()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Shader::IsValid </td>
+          <td class="memname">virtual bool Shader::IsValid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#ae9a22669fb9591e13efb5f2fb160e986">OpenglShader</a>.</p>
 
 </div>
 </div>
-<a id="a25b4fb52a124a99864348755140336aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25b4fb52a124a99864348755140336aa">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[1/6]</span></h2>
+<a id="aa134b55ce3e93862c75ea73e54977cbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa134b55ce3e93862c75ea73e54977cbe">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Shader::SetValue </td>
+          <td class="memname">virtual void Shader::SetValue </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -245,21 +322,31 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#a3814658de34402ec358c6aaff5e76c78">OpenglShader</a>.</p>
 
 </div>
 </div>
-<a id="a035a008519b0b0ae211d686a74cb285e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a035a008519b0b0ae211d686a74cb285e">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[2/6]</span></h2>
+<a id="a7bfd146656d3b66104eb262d6618b48e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bfd146656d3b66104eb262d6618b48e">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Shader::SetValue </td>
+          <td class="memname">virtual void Shader::SetValue </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -273,21 +360,31 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#ae5cc191185b8c32a443c160081c423c9">OpenglShader</a>.</p>
 
 </div>
 </div>
-<a id="a78b07cce2c963a4495081e74e7eea06e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78b07cce2c963a4495081e74e7eea06e">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[3/6]</span></h2>
+<a id="a1b9bb481660ef8e52a878027350c82b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b9bb481660ef8e52a878027350c82b7">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Shader::SetValue </td>
+          <td class="memname">virtual void Shader::SetValue </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -301,21 +398,31 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#a784633d2cbce1db3afff1c789a3ee402">OpenglShader</a>.</p>
 
 </div>
 </div>
-<a id="adb9be633f2899a79238897a72604f984"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb9be633f2899a79238897a72604f984">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[4/6]</span></h2>
+<a id="acc206f22140457aeb60a125ccbdf91c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc206f22140457aeb60a125ccbdf91c4">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Shader::SetValue </td>
+          <td class="memname">virtual void Shader::SetValue </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -329,21 +436,31 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#a7b5ebe13bd920926007ddd885deffc31">OpenglShader</a>.</p>
 
 </div>
 </div>
-<a id="aad430d1fe71ad769a8ed07fdb7c4ddfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad430d1fe71ad769a8ed07fdb7c4ddfd">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[5/6]</span></h2>
+<a id="ab10d7b14b57d07a0f9be6beb8535a48a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab10d7b14b57d07a0f9be6beb8535a48a">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Shader::SetValue </td>
+          <td class="memname">virtual void Shader::SetValue </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -357,21 +474,31 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#aeee26fc5337f07cfef54f260eacbc5e4">OpenglShader</a>.</p>
 
 </div>
 </div>
-<a id="a94bc2686ef90caa910bb822e338c4cb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94bc2686ef90caa910bb822e338c4cb6">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[6/6]</span></h2>
+<a id="ac0d97392bc7ca070ce700d6f1db2d0b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0d97392bc7ca070ce700d6f1db2d0b4">&#9670;&nbsp;</a></span>SetValue() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Shader::SetValue </td>
+          <td class="memname">virtual void Shader::SetValue </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -385,33 +512,67 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglShader.html#a13f7bc8f30a19c95cc414b27330e2b45">OpenglShader</a>.</p>
 
 </div>
 </div>
-<a id="a11a2de17d1d077ec34acd4f7cd57f6b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11a2de17d1d077ec34acd4f7cd57f6b1">&#9670;&nbsp;</a></span>Use()</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="af3eee7628d291077cfa66dcc83df83a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3eee7628d291077cfa66dcc83df83a2">&#9670;&nbsp;</a></span>id</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Shader::Use </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname">unsigned int Shader::id</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a id="aa82dc1930f5314b33e9a334aefbb2ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa82dc1930f5314b33e9a334aefbb2ffe">&#9670;&nbsp;</a></span>uniforms</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, unsigned int&gt; Shader::uniforms</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>engine/public/core/renderer/<a class="el" href="shader_8h_source.html">shader.h</a></li>
-<li>engine/private/core/renderer/<a class="el" href="shader_8cpp.html">shader.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

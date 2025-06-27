@@ -87,8 +87,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acd125083ca801a4c45fed14ab67eb86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62c87c9e17c1e8bb62b9510ee18b9a9a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a62c87c9e17c1e8bb62b9510ee18b9a9a">GetFps</a> ()</td></tr>
 <tr class="separator:a62c87c9e17c1e8bb62b9510ee18b9a9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b2b2416185071db4da4de9a9fd6e1ff"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a5b2b2416185071db4da4de9a9fd6e1ff">GetFpsText</a> ()</td></tr>
-<tr class="separator:a5b2b2416185071db4da4de9a9fd6e1ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a868708b9047399b9dd9c5aac965ef8f0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a868708b9047399b9dd9c5aac965ef8f0">IsPaused</a> ()</td></tr>
 <tr class="separator:a868708b9047399b9dd9c5aac965ef8f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77760dd750a7dee52344cd12e4f97629"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a77760dd750a7dee52344cd12e4f97629">Pause</a> ()</td></tr>
@@ -97,8 +95,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6a00edea4405c3aa48cde96d9f7bc4a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdf5ccb706dfd5cd71882424ddf4301d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d">Update</a> ()</td></tr>
 <tr class="separator:afdf5ccb706dfd5cd71882424ddf4301d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9203e627f5bfc534dcb4f39e622bf2d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#a9203e627f5bfc534dcb4f39e622bf2d0">FixedFrameRate</a> (Uint32 MAX_FPS=60)</td></tr>
-<tr class="separator:a9203e627f5bfc534dcb4f39e622bf2d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af02a970a66bfa278d9d93a982f4400eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTimeManager.html#af02a970a66bfa278d9d93a982f4400eb">FixedFrameRate</a> (Uint32 max_fps=60)</td></tr>
+<tr class="separator:af02a970a66bfa278d9d93a982f4400eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab1c3cbb48ad68d928bb8b9a4ef210ed6"></a>
@@ -127,8 +125,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9203e627f5bfc534dcb4f39e622bf2d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9203e627f5bfc534dcb4f39e622bf2d0">&#9670;&nbsp;</a></span>FixedFrameRate()</h2>
+<a id="af02a970a66bfa278d9d93a982f4400eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af02a970a66bfa278d9d93a982f4400eb">&#9670;&nbsp;</a></span>FixedFrameRate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -137,7 +135,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void TimeManager::FixedFrameRate </td>
           <td>(</td>
           <td class="paramtype">Uint32&#160;</td>
-          <td class="paramname"><em>MAX_FPS</em> = <code>60</code></td><td>)</td>
+          <td class="paramname"><em>max_fps</em> = <code>60</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -206,31 +204,6 @@ Public Member Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">float TimeManager::GetFps </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5b2b2416185071db4da4de9a9fd6e1ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b2b2416185071db4da4de9a9fd6e1ff">&#9670;&nbsp;</a></span>GetFpsText()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string TimeManager::GetFpsText </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>

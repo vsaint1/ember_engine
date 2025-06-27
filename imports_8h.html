@@ -80,6 +80,9 @@ $(function() {
 <code>#include &lt;filesystem&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;queue&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
 <code>#include &lt;glad.h&gt;</code><br />
 <code>#include &lt;glm/glm.hpp&gt;</code><br />
@@ -87,6 +90,12 @@ $(function() {
 <code>#include &lt;glm/gtc/type_ptr.hpp&gt;</code><br />
 <code>#include &lt;glm/gtx/string_cast.hpp&gt;</code><br />
 <code>#include &lt;miniaudio.h&gt;</code><br />
+<code>#include &lt;tinyxml2.h&gt;</code><br />
+<code>#include &quot;imgui_impl_opengl3.h&quot;</code><br />
+<code>#include &quot;imgui_impl_sdl3.h&quot;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;condition_variable&gt;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
 </div>
 <p><a href="imports_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -100,7 +109,7 @@ Macros</h2></td></tr>
 <tr class="separator:adf16e31ed83557124b89ff1b06617ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a669ad3a8d3b77fa1a03004b592328382"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imports_8h.html#a669ad3a8d3b77fa1a03004b592328382">ENGINE_NAME</a>&#160;&#160;&#160;&quot;EMBER_ENGINE&quot;</td></tr>
 <tr class="separator:a669ad3a8d3b77fa1a03004b592328382"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaaf4fa0d2dd847f90879c3a1445f0f93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imports_8h.html#aaaf4fa0d2dd847f90879c3a1445f0f93">ENGINE_VERSION_STR</a>&#160;&#160;&#160;&quot;0.0.1&quot;</td></tr>
+<tr class="memitem:aaaf4fa0d2dd847f90879c3a1445f0f93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imports_8h.html#aaaf4fa0d2dd847f90879c3a1445f0f93">ENGINE_VERSION_STR</a>&#160;&#160;&#160;&quot;0.0.9&quot;</td></tr>
 <tr class="separator:aaaf4fa0d2dd847f90879c3a1445f0f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -158,7 +167,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ENGINE_VERSION_STR&#160;&#160;&#160;&quot;0.0.1&quot;</td>
+          <td class="memname">#define ENGINE_VERSION_STR&#160;&#160;&#160;&quot;0.0.9&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

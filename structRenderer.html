@@ -68,7 +68,7 @@ $(function() {
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structRenderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Renderer Struct Reference</div>  </div>
+<div class="title">Renderer Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -76,73 +76,388 @@ $(function() {
  <a href="structRenderer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ember__core_8h_source.html">ember_core.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Renderer:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structRenderer.png" usemap="#Renderer_map" alt=""/>
+  <map id="Renderer_map" name="Renderer_map">
+<area href="classOpenglRenderer.html" alt="OpenglRenderer" shape="rect" coords="0,56,106,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a33ba908322e18a336765583ea25bb3bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a33ba908322e18a336765583ea25bb3bc">Resize</a> (int w, int h)</td></tr>
-<tr class="separator:a33ba908322e18a336765583ea25bb3bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf59970106eacbbcd327db17b40c163c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#abf59970106eacbbcd327db17b40c163c">SetContext</a> (const SDL_GLContext &amp;ctx)</td></tr>
-<tr class="separator:abf59970106eacbbcd327db17b40c163c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e736a5842c87c82c5a9f3a1de15333d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a0e736a5842c87c82c5a9f3a1de15333d">SetContext</a> ()</td></tr>
-<tr class="separator:a0e736a5842c87c82c5a9f3a1de15333d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a41758c5011985a437ac040dc0bc853"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a1a41758c5011985a437ac040dc0bc853">Destroy</a> ()</td></tr>
-<tr class="separator:a1a41758c5011985a437ac040dc0bc853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add2012f269f157754034e7b5475a8927"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#add2012f269f157754034e7b5475a8927">~Renderer</a> ()=default</td></tr>
+<tr class="separator:add2012f269f157754034e7b5475a8927"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dddd75ab18573a3686f90225f3f03d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a4dddd75ab18573a3686f90225f3f03d4">Renderer</a> ()=default</td></tr>
+<tr class="separator:a4dddd75ab18573a3686f90225f3f03d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f8df6a7423aef9ee1cfe176dbc28ed"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classShader.html">Shader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#aa0f8df6a7423aef9ee1cfe176dbc28ed">GetDefaultShader</a> ()=0</td></tr>
+<tr class="separator:aa0f8df6a7423aef9ee1cfe176dbc28ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a789242b6d0042621aef880b64a9a6e26"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classShader.html">Shader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a789242b6d0042621aef880b64a9a6e26">GetTextShader</a> ()=0</td></tr>
+<tr class="separator:a789242b6d0042621aef880b64a9a6e26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a513be2e7143b39666132be55242dba94"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structTexture.html">Texture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a513be2e7143b39666132be55242dba94">LoadTexture</a> (const std::string &amp;file_path)=0</td></tr>
+<tr class="memdesc:a513be2e7143b39666132be55242dba94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a texture on <code>GPU</code> given a file path.  <a href="structRenderer.html#a513be2e7143b39666132be55242dba94">More...</a><br /></td></tr>
+<tr class="separator:a513be2e7143b39666132be55242dba94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b3e4402378198c0d50e8fe18010a5e1"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structFont.html">Font</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a4b3e4402378198c0d50e8fe18010a5e1">LoadFont</a> (const std::string &amp;file_path, int font_size)=0</td></tr>
+<tr class="memdesc:a4b3e4402378198c0d50e8fe18010a5e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a <code>TTF</code> font on <code>GPU</code> given a file path.  <a href="structRenderer.html#a4b3e4402378198c0d50e8fe18010a5e1">More...</a><br /></td></tr>
+<tr class="separator:a4b3e4402378198c0d50e8fe18010a5e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab705482d52400e50d0957e4368c1e611"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#ab705482d52400e50d0957e4368c1e611">UnloadFont</a> (const <a class="el" href="structFont.html">Font</a> &amp;font)=0</td></tr>
+<tr class="memdesc:ab705482d52400e50d0957e4368c1e611"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload the <a class="el" href="structFont.html">Font</a> from CPU/GPU (cleanup)  <a href="structRenderer.html#ab705482d52400e50d0957e4368c1e611">More...</a><br /></td></tr>
+<tr class="separator:ab705482d52400e50d0957e4368c1e611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa69de3aee66308d4515f01d0e9872e0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#aaa69de3aee66308d4515f01d0e9872e0">UnloadTexture</a> (const <a class="el" href="structTexture.html">Texture</a> &amp;texture)=0</td></tr>
+<tr class="memdesc:aaa69de3aee66308d4515f01d0e9872e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload the <a class="el" href="structTexture.html">Texture</a> from GPU (cleanup)  <a href="structRenderer.html#aaa69de3aee66308d4515f01d0e9872e0">More...</a><br /></td></tr>
+<tr class="separator:aaa69de3aee66308d4515f01d0e9872e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fd1dd3ac5d2d56a4de7b1392dc4a5ed"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a2fd1dd3ac5d2d56a4de7b1392dc4a5ed">ClearBackground</a> (const <a class="el" href="structColor.html">Color</a> &amp;color)=0</td></tr>
+<tr class="memdesc:a2fd1dd3ac5d2d56a4de7b1392dc4a5ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window background color.  <a href="structRenderer.html#a2fd1dd3ac5d2d56a4de7b1392dc4a5ed">More...</a><br /></td></tr>
+<tr class="separator:a2fd1dd3ac5d2d56a4de7b1392dc4a5ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a148efc56d2d00db765159785eeec67b5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a148efc56d2d00db765159785eeec67b5">BeginDrawing</a> ()=0</td></tr>
+<tr class="memdesc:a148efc56d2d00db765159785eeec67b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starting of the drawing procedure.  <a href="structRenderer.html#a148efc56d2d00db765159785eeec67b5">More...</a><br /></td></tr>
+<tr class="separator:a148efc56d2d00db765159785eeec67b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3de1106e0a915f4b225e8bc185e07dea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a3de1106e0a915f4b225e8bc185e07dea">EndDrawing</a> ()=0</td></tr>
+<tr class="memdesc:a3de1106e0a915f4b225e8bc185e07dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">End of the drawing procedure (swap buffers)  <a href="structRenderer.html#a3de1106e0a915f4b225e8bc185e07dea">More...</a><br /></td></tr>
+<tr class="separator:a3de1106e0a915f4b225e8bc185e07dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ce44b5f82e093d40902e178b55b8ee1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a2ce44b5f82e093d40902e178b55b8ee1">DrawText</a> (const <a class="el" href="structFont.html">Font</a> &amp;font, const std::string &amp;text, <a class="el" href="structTransform.html">Transform</a> transform, <a class="el" href="structColor.html">Color</a> color, float font_size, const <a class="el" href="classShaderEffect.html">ShaderEffect</a> &amp;shader_effect, float kerning=0.0f)=0</td></tr>
+<tr class="memdesc:a2ce44b5f82e093d40902e178b55b8ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw glyphs given a Loaded <a class="el" href="structFont.html">Font</a> and text.  <a href="structRenderer.html#a2ce44b5f82e093d40902e178b55b8ee1">More...</a><br /></td></tr>
+<tr class="separator:a2ce44b5f82e093d40902e178b55b8ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81171b3cdfdce4059a06b5e6a4eb168e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a81171b3cdfdce4059a06b5e6a4eb168e">DrawTexture</a> (const <a class="el" href="structTexture.html">Texture</a> &amp;texture, <a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a> rect, <a class="el" href="structColor.html">Color</a> color={255, 255, 255, 255})=0</td></tr>
+<tr class="memdesc:a81171b3cdfdce4059a06b5e6a4eb168e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw <a class="el" href="structTexture.html">Texture</a> quad at given Rectangle source.  <a href="structRenderer.html#a81171b3cdfdce4059a06b5e6a4eb168e">More...</a><br /></td></tr>
+<tr class="separator:a81171b3cdfdce4059a06b5e6a4eb168e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73b113c674ca1408f6905d6aca30dff8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a73b113c674ca1408f6905d6aca30dff8">DrawTextureEx</a> (const <a class="el" href="structTexture.html">Texture</a> &amp;texture, const <a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a> &amp;source, const <a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a> &amp;dest, glm::vec2 origin, float rotation, const <a class="el" href="structColor.html">Color</a> &amp;color={255, 255, 255, 255})=0</td></tr>
+<tr class="memdesc:a73b113c674ca1408f6905d6aca30dff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw <a class="el" href="structTexture.html">Texture</a> quad extended.  <a href="structRenderer.html#a73b113c674ca1408f6905d6aca30dff8">More...</a><br /></td></tr>
+<tr class="separator:a73b113c674ca1408f6905d6aca30dff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae8e1acd313dd30155a0a882dd90a23"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a8ae8e1acd313dd30155a0a882dd90a23">DrawLine</a> (glm::vec2 start, glm::vec2 end, const <a class="el" href="structColor.html">Color</a> &amp;color, float thickness=1.0f)=0</td></tr>
+<tr class="memdesc:a8ae8e1acd313dd30155a0a882dd90a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw Lines between two points.  <a href="structRenderer.html#a8ae8e1acd313dd30155a0a882dd90a23">More...</a><br /></td></tr>
+<tr class="separator:a8ae8e1acd313dd30155a0a882dd90a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9225631bb018d97a349cf549c8210590"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a9225631bb018d97a349cf549c8210590">DrawRect</a> (const <a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a> &amp;rect, const <a class="el" href="structColor.html">Color</a> &amp;color, float thickness=1.0f)=0</td></tr>
+<tr class="memdesc:a9225631bb018d97a349cf549c8210590"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw rectangle.  <a href="structRenderer.html#a9225631bb018d97a349cf549c8210590">More...</a><br /></td></tr>
+<tr class="separator:a9225631bb018d97a349cf549c8210590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbef1639c9deddc14b367aefbb715947"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#abbef1639c9deddc14b367aefbb715947">DrawRectFilled</a> (const <a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a> &amp;rect, const <a class="el" href="structColor.html">Color</a> &amp;color)=0</td></tr>
+<tr class="memdesc:abbef1639c9deddc14b367aefbb715947"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw rectangle filled.  <a href="structRenderer.html#abbef1639c9deddc14b367aefbb715947">More...</a><br /></td></tr>
+<tr class="separator:abbef1639c9deddc14b367aefbb715947"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3993595df34bd9a758f57ad77f9555"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a1c3993595df34bd9a758f57ad77f9555">BeginMode2D</a> (const <a class="el" href="structCamera2D.html">Camera2D</a> &amp;camera)=0</td></tr>
+<tr class="memdesc:a1c3993595df34bd9a758f57ad77f9555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begin 2D mode.  <a href="structRenderer.html#a1c3993595df34bd9a758f57ad77f9555">More...</a><br /></td></tr>
+<tr class="separator:a1c3993595df34bd9a758f57ad77f9555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2de9279eb8cc16ba35f39d6491e9a449"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a2de9279eb8cc16ba35f39d6491e9a449">EndMode2D</a> ()=0</td></tr>
+<tr class="memdesc:a2de9279eb8cc16ba35f39d6491e9a449"><td class="mdescLeft">&#160;</td><td class="mdescRight">End 2D mode.  <a href="structRenderer.html#a2de9279eb8cc16ba35f39d6491e9a449">More...</a><br /></td></tr>
+<tr class="separator:a2de9279eb8cc16ba35f39d6491e9a449"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6928c290b4b66afa3d9727ad31b530f4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a6928c290b4b66afa3d9727ad31b530f4">BeginCanvas</a> ()=0</td></tr>
+<tr class="memdesc:a6928c290b4b66afa3d9727ad31b530f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begin Canvas Procedure.  <a href="structRenderer.html#a6928c290b4b66afa3d9727ad31b530f4">More...</a><br /></td></tr>
+<tr class="separator:a6928c290b4b66afa3d9727ad31b530f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96bfe763535a476a5adf61b50c434979"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a96bfe763535a476a5adf61b50c434979">EndCanvas</a> ()=0</td></tr>
+<tr class="memdesc:a96bfe763535a476a5adf61b50c434979"><td class="mdescLeft">&#160;</td><td class="mdescRight">End Canvas Procedure.  <a href="structRenderer.html#a96bfe763535a476a5adf61b50c434979">More...</a><br /></td></tr>
+<tr class="separator:a96bfe763535a476a5adf61b50c434979"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a289e600c144064514b9e80ad140a882c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a289e600c144064514b9e80ad140a882c">Resize</a> (int view_width, int view_height)=0</td></tr>
+<tr class="separator:a289e600c144064514b9e80ad140a882c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a853c46a4aa1500e2950eb78a9d90c0e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a853c46a4aa1500e2950eb78a9d90c0e4">SetContext</a> (const void *ctx)=0</td></tr>
+<tr class="separator:a853c46a4aa1500e2950eb78a9d90c0e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad02dd05ca138a28fae315da998cb14ef"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#ad02dd05ca138a28fae315da998cb14ef">GetContext</a> ()=0</td></tr>
+<tr class="separator:ad02dd05ca138a28fae315da998cb14ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58bf3a589c764780522202f6694c50c7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a58bf3a589c764780522202f6694c50c7">Destroy</a> ()=0</td></tr>
+<tr class="separator:a58bf3a589c764780522202f6694c50c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a6cb53f6046afd78eafad503d16b0c07b"><td class="memItemLeft" align="right" valign="top">SDL_Window *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a6cb53f6046afd78eafad503d16b0c07b">window</a> = nullptr</td></tr>
 <tr class="separator:a6cb53f6046afd78eafad503d16b0c07b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb58995deef3fee82c6e228c9dfc984c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#adb58995deef3fee82c6e228c9dfc984c">VAO</a></td></tr>
-<tr class="separator:adb58995deef3fee82c6e228c9dfc984c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a756f0a7db2018e47854c1aa231cae5ff"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a756f0a7db2018e47854c1aa231cae5ff">VBO</a></td></tr>
-<tr class="separator:a756f0a7db2018e47854c1aa231cae5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86c24903934f55371279ca6b07485631"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a86c24903934f55371279ca6b07485631">EBO</a></td></tr>
-<tr class="separator:a86c24903934f55371279ca6b07485631"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21246faa08ba2ea9055931b4604357cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classShader.html">Shader</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a21246faa08ba2ea9055931b4604357cd">default_shader</a> {}</td></tr>
-<tr class="separator:a21246faa08ba2ea9055931b4604357cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dc7cb7031b93d2fa63a3ba6d312f8c5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#a0dc7cb7031b93d2fa63a3ba6d312f8c5">viewport</a> [2] = {480, 270}</td></tr>
 <tr class="separator:a0dc7cb7031b93d2fa63a3ba6d312f8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4a592c272f20d110d6eb9292f2994f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ember__core_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#ae4a592c272f20d110d6eb9292f2994f8">type</a> = <a class="el" href="ember__core_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea4cd6ad65d345a77065fda71b3751ec24">OPENGL</a></td></tr>
+<tr class="memitem:ae4a592c272f20d110d6eb9292f2994f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRenderer.html#ae4a592c272f20d110d6eb9292f2994f8">type</a> = <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea4cd6ad65d345a77065fda71b3751ec24">OPENGL</a></td></tr>
 <tr class="separator:ae4a592c272f20d110d6eb9292f2994f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="structRenderer.html" title="Renderer struct.">Renderer</a> struct. </p>
 <dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1a41758c5011985a437ac040dc0bc853"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a41758c5011985a437ac040dc0bc853">&#9670;&nbsp;</a></span>Destroy()</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="add2012f269f157754034e7b5475a8927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add2012f269f157754034e7b5475a8927">&#9670;&nbsp;</a></span>~Renderer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Renderer::Destroy </td>
+          <td class="memname">virtual Renderer::~Renderer </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a33ba908322e18a336765583ea25bb3bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33ba908322e18a336765583ea25bb3bc">&#9670;&nbsp;</a></span>Resize()</h2>
+<a id="a4dddd75ab18573a3686f90225f3f03d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dddd75ab18573a3686f90225f3f03d4">&#9670;&nbsp;</a></span>Renderer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Renderer::Resize </td>
+          <td class="memname">Renderer::Renderer </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>w</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a6928c290b4b66afa3d9727ad31b530f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6928c290b4b66afa3d9727ad31b530f4">&#9670;&nbsp;</a></span>BeginCanvas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::BeginCanvas </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Begin Canvas Procedure. </p>
+<ul>
+<li>Used for Draw Static <code>UI</code></li>
+</ul>
+<dl class="section version"><dt>Version</dt><dd>0.0.7</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a4ff33912aae4acd0e6d89aca46e5ed99">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a148efc56d2d00db765159785eeec67b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a148efc56d2d00db765159785eeec67b5">&#9670;&nbsp;</a></span>BeginDrawing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::BeginDrawing </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starting of the drawing procedure. </p>
+<ul>
+<li>Clear the background and start drawing</li>
+<li>Draw between</li>
+</ul>
+<pre class="fragment">  * *
+
+  *
+</pre><ul>
+<li>BeginDrawing and EndDrawing<ul>
+<li>Orthographic projection</li>
+<li>Ordered rendering</li>
+</ul>
+</li>
+</ul>
+<p>Usage:</p>
+<pre class="fragment">  * * BeginDrawing();
+</pre><ul>
+<li><p class="startli">* * // Draw anything without needing a camera</p>
+<p class="startli"><a class="el" href="structRenderer.html#a3de1106e0a915f4b225e8bc185e07dea" title="End of the drawing procedure (swap buffers)">EndDrawing()</a>;</p>
+</li>
+</ul>
+<dl class="section version"><dt>Version</dt><dd>0.0.1</dd></dl>
+<pre class="fragment">  * @return void
+</pre> 
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#ae62ff815ba5015f6cf2c9c2a9a4eeac1">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a1c3993595df34bd9a758f57ad77f9555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3993595df34bd9a758f57ad77f9555">&#9670;&nbsp;</a></span>BeginMode2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::BeginMode2D </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structCamera2D.html">Camera2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>camera</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Begin 2D mode. </p>
+<ul>
+<li>Set up the <a class="el" href="structCamera2D.html" title="Camera2D component.">Camera2D</a> component</li>
+</ul>
+<p>Usage: BeginMode2D(camera);</p>
+<p>Drawing</p>
+<pre class="fragment">   * *
+   with
+</pre><ul>
+<li>* the camera view_matrix</li>
+</ul>
+<p><a class="el" href="structRenderer.html#a2de9279eb8cc16ba35f39d6491e9a449" title="End 2D mode.">EndMode2D()</a>;</p>
+<dl class="section version"><dt>Version</dt><dd>0.0.2 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">camera</td><td>the camera 2D</td></tr>
+  </table>
+  </dd>
+</dl>
+<ul>
+<li>(view_matrix)</li>
+</ul>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<ul>
+<li>* void </li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#ace7a5556b55495d87c7daafe6e3ac3a4">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a2fd1dd3ac5d2d56a4de7b1392dc4a5ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fd1dd3ac5d2d56a4de7b1392dc4a5ed">&#9670;&nbsp;</a></span>ClearBackground()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::ClearBackground </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structColor.html">Color</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Window background color. </p>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td><a class="el" href="structColor.html">Color</a> in RGBA </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#aeb06046b6bab23c1989ffed4b9118790">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a58bf3a589c764780522202f6694c50c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58bf3a589c764780522202f6694c50c7">&#9670;&nbsp;</a></span>Destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::Destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a1b19e1d3a3c66a76409af0a28f375f50">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a8ae8e1acd313dd30155a0a882dd90a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ae8e1acd313dd30155a0a882dd90a23">&#9670;&nbsp;</a></span>DrawLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::DrawLine </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>h</em>&#160;</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>end</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structColor.html">Color</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>thickness</em> = <code>1.0f</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -150,74 +465,818 @@ Public Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Draw Lines between two points. </p>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start</td><td>vec2 start point </td></tr>
+    <tr><td class="paramname">end</td><td><pre class="fragment">* vec2
+
+*
+</pre> end</td></tr>
+  </table>
+  </dd>
+</dl>
+<ul>
+<li>point <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td><a class="el" href="structColor.html">Color</a> in RGBA </td></tr>
+    <tr><td class="paramname">thickness</td><td>float Line thickness <pre class="fragment">@return
+void
+</pre> </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a95a0f02dac1e68387d2500160b59b8b0">OpenglRenderer</a>.</p>
 
 </div>
 </div>
-<a id="a0e736a5842c87c82c5a9f3a1de15333d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e736a5842c87c82c5a9f3a1de15333d">&#9670;&nbsp;</a></span>SetContext() <span class="overload">[1/2]</span></h2>
+<a id="a9225631bb018d97a349cf549c8210590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9225631bb018d97a349cf549c8210590">&#9670;&nbsp;</a></span>DrawRect()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Renderer::SetContext </td>
+          <td class="memname">virtual void Renderer::DrawRect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structColor.html">Color</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>thickness</em> = <code>1.0f</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draw rectangle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>rectangle source </td></tr>
+    <tr><td class="paramname">color</td><td><a class="el" href="structColor.html">Color</a> in RGBA </td></tr>
+    <tr><td class="paramname">thickness</td><td><pre class="fragment">*
+
+* float
+</pre></td></tr>
+  </table>
+  </dd>
+</dl>
+<ul>
+<li>* Line thickness <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.6 </dd></dl>
+</li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#adbb6510fdcf0b858463cb46cef9d7479">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="abbef1639c9deddc14b367aefbb715947"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbef1639c9deddc14b367aefbb715947">&#9670;&nbsp;</a></span>DrawRectFilled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::DrawRectFilled </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a> &amp;&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structColor.html">Color</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draw rectangle filled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rect</td><td>rectangle source </td></tr>
+    <tr><td class="paramname">color</td><td><a class="el" href="structColor.html">Color</a> in RGBA </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<pre class="fragment">* * void
+</pre><ul>
+<li>* <dl class="section version"><dt>Version</dt><dd>0.0.6 </dd></dl>
+</li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a3419a122b4970c39828fefc34e84e81f">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a2ce44b5f82e093d40902e178b55b8ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ce44b5f82e093d40902e178b55b8ee1">&#9670;&nbsp;</a></span>DrawText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::DrawText </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structFont.html">Font</a> &amp;&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structTransform.html">Transform</a>&#160;</td>
+          <td class="paramname"><em>transform</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structColor.html">Color</a>&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>font_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classShaderEffect.html">ShaderEffect</a> &amp;&#160;</td>
+          <td class="paramname"><em>shader_effect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>kerning</em> = <code>0.0f</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draw glyphs given a Loaded <a class="el" href="structFont.html">Font</a> and text. </p>
+<ul>
+<li>Draw the text</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structFont.html">Font</a> </dd>
+<dd>
+<a class="el" href="structGlyph.html">Glyph</a></dd></dl>
+<dl class="section version"><dt>Version</dt><dd></dd></dl>
+<pre class="fragment">  * * *
+</pre><ul>
+<li>* 0.0.1 <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">font</td><td>The loaded <a class="el" href="structFont.html">Font</a> <code>TTF</code> </td></tr>
+    <tr><td class="paramname">text</td><td>The text to draw, can be dynamic </td></tr>
+    <tr><td class="paramname">transform</td><td></td></tr>
+    <tr><td class="paramname">transform</td><td></td></tr>
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#aa08e186b42716c5ed68bece7723667b2">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a81171b3cdfdce4059a06b5e6a4eb168e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81171b3cdfdce4059a06b5e6a4eb168e">&#9670;&nbsp;</a></span>DrawTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::DrawTexture </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structTexture.html">Texture</a> &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a>&#160;</td>
+          <td class="paramname"><em>rect</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structColor.html">Color</a>&#160;</td>
+          <td class="paramname"><em>color</em> = <code>{255,&#160;255,&#160;255,&#160;255}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draw <a class="el" href="structTexture.html">Texture</a> quad at given Rectangle source. </p>
+<ul>
+<li>Draw the texture</li>
+</ul>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a5de14d437878c763573faab6c593fda5">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a73b113c674ca1408f6905d6aca30dff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73b113c674ca1408f6905d6aca30dff8">&#9670;&nbsp;</a></span>DrawTextureEx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::DrawTextureEx </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structTexture.html">Texture</a> &amp;&#160;</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a> &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structember_1_1Rectangle.html">ember::Rectangle</a> &amp;&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>origin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rotation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structColor.html">Color</a> &amp;&#160;</td>
+          <td class="paramname"><em>color</em> = <code>{255,&#160;255,&#160;255,&#160;255}</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Draw <a class="el" href="structTexture.html">Texture</a> quad extended. </p>
+<ul>
+<li>Draw the texture with extended parameters, ex: spritesheet's</li>
+</ul>
+<pre class="fragment">* * @version
+</pre><ul>
+<li>* 0.0.1 <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td>The loaded <a class="el" href="structTexture.html">Texture</a> </td></tr>
+    <tr><td class="paramname">rect</td><td>The source Rectangle </td></tr>
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a5d46fa2e9ce7e76094d278f4da3e9c8c">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a96bfe763535a476a5adf61b50c434979"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96bfe763535a476a5adf61b50c434979">&#9670;&nbsp;</a></span>EndCanvas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::EndCanvas </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>End Canvas Procedure. </p>
+<ul>
+<li>Restore GL state</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structRenderer.html#a6928c290b4b66afa3d9727ad31b530f4" title="Begin Canvas Procedure.">BeginCanvas</a></dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.7</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<ul>
+<li>void </li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a1d534bbe7a438a52544ec1b4c099c7ee">OpenglRenderer</a>.</p>
 
 </div>
 </div>
-<a id="abf59970106eacbbcd327db17b40c163c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf59970106eacbbcd327db17b40c163c">&#9670;&nbsp;</a></span>SetContext() <span class="overload">[2/2]</span></h2>
+<a id="a3de1106e0a915f4b225e8bc185e07dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3de1106e0a915f4b225e8bc185e07dea">&#9670;&nbsp;</a></span>EndDrawing()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Renderer::SetContext </td>
+          <td class="memname">virtual void Renderer::EndDrawing </td>
           <td>(</td>
-          <td class="paramtype">const SDL_GLContext &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>End of the drawing procedure (swap buffers) </p>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a1d372e4131ef12b4c0c3524e7ca7936b">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a2de9279eb8cc16ba35f39d6491e9a449"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2de9279eb8cc16ba35f39d6491e9a449">&#9670;&nbsp;</a></span>EndMode2D()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::EndMode2D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>End 2D mode. </p>
+<ul>
+<li>Restore the default view_matrix</li>
+</ul>
+<dl class="section version"><dt>Version</dt><dd>0.0.2</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#af343dace6f34afea2759eaf830d3a75f">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="ad02dd05ca138a28fae315da998cb14ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad02dd05ca138a28fae315da998cb14ef">&#9670;&nbsp;</a></span>GetContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void* Renderer::GetContext </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#ab7e3667e5e321c46452618f10c9e9130">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="aa0f8df6a7423aef9ee1cfe176dbc28ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0f8df6a7423aef9ee1cfe176dbc28ed">&#9670;&nbsp;</a></span>GetDefaultShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classShader.html">Shader</a>* Renderer::GetDefaultShader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#ad2cdef957e84f465415e4692bfbee6f4">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a789242b6d0042621aef880b64a9a6e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a789242b6d0042621aef880b64a9a6e26">&#9670;&nbsp;</a></span>GetTextShader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classShader.html">Shader</a>* Renderer::GetTextShader </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a8c97d81852f8c9998de7b28e3d73411f">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a4b3e4402378198c0d50e8fe18010a5e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b3e4402378198c0d50e8fe18010a5e1">&#9670;&nbsp;</a></span>LoadFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structFont.html">Font</a> Renderer::LoadFont </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file_path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>font_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load a <code>TTF</code> font on <code>GPU</code> given a file path. </p>
+<ul>
+<li>Bake the font on <code>GPU</code></li>
+</ul>
+<dl class="section version"><dt>Version</dt><dd>0.0.1</dd></dl>
+<ul>
+<li><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*</td><td>* file_path the path to the file in <code>assets</code> folder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="structFont.html">Font</a> </dd></dl>
+</li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#abb79751fe46cf0e9e2c3b250574d495e">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a513be2e7143b39666132be55242dba94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a513be2e7143b39666132be55242dba94">&#9670;&nbsp;</a></span>LoadTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="structTexture.html">Texture</a> Renderer::LoadTexture </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>file_path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Load a texture on <code>GPU</code> given a file path. </p>
+<ul>
+<li>Create a texture on <code>GPU</code> <dl class="section see"><dt>See also</dt><dd><a class="el" href="structTexture.html">Texture</a></dd></dl>
+<pre class="fragment">@version
+
+
+* *
+</pre></li>
+<li>0.0.1 <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">file_path</td><td>the path to the file in <code>assets</code> folder </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><pre class="fragment">Texture
+</pre> </dd></dl>
+</li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a6da5f85430a226e88672ea2468341c70">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a289e600c144064514b9e80ad140a882c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a289e600c144064514b9e80ad140a882c">&#9670;&nbsp;</a></span>Resize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::Resize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>view_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>view_height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#af58799c6d4dc6e7ac95a95ba3a00ea8a">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="a853c46a4aa1500e2950eb78a9d90c0e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a853c46a4aa1500e2950eb78a9d90c0e4">&#9670;&nbsp;</a></span>SetContext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::SetContext </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>ctx</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a6eb4fd2a2281c0114f220708ccc69ef3">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="ab705482d52400e50d0957e4368c1e611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab705482d52400e50d0957e4368c1e611">&#9670;&nbsp;</a></span>UnloadFont()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::UnloadFont </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structFont.html">Font</a> &amp;&#160;</td>
+          <td class="paramname"><em>font</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unload the <a class="el" href="structFont.html">Font</a> from CPU/GPU (cleanup) </p>
+<dl class="section version"><dt>Version</dt><dd>0.0.9 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">font</td><td>The loaded <a class="el" href="structFont.html">Font</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<pre class="fragment">  * * *
+</pre><ul>
+<li>void </li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#af6b8caf8a8c6d0faf54ae0c6e2cb8267">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="aaa69de3aee66308d4515f01d0e9872e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa69de3aee66308d4515f01d0e9872e0">&#9670;&nbsp;</a></span>UnloadTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Renderer::UnloadTexture </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structTexture.html">Texture</a> &amp;&#160;</td>
+          <td class="paramname"><em>texture</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unload the <a class="el" href="structTexture.html">Texture</a> from GPU (cleanup) </p>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">texture</td><td>The loaded <a class="el" href="structTexture.html">Texture</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<pre class="fragment">* @return
+</pre><ul>
+<li>* * void </li>
+</ul>
+
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a69c4f83a5f5fc1e7e8ca598eae36165c">OpenglRenderer</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a21246faa08ba2ea9055931b4604357cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21246faa08ba2ea9055931b4604357cd">&#9670;&nbsp;</a></span>default_shader</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classShader.html">Shader</a> Renderer::default_shader {}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a86c24903934f55371279ca6b07485631"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86c24903934f55371279ca6b07485631">&#9670;&nbsp;</a></span>EBO</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Renderer::EBO</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ae4a592c272f20d110d6eb9292f2994f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4a592c272f20d110d6eb9292f2994f8">&#9670;&nbsp;</a></span>type</h2>
 
@@ -225,35 +1284,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="ember__core_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a> Renderer::type = <a class="el" href="ember__core_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea4cd6ad65d345a77065fda71b3751ec24">OPENGL</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adb58995deef3fee82c6e228c9dfc984c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb58995deef3fee82c6e228c9dfc984c">&#9670;&nbsp;</a></span>VAO</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Renderer::VAO</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a756f0a7db2018e47854c1aa231cae5ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a756f0a7db2018e47854c1aa231cae5ff">&#9670;&nbsp;</a></span>VBO</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int Renderer::VBO</td>
+          <td class="memname"><a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a> Renderer::type = <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea4cd6ad65d345a77065fda71b3751ec24">OPENGL</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -288,9 +1319,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following files:<ul>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>engine/public/core/<a class="el" href="ember__core_8h_source.html">ember_core.h</a></li>
-<li>engine/private/core/<a class="el" href="ember__core_8cpp.html">ember_core.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

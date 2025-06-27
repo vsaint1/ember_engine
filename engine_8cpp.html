@@ -74,37 +74,40 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="engine_8h_source.html">core/engine.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ember__audio_8h_source.html">core/audio/ember_audio.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ember__core_8h_source.html">core/ember_core.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ember__gl_8h_source.html">core/renderer/opengl/ember_gl.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac514708823258c25eb965ca7319b1d95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structCore.html">Core</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#ac514708823258c25eb965ca7319b1d95">core</a></td></tr>
-<tr class="separator:ac514708823258c25eb965ca7319b1d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9dd63150de1598d744144a2d8e750fc2"><td class="memItemLeft" align="right" valign="top">ma_engine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a9dd63150de1598d744144a2d8e750fc2">engine</a></td></tr>
-<tr class="separator:a9dd63150de1598d744144a2d8e750fc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86ef02718d8da83f5f144ddb6237c9ee"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classEngine.html">Engine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a86ef02718d8da83f5f144ddb6237c9ee">GEngine</a> = std::make_unique&lt;<a class="el" href="classEngine.html">Engine</a>&gt;()</td></tr>
+<tr class="separator:a86ef02718d8da83f5f144ddb6237c9ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d35f1c9963920ee5b646c65b714d22a"><td class="memItemLeft" align="right" valign="top">ma_engine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a5d35f1c9963920ee5b646c65b714d22a">audio_engine</a></td></tr>
+<tr class="separator:a5d35f1c9963920ee5b646c65b714d22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="ac514708823258c25eb965ca7319b1d95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac514708823258c25eb965ca7319b1d95">&#9670;&nbsp;</a></span>core</h2>
+<a id="a5d35f1c9963920ee5b646c65b714d22a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d35f1c9963920ee5b646c65b714d22a">&#9670;&nbsp;</a></span>audio_engine</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structCore.html">Core</a> core</td>
+          <td class="memname">ma_engine audio_engine</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9dd63150de1598d744144a2d8e750fc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dd63150de1598d744144a2d8e750fc2">&#9670;&nbsp;</a></span>engine</h2>
+<a id="a86ef02718d8da83f5f144ddb6237c9ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86ef02718d8da83f5f144ddb6237c9ee">&#9670;&nbsp;</a></span>GEngine</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ma_engine engine</td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classEngine.html">Engine</a>&gt; GEngine = std::make_unique&lt;<a class="el" href="classEngine.html">Engine</a>&gt;()</td>
         </tr>
       </table>
 </div><div class="memdoc">

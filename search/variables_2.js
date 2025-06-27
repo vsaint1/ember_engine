@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['core_372',['core',['../engine_8cpp.html#ac514708823258c25eb965ca7319b1d95',1,'core():&#160;engine.cpp'],['../ember__audio_8h.html#ac514708823258c25eb965ca7319b1d95',1,'core():&#160;engine.cpp'],['../engine_8h.html#ac514708823258c25eb965ca7319b1d95',1,'core():&#160;engine.cpp']]]
+  ['color_525',['color',['../classShaderEffect.html#a45a2e90ac570ee9d4133316d0d92b700',1,'ShaderEffect']]]
 ];

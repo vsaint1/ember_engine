@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ember_5fvfs_227',['Ember_VFS',['../structEmber__VFS.html',1,'']]]
+  ['camera2d_298',['Camera2D',['../structCamera2D.html',1,'']]],
+  ['color_299',['Color',['../structColor.html',1,'']]]
 ];

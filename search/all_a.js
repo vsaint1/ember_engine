@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['kerning_116',['kerning',['../structFont.html#a5a5e4e456feb99569f8debeea83b3723',1,'Font']]]
+  ['joystick_150',['Joystick',['../structJoystick.html',1,'']]],
+  ['joystick_151',['joystick',['../structJoystick.html#a45924adf77227096b7257d4305582c97',1,'Joystick']]]
 ];

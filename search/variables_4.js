@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['ebo_379',['EBO',['../structRenderer.html#a86c24903934f55371279ca6b07485631',1,'Renderer']]],
-  ['ember_5fvfs_380',['ember_vfs',['../structCore.html#ada5c5dab499abeb7064bdb3d5a9f77e4',1,'Core']]],
-  ['engine_381',['engine',['../engine_8cpp.html#a9dd63150de1598d744144a2d8e750fc2',1,'engine():&#160;engine.cpp'],['../ember__audio_8h.html#a9dd63150de1598d744144a2d8e750fc2',1,'engine():&#160;engine.cpp'],['../engine_8h.html#a9dd63150de1598d744144a2d8e750fc2',1,'engine():&#160;engine.cpp']]]
+  ['font_5fsize_531',['font_size',['../structFont.html#ad4b750aca82ec62909f4e82a53810045',1,'Font']]]
 ];

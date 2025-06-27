@@ -1,14 +1,12 @@
 var searchData=
 [
-  ['camera_2ecpp_20',['camera.cpp',['../camera_8cpp.html',1,'']]],
-  ['camera_2eh_21',['camera.h',['../camera_8h.html',1,'']]],
-  ['camera2d_22',['Camera2D',['../structCamera2D.html',1,'Camera2D'],['../structCamera2D.html#a1d68c29b9e23a0db0c623e9643fa26dc',1,'Camera2D::Camera2D()']]],
-  ['clearbackground_23',['ClearBackground',['../ember__gl_8cpp.html#aa387874e93a8677e850379e9895756c2',1,'ClearBackground(Color color):&#160;ember_gl.cpp'],['../ember__gl_8h.html#aa387874e93a8677e850379e9895756c2',1,'ClearBackground(Color color):&#160;ember_gl.cpp']]],
-  ['closeaudio_24',['CloseAudio',['../ember__audio_8cpp.html#a3a1171e6a1ac0bae09f6789d2da49c53',1,'CloseAudio():&#160;ember_audio.cpp'],['../ember__audio_8h.html#a3a1171e6a1ac0bae09f6789d2da49c53',1,'CloseAudio():&#160;ember_audio.cpp']]],
-  ['closewindow_25',['CloseWindow',['../ember__core_8h.html#aa8951e1fd9e5e3d5220c5dbd29fd8b01',1,'CloseWindow():&#160;ember_core.cpp'],['../ember__core_8cpp.html#aa8951e1fd9e5e3d5220c5dbd29fd8b01',1,'CloseWindow():&#160;ember_core.cpp']]],
-  ['color_26',['Color',['../structColor.html',1,'']]],
-  ['core_27',['Core',['../structCore.html',1,'']]],
-  ['core_28',['core',['../engine_8cpp.html#ac514708823258c25eb965ca7319b1d95',1,'core():&#160;engine.cpp'],['../ember__audio_8h.html#ac514708823258c25eb965ca7319b1d95',1,'core():&#160;engine.cpp'],['../engine_8h.html#ac514708823258c25eb965ca7319b1d95',1,'core():&#160;engine.cpp']]],
-  ['createrenderer_29',['CreateRenderer',['../ember__core_8cpp.html#a1e25563447bf5532ea51dd09e480d358',1,'CreateRenderer(SDL_Window *window, int view_width, int view_height, RendererType type):&#160;ember_core.cpp'],['../ember__core_8h.html#a1e25563447bf5532ea51dd09e480d358',1,'CreateRenderer(SDL_Window *window, int view_width, int view_height, RendererType type):&#160;ember_core.cpp']]],
-  ['createrenderergl_30',['CreateRendererGL',['../ember__gl_8cpp.html#a513d877bee9aadff35abe4cd27ef1b10',1,'CreateRendererGL(SDL_Window *window, int view_width, int view_height):&#160;ember_gl.cpp'],['../ember__core_8h.html#a513d877bee9aadff35abe4cd27ef1b10',1,'CreateRendererGL(SDL_Window *window, int view_width, int view_height):&#160;ember_gl.cpp']]]
+  ['calctextsize_30',['CalcTextSize',['../engine__structs_8cpp.html#a9855440efda073e8e55815ef3d1b94f8',1,'CalcTextSize(const std::string &amp;text, const Font &amp;font, float font_size):&#160;engine_structs.cpp'],['../engine__structs_8h.html#aac5df93579b081a5bf91ad44800b1e6c',1,'CalcTextSize(const std::string &amp;text, const Font &amp;font, float font_size=0.0f):&#160;engine_structs.cpp']]],
+  ['camera_2ecpp_31',['camera.cpp',['../camera_8cpp.html',1,'']]],
+  ['camera_2eh_32',['camera.h',['../camera_8h.html',1,'']]],
+  ['camera2d_33',['Camera2D',['../structCamera2D.html',1,'Camera2D'],['../structCamera2D.html#a1d68c29b9e23a0db0c623e9643fa26dc',1,'Camera2D::Camera2D()']]],
+  ['clearbackground_34',['ClearBackground',['../structRenderer.html#a2fd1dd3ac5d2d56a4de7b1392dc4a5ed',1,'Renderer::ClearBackground()'],['../classOpenglRenderer.html#aeb06046b6bab23c1989ffed4b9118790',1,'OpenglRenderer::ClearBackground()']]],
+  ['closeaudio_35',['CloseAudio',['../ember__audio_8cpp.html#a3a1171e6a1ac0bae09f6789d2da49c53',1,'CloseAudio():&#160;ember_audio.cpp'],['../ember__audio_8h.html#a3a1171e6a1ac0bae09f6789d2da49c53',1,'CloseAudio():&#160;ember_audio.cpp']]],
+  ['color_36',['Color',['../structColor.html',1,'']]],
+  ['color_37',['color',['../classShaderEffect.html#a45a2e90ac570ee9d4133316d0d92b700',1,'ShaderEffect']]],
+  ['createrenderer_38',['CreateRenderer',['../classEngine.html#a1fad4bd9107ca64ae1e37db0e8099f50',1,'Engine']]]
 ];

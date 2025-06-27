@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['metrics_391',['Metrics',['../structCore.html#ade3c43510d33978111678cc31aadbc9a',1,'Core']]]
+  ['num_5fchannels_543',['NUM_CHANNELS',['../ember__audio_8h.html#a6784aa734e014cd74616cd622505cc94',1,'ember_audio.h']]]
 ];

@@ -1,6 +1,28 @@
 var searchData=
 [
-  ['unloadtexture_202',['UnloadTexture',['../ember__gl_8cpp.html#a55829229581591f29fd9980f61f17797',1,'UnloadTexture(Texture texture):&#160;ember_gl.cpp'],['../ember__gl_8h.html#a55829229581591f29fd9980f61f17797',1,'UnloadTexture(Texture texture):&#160;ember_gl.cpp']]],
-  ['update_203',['Update',['../classMesh.html#a8fce819a6739c2abe5a73fe73d9a7270',1,'Mesh::Update()'],['../classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d',1,'TimeManager::Update()']]],
-  ['use_204',['Use',['../classShader.html#a11a2de17d1d077ec34acd4f7cd57f6b1',1,'Shader']]]
+  ['texcoord_246',['texCoord',['../structVertex.html#a8214ff52fee03a5524ce58c3810a1be9',1,'Vertex']]],
+  ['text_247',['Text',['../classText.html',1,'Text'],['../classText.html#a4917ef186b54f4fdc60d380c61814e42',1,'Text::Text(const Font &amp;font, const std::string &amp;text, const Transform &amp;transform, float font_size, const Color &amp;color_={255, 255, 255, 255})'],['../classText.html#a34da2873fce37ce856bb88bcc737a812',1,'Text::Text()=default']]],
+  ['text_248',['text',['../structTextInputEvent.html#a5144e7b6e811679026a1b22d1715f3b7',1,'TextInputEvent']]],
+  ['text_2ecpp_249',['text.cpp',['../text_8cpp.html',1,'']]],
+  ['text_2eh_250',['text.h',['../text_8h.html',1,'']]],
+  ['text_5fshader_251',['text_shader',['../classOpenglRenderer.html#af24fecc1047edfc0fbdfa05d5963a616',1,'OpenglRenderer']]],
+  ['textformat_252',['TextFormat',['../ember__utils_8h.html#a22b171ebae86207c978c6fc64e918efc',1,'TextFormat(const char *fmt,...):&#160;ember_utils.cpp'],['../ember__utils_8cpp.html#a22b171ebae86207c978c6fc64e918efc',1,'TextFormat(const char *fmt,...):&#160;ember_utils.cpp']]],
+  ['textinputevent_253',['TextInputEvent',['../structTextInputEvent.html',1,'']]],
+  ['texture_254',['Texture',['../structTexture.html#a66179be276016021e80b1c67c047d4ad',1,'Texture']]],
+  ['texture_255',['texture',['../structFont.html#ad3cfba9174d52095c98bde67bad8d07f',1,'Font']]],
+  ['texture_256',['Texture',['../engine__structs_8h.html#a9862149b4afb78441c9ac01b07535975',1,'Texture():&#160;engine_structs.h'],['../structTexture.html',1,'Texture']]],
+  ['texture2d_257',['Texture2D',['../engine__structs_8h.html#ae919c7cfe32cba1ce1c9a6df810de7ef',1,'engine_structs.h']]],
+  ['thickness_258',['thickness',['../classShaderEffect.html#a2946ad5ce73ab4557080f248aca894e3',1,'ShaderEffect']]],
+  ['time_5fmanager_2ecpp_259',['time_manager.cpp',['../time__manager_8cpp.html',1,'']]],
+  ['time_5fmanager_2eh_260',['time_manager.h',['../time__manager_8h.html',1,'']]],
+  ['timemanager_261',['TimeManager',['../classTimeManager.html#ab1c3cbb48ad68d928bb8b9a4ef210ed6',1,'TimeManager::TimeManager()'],['../classTimeManager.html',1,'TimeManager']]],
+  ['title_262',['title',['../classEngine.html#acbe6d61aa37e5303e9eb20727aee178e',1,'Engine']]],
+  ['to_5fstring_263',['TO_STRING',['../logging_8h.html#aa49b6a1041bf80c96599056af0bc5b4a',1,'logging.h']]],
+  ['touchpoint_264',['TouchPoint',['../structTouchPoint.html',1,'']]],
+  ['trace_5ffile_5flog_265',['TRACE_FILE_LOG',['../logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370',1,'logging.h']]],
+  ['transform_266',['transform',['../structCamera2D.html#a05294bc9672c2e3e9d61d9fda8dd37ce',1,'Camera2D']]],
+  ['transform_267',['Transform',['../structTransform.html#adacad9adbcfc5cee971c71809ff93a75',1,'Transform::Transform(glm::vec3 position, glm::vec3 rotation, glm::vec3 scale)'],['../structTransform.html#a144ce8dcafd13ca66acb5a1636cfc297',1,'Transform::Transform()=default'],['../structTransform.html',1,'Transform']]],
+  ['transform_2ecpp_268',['transform.cpp',['../transform_8cpp.html',1,'']]],
+  ['transform_2eh_269',['transform.h',['../transform_8h.html',1,'']]],
+  ['type_270',['type',['../structRenderer.html#ae4a592c272f20d110d6eb9292f2994f8',1,'Renderer']]]
 ];

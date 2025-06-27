@@ -70,13 +70,15 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">engine_structs.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="imports_8h_source.html">imports.h</a>&quot;</code><br />
-<code>#include &lt;stb_truetype.h&gt;</code><br />
+<code>#include &lt;freetype/freetype.h&gt;</code><br />
+<code>#include &lt;freetype/ftstroke.h&gt;</code><br />
 </div>
 <p><a href="engine__structs_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -104,6 +106,11 @@ Typedefs</h2></td></tr>
 <tr class="separator:a9862149b4afb78441c9ac01b07535975"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae919c7cfe32cba1ce1c9a6df810de7ef"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structTexture.html">Texture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine__structs_8h.html#ae919c7cfe32cba1ce1c9a6df810de7ef">Texture2D</a></td></tr>
 <tr class="separator:ae919c7cfe32cba1ce1c9a6df810de7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aac5df93579b081a5bf91ad44800b1e6c"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine__structs_8h.html#aac5df93579b081a5bf91ad44800b1e6c">CalcTextSize</a> (const std::string &amp;text, const <a class="el" href="structFont.html">Font</a> &amp;font, float font_size=0.0f)</td></tr>
+<tr class="separator:aac5df93579b081a5bf91ad44800b1e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a9862149b4afb78441c9ac01b07535975"></a>
@@ -128,6 +135,41 @@ Typedefs</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">typedef struct <a class="el" href="structTexture.html">Texture</a> <a class="el" href="engine__structs_8h.html#ae919c7cfe32cba1ce1c9a6df810de7ef">Texture2D</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="aac5df93579b081a5bf91ad44800b1e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac5df93579b081a5bf91ad44800b1e6c">&#9670;&nbsp;</a></span>CalcTextSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt;int,int&gt; CalcTextSize </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structFont.html">Font</a> &amp;&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>font_size</em> = <code>0.0f</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
