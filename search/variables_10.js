@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['texcoord_554',['texCoord',['../structVertex.html#a8214ff52fee03a5524ce58c3810a1be9',1,'Vertex']]],
-  ['text_555',['text',['../structTextInputEvent.html#a5144e7b6e811679026a1b22d1715f3b7',1,'TextInputEvent']]],
-  ['text_5fshader_556',['text_shader',['../classOpenglRenderer.html#af24fecc1047edfc0fbdfa05d5963a616',1,'OpenglRenderer']]],
-  ['texture_557',['texture',['../structFont.html#ad3cfba9174d52095c98bde67bad8d07f',1,'Font']]],
-  ['thickness_558',['thickness',['../classShaderEffect.html#a2946ad5ce73ab4557080f248aca894e3',1,'ShaderEffect']]],
-  ['title_559',['title',['../classEngine.html#acbe6d61aa37e5303e9eb20727aee178e',1,'Engine']]],
-  ['transform_560',['transform',['../structCamera2D.html#a05294bc9672c2e3e9d61d9fda8dd37ce',1,'Camera2D']]],
-  ['type_561',['type',['../structRenderer.html#ae4a592c272f20d110d6eb9292f2994f8',1,'Renderer']]]
+  ['sample_5frate_527',['SAMPLE_RATE',['../ember__audio_8h.html#a07459f94c952522f2df6e9c3ab32c485',1,'ember_audio.h']]],
+  ['scale_528',['scale',['../structTransform.html#acf6ab53778448fd2f2d8a367c14e7f95',1,'Transform::scale()'],['../structFont.html#a344b272e0ec1ed3f9cf274f6cab801f6',1,'Font::scale()']]],
+  ['scale_529',['Scale',['../structTransform2D.html#ae525188caf5023daf38beb6a9de9855a',1,'Transform2D']]],
+  ['shadow_530',['Shadow',['../classShaderEffect.html#a7d522f53f7ec712909d40e6d1eb3591d',1,'ShaderEffect']]],
+  ['spec_531',['spec',['../classEngine.html#a35fc638a793a42354b716727ed026b4b',1,'Engine']]]
 ];

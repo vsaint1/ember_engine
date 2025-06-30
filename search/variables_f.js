@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['sample_5frate_550',['SAMPLE_RATE',['../ember__audio_8h.html#a07459f94c952522f2df6e9c3ab32c485',1,'ember_audio.h']]],
-  ['scale_551',['scale',['../structTransform.html#acf6ab53778448fd2f2d8a367c14e7f95',1,'Transform::scale()'],['../structFont.html#a344b272e0ec1ed3f9cf274f6cab801f6',1,'Font::scale()']]],
-  ['shadow_552',['Shadow',['../classShaderEffect.html#a7d522f53f7ec712909d40e6d1eb3591d',1,'ShaderEffect']]],
-  ['spec_553',['spec',['../classEngine.html#a35fc638a793a42354b716727ed026b4b',1,'Engine']]]
+  ['r_523',['r',['../structColor.html#ab9a9c7134511f9b116a6fcc81a303ba6',1,'Color']]],
+  ['rotation_524',['rotation',['../structTransform.html#aefd4a6bf41e01cf5898fd57430d93dea',1,'Transform']]],
+  ['rotation_525',['Rotation',['../structTransform2D.html#a67501c1a6b12f453475cd5716845c0f5',1,'Transform2D']]],
+  ['rw_526',['rw',['../structSDL__File.html#acb9e079f01924967d6eed4e3a741371c',1,'SDL_File']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputmanager_304',['InputManager',['../classInputManager.html',1,'']]]
+  ['joystick_294',['Joystick',['../structJoystick.html',1,'']]]
 ];

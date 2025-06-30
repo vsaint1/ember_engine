@@ -70,12 +70,12 @@ $(function() {
 <div class="textblock"><p><a class="anchor" id="md_README"></a></p>
 <p><b>Ember</b> is a lightweight and modular <b>2D/3D game engine/framework</b> written in <b>C/C++</b>, designed to be simple yet powerful. It aims to provide developers with a flexible **_cross-platform_** solution to build 2D/3D games and applications.</p>
 <blockquote class="doxtable">
-<p>⚠️ <b>Note:</b> Currently has no Editor. </p>
+<p>⚠️ <b>Note:</b> Currently has no <code>Editor</code> and probably never will. </p>
 </blockquote>
 <h2><a class="anchor" id="autotoc_md1"></a>
 ✨ Features</h2>
 <ul>
-<li>🚀 <b>Cross-Platform</b>:<ul>
+<li>📱 <b>Cross-Platform</b>:<ul>
 <li>Windows</li>
 <li>Linux</li>
 <li>macOS</li>
@@ -160,7 +160,10 @@ $(function() {
 <ul>
 <li><a href="https://emscripten.org/docs/getting_started/downloads.html">Emscripten Install and Setup</a></li>
 </ul>
-<div class="fragment"><div class="line">git clone https://github.com/vsaint1/ember_engine.git &amp;&amp; cd ember_engine</div>
+<div class="fragment"><div class="line">git clone https://github.com/vsaint1/ember_engine.git </div>
+<div class="line"> </div>
+<div class="line">cd ember_engine</div>
+<div class="line"> </div>
 <div class="line">git submodule update --init --recursive</div>
 <div class="line"> </div>
 <div class="line">cmake --list-presets</div>
@@ -168,6 +171,8 @@ $(function() {
 <div class="line">emcmake cmake --preset=web-release</div>
 <div class="line"> </div>
 <div class="line">emmake cmake --build build/webgl/release</div>
+<div class="line"> </div>
+<div class="line">python3 -m http.server -b 0.0.0.0 8000</div>
 </div><!-- fragment --> <h2><a class="anchor" id="autotoc_md13"></a>
 ⚠️ Disclaimer</h2>
 <p>This project was created for educational and personal purposes. It is <b>not</b> intended for commercial use.</p>

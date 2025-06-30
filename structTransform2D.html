@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Ember: Vertex Struct Reference</title>
+<title>Ember: Transform2D Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,83 +64,93 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structVertex-members.html">List of all members</a>  </div>
+<a href="structTransform2D-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">Vertex Struct Reference</div>  </div>
+<div class="title">Transform2D Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="structVertex.html" title="Vertex struct.">Vertex</a> struct.  
- <a href="structVertex.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="mesh_8h_source.html">mesh.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="transform_8h_source.html">transform.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:acb67844665ea3cf0170484e978f9970a"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform2D.html#acb67844665ea3cf0170484e978f9970a">GetMatrix</a> () const</td></tr>
+<tr class="separator:acb67844665ea3cf0170484e978f9970a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:abb3cfacd96b5955b0cec9359840ee49f"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVertex.html#abb3cfacd96b5955b0cec9359840ee49f">Position</a></td></tr>
-<tr class="separator:abb3cfacd96b5955b0cec9359840ee49f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78e2a1125e20f9798778611cdfe61690"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVertex.html#a78e2a1125e20f9798778611cdfe61690">Color</a></td></tr>
-<tr class="separator:a78e2a1125e20f9798778611cdfe61690"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14866b3ed9cbe748d8f73756397ab7fd"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVertex.html#a14866b3ed9cbe748d8f73756397ab7fd">UV</a></td></tr>
-<tr class="separator:a14866b3ed9cbe748d8f73756397ab7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9533f07f158dcb2465f05498715d8744"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structVertex.html#a9533f07f158dcb2465f05498715d8744">TextureIndex</a></td></tr>
-<tr class="separator:a9533f07f158dcb2465f05498715d8744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93ea97408a28ef14b9d51800fd41e972"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform2D.html#a93ea97408a28ef14b9d51800fd41e972">Position</a> {0, 0, 0}</td></tr>
+<tr class="separator:a93ea97408a28ef14b9d51800fd41e972"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae525188caf5023daf38beb6a9de9855a"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform2D.html#ae525188caf5023daf38beb6a9de9855a">Scale</a> {1, 1}</td></tr>
+<tr class="separator:ae525188caf5023daf38beb6a9de9855a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67501c1a6b12f453475cd5716845c0f5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform2D.html#a67501c1a6b12f453475cd5716845c0f5">Rotation</a> = 0.0f</td></tr>
+<tr class="separator:a67501c1a6b12f453475cd5716845c0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="structVertex.html" title="Vertex struct.">Vertex</a> struct. </p>
-<dl class="section version"><dt>Version</dt><dd>0.0.3 </dd></dl>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a78e2a1125e20f9798778611cdfe61690"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78e2a1125e20f9798778611cdfe61690">&#9670;&nbsp;</a></span>Color</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="acb67844665ea3cf0170484e978f9970a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb67844665ea3cf0170484e978f9970a">&#9670;&nbsp;</a></span>GetMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::mat4 Transform2D::GetMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a93ea97408a28ef14b9d51800fd41e972"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ea97408a28ef14b9d51800fd41e972">&#9670;&nbsp;</a></span>Position</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec4 Vertex::Color</td>
+          <td class="memname">glm::vec3 Transform2D::Position {0, 0, 0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="abb3cfacd96b5955b0cec9359840ee49f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb3cfacd96b5955b0cec9359840ee49f">&#9670;&nbsp;</a></span>Position</h2>
+<a id="a67501c1a6b12f453475cd5716845c0f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67501c1a6b12f453475cd5716845c0f5">&#9670;&nbsp;</a></span>Rotation</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Vertex::Position</td>
+          <td class="memname">float Transform2D::Rotation = 0.0f</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a9533f07f158dcb2465f05498715d8744"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9533f07f158dcb2465f05498715d8744">&#9670;&nbsp;</a></span>TextureIndex</h2>
+<a id="ae525188caf5023daf38beb6a9de9855a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae525188caf5023daf38beb6a9de9855a">&#9670;&nbsp;</a></span>Scale</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Vertex::TextureIndex</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a14866b3ed9cbe748d8f73756397ab7fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14866b3ed9cbe748d8f73756397ab7fd">&#9670;&nbsp;</a></span>UV</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec2 Vertex::UV</td>
+          <td class="memname">glm::vec2 Transform2D::Scale {1, 1}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -148,7 +158,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>engine/public/core/renderer/<a class="el" href="mesh_8h_source.html">mesh.h</a></li>
+<li>engine/public/core/component/<a class="el" href="transform_8h_source.html">transform.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
