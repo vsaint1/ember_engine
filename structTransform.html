@@ -72,107 +72,42 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="structTransform.html" title="Transform struct 2D.">Transform</a> struct 2D.  
+ <a href="structTransform.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="transform_8h_source.html">transform.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a144ce8dcafd13ca66acb5a1636cfc297"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#a144ce8dcafd13ca66acb5a1636cfc297">Transform</a> ()=default</td></tr>
-<tr class="separator:a144ce8dcafd13ca66acb5a1636cfc297"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adacad9adbcfc5cee971c71809ff93a75"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#adacad9adbcfc5cee971c71809ff93a75">Transform</a> (glm::vec3 <a class="el" href="structTransform.html#aa357f8eb780f4ef195027d1c636baa36">position</a>, glm::vec3 <a class="el" href="structTransform.html#aefd4a6bf41e01cf5898fd57430d93dea">rotation</a>, glm::vec3 <a class="el" href="structTransform.html#acf6ab53778448fd2f2d8a367c14e7f95">scale</a>)</td></tr>
-<tr class="separator:adacad9adbcfc5cee971c71809ff93a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ad4c0b4fab34fba151dc39f8a63494e"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#a7ad4c0b4fab34fba151dc39f8a63494e">GetModelMatrix2D</a> () const</td></tr>
-<tr class="memdesc:a7ad4c0b4fab34fba151dc39f8a63494e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the model matrix 2D.  <a href="structTransform.html#a7ad4c0b4fab34fba151dc39f8a63494e">More...</a><br /></td></tr>
-<tr class="separator:a7ad4c0b4fab34fba151dc39f8a63494e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a00c2fa3f8c8293aa5dfe7f72db87fb"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#a8a00c2fa3f8c8293aa5dfe7f72db87fb">GetModelMatrix</a> () const</td></tr>
-<tr class="memdesc:a8a00c2fa3f8c8293aa5dfe7f72db87fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the model matrix 3D ( TODO )  <a href="structTransform.html#a8a00c2fa3f8c8293aa5dfe7f72db87fb">More...</a><br /></td></tr>
-<tr class="separator:a8a00c2fa3f8c8293aa5dfe7f72db87fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce6f6c351124e7b4405308933e1ce17"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#afce6f6c351124e7b4405308933e1ce17">get_matrix</a> () const</td></tr>
+<tr class="memdesc:afce6f6c351124e7b4405308933e1ce17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get model matrix.  <a href="structTransform.html#afce6f6c351124e7b4405308933e1ce17">More...</a><br /></td></tr>
+<tr class="separator:afce6f6c351124e7b4405308933e1ce17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c8653ea8af195ad537122e11cdf3d27"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#a5c8653ea8af195ad537122e11cdf3d27">transform_point</a> (const glm::vec2 &amp;point) const</td></tr>
+<tr class="memdesc:a5c8653ea8af195ad537122e11cdf3d27"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structTransform.html" title="Transform struct 2D.">Transform</a> point into screen.  <a href="structTransform.html#a5c8653ea8af195ad537122e11cdf3d27">More...</a><br /></td></tr>
+<tr class="separator:a5c8653ea8af195ad537122e11cdf3d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa357f8eb780f4ef195027d1c636baa36"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#aa357f8eb780f4ef195027d1c636baa36">position</a> = glm::vec3(0.0f, 0.0f, 0.0f)</td></tr>
-<tr class="separator:aa357f8eb780f4ef195027d1c636baa36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefd4a6bf41e01cf5898fd57430d93dea"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#aefd4a6bf41e01cf5898fd57430d93dea">rotation</a> = glm::vec3(0.0f, 0.0f, 0.0f)</td></tr>
-<tr class="separator:aefd4a6bf41e01cf5898fd57430d93dea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf6ab53778448fd2f2d8a367c14e7f95"><td class="memItemLeft" align="right" valign="top">glm::vec3&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#acf6ab53778448fd2f2d8a367c14e7f95">scale</a> = glm::vec3(1.0f, 1.0f, 1.0f)</td></tr>
-<tr class="separator:acf6ab53778448fd2f2d8a367c14e7f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8b9c43eb45a0391b0b312bb68831d3c"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#ae8b9c43eb45a0391b0b312bb68831d3c">position</a> {0, 0}</td></tr>
+<tr class="separator:ae8b9c43eb45a0391b0b312bb68831d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a022d11e8d5c86e142e721d7acf16c314"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#a022d11e8d5c86e142e721d7acf16c314">scale</a> {1, 1}</td></tr>
+<tr class="separator:a022d11e8d5c86e142e721d7acf16c314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac67a2ceb0bd5a73a9360dbcfec232bb3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTransform.html#ac67a2ceb0bd5a73a9360dbcfec232bb3">rotation</a> = 0.0f</td></tr>
+<tr class="separator:ac67a2ceb0bd5a73a9360dbcfec232bb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a144ce8dcafd13ca66acb5a1636cfc297"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a144ce8dcafd13ca66acb5a1636cfc297">&#9670;&nbsp;</a></span>Transform() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Transform::Transform </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="adacad9adbcfc5cee971c71809ff93a75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adacad9adbcfc5cee971c71809ff93a75">&#9670;&nbsp;</a></span>Transform() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Transform::Transform </td>
-          <td>(</td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>position</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>rotation</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">glm::vec3&#160;</td>
-          <td class="paramname"><em>scale</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8a00c2fa3f8c8293aa5dfe7f72db87fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a00c2fa3f8c8293aa5dfe7f72db87fb">&#9670;&nbsp;</a></span>GetModelMatrix()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="structTransform.html" title="Transform struct 2D.">Transform</a> struct 2D. </p>
+<p>transform points around the screen</p>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="afce6f6c351124e7b4405308933e1ce17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce6f6c351124e7b4405308933e1ce17">&#9670;&nbsp;</a></span>get_matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::mat4 Transform::GetModelMatrix </td>
+          <td class="memname">glm::mat4 Transform::get_matrix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -180,67 +115,69 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the model matrix 3D ( TODO ) </p>
+<p>Get model matrix. </p>
+<dl class="section version"><dt>Version</dt><dd>0.2.0 </dd></dl>
 
 </div>
 </div>
-<a id="a7ad4c0b4fab34fba151dc39f8a63494e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ad4c0b4fab34fba151dc39f8a63494e">&#9670;&nbsp;</a></span>GetModelMatrix2D()</h2>
+<a id="a5c8653ea8af195ad537122e11cdf3d27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c8653ea8af195ad537122e11cdf3d27">&#9670;&nbsp;</a></span>transform_point()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::mat4 Transform::GetModelMatrix2D </td>
+          <td class="memname">glm::vec3 Transform::transform_point </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const glm::vec2 &amp;&#160;</td>
+          <td class="paramname"><em>point</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the model matrix 2D. </p>
-<dl class="section version"><dt>Version</dt><dd>0.0.2 </dd></dl>
+<p><a class="el" href="structTransform.html" title="Transform struct 2D.">Transform</a> point into screen. </p>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa357f8eb780f4ef195027d1c636baa36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa357f8eb780f4ef195027d1c636baa36">&#9670;&nbsp;</a></span>position</h2>
+<a id="ae8b9c43eb45a0391b0b312bb68831d3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8b9c43eb45a0391b0b312bb68831d3c">&#9670;&nbsp;</a></span>position</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Transform::position = glm::vec3(0.0f, 0.0f, 0.0f)</td>
+          <td class="memname">glm::vec2 Transform::position {0, 0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aefd4a6bf41e01cf5898fd57430d93dea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefd4a6bf41e01cf5898fd57430d93dea">&#9670;&nbsp;</a></span>rotation</h2>
+<a id="ac67a2ceb0bd5a73a9360dbcfec232bb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac67a2ceb0bd5a73a9360dbcfec232bb3">&#9670;&nbsp;</a></span>rotation</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Transform::rotation = glm::vec3(0.0f, 0.0f, 0.0f)</td>
+          <td class="memname">float Transform::rotation = 0.0f</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="acf6ab53778448fd2f2d8a367c14e7f95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf6ab53778448fd2f2d8a367c14e7f95">&#9670;&nbsp;</a></span>scale</h2>
+<a id="a022d11e8d5c86e142e721d7acf16c314"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a022d11e8d5c86e142e721d7acf16c314">&#9670;&nbsp;</a></span>scale</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec3 Transform::scale = glm::vec3(1.0f, 1.0f, 1.0f)</td>
+          <td class="memname">glm::vec2 Transform::scale {1, 1}</td>
         </tr>
       </table>
 </div><div class="memdoc">

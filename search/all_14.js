@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['uniforms_261',['uniforms',['../classShader.html#aa82dc1930f5314b33e9a334aefbb2ffe',1,'Shader']]],
-  ['unloadfont_262',['UnloadFont',['../classRenderer.html#ab705482d52400e50d0957e4368c1e611',1,'Renderer::UnloadFont()'],['../classOpenglRenderer.html#af6b8caf8a8c6d0faf54ae0c6e2cb8267',1,'OpenglRenderer::UnloadFont()']]],
-  ['unloadtexture_263',['UnloadTexture',['../classRenderer.html#aaa69de3aee66308d4515f01d0e9872e0',1,'Renderer::UnloadTexture()'],['../classOpenglRenderer.html#a69c4f83a5f5fc1e7e8ca598eae36165c',1,'OpenglRenderer::UnloadTexture()']]],
-  ['update_264',['Update',['../classInputManager.html#aa5480931dba2720e7d80dd00a53adae0',1,'InputManager::Update()'],['../classMesh.html#a04822aa5c824a2940a80d292e9031ae7',1,'Mesh::Update()'],['../classTimeManager.html#afdf5ccb706dfd5cd71882424ddf4301d',1,'TimeManager::Update()']]],
-  ['uv_265',['UV',['../structVertex.html#a14866b3ed9cbe748d8f73756397ab7fd',1,'Vertex']]]
+  ['ubershader_405',['UberShader',['../classUberShader.html',1,'']]],
+  ['unload_5ffont_406',['unload_font',['../classRenderer.html#aff8e95e280c33cbd102e74a7b97412bd',1,'Renderer::unload_font()'],['../classOpenglRenderer.html#a436043f26ef3ef7b6f895ec90de242cd',1,'OpenglRenderer::unload_font()']]],
+  ['unload_5ftexture_407',['unload_texture',['../classRenderer.html#ae6448e82a9e05cacde47f84a9842572d',1,'Renderer::unload_texture()'],['../classOpenglRenderer.html#ad46be490473b67f19106f1fe767059a7',1,'OpenglRenderer::unload_texture()']]],
+  ['unregister_5faction_408',['unregister_action',['../classInputManager.html#a6bc3d244229fbe12f0a1b7d634299d9c',1,'InputManager']]],
+  ['update_409',['update',['../classInputManager.html#a136d6afa55ee74eeda5eb72e78e3ee97',1,'InputManager::update()'],['../classTimeManager.html#a97d902b19861efc099141eeb846671a3',1,'TimeManager::update()']]],
+  ['update_410',['Update',['../classMesh.html#a04822aa5c824a2940a80d292e9031ae7',1,'Mesh']]],
+  ['uv_411',['UV',['../structVertex.html#a14866b3ed9cbe748d8f73756397ab7fd',1,'Vertex']]]
 ];

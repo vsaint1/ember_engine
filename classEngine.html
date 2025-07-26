@@ -72,24 +72,31 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Core <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> singleton.  
+ <a href="classEngine.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="engine_8h_source.html">engine.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a40fe5e8f9cb5472f7f049d2e286d18df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a40fe5e8f9cb5472f7f049d2e286d18df">ResizeWindow</a> (int w, int h) const</td></tr>
-<tr class="separator:a40fe5e8f9cb5472f7f049d2e286d18df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70a57fcd79711404bdeb37fc2f2c3bd3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderer.html">Renderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a70a57fcd79711404bdeb37fc2f2c3bd3">GetRenderer</a> () const</td></tr>
-<tr class="separator:a70a57fcd79711404bdeb37fc2f2c3bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a707477c50218634f715a0dfc28726744"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInputManager.html">InputManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a707477c50218634f715a0dfc28726744">GetInputManager</a> () const</td></tr>
-<tr class="separator:a707477c50218634f715a0dfc28726744"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6802ee5ae8ff6f3609da10e5878ea36a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTimeManager.html">TimeManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a6802ee5ae8ff6f3609da10e5878ea36a">GetTimeManager</a> () const</td></tr>
-<tr class="separator:a6802ee5ae8ff6f3609da10e5878ea36a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dbd2c0a65e642baa7eaa97caa6e4e64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a3dbd2c0a65e642baa7eaa97caa6e4e64">Shutdown</a> ()</td></tr>
-<tr class="memdesc:a3dbd2c0a65e642baa7eaa97caa6e4e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize Window, <a class="el" href="classRenderer.html" title="Renderer struct.">Renderer</a> and modules.  <a href="classEngine.html#a3dbd2c0a65e642baa7eaa97caa6e4e64">More...</a><br /></td></tr>
-<tr class="separator:a3dbd2c0a65e642baa7eaa97caa6e4e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee144f329a90d6906f7e65878352ac0f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#aee144f329a90d6906f7e65878352ac0f">Initialize</a> (const char *<a class="el" href="classEngine.html#acbe6d61aa37e5303e9eb20727aee178e">title</a>, int <a class="el" href="classEngine.html#a5e537cd5ccaca8ee363ec28e858b1487">width</a>, int <a class="el" href="classEngine.html#af96739cc628f8f1ad1de8f11e6d77bad">height</a>, <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a> type, Uint64 flags=0)</td></tr>
-<tr class="memdesc:aee144f329a90d6906f7e65878352ac0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize SDL window, renderer and modules.  <a href="classEngine.html#aee144f329a90d6906f7e65878352ac0f">More...</a><br /></td></tr>
-<tr class="separator:aee144f329a90d6906f7e65878352ac0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0828840a2df098ef1534274d271f6190"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a0828840a2df098ef1534274d271f6190">resize_window</a> (int w, int h) const</td></tr>
+<tr class="memdesc:a0828840a2df098ef1534274d271f6190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resize the SDL window.  <a href="classEngine.html#a0828840a2df098ef1534274d271f6190">More...</a><br /></td></tr>
+<tr class="separator:a0828840a2df098ef1534274d271f6190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a398f3201f211004ff2cdd2e57776608e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRenderer.html">Renderer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a398f3201f211004ff2cdd2e57776608e">get_renderer</a> () const</td></tr>
+<tr class="memdesc:a398f3201f211004ff2cdd2e57776608e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the renderer instance.  <a href="classEngine.html#a398f3201f211004ff2cdd2e57776608e">More...</a><br /></td></tr>
+<tr class="separator:a398f3201f211004ff2cdd2e57776608e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9d38eb79327bdbc2915b179496e547a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInputManager.html">InputManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#ad9d38eb79327bdbc2915b179496e547a">input_manager</a> () const</td></tr>
+<tr class="memdesc:ad9d38eb79327bdbc2915b179496e547a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the input manager.  <a href="classEngine.html#ad9d38eb79327bdbc2915b179496e547a">More...</a><br /></td></tr>
+<tr class="separator:ad9d38eb79327bdbc2915b179496e547a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78f2e2cdca8ab90570623db5d41e1c16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTimeManager.html">TimeManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a78f2e2cdca8ab90570623db5d41e1c16">time_manager</a> () const</td></tr>
+<tr class="memdesc:a78f2e2cdca8ab90570623db5d41e1c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time manager.  <a href="classEngine.html#a78f2e2cdca8ab90570623db5d41e1c16">More...</a><br /></td></tr>
+<tr class="separator:a78f2e2cdca8ab90570623db5d41e1c16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bbccf668c46064559c99a999f7b9932"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a4bbccf668c46064559c99a999f7b9932">shutdown</a> ()</td></tr>
+<tr class="memdesc:a4bbccf668c46064559c99a999f7b9932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize window, renderer, and modules.  <a href="classEngine.html#a4bbccf668c46064559c99a999f7b9932">More...</a><br /></td></tr>
+<tr class="separator:a4bbccf668c46064559c99a999f7b9932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f128793b8e3cad58bcb5859faa9b824"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a7f128793b8e3cad58bcb5859faa9b824">initialize</a> (const char *<a class="el" href="classEngine.html#acbe6d61aa37e5303e9eb20727aee178e">title</a>, int <a class="el" href="classEngine.html#a5e537cd5ccaca8ee363ec28e858b1487">width</a>, int <a class="el" href="classEngine.html#af96739cc628f8f1ad1de8f11e6d77bad">height</a>, <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a> type, Uint64 flags=0)</td></tr>
+<tr class="memdesc:a7f128793b8e3cad58bcb5859faa9b824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the engine: SDL window, renderer, audio, fonts.  <a href="classEngine.html#a7f128793b8e3cad58bcb5859faa9b824">More...</a><br /></td></tr>
+<tr class="separator:a7f128793b8e3cad58bcb5859faa9b824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -108,8 +115,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a3e4515bc68b8c7be40299e121bca199f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7c4f533617c4c604d399373799dfcfc"><td class="memItemLeft" >&#160;&#160;&#160;int&#160;&#160;&#160;<a class="el" href="classEngine.html#a8c8f1275c5bbd0a453170818a345ee1f">bbHeight</a> = 0</td></tr>
 <tr class="separator:aa7c4f533617c4c604d399373799dfcfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abfcc5c15d1057982e2d4ca534a354261"><td class="memItemLeft" >&#160;&#160;&#160;SDL_Window *&#160;&#160;&#160;<a class="el" href="classEngine.html#a259fae393fddd68428a2c504cf633670">window</a> {}</td></tr>
-<tr class="separator:abfcc5c15d1057982e2d4ca534a354261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a072b82089b96f01f0a195f496d95668c"><td class="memItemLeft" >&#160;&#160;&#160;SDL_Window *&#160;&#160;&#160;<a class="el" href="classEngine.html#a5516bc1c263276167b77dc9c6816bb1c">handle</a> {}</td></tr>
+<tr class="separator:a072b82089b96f01f0a195f496d95668c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a135c251d3df7e49984ae4bcdffb11700"><td class="memItemLeft" valign="top">}&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a135c251d3df7e49984ae4bcdffb11700">Window</a></td></tr>
 <tr class="separator:a135c251d3df7e49984ae4bcdffb11700"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a338890c036c409c8d7c205601e186a13"><td class="memItemLeft" >struct {</td></tr>
@@ -123,16 +130,21 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a338890c036c409c8d7c205601e186a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f9abc8b69119217d1ae1408e9dd938a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structEmber__VFS.html">Ember_VFS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a0f9abc8b69119217d1ae1408e9dd938a">VirtualFileSystem</a> {}</td></tr>
 <tr class="separator:a0f9abc8b69119217d1ae1408e9dd938a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ea526f9dac4ba770605a8b1c9abefa8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a0ea526f9dac4ba770605a8b1c9abefa8">bIsRunning</a> = false</td></tr>
+<tr class="separator:a0ea526f9dac4ba770605a8b1c9abefa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a707477c50218634f715a0dfc28726744"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a707477c50218634f715a0dfc28726744">&#9670;&nbsp;</a></span>GetInputManager()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Core <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> singleton. </p>
+<p>Manages window, renderer, audio, input, and timing systems. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a398f3201f211004ff2cdd2e57776608e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a398f3201f211004ff2cdd2e57776608e">&#9670;&nbsp;</a></span>get_renderer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classInputManager.html">InputManager</a> * Engine::GetInputManager </td>
+          <td class="memname"><a class="el" href="classRenderer.html">Renderer</a> * Engine::get_renderer </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -140,50 +152,19 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get the renderer instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Renderer* <a class="el" href="classRenderer.html" title="Renderer interface.">Renderer</a> pointer. </dd></dl>
+
 </div>
 </div>
-<a id="a70a57fcd79711404bdeb37fc2f2c3bd3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70a57fcd79711404bdeb37fc2f2c3bd3">&#9670;&nbsp;</a></span>GetRenderer()</h2>
+<a id="a7f128793b8e3cad58bcb5859faa9b824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f128793b8e3cad58bcb5859faa9b824">&#9670;&nbsp;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classRenderer.html">Renderer</a> * Engine::GetRenderer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6802ee5ae8ff6f3609da10e5878ea36a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6802ee5ae8ff6f3609da10e5878ea36a">&#9670;&nbsp;</a></span>GetTimeManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classTimeManager.html">TimeManager</a> * Engine::GetTimeManager </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aee144f329a90d6906f7e65878352ac0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee144f329a90d6906f7e65878352ac0f">&#9670;&nbsp;</a></span>Initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Engine::Initialize </td>
+          <td class="memname">bool Engine::initialize </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>title</em>, </td>
@@ -220,66 +201,57 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize SDL window, renderer and modules. </p>
+<p>Initialize the engine: SDL window, renderer, audio, fonts. </p>
 <ul>
-<li>Window</li>
-<li>Graphics Backend <code>OpenGL</code></li>
+<li>Creates Window</li>
+<li>Chooses Graphics Backend (<code>OpenGL</code> or <code>Metal</code>)</li>
+<li>Initializes <a class="el" href="classAudio.html" title="Audio struct.">Audio</a> and <a class="el" href="structFont.html" title="Font struct.">Font</a> subsystems</li>
 </ul>
-<p>or <code>Metal</code></p><ul>
-<li><ul>
-<li><p class="startli"><a class="el" href="classAudio.html" title="Audio struct.">Audio</a></p><ul>
-<li><a class="el" href="structFont.html">Font</a></li>
-</ul>
-<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">title</td><td>Window title</td></tr>
+    <tr><td class="paramname">title</td><td>Window title. </td></tr>
+    <tr><td class="paramname">width</td><td>Window width. </td></tr>
+    <tr><td class="paramname">height</td><td>Window height. </td></tr>
+    <tr><td class="paramname">type</td><td><a class="el" href="classRenderer.html" title="Renderer interface.">Renderer</a> type (<code>OPENGL</code> or <code>METAL</code>). </td></tr>
+    <tr><td class="paramname">flags</td><td>SDL window flags. See: <a href="https://wiki.libsdl.org/SDL_WindowFlags">https://wiki.libsdl.org/SDL_WindowFlags</a></td></tr>
   </table>
   </dd>
 </dl>
-</li>
-<li><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">width</td><td>Window width </td></tr>
-    <tr><td class="paramname">height</td><td></td></tr>
-    <tr><td class="paramname">type</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-</li>
-<li>Window height <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">type</td><td><a class="el" href="classRenderer.html" title="Renderer struct.">Renderer</a> type</td></tr>
-  </table>
-  </dd>
-</dl>
-</li>
-<li><p class="startli"><code>OPENGL</code> or <code>METAL</code> </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">flags</td><td>SDL window flags</td></tr>
-  </table>
-  </dd>
-</dl>
-<p><a href="https://wiki.libsdl.org/SDL_WindowFlags">https://wiki.libsdl.org/SDL_WindowFlags</a> </p>
-<dl class="section return"><dt>Returns</dt><dd>bool - true on <code>success</code> or false on</dd></dl>
-</li>
-<li><code>failure</code> </li>
-</ul>
-</li>
-</ul>
+<dl class="section return"><dt>Returns</dt><dd>true on success, false on failure.</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
 <p>Unset some SDL flags and set supported later.</p>
 <p>Can have more than one display, but for now we will just use the first one</p>
 
 </div>
 </div>
-<a id="a40fe5e8f9cb5472f7f049d2e286d18df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40fe5e8f9cb5472f7f049d2e286d18df">&#9670;&nbsp;</a></span>ResizeWindow()</h2>
+<a id="ad9d38eb79327bdbc2915b179496e547a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d38eb79327bdbc2915b179496e547a">&#9670;&nbsp;</a></span>input_manager()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Engine::ResizeWindow </td>
+          <td class="memname"><a class="el" href="classInputManager.html">InputManager</a> * Engine::input_manager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the input manager. </p>
+<dl class="section return"><dt>Returns</dt><dd>InputManager* Input manager pointer. </dd></dl>
+
+</div>
+</div>
+<a id="a0828840a2df098ef1534274d271f6190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0828840a2df098ef1534274d271f6190">&#9670;&nbsp;</a></span>resize_window()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::resize_window </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>w</em>, </td>
@@ -298,16 +270,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Resize the SDL window. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">w</td><td>New width. </td></tr>
+    <tr><td class="paramname">h</td><td>New height. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a3dbd2c0a65e642baa7eaa97caa6e4e64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dbd2c0a65e642baa7eaa97caa6e4e64">&#9670;&nbsp;</a></span>Shutdown()</h2>
+<a id="a4bbccf668c46064559c99a999f7b9932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bbccf668c46064559c99a999f7b9932">&#9670;&nbsp;</a></span>shutdown()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Engine::Shutdown </td>
+          <td class="memname">void Engine::shutdown </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -315,9 +296,28 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Deinitialize Window, <a class="el" href="classRenderer.html" title="Renderer struct.">Renderer</a> and modules. </p>
+<p>Deinitialize window, renderer, and modules. </p>
 <dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="a78f2e2cdca8ab90570623db5d41e1c16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78f2e2cdca8ab90570623db5d41e1c16">&#9670;&nbsp;</a></span>time_manager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTimeManager.html">TimeManager</a> * Engine::time_manager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the time manager. </p>
+<dl class="section return"><dt>Returns</dt><dd>TimeManager* Time manager pointer. </dd></dl>
 
 </div>
 </div>
@@ -378,6 +378,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a0ea526f9dac4ba770605a8b1c9abefa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ea526f9dac4ba770605a8b1c9abefa8">&#9670;&nbsp;</a></span>bIsRunning</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Engine::bIsRunning = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aacbde3542aa95bce4858e126bb6ae0dd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aacbde3542aa95bce4858e126bb6ae0dd">&#9670;&nbsp;</a></span>data</h2>
 
@@ -414,6 +428,20 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">float Engine::global_volume = 1.f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5516bc1c263276167b77dc9c6816bb1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5516bc1c263276167b77dc9c6816bb1c">&#9670;&nbsp;</a></span>handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Window* Engine::handle {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -484,20 +512,6 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int Engine::width = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a259fae393fddd68428a2c504cf633670"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a259fae393fddd68428a2c504cf633670">&#9670;&nbsp;</a></span>window</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SDL_Window* Engine::window {}</td>
         </tr>
       </table>
 </div><div class="memdoc">

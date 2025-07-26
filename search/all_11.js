@@ -1,14 +1,20 @@
 var searchData=
 [
-  ['r_191',['r',['../structColor.html#ab9a9c7134511f9b116a6fcc81a303ba6',1,'Color']]],
-  ['readme_2emd_192',['README.md',['../README_8md.html',1,'']]],
-  ['rectangle_193',['Rectangle',['../structember_1_1Rectangle.html',1,'ember']]],
-  ['renderer_194',['Renderer',['../classRenderer.html',1,'Renderer'],['../classRenderer.html#a4dddd75ab18573a3686f90225f3f03d4',1,'Renderer::Renderer()']]],
-  ['renderertype_195',['RendererType',['../engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce',1,'engine.h']]],
-  ['resize_196',['Resize',['../structCamera2D.html#a69a45f73a59c995d0b6eb3bf705b19fe',1,'Camera2D::Resize()'],['../classRenderer.html#a289e600c144064514b9e80ad140a882c',1,'Renderer::Resize()'],['../classOpenglRenderer.html#af58799c6d4dc6e7ac95a95ba3a00ea8a',1,'OpenglRenderer::Resize()']]],
-  ['resizewindow_197',['ResizeWindow',['../classEngine.html#a40fe5e8f9cb5472f7f049d2e286d18df',1,'Engine']]],
-  ['resume_198',['Resume',['../classTimeManager.html#a6a00edea4405c3aa48cde96d9f7bc4a1',1,'TimeManager']]],
-  ['rotation_199',['rotation',['../structTransform.html#aefd4a6bf41e01cf5898fd57430d93dea',1,'Transform']]],
-  ['rotation_200',['Rotation',['../structTransform2D.html#a67501c1a6b12f453475cd5716845c0f5',1,'Transform2D']]],
-  ['rw_201',['rw',['../structSDL__File.html#acb9e079f01924967d6eed4e3a741371c',1,'SDL_File']]]
+  ['r_297',['r',['../structColor.html#ab9a9c7134511f9b116a6fcc81a303ba6',1,'Color']]],
+  ['readme_2emd_298',['README.md',['../README_8md.html',1,'']]],
+  ['ready_299',['ready',['../classCircle2D.html#a3519ec18555afaf99945ccf7d0144cef',1,'Circle2D::ready()'],['../classLabel.html#a071391569d07aa7ca12f2e957f07fd8c',1,'Label::ready()'],['../classNode2D.html#a0e8dcf354e253d21b086425ccfbc681e',1,'Node2D::ready()'],['../classPolygon2D.html#aa45483376923e109a0c0a90ac2821211',1,'Polygon2D::ready()'],['../classSprite2D.html#a62d768a8cc32eff35f81e4ccb398bd75',1,'Sprite2D::ready()']]],
+  ['rect2_300',['Rect2',['../structRect2.html',1,'']]],
+  ['recti_301',['Recti',['../structRecti.html',1,'']]],
+  ['red_302',['RED',['../structColor.html#aae63fc23cf0d0772e8b07c776f73b019',1,'Color']]],
+  ['register_5faction_303',['register_action',['../classInputManager.html#a4b9cbb65148a4cf66260ed57a1fe5e46',1,'InputManager']]],
+  ['released_304',['RELEASED',['../input__manager_8h.html#aecfb003a08d29c0b75cd266ca0cadb76a109d54efbb64d71f9a6ab18d0fb8add8',1,'input_manager.h']]],
+  ['renderer_305',['Renderer',['../classRenderer.html#a4dddd75ab18573a3686f90225f3f03d4',1,'Renderer::Renderer()'],['../classRenderer.html',1,'Renderer']]],
+  ['renderertype_306',['RendererType',['../engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce',1,'engine.h']]],
+  ['reset_307',['reset',['../classTimeManager.html#ab23a732755a5c06a03087adc8095315a',1,'TimeManager']]],
+  ['resize_308',['resize',['../structCamera2D.html#aa3768dc7a6601bc182c3faeed3eacf34',1,'Camera2D::resize()'],['../classRenderer.html#a036447b5209c52c1caaa7f9709f09329',1,'Renderer::resize()'],['../classOpenglRenderer.html#a23e551adf38c6f3414eef17e16e181a6',1,'OpenglRenderer::resize()']]],
+  ['resize_5fwindow_309',['resize_window',['../classEngine.html#a0828840a2df098ef1534274d271f6190',1,'Engine']]],
+  ['resume_310',['resume',['../classTimeManager.html#a8281b595c89d27c5e1e2e49fc5468a20',1,'TimeManager']]],
+  ['right_311',['RIGHT',['../input__manager_8h.html#ac1ec3647c005eacad401b06e7e18f711a21507b40c80068eda19865706fdc2403',1,'input_manager.h']]],
+  ['rotate_312',['rotate',['../classNode2D.html#a273bd183b7b8f8610897eaacb044716c',1,'Node2D']]],
+  ['rotation_313',['rotation',['../structTransform.html#ac67a2ceb0bd5a73a9360dbcfec232bb3',1,'Transform']]]
 ];

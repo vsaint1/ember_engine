@@ -80,31 +80,33 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSDL__File.html">SDL_File</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEmber__File.html">Ember_File</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ember file (SDL_stream)  <a href="structEmber__File.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEmber__VFS.html">Ember_VFS</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> virtual file system.  <a href="structEmber__VFS.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a40d1357c1525d821eb7d846c404aa75a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a40d1357c1525d821eb7d846c404aa75a">LoadAssetsFile</a> (const std::string &amp;file_path)</td></tr>
-<tr class="memdesc:a40d1357c1525d821eb7d846c404aa75a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a given file from <code>assets</code> folder.  <a href="file__system_8h.html#a40d1357c1525d821eb7d846c404aa75a">More...</a><br /></td></tr>
-<tr class="separator:a40d1357c1525d821eb7d846c404aa75a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fc4975571bfb41e6143425e07afea5a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a7fc4975571bfb41e6143425e07afea5a">LoadFileIntoMemory</a> (const std::string &amp;file_path)</td></tr>
-<tr class="memdesc:a7fc4975571bfb41e6143425e07afea5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a given file from <code>assets</code> folder into memory.  <a href="file__system_8h.html#a7fc4975571bfb41e6143425e07afea5a">More...</a><br /></td></tr>
-<tr class="separator:a7fc4975571bfb41e6143425e07afea5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b226cb98c141e93cff18d7ad6b5a2cf"><td class="memItemLeft" align="right" valign="top">ma_result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a2b226cb98c141e93cff18d7ad6b5a2cf">Ember_Init_VFS</a> (<a class="el" href="structEmber__VFS.html">Ember_VFS</a> *vfs)</td></tr>
-<tr class="separator:a2b226cb98c141e93cff18d7ad6b5a2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbeee1232999f08240f43bf512967950"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#afbeee1232999f08240f43bf512967950">_load_assets_file</a> (const std::string &amp;file_path)</td></tr>
+<tr class="memdesc:afbeee1232999f08240f43bf512967950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a given file from <code>assets</code> folder.  <a href="file__system_8h.html#afbeee1232999f08240f43bf512967950">More...</a><br /></td></tr>
+<tr class="separator:afbeee1232999f08240f43bf512967950"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d233901179575b38690828dc084f03d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a7d233901179575b38690828dc084f03d">_load_file_into_memory</a> (const std::string &amp;file_path)</td></tr>
+<tr class="memdesc:a7d233901179575b38690828dc084f03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a given file from <code>assets</code> folder into memory.  <a href="file__system_8h.html#a7d233901179575b38690828dc084f03d">More...</a><br /></td></tr>
+<tr class="separator:a7d233901179575b38690828dc084f03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a609756a0e3bfa5a0f8dc4aa0e97d1ad6"><td class="memItemLeft" align="right" valign="top">ma_result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a609756a0e3bfa5a0f8dc4aa0e97d1ad6">_ember_init_vfs</a> (<a class="el" href="structEmber__VFS.html">Ember_VFS</a> *vfs)</td></tr>
+<tr class="separator:a609756a0e3bfa5a0f8dc4aa0e97d1ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a2b226cb98c141e93cff18d7ad6b5a2cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b226cb98c141e93cff18d7ad6b5a2cf">&#9670;&nbsp;</a></span>Ember_Init_VFS()</h2>
+<a id="a609756a0e3bfa5a0f8dc4aa0e97d1ad6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a609756a0e3bfa5a0f8dc4aa0e97d1ad6">&#9670;&nbsp;</a></span>_ember_init_vfs()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ma_result Ember_Init_VFS </td>
+          <td class="memname">ma_result _ember_init_vfs </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structEmber__VFS.html">Ember_VFS</a> *&#160;</td>
           <td class="paramname"><em>vfs</em></td><td>)</td>
@@ -115,14 +117,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a40d1357c1525d821eb7d846c404aa75a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40d1357c1525d821eb7d846c404aa75a">&#9670;&nbsp;</a></span>LoadAssetsFile()</h2>
+<a id="afbeee1232999f08240f43bf512967950"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbeee1232999f08240f43bf512967950">&#9670;&nbsp;</a></span>_load_assets_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string LoadAssetsFile </td>
+          <td class="memname">std::string _load_assets_file </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>file_path</em></td><td>)</td>
@@ -146,14 +148,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7fc4975571bfb41e6143425e07afea5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fc4975571bfb41e6143425e07afea5a">&#9670;&nbsp;</a></span>LoadFileIntoMemory()</h2>
+<a id="a7d233901179575b38690828dc084f03d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d233901179575b38690828dc084f03d">&#9670;&nbsp;</a></span>_load_file_into_memory()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;char&gt; LoadFileIntoMemory </td>
+          <td class="memname">std::vector&lt;char&gt; _load_file_into_memory </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>file_path</em></td><td>)</td>

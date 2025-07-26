@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['b_486',['b',['../structColor.html#a9f00605f7024dcb79342e97fae52c1bd',1,'Color']]],
-  ['base_487',['base',['../structEmber__VFS.html#a5929e4226c5ab5f0015fe96439029744',1,'Ember_VFS']]],
-  ['base_5fpath_488',['BASE_PATH',['../imports_8h.html#a81e929c8a4009133f33f3c0464dab492',1,'imports.h']]],
-  ['bbheight_489',['bbHeight',['../classEngine.html#a8c8f1275c5bbd0a453170818a345ee1f',1,'Engine']]],
-  ['bbwidth_490',['bbWidth',['../classEngine.html#a41c41497b93063cecb4e0c5468992395',1,'Engine']]],
-  ['benabled_491',['bEnabled',['../classShaderEffect.html#a71416c1c49dab025a29f1cf15d6112ed',1,'ShaderEffect']]],
-  ['bfullscreen_492',['bFullscreen',['../classEngine.html#afddd0eae002eb955f731047a9efc819a',1,'Engine']]],
-  ['bisactive_493',['bIsActive',['../structTextInputEvent.html#afe8b6fef125df126464ecef7d0bdcbf7',1,'TextInputEvent']]],
-  ['buttonstate_494',['buttonState',['../structJoystick.html#aae65a0c796be200d5a338c46bfc46627',1,'Joystick']]]
+  ['a_750',['a',['../structColor.html#a39bb1f3f9a514ac1a581ca27fddebebc',1,'Color']]],
+  ['active_751',['active',['../structTouchPoint.html#aba889ead71c677a307703128f29d8f4f',1,'TouchPoint']]],
+  ['advance_752',['advance',['../structGlyph.html#af5c62b10c801db6ea7e00b31b8ac4e89',1,'Glyph']]],
+  ['ascent_753',['ascent',['../structFont.html#afd77a2969e4d9489f1d6a81e130332c7',1,'Font']]],
+  ['audio_754',['Audio',['../classEngine.html#a338890c036c409c8d7c205601e186a13',1,'Engine']]],
+  ['audio_5fengine_755',['audio_engine',['../engine_8cpp.html#a5d35f1c9963920ee5b646c65b714d22a',1,'audio_engine():&#160;engine.cpp'],['../engine_8h.html#a5d35f1c9963920ee5b646c65b714d22a',1,'audio_engine():&#160;engine.cpp']]],
+  ['audios_756',['audios',['../ember__audio_8h.html#ae1db9c19c96067611f810483e896e8eb',1,'ember_audio.h']]],
+  ['axis_5fvalues_757',['axis_values',['../structGamepadInfo.html#a9c4a5c8a63454b9d14fda17c11364a4a',1,'GamepadInfo']]]
 ];

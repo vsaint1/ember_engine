@@ -1,18 +1,15 @@
 var searchData=
 [
-  ['sdl_5fvfs_5fonclose_453',['sdl_vfs_onClose',['../file__system_8cpp.html#a986fa403871dd79b006f37d476d2843e',1,'file_system.cpp']]],
-  ['sdl_5fvfs_5fonopen_454',['sdl_vfs_onOpen',['../file__system_8cpp.html#a52362a1eedcff14e29433735558bec02',1,'file_system.cpp']]],
-  ['sdl_5fvfs_5fonread_455',['sdl_vfs_onRead',['../file__system_8cpp.html#a58b62b73182fd79610a0c858c7937ebb',1,'file_system.cpp']]],
-  ['sdl_5fvfs_5fonseek_456',['sdl_vfs_onSeek',['../file__system_8cpp.html#ab6759c695afc2ec5154b1ecd2a366fd9',1,'file_system.cpp']]],
-  ['sdl_5fvfs_5fontell_457',['sdl_vfs_onTell',['../file__system_8cpp.html#aae805ea7a70f6697ec8dc15d060c6165',1,'file_system.cpp']]],
-  ['setcontext_458',['SetContext',['../classOpenglRenderer.html#a6eb4fd2a2281c0114f220708ccc69ef3',1,'OpenglRenderer::SetContext()'],['../classRenderer.html#a853c46a4aa1500e2950eb78a9d90c0e4',1,'Renderer::SetContext()']]],
-  ['setloop_459',['SetLoop',['../classAudio.html#a7327118a322dfc7880074dabf23ef3a0',1,'Audio']]],
-  ['setmaxfps_460',['SetMaxFps',['../classTimeManager.html#acd125083ca801a4c45fed14ab67eb86c',1,'TimeManager']]],
-  ['settextinputactive_461',['SetTextInputActive',['../classInputManager.html#ab2569b5c6d4ea35386c249ece85cc155',1,'InputManager']]],
-  ['setvalue_462',['SetValue',['../classShader.html#ab10d7b14b57d07a0f9be6beb8535a48a',1,'Shader::SetValue()'],['../classOpenglShader.html#a3814658de34402ec358c6aaff5e76c78',1,'OpenglShader::SetValue()'],['../classShader.html#accb4410864e6763073a43e6cf2845de7',1,'Shader::SetValue()'],['../classOpenglShader.html#a13f7bc8f30a19c95cc414b27330e2b45',1,'OpenglShader::SetValue()'],['../classShader.html#acc206f22140457aeb60a125ccbdf91c4',1,'Shader::SetValue(const std::string &amp;name, glm::vec3 value)=0'],['../classShader.html#a1b9bb481660ef8e52a878027350c82b7',1,'Shader::SetValue(const std::string &amp;name, glm::vec2 value)=0'],['../classShader.html#a7bfd146656d3b66104eb262d6618b48e',1,'Shader::SetValue(const std::string &amp;name, glm::mat4 value)=0'],['../classShader.html#ac0d97392bc7ca070ce700d6f1db2d0b4',1,'Shader::SetValue(const std::string &amp;name, int value)=0'],['../classShader.html#aa134b55ce3e93862c75ea73e54977cbe',1,'Shader::SetValue(const std::string &amp;name, float value)=0'],['../classOpenglShader.html#aeee26fc5337f07cfef54f260eacbc5e4',1,'OpenglShader::SetValue(const std::string &amp;name, glm::vec4 value) override'],['../classOpenglShader.html#a7b5ebe13bd920926007ddd885deffc31',1,'OpenglShader::SetValue(const std::string &amp;name, glm::vec3 value) override'],['../classOpenglShader.html#a784633d2cbce1db3afff1c789a3ee402',1,'OpenglShader::SetValue(const std::string &amp;name, glm::vec2 value) override'],['../classOpenglShader.html#ae5cc191185b8c32a443c160081c423c9',1,'OpenglShader::SetValue(const std::string &amp;name, glm::mat4 value) override'],['../classOpenglShader.html#a6bbfbd5354c2f8ccd80eeb94f9e2ddd3',1,'OpenglShader::SetValue(const std::string &amp;name, unsigned int value) override']]],
-  ['setvolume_463',['SetVolume',['../classAudio.html#aae809b99c30252ec6874e500deb20370',1,'Audio']]],
-  ['setzoom_464',['SetZoom',['../structCamera2D.html#a2dacc853f7361a368c53571932c5bee1',1,'Camera2D']]],
-  ['shader_465',['Shader',['../classShader.html#aedc63e240e965b496f246ffc214918b4',1,'Shader']]],
-  ['shutdown_466',['Shutdown',['../classEngine.html#a3dbd2c0a65e642baa7eaa97caa6e4e64',1,'Engine']]],
-  ['start_467',['Start',['../classLogger.html#a427892a216db2d80c385bb9b7157ae0d',1,'Logger']]]
+  ['parse_5fbbcode_669',['parse_bbcode',['../structTextToken.html#a24aff607f2c3cf95d8f1d9f0ab46117a',1,'TextToken']]],
+  ['pause_670',['pause',['../classAudio.html#a82c1018cf778eccc8819acfb64be53b2',1,'Audio::pause()'],['../classTimeManager.html#a62001ea2355c65a4c05732fd0119a246',1,'TimeManager::pause()']]],
+  ['platform_5fexpert_671',['platform_expert',['../system__info__macos_8mm.html#a4ab608d603a167ed8bc4371232b26825',1,'system_info_macos.mm']]],
+  ['platform_5fname_672',['platform_name',['../classSystemInfo.html#a109820c1c60bce99bf042bf93c0413ed',1,'SystemInfo']]],
+  ['play_673',['play',['../classAudio.html#a82eddf99ea3a9cf3adb1130683789bf8',1,'Audio']]],
+  ['polygon2d_674',['Polygon2D',['../classPolygon2D.html#a3bff7478e1d64b83cca5d6202fce8727',1,'Polygon2D']]],
+  ['position_5fin_5frect_675',['position_in_rect',['../classInputManager.html#a82cbe11eabe8a11d95c1a83d3ca5f2b5',1,'InputManager']]],
+  ['print_5fdebug_5finfo_676',['print_debug_info',['../classInputManager.html#a373c50f29981d99a75aeaa7bd9451ef9',1,'InputManager::print_debug_info()'],['../classTimeManager.html#aa8c45a6350a5085bd340e8941ceb7694',1,'TimeManager::print_debug_info()']]],
+  ['print_5ftree_677',['print_tree',['../classNode2D.html#a4769b1a0d802ab30b09bef19d6b27042',1,'Node2D']]],
+  ['process_678',['process',['../classCircle2D.html#a3ed2627813932697cf174e2585f3d511',1,'Circle2D::process()'],['../classLabel.html#acfc9c24dd61a72b8ee673eac6b3e21c2',1,'Label::process()'],['../classNode2D.html#a528c5eed5c16fcc38cbb7cdc3f6a2a01',1,'Node2D::process()'],['../classPolygon2D.html#a10864c43d1679d0bbb4343954f88889b',1,'Polygon2D::process()'],['../classSprite2D.html#a83a7a9de130cd9fa1f99f89b568572e3',1,'Sprite2D::process()']]],
+  ['process_5fevent_679',['process_event',['../classTextInputManager.html#aa8e4be56f04885ec680fb042a7a87e2c',1,'TextInputManager::process_event()'],['../classInputManager.html#ad4955c05fa6c39c09d7fffb67ed9f696',1,'InputManager::process_event()']]],
+  ['push_680',['push',['../classLogger.html#a0ed55f920595b395769a210d22a917ef',1,'Logger']]]
 ];

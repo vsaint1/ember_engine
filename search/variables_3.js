@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['data_497',['data',['../classEngine.html#aacbde3542aa95bce4858e126bb6ae0dd',1,'Engine']]],
-  ['default_5fshader_498',['default_shader',['../classOpenglRenderer.html#a88aae526a3e9eb36e04abdcacbf6777d',1,'OpenglRenderer']]],
-  ['descent_499',['descent',['../structFont.html#a0c7a200af8019ee496d0023081ad2e29',1,'Font']]],
-  ['device_5fid_500',['device_id',['../classEngine.html#a59945ebcf2f4ca201b55d5dee9929e7b',1,'Engine']]],
-  ['duration_501',['duration',['../classAudio.html#a5512ded0620adc4bbfcc20d7e9bd969a',1,'Audio']]]
+  ['color_769',['Color',['../structVertex.html#a78e2a1125e20f9798778611cdfe61690',1,'Vertex']]],
+  ['color_770',['color',['../classUberShader.html#af1889bb65ae99352061f0373725587b6',1,'UberShader::color()'],['../structTextToken.html#a55c048137763bab6a91278d5b667bada',1,'TextToken::color()']]],
+  ['controller_771',['controller',['../structGamepadInfo.html#a695ffa1382bcfa28a8e2adf194ba95d0',1,'GamepadInfo']]],
+  ['cyan_772',['CYAN',['../structColor.html#adeaa1974140f586f6c1cc9b4e90bf210',1,'Color']]]
 ];

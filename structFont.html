@@ -72,35 +72,42 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="structFont.html" title="Font struct.">Font</a> struct.  
+ <a href="structFont.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="engine__structs_8h_source.html">engine_structs.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad947b7c8efba48a8df3c9d3b6869a761"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#ad947b7c8efba48a8df3c9d3b6869a761">IsValid</a> () const</td></tr>
-<tr class="separator:ad947b7c8efba48a8df3c9d3b6869a761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab26ee2f182e93054b00b293f7b39c709"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#ab26ee2f182e93054b00b293f7b39c709">is_valid</a> () const</td></tr>
+<tr class="separator:ab26ee2f182e93054b00b293f7b39c709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accd072a5d9e5f74d11bcfc2af3f6d2c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#accd072a5d9e5f74d11bcfc2af3f6d2c0">Font</a> ()=default</td></tr>
 <tr class="separator:accd072a5d9e5f74d11bcfc2af3f6d2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa6d51712aa2d4cc8a6b6fb89da2366c1"><td class="memItemLeft" align="right" valign="top">std::map&lt; char, <a class="el" href="structGlyph.html">Glyph</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#aa6d51712aa2d4cc8a6b6fb89da2366c1">glyphs</a> {}</td></tr>
-<tr class="separator:aa6d51712aa2d4cc8a6b6fb89da2366c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96958b7ef23bc787311815a947af941e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imports_8h.html#a2366c5c36bab06c82166f1f1fa9c86a7">HashMap</a>&lt; char, <a class="el" href="structGlyph.html">Glyph</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#a96958b7ef23bc787311815a947af941e">glyphs</a> {}</td></tr>
+<tr class="separator:a96958b7ef23bc787311815a947af941e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3cfba9174d52095c98bde67bad8d07f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTexture.html">Texture</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#ad3cfba9174d52095c98bde67bad8d07f">texture</a></td></tr>
 <tr class="separator:ad3cfba9174d52095c98bde67bad8d07f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4b750aca82ec62909f4e82a53810045"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#ad4b750aca82ec62909f4e82a53810045">font_size</a></td></tr>
+<tr class="memitem:ad4b750aca82ec62909f4e82a53810045"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#ad4b750aca82ec62909f4e82a53810045">font_size</a> = 16</td></tr>
 <tr class="separator:ad4b750aca82ec62909f4e82a53810045"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a5e4e456feb99569f8debeea83b3723"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#a5a5e4e456feb99569f8debeea83b3723">kerning</a> = 0.0f</td></tr>
 <tr class="separator:a5a5e4e456feb99569f8debeea83b3723"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd77a2969e4d9489f1d6a81e130332c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#afd77a2969e4d9489f1d6a81e130332c7">ascent</a></td></tr>
+<tr class="memitem:afd77a2969e4d9489f1d6a81e130332c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#afd77a2969e4d9489f1d6a81e130332c7">ascent</a> = 0</td></tr>
 <tr class="separator:afd77a2969e4d9489f1d6a81e130332c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c7a200af8019ee496d0023081ad2e29"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#a0c7a200af8019ee496d0023081ad2e29">descent</a></td></tr>
+<tr class="memitem:a0c7a200af8019ee496d0023081ad2e29"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#a0c7a200af8019ee496d0023081ad2e29">descent</a> = 0</td></tr>
 <tr class="separator:a0c7a200af8019ee496d0023081ad2e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa391fd08bc194e972a87997db975f9fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#aa391fd08bc194e972a87997db975f9fe">line_gap</a></td></tr>
+<tr class="memitem:aa391fd08bc194e972a87997db975f9fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#aa391fd08bc194e972a87997db975f9fe">line_gap</a> = 0</td></tr>
 <tr class="separator:aa391fd08bc194e972a87997db975f9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a344b272e0ec1ed3f9cf274f6cab801f6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#a344b272e0ec1ed3f9cf274f6cab801f6">scale</a></td></tr>
+<tr class="memitem:a344b272e0ec1ed3f9cf274f6cab801f6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFont.html#a344b272e0ec1ed3f9cf274f6cab801f6">scale</a> = 1.0f</td></tr>
 <tr class="separator:a344b272e0ec1ed3f9cf274f6cab801f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="structFont.html" title="Font struct.">Font</a> struct. </p>
+<p>TTF fonts</p>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="accd072a5d9e5f74d11bcfc2af3f6d2c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#accd072a5d9e5f74d11bcfc2af3f6d2c0">&#9670;&nbsp;</a></span>Font()</h2>
 
@@ -127,14 +134,14 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad947b7c8efba48a8df3c9d3b6869a761"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad947b7c8efba48a8df3c9d3b6869a761">&#9670;&nbsp;</a></span>IsValid()</h2>
+<a id="ab26ee2f182e93054b00b293f7b39c709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab26ee2f182e93054b00b293f7b39c709">&#9670;&nbsp;</a></span>is_valid()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Font::IsValid </td>
+          <td class="memname">bool Font::is_valid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -152,7 +159,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Font::ascent</td>
+          <td class="memname">int Font::ascent = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -166,7 +173,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Font::descent</td>
+          <td class="memname">int Font::descent = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -180,21 +187,21 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Font::font_size</td>
+          <td class="memname">int Font::font_size = 16</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aa6d51712aa2d4cc8a6b6fb89da2366c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6d51712aa2d4cc8a6b6fb89da2366c1">&#9670;&nbsp;</a></span>glyphs</h2>
+<a id="a96958b7ef23bc787311815a947af941e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96958b7ef23bc787311815a947af941e">&#9670;&nbsp;</a></span>glyphs</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;char, <a class="el" href="structGlyph.html">Glyph</a>&gt; Font::glyphs {}</td>
+          <td class="memname"><a class="el" href="imports_8h.html#a2366c5c36bab06c82166f1f1fa9c86a7">HashMap</a>&lt;char, <a class="el" href="structGlyph.html">Glyph</a>&gt; Font::glyphs {}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -222,7 +229,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Font::line_gap</td>
+          <td class="memname">int Font::line_gap = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -236,7 +243,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Font::scale</td>
+          <td class="memname">float Font::scale = 1.0f</td>
         </tr>
       </table>
 </div><div class="memdoc">

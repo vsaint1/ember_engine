@@ -77,15 +77,15 @@ $(function() {
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8e62d5d4f53d8e6edf8e36c4b52567e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8cpp.html#a8e62d5d4f53d8e6edf8e36c4b52567e9">InitAudio</a> ()</td></tr>
-<tr class="memdesc:a8e62d5d4f53d8e6edf8e36c4b52567e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Sound <a class="el" href="classEngine.html">Engine</a>.  <a href="ember__audio_8cpp.html#a8e62d5d4f53d8e6edf8e36c4b52567e9">More...</a><br /></td></tr>
-<tr class="separator:a8e62d5d4f53d8e6edf8e36c4b52567e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa410e52feab296fabf516bd83138d6aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8cpp.html#aa410e52feab296fabf516bd83138d6aa">init_audio_engine</a> ()</td></tr>
+<tr class="memdesc:aa410e52feab296fabf516bd83138d6aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Sound <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a>.  <a href="ember__audio_8cpp.html#aa410e52feab296fabf516bd83138d6aa">More...</a><br /></td></tr>
+<tr class="separator:aa410e52feab296fabf516bd83138d6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1190e686fc70f11718b37d33acdf84af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8cpp.html#a1190e686fc70f11718b37d33acdf84af">Audio_SetMasterVolume</a> (float volume)</td></tr>
 <tr class="memdesc:a1190e686fc70f11718b37d33acdf84af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the [audio engine] global volume.  <a href="ember__audio_8cpp.html#a1190e686fc70f11718b37d33acdf84af">More...</a><br /></td></tr>
 <tr class="separator:a1190e686fc70f11718b37d33acdf84af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a1171e6a1ac0bae09f6789d2da49c53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8cpp.html#a3a1171e6a1ac0bae09f6789d2da49c53">CloseAudio</a> ()</td></tr>
-<tr class="memdesc:a3a1171e6a1ac0bae09f6789d2da49c53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close Sound <a class="el" href="classEngine.html">Engine</a> and free allocated resources.  <a href="ember__audio_8cpp.html#a3a1171e6a1ac0bae09f6789d2da49c53">More...</a><br /></td></tr>
-<tr class="separator:a3a1171e6a1ac0bae09f6789d2da49c53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae97aed854b525ebaee38bf977a7456cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8cpp.html#ae97aed854b525ebaee38bf977a7456cf">close_audio_engine</a> ()</td></tr>
+<tr class="memdesc:ae97aed854b525ebaee38bf977a7456cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close Sound <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> and free allocated resources.  <a href="ember__audio_8cpp.html#ae97aed854b525ebaee38bf977a7456cf">More...</a><br /></td></tr>
+<tr class="separator:ae97aed854b525ebaee38bf977a7456cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a1190e686fc70f11718b37d33acdf84af"></a>
@@ -119,14 +119,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3a1171e6a1ac0bae09f6789d2da49c53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a1171e6a1ac0bae09f6789d2da49c53">&#9670;&nbsp;</a></span>CloseAudio()</h2>
+<a id="ae97aed854b525ebaee38bf977a7456cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae97aed854b525ebaee38bf977a7456cf">&#9670;&nbsp;</a></span>close_audio_engine()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CloseAudio </td>
+          <td class="memname">void close_audio_engine </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -134,20 +134,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Close Sound <a class="el" href="classEngine.html">Engine</a> and free allocated resources. </p>
+<p>Close Sound <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> and free allocated resources. </p>
 <dl class="section version"><dt>Version</dt><dd>0.0.3 </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
-<a id="a8e62d5d4f53d8e6edf8e36c4b52567e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e62d5d4f53d8e6edf8e36c4b52567e9">&#9670;&nbsp;</a></span>InitAudio()</h2>
+<a id="aa410e52feab296fabf516bd83138d6aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa410e52feab296fabf516bd83138d6aa">&#9670;&nbsp;</a></span>init_audio_engine()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool InitAudio </td>
+          <td class="memname">bool init_audio_engine </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -155,7 +155,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize Sound <a class="el" href="classEngine.html">Engine</a>. </p>
+<p>Initialize Sound <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a>. </p>
 <ul>
 <li>mini-audio backend</li>
 </ul>

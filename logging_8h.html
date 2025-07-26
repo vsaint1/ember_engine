@@ -89,7 +89,7 @@ Macros</h2></td></tr>
 <tr class="separator:a6df1d22fb5f09eccc23b9f399670cfd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa49b6a1041bf80c96599056af0bc5b4a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging_8h.html#aa49b6a1041bf80c96599056af0bc5b4a">TO_STRING</a>(x)&#160;&#160;&#160;<a class="el" href="logging_8h.html#a6df1d22fb5f09eccc23b9f399670cfd7">STRINGIFY</a>(x)</td></tr>
 <tr class="separator:aa49b6a1041bf80c96599056af0bc5b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad81fedf305a67bf04cfc2ea287fe2370"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a>&#160;&#160;&#160;&quot;[&quot; __TIME__ &quot;]&quot; &quot;[EMBER_ENGINE - &quot; __FILE__ &quot;:&quot; <a class="el" href="logging_8h.html#aa49b6a1041bf80c96599056af0bc5b4a">TO_STRING</a>(__LINE__)&quot;] - &quot;</td></tr>
+<tr class="memitem:ad81fedf305a67bf04cfc2ea287fe2370"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a></td></tr>
 <tr class="separator:ad81fedf305a67bf04cfc2ea287fe2370"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4a9117ce894e3319e903142347a0f63"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="logging_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(...)</td></tr>
 <tr class="memdesc:ad4a9117ce894e3319e903142347a0f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">ERROR logging.  <a href="logging_8h.html#ad4a9117ce894e3319e903142347a0f63">More...</a><br /></td></tr>
@@ -218,11 +218,11 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span> {                                                                  \</div>
 <div class="line">        char buffer[1024];                                                \</div>
 <div class="line">        SDL_snprintf(buffer, <span class="keyword">sizeof</span>(buffer), <a class="code" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a> __VA_ARGS__); \</div>
-<div class="line">        SDL_LogCritical(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);      <a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">\</a></div>
-<div class="line"><a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">        Logger::Get</a>().<a class="code" href="classLogger.html#ab637249ad3a374f153169761ef9b2398">Push</a>(buffer);                                        \</div>
+<div class="line">        SDL_LogCritical(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);      <a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">\</a></div>
+<div class="line"><a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">        Logger::get_instance</a>().<a class="code" href="classLogger.html#a0ed55f920595b395769a210d22a917ef">push</a>(buffer);                              \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
-<div class="ttc" id="aclassLogger_html_ab637249ad3a374f153169761ef9b2398"><div class="ttname"><a href="classLogger.html#ab637249ad3a374f153169761ef9b2398">Logger::Push</a></div><div class="ttdeci">void Push(const std::string &amp;formatted_log)</div><div class="ttdef"><b>Definition:</b> logging.cpp:19</div></div>
-<div class="ttc" id="aclassLogger_html_ace5bdf3b8cf9986ae5773ab646c29290"><div class="ttname"><a href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">Logger::Get</a></div><div class="ttdeci">static Logger &amp; Get()</div><div class="ttdef"><b>Definition:</b> logging.h:28</div></div>
+<div class="ttc" id="aclassLogger_html_a0a977184f901136049f2da50ad0c0881"><div class="ttname"><a href="classLogger.html#a0a977184f901136049f2da50ad0c0881">Logger::get_instance</a></div><div class="ttdeci">static Logger &amp; get_instance()</div><div class="ttdef"><b>Definition:</b> logging.cpp:4</div></div>
+<div class="ttc" id="aclassLogger_html_a0ed55f920595b395769a210d22a917ef"><div class="ttname"><a href="classLogger.html#a0ed55f920595b395769a210d22a917ef">Logger::push</a></div><div class="ttdeci">void push(const std::string &amp;formatted_log)</div><div class="ttdef"><b>Definition:</b> logging.cpp:25</div></div>
 <div class="ttc" id="alogging_8h_html_ad81fedf305a67bf04cfc2ea287fe2370"><div class="ttname"><a href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a></div><div class="ttdeci">#define TRACE_FILE_LOG</div><div class="ttdef"><b>Definition:</b> logging.h:7</div></div>
 </div><!-- fragment -->
 <p>CRITICAL logging. </p>
@@ -255,8 +255,8 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span> {                                                                  \</div>
 <div class="line">        char buffer[1024];                                                \</div>
 <div class="line">        SDL_snprintf(buffer, <span class="keyword">sizeof</span>(buffer), <a class="code" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a> __VA_ARGS__); \</div>
-<div class="line">        SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);         <a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">\</a></div>
-<div class="line"><a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">        Logger::Get</a>().<a class="code" href="classLogger.html#ab637249ad3a374f153169761ef9b2398">Push</a>(buffer);                                        \</div>
+<div class="line">        SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);         <a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">\</a></div>
+<div class="line"><a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">        Logger::get_instance</a>().<a class="code" href="classLogger.html#a0ed55f920595b395769a210d22a917ef">push</a>(buffer);                              \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->
 <p>DEBUG logging. </p>
@@ -289,8 +289,8 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span> {                                                                  \</div>
 <div class="line">        char buffer[1024];                                                \</div>
 <div class="line">        SDL_snprintf(buffer, <span class="keyword">sizeof</span>(buffer), <a class="code" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a> __VA_ARGS__); \</div>
-<div class="line">        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);         <a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">\</a></div>
-<div class="line"><a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">        Logger::Get</a>().<a class="code" href="classLogger.html#ab637249ad3a374f153169761ef9b2398">Push</a>(buffer);                                        \</div>
+<div class="line">        SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);         <a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">\</a></div>
+<div class="line"><a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">        Logger::get_instance</a>().<a class="code" href="classLogger.html#a0ed55f920595b395769a210d22a917ef">push</a>(buffer);                              \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->
 <p>ERROR logging. </p>
@@ -323,8 +323,8 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span> {                                                                  \</div>
 <div class="line">        char buffer[1024];                                                \</div>
 <div class="line">        SDL_snprintf(buffer, <span class="keyword">sizeof</span>(buffer), <a class="code" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a> __VA_ARGS__); \</div>
-<div class="line">        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);          <a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">\</a></div>
-<div class="line"><a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">        Logger::Get</a>().<a class="code" href="classLogger.html#ab637249ad3a374f153169761ef9b2398">Push</a>(buffer);                                        \</div>
+<div class="line">        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);          <a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">\</a></div>
+<div class="line"><a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">        Logger::get_instance</a>().<a class="code" href="classLogger.html#a0ed55f920595b395769a210d22a917ef">push</a>(buffer);                              \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->
 <p>INFO logging. </p>
@@ -389,8 +389,8 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span> {                                                                  \</div>
 <div class="line">        char buffer[1024];                                                \</div>
 <div class="line">        SDL_snprintf(buffer, <span class="keyword">sizeof</span>(buffer), <a class="code" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a> __VA_ARGS__); \</div>
-<div class="line">        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);          <a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">\</a></div>
-<div class="line"><a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">        Logger::Get</a>().<a class="code" href="classLogger.html#ab637249ad3a374f153169761ef9b2398">Push</a>(buffer);                                        \</div>
+<div class="line">        SDL_LogInfo(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);          <a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">\</a></div>
+<div class="line"><a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">        Logger::get_instance</a>().<a class="code" href="classLogger.html#a0ed55f920595b395769a210d22a917ef">push</a>(buffer);                              \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->
 <p>TRACING logging. </p>
@@ -423,8 +423,8 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span> {                                                                  \</div>
 <div class="line">        char buffer[1024];                                                \</div>
 <div class="line">        SDL_snprintf(buffer, <span class="keyword">sizeof</span>(buffer), <a class="code" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a> __VA_ARGS__); \</div>
-<div class="line">        SDL_LogVerbose(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);       <a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">\</a></div>
-<div class="line"><a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">        Logger::Get</a>().<a class="code" href="classLogger.html#ab637249ad3a374f153169761ef9b2398">Push</a>(buffer);                                        \</div>
+<div class="line">        SDL_LogVerbose(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);       <a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">\</a></div>
+<div class="line"><a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">        Logger::get_instance</a>().<a class="code" href="classLogger.html#a0ed55f920595b395769a210d22a917ef">push</a>(buffer);                              \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->
 <p>VERBOSE logging. </p>
@@ -457,8 +457,8 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">    <span class="keywordflow">do</span> {                                                                  \</div>
 <div class="line">        char buffer[1024];                                                \</div>
 <div class="line">        SDL_snprintf(buffer, <span class="keyword">sizeof</span>(buffer), <a class="code" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">TRACE_FILE_LOG</a> __VA_ARGS__); \</div>
-<div class="line">        SDL_LogWarn(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);          <a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">\</a></div>
-<div class="line"><a class="code" href="classLogger.html#ace5bdf3b8cf9986ae5773ab646c29290">        Logger::Get</a>().<a class="code" href="classLogger.html#ab637249ad3a374f153169761ef9b2398">Push</a>(buffer);                                        \</div>
+<div class="line">        SDL_LogWarn(SDL_LOG_CATEGORY_APPLICATION, <span class="stringliteral">&quot;%s&quot;</span>, buffer);          <a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">\</a></div>
+<div class="line"><a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">        Logger::get_instance</a>().<a class="code" href="classLogger.html#a0ed55f920595b395769a210d22a917ef">push</a>(buffer);                              \</div>
 <div class="line">    } <span class="keywordflow">while</span> (0)</div>
 </div><!-- fragment -->
 <p>WARNING logging. </p>
@@ -516,11 +516,14 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TRACE_FILE_LOG&#160;&#160;&#160;&quot;[&quot; __TIME__ &quot;]&quot; &quot;[EMBER_ENGINE - &quot; __FILE__ &quot;:&quot; <a class="el" href="logging_8h.html#aa49b6a1041bf80c96599056af0bc5b4a">TO_STRING</a>(__LINE__)&quot;] - &quot;</td>
+          <td class="memname">#define TRACE_FILE_LOG</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">    <span class="stringliteral">&quot;[&quot;</span> __TIME__ <span class="stringliteral">&quot;]&quot;</span>   \</div>
+<div class="line">    <span class="stringliteral">&quot;[EMBER_ENGINE - &quot;</span> __FILE__ <span class="stringliteral">&quot;:&quot;</span> <a class="code" href="logging_8h.html#aa49b6a1041bf80c96599056af0bc5b4a">TO_STRING</a>(__LINE__) <span class="stringliteral">&quot;] - &quot;</span></div>
+<div class="ttc" id="alogging_8h_html_aa49b6a1041bf80c96599056af0bc5b4a"><div class="ttname"><a href="logging_8h.html#aa49b6a1041bf80c96599056af0bc5b4a">TO_STRING</a></div><div class="ttdeci">#define TO_STRING(x)</div><div class="ttdef"><b>Definition:</b> logging.h:6</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

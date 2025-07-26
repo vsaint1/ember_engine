@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['zoom_557',['zoom',['../structCamera2D.html#ac617e7e6d2ef6aa9df681b63d958d8ac',1,'Camera2D']]]
+  ['x_841',['x',['../structRect2.html#a23f661bb76dfc23dc7a82685f2db0751',1,'Rect2::x()'],['../structRecti.html#abbfc27ec497551a45e7b1e1f56c193d3',1,'Recti::x()']]],
+  ['x0_842',['x0',['../structGlyph.html#a19f632294f4f8921113c53184de5e7bc',1,'Glyph']]],
+  ['x1_843',['x1',['../structGlyph.html#ad489d338e37824a2d6ff3a3f38296493',1,'Glyph']]],
+  ['x_5foffset_844',['x_offset',['../structGlyph.html#a90862b2dcc202e94f2820bc6da512438',1,'Glyph']]]
 ];

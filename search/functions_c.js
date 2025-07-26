@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['renderer_449',['Renderer',['../classRenderer.html#a4dddd75ab18573a3686f90225f3f03d4',1,'Renderer']]],
-  ['resize_450',['Resize',['../structCamera2D.html#a69a45f73a59c995d0b6eb3bf705b19fe',1,'Camera2D::Resize()'],['../classRenderer.html#a289e600c144064514b9e80ad140a882c',1,'Renderer::Resize()'],['../classOpenglRenderer.html#af58799c6d4dc6e7ac95a95ba3a00ea8a',1,'OpenglRenderer::Resize()']]],
-  ['resizewindow_451',['ResizeWindow',['../classEngine.html#a40fe5e8f9cb5472f7f049d2e286d18df',1,'Engine']]],
-  ['resume_452',['Resume',['../classTimeManager.html#a6a00edea4405c3aa48cde96d9f7bc4a1',1,'TimeManager']]]
+  ['openglrenderer_665',['OpenglRenderer',['../classOpenglRenderer.html#a7297e6a2568a0b016f410c1f81660591',1,'OpenglRenderer']]],
+  ['openglshader_666',['OpenglShader',['../classOpenglShader.html#a132715157b25f962cefeea049cebf704',1,'OpenglShader::OpenglShader()=default'],['../classOpenglShader.html#a9fec79597562e998adedbdac566d843c',1,'OpenglShader::OpenglShader(const std::string &amp;vertex, const std::string &amp;fragment)']]],
+  ['operator_3d_667',['operator=',['../classAudio.html#a5276f858ae25a4cc3ef8ca82f345a230',1,'Audio::operator=()'],['../classSystemInfo.html#a167d992c65f2b877b3fd73eca9bb202b',1,'SystemInfo::operator=()']]],
+  ['operator_3d_3d_668',['operator==',['../structColor.html#ae4b5d5500c2ee028e3f7d92a4d098ee0',1,'Color']]]
 ];

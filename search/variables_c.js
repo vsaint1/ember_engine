@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['num_5fchannels_518',['NUM_CHANNELS',['../ember__audio_8h.html#a6784aa734e014cd74616cd622505cc94',1,'ember_audio.h']]]
+  ['line_5fgap_798',['line_gap',['../structFont.html#aa391fd08bc194e972a87997db975f9fe',1,'Font']]]
 ];

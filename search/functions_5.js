@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['fixedframerate_382',['FixedFrameRate',['../classTimeManager.html#af02a970a66bfa278d9d93a982f4400eb',1,'TimeManager']]],
-  ['flush_383',['Flush',['../classRenderer.html#a7000cde71fb1e0cb331911d50e7bb675',1,'Renderer::Flush()'],['../classOpenglRenderer.html#a6d8e15be18015a28146db5b5e924656b',1,'OpenglRenderer::Flush()']]],
-  ['flushtext_384',['FlushText',['../classRenderer.html#aacb5b567175ca3486d273ecdb521c864',1,'Renderer::FlushText()'],['../classOpenglRenderer.html#a4d1c013ea1ea0fbb4f6ce5d449ff0ff3',1,'OpenglRenderer::FlushText()']]],
-  ['font_385',['Font',['../structFont.html#accd072a5d9e5f74d11bcfc2af3f6d2c0',1,'Font']]]
+  ['end_5fdrawing_563',['end_drawing',['../classRenderer.html#aecf15bc185fc845bec860b7610347ea5',1,'Renderer::end_drawing()'],['../classOpenglRenderer.html#a2db29aef9ea354fb7da8244ba19e0c76',1,'OpenglRenderer::end_drawing()']]],
+  ['endcanvas_564',['EndCanvas',['../classRenderer.html#a96bfe763535a476a5adf61b50c434979',1,'Renderer::EndCanvas()'],['../classOpenglRenderer.html#a1d534bbe7a438a52544ec1b4c099c7ee',1,'OpenglRenderer::EndCanvas()']]]
 ];

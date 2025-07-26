@@ -84,6 +84,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html">Engine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> singleton.  <a href="classEngine.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -91,7 +92,7 @@ Enumerations</h2></td></tr>
 <tr class="memitem:ae9c668e3a273ce92b9f4e134d0cbd6ce"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a> { <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea4cd6ad65d345a77065fda71b3751ec24">OPENGL</a>
 , <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea1d94993b8bf3e32473e513152cfa1c68">METAL</a>
  }</td></tr>
-<tr class="memdesc:ae9c668e3a273ce92b9f4e134d0cbd6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backend <code>OpenGL</code> or <code>Metal</code>  <a href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">More...</a><br /></td></tr>
+<tr class="memdesc:ae9c668e3a273ce92b9f4e134d0cbd6ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Graphics backend type.  <a href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">More...</a><br /></td></tr>
 <tr class="separator:ae9c668e3a273ce92b9f4e134d0cbd6ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -114,23 +115,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Backend <code>OpenGL</code> or <code>Metal</code> </p>
+<p>Graphics backend type. </p>
+<p>Choose which backend to use.</p>
 <ul>
-<li>Choose the graphics backend Type: OpenGL <blockquote class="doxtable">
-<p>WEB: WebGL 3.0</p>
-<p></p>
-</blockquote>
-</li>
-<li>*</li>
-<li>DESKTOP: OpenGL 3.3 <blockquote class="doxtable">
-<p>MOBILE: OpenGLES 3.0 </p>
-</blockquote>
-Type: Metal <blockquote class="doxtable">
-<p>Apple Devices only </p>
-</blockquote>
-<dl class="section version"><dt>Version</dt><dd></dd></dl>
-0.0.1 </li>
+<li>Type: OpenGL<ul>
+<li>WEB: WebGL 3.0</li>
+<li>DESKTOP: OpenGL 3.3</li>
+<li>MOBILE: OpenGLES 3.0</li>
 </ul>
+</li>
+<li>Type: Metal<ul>
+<li>Apple devices only.</li>
+</ul>
+</li>
+</ul>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae9c668e3a273ce92b9f4e134d0cbd6cea4cd6ad65d345a77065fda71b3751ec24"></a>OPENGL&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ae9c668e3a273ce92b9f4e134d0cbd6cea1d94993b8bf3e32473e513152cfa1c68"></a>METAL&#160;</td><td class="fielddoc"></td></tr>

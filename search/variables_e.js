@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['pixel_5foffset_520',['pixel_offset',['../classShaderEffect.html#a937ade9e2456faddaf47c68956ea6878',1,'ShaderEffect']]],
-  ['position_521',['position',['../structTransform.html#aa357f8eb780f4ef195027d1c636baa36',1,'Transform::position()'],['../structTouchPoint.html#a17119c2e953166ea006c833020fd8e36',1,'TouchPoint::position()']]],
-  ['position_522',['Position',['../structTransform2D.html#a93ea97408a28ef14b9d51800fd41e972',1,'Transform2D::Position()'],['../structVertex.html#abb3cfacd96b5955b0cec9359840ee49f',1,'Vertex::Position()']]]
+  ['name_805',['name',['../structInputAction.html#afb42516c77bee01cbf9b1cab4819d745',1,'InputAction::name()'],['../structGamepadInfo.html#a183a969f7bf76833064def07cbdb6af1',1,'GamepadInfo::name()']]],
+  ['num_5fchannels_806',['NUM_CHANNELS',['../ember__audio_8h.html#a6784aa734e014cd74616cd622505cc94',1,'ember_audio.h']]]
 ];

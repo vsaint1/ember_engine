@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['calctextsize_359',['CalcTextSize',['../engine__structs_8cpp.html#a9855440efda073e8e55815ef3d1b94f8',1,'CalcTextSize(const std::string &amp;text, const Font &amp;font, float font_size):&#160;engine_structs.cpp'],['../engine__structs_8h.html#aac5df93579b081a5bf91ad44800b1e6c',1,'CalcTextSize(const std::string &amp;text, const Font &amp;font, float font_size=0.0f):&#160;engine_structs.cpp']]],
-  ['camera2d_360',['Camera2D',['../structCamera2D.html#a1d68c29b9e23a0db0c623e9643fa26dc',1,'Camera2D']]],
-  ['clearbackground_361',['ClearBackground',['../classRenderer.html#a2fd1dd3ac5d2d56a4de7b1392dc4a5ed',1,'Renderer::ClearBackground()'],['../classOpenglRenderer.html#aeb06046b6bab23c1989ffed4b9118790',1,'OpenglRenderer::ClearBackground()']]],
-  ['closeaudio_362',['CloseAudio',['../ember__audio_8cpp.html#a3a1171e6a1ac0bae09f6789d2da49c53',1,'CloseAudio():&#160;ember_audio.cpp'],['../ember__audio_8h.html#a3a1171e6a1ac0bae09f6789d2da49c53',1,'CloseAudio():&#160;ember_audio.cpp']]]
+  ['begin_5fdrawing_531',['begin_drawing',['../classRenderer.html#a26451a278d532a9ed48f68eb4aca7056',1,'Renderer::begin_drawing()'],['../classOpenglRenderer.html#a5e3e2bdc9e1b59a89c3d651b6d00c52d',1,'OpenglRenderer::begin_drawing()']]],
+  ['begincanvas_532',['BeginCanvas',['../classRenderer.html#a6928c290b4b66afa3d9727ad31b530f4',1,'Renderer::BeginCanvas()'],['../classOpenglRenderer.html#a4ff33912aae4acd0e6d89aca46e5ed99',1,'OpenglRenderer::BeginCanvas()']]],
+  ['bind_533',['Bind',['../classMesh.html#a8f574e21179fd5887544a90631d392b7',1,'Mesh']]],
+  ['bind_534',['bind',['../classOpenglShader.html#a9e0413afa829d022a02eb77fed359964',1,'OpenglShader::bind()'],['../classShader.html#a8c4f889bf8d82abeac4f93e4c33ff986',1,'Shader::bind()']]],
+  ['bind_5fgamepad_5fbutton_535',['bind_gamepad_button',['../structInputAction.html#af8b664653a0f7792f767eb647ee5e5b7',1,'InputAction']]],
+  ['bind_5fkey_536',['bind_key',['../structInputAction.html#aa89814f424f0a49958fe8feae4be994f',1,'InputAction']]],
+  ['bind_5fmouse_537',['bind_mouse',['../structInputAction.html#af38a4d25b2e89510afdcb56a3c543877',1,'InputAction']]]
 ];

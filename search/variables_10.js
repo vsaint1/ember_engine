@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['sample_5frate_527',['SAMPLE_RATE',['../ember__audio_8h.html#a07459f94c952522f2df6e9c3ab32c485',1,'ember_audio.h']]],
-  ['scale_528',['scale',['../structTransform.html#acf6ab53778448fd2f2d8a367c14e7f95',1,'Transform::scale()'],['../structFont.html#a344b272e0ec1ed3f9cf274f6cab801f6',1,'Font::scale()']]],
-  ['scale_529',['Scale',['../structTransform2D.html#ae525188caf5023daf38beb6a9de9855a',1,'Transform2D']]],
-  ['shadow_530',['Shadow',['../classShaderEffect.html#a7d522f53f7ec712909d40e6d1eb3591d',1,'ShaderEffect']]],
-  ['spec_531',['spec',['../classEngine.html#a35fc638a793a42354b716727ed026b4b',1,'Engine']]]
+  ['pixel_5foffset_808',['pixel_offset',['../classUberShader.html#a2a05aa46df1496a5c82304a7dcb35e9f',1,'UberShader']]],
+  ['position_809',['position',['../structTransform.html#ae8b9c43eb45a0391b0b312bb68831d3c',1,'Transform::position()'],['../structTouchPoint.html#a17119c2e953166ea006c833020fd8e36',1,'TouchPoint::position()']]],
+  ['position_810',['Position',['../structVertex.html#abb3cfacd96b5955b0cec9359840ee49f',1,'Vertex']]],
+  ['pressure_811',['pressure',['../structTouchPoint.html#a45bc7e5c3907e5b3efe2580e5c6e6d67',1,'TouchPoint']]],
+  ['prev_5fbutton_5fstates_812',['prev_button_states',['../structGamepadInfo.html#ae33a048f0f9f30438e1ebf17ea40a989',1,'GamepadInfo']]],
+  ['projection_813',['Projection',['../classOpenglRenderer.html#af1169ea1b1a94fbc37d356e276e36808',1,'OpenglRenderer']]]
 ];

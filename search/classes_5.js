@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['inputmanager_293',['InputManager',['../classInputManager.html',1,'']]]
+  ['inputaction_446',['InputAction',['../structInputAction.html',1,'']]],
+  ['inputmanager_447',['InputManager',['../classInputManager.html',1,'']]]
 ];

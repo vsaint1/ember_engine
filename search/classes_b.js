@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['sdl_5ffile_301',['SDL_File',['../structSDL__File.html',1,'']]],
-  ['shader_302',['Shader',['../classShader.html',1,'']]],
-  ['shadereffect_303',['ShaderEffect',['../classShaderEffect.html',1,'']]],
-  ['systeminfo_304',['SystemInfo',['../classSystemInfo.html',1,'']]]
+  ['rect2_455',['Rect2',['../structRect2.html',1,'']]],
+  ['recti_456',['Recti',['../structRecti.html',1,'']]],
+  ['renderer_457',['Renderer',['../classRenderer.html',1,'']]]
 ];
