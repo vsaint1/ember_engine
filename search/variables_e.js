@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['name_805',['name',['../structInputAction.html#afb42516c77bee01cbf9b1cab4819d745',1,'InputAction::name()'],['../structGamepadInfo.html#a183a969f7bf76833064def07cbdb6af1',1,'GamepadInfo::name()']]],
-  ['num_5fchannels_806',['NUM_CHANNELS',['../ember__audio_8h.html#a6784aa734e014cd74616cd622505cc94',1,'ember_audio.h']]]
+  ['outline_5fcolor_878',['outline_color',['../structUberShader.html#ac26bda96deca8b9b2809ca777bf830d0',1,'UberShader']]],
+  ['outline_5fwidth_879',['outline_width',['../structUberShader.html#ab150ebe4a2d54a0ca75f08e2e7bed0ec',1,'UberShader']]]
 ];

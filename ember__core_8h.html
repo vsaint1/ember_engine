@@ -68,18 +68,20 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">ember_core.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="camera_8h_source.html">core/component/camera.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="node_8h_source.html">core/component/node.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="sprite__node_8h_source.html">core/component/sprite_node.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="label_8h_source.html">core/component/label.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="text__parser_8h_source.html">core/text_parser.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="circle_8h_source.html">core/component/circle.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="label_8h_source.html">core/component/label.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="node_8h_source.html">core/component/node.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="polygon_8h_source.html">core/component/polygon.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sprite__node_8h_source.html">core/component/sprite_node.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="text__parser_8h_source.html">core/text_parser.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="mesh_8h_source.html">core/renderer/mesh.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="shader__gl_8h_source.html">core/renderer/opengl/shader_gl.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ember__audio_8h_source.html">core/audio/ember_audio.h</a>&quot;</code><br />
@@ -90,10 +92,87 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html">Renderer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classRenderer.html" title="Renderer interface.">Renderer</a> interface.  <a href="classRenderer.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structDrawCommand.html">DrawCommand</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a single rendering command.  <a href="structDrawCommand.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBatchKey.html">BatchKey</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to batch draw commands by shared properties.  <a href="structBatchKey.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structstd_1_1hash_3_01BatchKey_01_4.html">std::hash&lt; BatchKey &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structBatch.html">Batch</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A group of vertices and indices that can be rendered together.  <a href="structBatch.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html">Renderer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all renderers.  <a href="classRenderer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespacestd"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacestd.html">std</a></td></tr>
+<tr class="memdesc:namespacestd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hash function for <a class="el" href="structBatchKey.html" title="Used to batch draw commands by shared properties.">BatchKey</a> to use in unordered_map. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a4b4eec3cc4a3904bebbe0cea4dc56b65"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65">DrawCommandType</a> { <br />
+&#160;&#160;<a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65ab50339a10e1de285ac99d4c3990b8693">NONE</a>
+, <a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65a3f92f542bd9ec48f912b9350e22736ac">TEXTURE</a>
+, <a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65a61a96ffcb251bb9bf0abf8fec19d0ea8">TEXT</a>
+, <a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65a17b8ef2c330f1430e00c9de5469fc7e7">LINE</a>
+, <br />
+&#160;&#160;<a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65a1e946ce1b277d51ede97ffba9c3f1505">RECT</a>
+, <a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65a9bcd89070cae224dce305f5011659ef4">TRIANGLE</a>
+, <a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65a0af50777920c1401ab975cab64c4d491">CIRCLE</a>
+, <a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65aecdc92bf56d960b73b02ee40125758bc">POLYGON</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a4b4eec3cc4a3904bebbe0cea4dc56b65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Types of draw commands supported by the renderer.  <a href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65">More...</a><br /></td></tr>
+<tr class="separator:a4b4eec3cc4a3904bebbe0cea4dc56b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a4b4eec3cc4a3904bebbe0cea4dc56b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b4eec3cc4a3904bebbe0cea4dc56b65">&#9670;&nbsp;</a></span>DrawCommandType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65">DrawCommandType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Types of draw commands supported by the renderer. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4b4eec3cc4a3904bebbe0cea4dc56b65ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>No command. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b4eec3cc4a3904bebbe0cea4dc56b65a3f92f542bd9ec48f912b9350e22736ac"></a>TEXTURE&#160;</td><td class="fielddoc"><p>Draw textured quad. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b4eec3cc4a3904bebbe0cea4dc56b65a61a96ffcb251bb9bf0abf8fec19d0ea8"></a>TEXT&#160;</td><td class="fielddoc"><p>Draw text. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b4eec3cc4a3904bebbe0cea4dc56b65a17b8ef2c330f1430e00c9de5469fc7e7"></a>LINE&#160;</td><td class="fielddoc"><p>Draw line. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b4eec3cc4a3904bebbe0cea4dc56b65a1e946ce1b277d51ede97ffba9c3f1505"></a>RECT&#160;</td><td class="fielddoc"><p>Draw rectangle. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b4eec3cc4a3904bebbe0cea4dc56b65a9bcd89070cae224dce305f5011659ef4"></a>TRIANGLE&#160;</td><td class="fielddoc"><p>Draw triangle. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b4eec3cc4a3904bebbe0cea4dc56b65a0af50777920c1401ab975cab64c4d491"></a>CIRCLE&#160;</td><td class="fielddoc"><p>Draw circle. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4b4eec3cc4a3904bebbe0cea4dc56b65aecdc92bf56d960b73b02ee40125758bc"></a>POLYGON&#160;</td><td class="fielddoc"><p>Draw polygon. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

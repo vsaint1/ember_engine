@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['zoom_429',['zoom',['../structCamera2D.html#ac617e7e6d2ef6aa9df681b63d958d8ac',1,'Camera2D']]]
+  ['z_5findex_468',['z_index',['../structDrawCommand.html#a159e13d093f2211ac414829d973d7469',1,'DrawCommand::z_index()'],['../structBatchKey.html#ac2caee2346430e38727a7351273973c7',1,'BatchKey::z_index()'],['../structBatch.html#afa928c365fc563446537e1f43312858a',1,'Batch::z_index()']]],
+  ['zoom_469',['zoom',['../structCamera2D.html#ac617e7e6d2ef6aa9df681b63d958d8ac',1,'Camera2D']]]
 ];

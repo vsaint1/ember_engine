@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['node2d_451',['Node2D',['../classNode2D.html',1,'']]]
+  ['inputaction_494',['InputAction',['../structInputAction.html',1,'']]],
+  ['inputmanager_495',['InputManager',['../classInputManager.html',1,'']]]
 ];

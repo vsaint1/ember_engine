@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['text_5fformat_726',['text_format',['../ember__utils_8cpp.html#ac61dbff9569f975e61b9790832fd1c95',1,'text_format(const char *fmt,...):&#160;ember_utils.cpp'],['../ember__utils_8h.html#ac61dbff9569f975e61b9790832fd1c95',1,'text_format(const char *fmt,...):&#160;ember_utils.cpp']]],
-  ['texture_727',['Texture',['../structTexture.html#a66179be276016021e80b1c67c047d4ad',1,'Texture']]],
-  ['time_5fmanager_728',['time_manager',['../classEngine.html#a78f2e2cdca8ab90570623db5d41e1c16',1,'Engine']]],
-  ['timemanager_729',['TimeManager',['../classTimeManager.html#ab1c3cbb48ad68d928bb8b9a4ef210ed6',1,'TimeManager']]],
-  ['toggle_5fpause_730',['toggle_pause',['../classTimeManager.html#af33e3550ad51b540b1c72a416d36274c',1,'TimeManager']]],
-  ['touchpoint_731',['TouchPoint',['../structTouchPoint.html#a6a7296e137c9f079f32a9b10d822bc7e',1,'TouchPoint::TouchPoint()=default'],['../structTouchPoint.html#a86c814a9f347c01beb959d18b3ea0a15',1,'TouchPoint::TouchPoint(SDL_FingerID id, glm::vec2 pos, float press=1.0f)']]],
-  ['transform_5fpoint_732',['transform_point',['../structTransform.html#a5c8653ea8af195ad537122e11cdf3d27',1,'Transform']]],
-  ['translate_733',['translate',['../classNode2D.html#a666d1453503f4f453f3a5f10e7395969',1,'Node2D']]]
+  ['unload_5ffont_795',['unload_font',['../classRenderer.html#aff8e95e280c33cbd102e74a7b97412bd',1,'Renderer::unload_font()'],['../classOpenglRenderer.html#a436043f26ef3ef7b6f895ec90de242cd',1,'OpenglRenderer::unload_font()']]],
+  ['unload_5ftexture_796',['unload_texture',['../classRenderer.html#a0f219ff158e4757c5bb6cc839be5c0a7',1,'Renderer::unload_texture()'],['../classOpenglRenderer.html#a6467eb9f3fc279cf108542503a4c2d23',1,'OpenglRenderer::unload_texture()']]],
+  ['unregister_5faction_797',['unregister_action',['../classInputManager.html#a6bc3d244229fbe12f0a1b7d634299d9c',1,'InputManager']]],
+  ['update_798',['update',['../classInputManager.html#a136d6afa55ee74eeda5eb72e78e3ee97',1,'InputManager::update()'],['../classTimeManager.html#a97d902b19861efc099141eeb846671a3',1,'TimeManager::update()']]],
+  ['update_799',['Update',['../classMesh.html#a04822aa5c824a2940a80d292e9031ae7',1,'Mesh']]]
 ];

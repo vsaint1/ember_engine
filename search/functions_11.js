@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['unload_5ffont_734',['unload_font',['../classRenderer.html#aff8e95e280c33cbd102e74a7b97412bd',1,'Renderer::unload_font()'],['../classOpenglRenderer.html#a436043f26ef3ef7b6f895ec90de242cd',1,'OpenglRenderer::unload_font()']]],
-  ['unload_5ftexture_735',['unload_texture',['../classRenderer.html#ae6448e82a9e05cacde47f84a9842572d',1,'Renderer::unload_texture()'],['../classOpenglRenderer.html#ad46be490473b67f19106f1fe767059a7',1,'OpenglRenderer::unload_texture()']]],
-  ['unregister_5faction_736',['unregister_action',['../classInputManager.html#a6bc3d244229fbe12f0a1b7d634299d9c',1,'InputManager']]],
-  ['update_737',['update',['../classInputManager.html#a136d6afa55ee74eeda5eb72e78e3ee97',1,'InputManager::update()'],['../classTimeManager.html#a97d902b19861efc099141eeb846671a3',1,'TimeManager::update()']]],
-  ['update_738',['Update',['../classMesh.html#a04822aa5c824a2940a80d292e9031ae7',1,'Mesh']]]
+  ['_7egamepadinfo_800',['~GamepadInfo',['../structGamepadInfo.html#a4172d3f38c931f5ca1ae78b39754f5e1',1,'GamepadInfo']]],
+  ['_7einputmanager_801',['~InputManager',['../classInputManager.html#af518290877dd183606709d5852db5491',1,'InputManager']]],
+  ['_7emesh_802',['~Mesh',['../classMesh.html#a5efe4da1a4c0971cfb037bd70304c303',1,'Mesh']]],
+  ['_7enode2d_803',['~Node2D',['../classNode2D.html#ac366eae55e52580da5a323f511d1b6a6',1,'Node2D']]],
+  ['_7eopenglrenderer_804',['~OpenglRenderer',['../classOpenglRenderer.html#a88438fbc7e1c64566dfd842659b1adeb',1,'OpenglRenderer']]],
+  ['_7erenderer_805',['~Renderer',['../classRenderer.html#add2012f269f157754034e7b5475a8927',1,'Renderer']]],
+  ['_7eshader_806',['~Shader',['../classShader.html#a5875638f21a17c547bd38dac2d803738',1,'Shader']]],
+  ['_7etexture_807',['~Texture',['../structTexture.html#a09c4bcb7462f64c1d20fa69dba3cee8a',1,'Texture']]]
 ];

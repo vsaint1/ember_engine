@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['node2d_663',['Node2D',['../classNode2D.html#aebdba85c7c32594509a1cb52f49efdf0',1,'Node2D::Node2D()=default'],['../classNode2D.html#a94294a03fb66d73198cb7475bd4158e0',1,'Node2D::Node2D(std::string name)']]],
-  ['normalize_5fcolor_664',['normalize_color',['../structColor.html#ae29bf96af4db5cda3c69edeaa5f31613',1,'Color']]]
+  ['openglrenderer_718',['OpenglRenderer',['../classOpenglRenderer.html#a767467844cd0903b560b07c7e30c6712',1,'OpenglRenderer']]],
+  ['openglshader_719',['OpenglShader',['../classOpenglShader.html#a132715157b25f962cefeea049cebf704',1,'OpenglShader::OpenglShader()=default'],['../classOpenglShader.html#a9fec79597562e998adedbdac566d843c',1,'OpenglShader::OpenglShader(const std::string &amp;vertex, const std::string &amp;fragment)']]],
+  ['operator_28_29_720',['operator()',['../structstd_1_1hash_3_01BatchKey_01_4.html#acc5808156d9e62fe7360505fa9375152',1,'std::hash&lt; BatchKey &gt;']]],
+  ['operator_3d_721',['operator=',['../classAudio.html#a5276f858ae25a4cc3ef8ca82f345a230',1,'Audio::operator=()'],['../classSystemInfo.html#a167d992c65f2b877b3fd73eca9bb202b',1,'SystemInfo::operator=()']]],
+  ['operator_3d_3d_722',['operator==',['../structBatchKey.html#a5c7432364d471f45e83a414712e23fbb',1,'BatchKey::operator==()'],['../structColor.html#ae4b5d5500c2ee028e3f7d92a4d098ee0',1,'Color::operator==()']]],
+  ['outline_5fonly_723',['outline_only',['../structUberShader.html#aba738b139cca53d244409e0335e29782',1,'UberShader']]]
 ];

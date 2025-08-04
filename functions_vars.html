@@ -92,7 +92,8 @@ $(function() {
 : <a class="el" href="structTouchPoint.html#aba889ead71c677a307703128f29d8f4f">TouchPoint</a>
 </li>
 <li>advance
-: <a class="el" href="structGlyph.html#af5c62b10c801db6ea7e00b31b8ac4e89">Glyph</a>
+: <a class="el" href="structCharacter.html#a13643226cabd7805a2b99a6e135ba619">Character</a>
+, <a class="el" href="structGlyph.html#af5c62b10c801db6ea7e00b31b8ac4e89">Glyph</a>
 </li>
 <li>ascent
 : <a class="el" href="structFont.html#afd77a2969e4d9489f1d6a81e130332c7">Font</a>
@@ -113,11 +114,17 @@ $(function() {
 <li>base
 : <a class="el" href="structEmber__VFS.html#a5929e4226c5ab5f0015fe96439029744">Ember_VFS</a>
 </li>
+<li>batches
+: <a class="el" href="classRenderer.html#a73acc2b6a3fc51f18bff4e35858e5b5f">Renderer</a>
+</li>
 <li>bbHeight
 : <a class="el" href="classEngine.html#a8c8f1275c5bbd0a453170818a345ee1f">Engine</a>
 </li>
 <li>bbWidth
 : <a class="el" href="classEngine.html#a41c41497b93063cecb4e0c5468992395">Engine</a>
+</li>
+<li>bearing
+: <a class="el" href="structCharacter.html#ab0092bda8aab79cbc13f1b8cde4bc9ce">Character</a>
 </li>
 <li>bFullscreen
 : <a class="el" href="classEngine.html#afddd0eae002eb955f731047a9efc819a">Engine</a>
@@ -141,15 +148,27 @@ $(function() {
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
-<li>color
-: <a class="el" href="structTextToken.html#a55c048137763bab6a91278d5b667bada">TextToken</a>
-, <a class="el" href="classUberShader.html#af1889bb65ae99352061f0373725587b6">UberShader</a>
+<li>ch
+: <a class="el" href="structCharData.html#aad38c8f3e51c91342de9e63260a65607">CharData</a>
 </li>
-<li>Color
-: <a class="el" href="structVertex.html#a78e2a1125e20f9798778611cdfe61690">Vertex</a>
+<li>characters
+: <a class="el" href="structFont.html#ac4be639bc0470d0560ea041de3391bd0">Font</a>
+</li>
+<li>circle_segments
+: <a class="el" href="structDrawCommand.html#a28c32a1434c8ff50e44240b72458440c">DrawCommand</a>
+</li>
+<li>color
+: <a class="el" href="structTextToken.html#a87cd1f1f7d586cb2d5229414e2b1f061">TextToken</a>
+, <a class="el" href="structVertex.html#aa7ecd21578677765699b8831e0011696">Vertex</a>
+</li>
+<li>commands
+: <a class="el" href="classRenderer.html#a75d64d36a6052852a621bf711047be1d">Renderer</a>
 </li>
 <li>controller
 : <a class="el" href="structGamepadInfo.html#a695ffa1382bcfa28a8e2adf194ba95d0">GamepadInfo</a>
+</li>
+<li>current_font_name
+: <a class="el" href="classRenderer.html#aa7478704cf35ced8cb84e70d67aab4d0">Renderer</a>
 </li>
 <li>CYAN
 : <a class="el" href="structColor.html#adeaa1974140f586f6c1cc9b4e90bf210">Color</a>
@@ -176,19 +195,21 @@ $(function() {
 </ul>
 
 
-<h3><a id="index_e"></a>- e -</h3><ul>
-<li>enabled
-: <a class="el" href="classUberShader.html#a94d827c41a98d926d7ce05cefeeefd4c">UberShader</a>
-</li>
-</ul>
-
-
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>finger_id
 : <a class="el" href="structTouchPoint.html#adb990aadb591d6132d8c803896d5fe84">TouchPoint</a>
 </li>
+<li>font_path
+: <a class="el" href="structFont.html#a4e22de498a136329ce42c3e35e65e4c4">Font</a>
+</li>
 <li>font_size
 : <a class="el" href="structFont.html#ad4b750aca82ec62909f4e82a53810045">Font</a>
+</li>
+<li>fonts
+: <a class="el" href="classRenderer.html#a151e7cf7ab7624d61fdc3c521cbd9117">Renderer</a>
+</li>
+<li>ft
+: <a class="el" href="classRenderer.html#a7b342edcb2f56fa252ef2a35d5a92248">Renderer</a>
 </li>
 </ul>
 
@@ -203,12 +224,6 @@ $(function() {
 <li>global_volume
 : <a class="el" href="classEngine.html#a28afc935726e90694cd46b9c9d889f32">Engine</a>
 </li>
-<li>Glow
-: <a class="el" href="classUberShader.html#a328cf5aa15a3caf8d0e33f9cea798598">UberShader</a>
-</li>
-<li>glyphs
-: <a class="el" href="structFont.html#a96958b7ef23bc787311815a947af941e">Font</a>
-</li>
 <li>GREEN
 : <a class="el" href="structColor.html#a1995c0ef6be986e023c4a79392d6d6d9">Color</a>
 </li>
@@ -217,7 +232,8 @@ $(function() {
 
 <h3><a id="index_h"></a>- h -</h3><ul>
 <li>h
-: <a class="el" href="structGlyph.html#aab452d115227ff478399d40f23102b31">Glyph</a>
+: <a class="el" href="structCharData.html#a38aebfb52a564eefc645ad817671abe1">CharData</a>
+, <a class="el" href="structGlyph.html#aab452d115227ff478399d40f23102b31">Glyph</a>
 </li>
 <li>handle
 : <a class="el" href="classEngine.html#a5516bc1c263276167b77dc9c6816bb1c">Engine</a>
@@ -235,7 +251,11 @@ $(function() {
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>id
 : <a class="el" href="classShader.html#af3eee7628d291077cfa66dcc83df83a2">Shader</a>
-, <a class="el" href="structTexture.html#aed42161a5c00b6020c85833401da6da6">Texture</a>
+, <a class="el" href="structTexture.html#a740c0bee630ec079fb58d379e021f839">Texture</a>
+</li>
+<li>indices
+: <a class="el" href="structBatch.html#a83d53497768b06f4345821abe1ece2c4">Batch</a>
+, <a class="el" href="structDrawCommand.html#afa0fbf2f0cbb082d982c17c4542f52a4">DrawCommand</a>
 </li>
 <li>instance_id
 : <a class="el" href="structGamepadInfo.html#a95aa989346455f8cdd3a8c15c709fce2">GamepadInfo</a>
@@ -270,6 +290,9 @@ $(function() {
 <li>line_gap
 : <a class="el" href="structFont.html#aa391fd08bc194e972a87997db975f9fe">Font</a>
 </li>
+<li>line_width
+: <a class="el" href="structDrawCommand.html#adfa0ec71dbb2c68406b8524c966c70ac">DrawCommand</a>
+</li>
 </ul>
 
 
@@ -292,22 +315,23 @@ $(function() {
 
 
 <h3><a id="index_o"></a>- o -</h3><ul>
-<li>Outline
-: <a class="el" href="classUberShader.html#a4b8310e208a752e6598c5788eb68dbde">UberShader</a>
+<li>outline_color
+: <a class="el" href="structUberShader.html#ac26bda96deca8b9b2809ca777bf830d0">UberShader</a>
+</li>
+<li>outline_width
+: <a class="el" href="structUberShader.html#ab150ebe4a2d54a0ca75f08e2e7bed0ec">UberShader</a>
 </li>
 </ul>
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
-<li>pixel_offset
-: <a class="el" href="classUberShader.html#a2a05aa46df1496a5c82304a7dcb35e9f">UberShader</a>
+<li>path
+: <a class="el" href="structTexture.html#aa8ba4ade408b0df1fc9b6f605a4efd22">Texture</a>
 </li>
 <li>position
 : <a class="el" href="structTouchPoint.html#a17119c2e953166ea006c833020fd8e36">TouchPoint</a>
 , <a class="el" href="structTransform.html#ae8b9c43eb45a0391b0b312bb68831d3c">Transform</a>
-</li>
-<li>Position
-: <a class="el" href="structVertex.html#abb3cfacd96b5955b0cec9359840ee49f">Vertex</a>
+, <a class="el" href="structVertex.html#a5efee132fdc7e4f47cba4dc51713d12a">Vertex</a>
 </li>
 <li>pressure
 : <a class="el" href="structTouchPoint.html#a45bc7e5c3907e5b3efe2580e5c6e6d67">TouchPoint</a>
@@ -315,8 +339,8 @@ $(function() {
 <li>prev_button_states
 : <a class="el" href="structGamepadInfo.html#ae33a048f0f9f30438e1ebf17ea40a989">GamepadInfo</a>
 </li>
-<li>Projection
-: <a class="el" href="classOpenglRenderer.html#af1169ea1b1a94fbc37d356e276e36808">OpenglRenderer</a>
+<li>projection
+: <a class="el" href="classRenderer.html#ad1f57db8d71b62f12a65373d2f263e78">Renderer</a>
 </li>
 </ul>
 
@@ -339,8 +363,14 @@ $(function() {
 : <a class="el" href="structFont.html#a344b272e0ec1ed3f9cf274f6cab801f6">Font</a>
 , <a class="el" href="structTransform.html#a022d11e8d5c86e142e721d7acf16c314">Transform</a>
 </li>
-<li>Shadow
-: <a class="el" href="classUberShader.html#a5e7175f6da2908e6009bd93e645c55ba">UberShader</a>
+<li>shadow_color
+: <a class="el" href="structUberShader.html#a4f17bbdf6353cb5be166f403ef8a0668">UberShader</a>
+</li>
+<li>shadow_offset
+: <a class="el" href="structUberShader.html#a5f16b155b2264156e6b33a82de9b3eb9">UberShader</a>
+</li>
+<li>size
+: <a class="el" href="structCharacter.html#a0a5d57d73f16437a0a9f324ffa5760be">Character</a>
 </li>
 <li>spec
 : <a class="el" href="classEngine.html#a35fc638a793a42354b716727ed026b4b">Engine</a>
@@ -361,26 +391,37 @@ $(function() {
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>tex_coord
+: <a class="el" href="structVertex.html#a44ee386add2179067660f264982e59d1">Vertex</a>
+</li>
 <li>text
 : <a class="el" href="structTextToken.html#accc67519092c9ba257d5e91b84d23553">TextToken</a>
 </li>
-<li>texture
-: <a class="el" href="structFont.html#ad3cfba9174d52095c98bde67bad8d07f">Font</a>
+<li>texture_id
+: <a class="el" href="structBatch.html#a7ef236af17c5aa9a62885e2a5460c883">Batch</a>
+, <a class="el" href="structBatchKey.html#adc0674fa58b5163e8ed385d96833f70a">BatchKey</a>
+, <a class="el" href="structCharacter.html#af802f5dc16e12ccd75269f13a2e04d52">Character</a>
+, <a class="el" href="structDrawCommand.html#a2965247d305ee0b60de3f0230497a983">DrawCommand</a>
 </li>
-<li>TextureIndex
-: <a class="el" href="structVertex.html#a9533f07f158dcb2465f05498715d8744">Vertex</a>
-</li>
-<li>thickness
-: <a class="el" href="classUberShader.html#aac516de1de1f1538058456991af481de">UberShader</a>
+<li>textures
+: <a class="el" href="classRenderer.html#abd4e93c25f99e2c4edbb076ce53393db">Renderer</a>
 </li>
 <li>title
 : <a class="el" href="classEngine.html#acbe6d61aa37e5303e9eb20727aee178e">Engine</a>
+</li>
+<li>token_color
+: <a class="el" href="structCharData.html#ae884552c0f9bd71c4f06e23f13095ed7">CharData</a>
 </li>
 <li>transform
 : <a class="el" href="structCamera2D.html#a05294bc9672c2e3e9d61d9fda8dd37ce">Camera2D</a>
 </li>
 <li>TRANSPARENT
 : <a class="el" href="structColor.html#a98460e613e3ea3688a4006ea8157170a">Color</a>
+</li>
+<li>type
+: <a class="el" href="structBatch.html#aa702a3314eb36bbfd796d759e26cf008">Batch</a>
+, <a class="el" href="structBatchKey.html#adf0b294952c07a677601ea975ebc0ea9">BatchKey</a>
+, <a class="el" href="structDrawCommand.html#a720fc5648acaee0567fcff5334ae681d">DrawCommand</a>
 </li>
 <li>Type
 : <a class="el" href="classRenderer.html#a1fbe88ef2e802aa2b40905b3995a495e">Renderer</a>
@@ -389,13 +430,24 @@ $(function() {
 
 
 <h3><a id="index_u"></a>- u -</h3><ul>
-<li>UV
-: <a class="el" href="structVertex.html#a14866b3ed9cbe748d8f73756397ab7fd">Vertex</a>
+<li>uber_shader
+: <a class="el" href="structBatch.html#aa6fcad9d1d57b6a377b43d133576f30e">Batch</a>
+, <a class="el" href="structBatchKey.html#ad6e669d59f02e98212643fd06e106614">BatchKey</a>
+</li>
+<li>use_outline
+: <a class="el" href="structUberShader.html#a096b40a6281757b8d7a4e83a4ce1b884">UberShader</a>
+</li>
+<li>use_shadow
+: <a class="el" href="structUberShader.html#a298955d819769fa15a23c430f1295bfd">UberShader</a>
 </li>
 </ul>
 
 
 <h3><a id="index_v"></a>- v -</h3><ul>
+<li>vertices
+: <a class="el" href="structBatch.html#aa2581f5e6148c284de43a211f64b72be">Batch</a>
+, <a class="el" href="structDrawCommand.html#a330deec98bee22797a4b166104304d9f">DrawCommand</a>
+</li>
 <li>Viewport
 : <a class="el" href="classRenderer.html#a8bdddc7162e16c97f4d606612f10581f">Renderer</a>
 </li>
@@ -410,7 +462,8 @@ $(function() {
 
 <h3><a id="index_w"></a>- w -</h3><ul>
 <li>w
-: <a class="el" href="structGlyph.html#add29cb686791277ba4766f46baf8c683">Glyph</a>
+: <a class="el" href="structCharData.html#a0de0ddab183ce6dfdabd1affcde5e7a4">CharData</a>
+, <a class="el" href="structGlyph.html#add29cb686791277ba4766f46baf8c683">Glyph</a>
 </li>
 <li>WHITE
 : <a class="el" href="structColor.html#a29452f4e0fad1f192715226605c0f03a">Color</a>
@@ -435,7 +488,8 @@ $(function() {
 , <a class="el" href="structRecti.html#abbfc27ec497551a45e7b1e1f56c193d3">Recti</a>
 </li>
 <li>x0
-: <a class="el" href="structGlyph.html#a19f632294f4f8921113c53184de5e7bc">Glyph</a>
+: <a class="el" href="structCharData.html#a7e13de10c53714aa60eef5cd9fe83c2f">CharData</a>
+, <a class="el" href="structGlyph.html#a19f632294f4f8921113c53184de5e7bc">Glyph</a>
 </li>
 <li>x1
 : <a class="el" href="structGlyph.html#ad489d338e37824a2d6ff3a3f38296493">Glyph</a>
@@ -452,7 +506,8 @@ $(function() {
 , <a class="el" href="structRecti.html#a9a8e839a407de0f8dabcb5c23d5c4fd2">Recti</a>
 </li>
 <li>y0
-: <a class="el" href="structGlyph.html#a1dbd1ac5bfd0c8c806c084e67ccae326">Glyph</a>
+: <a class="el" href="structCharData.html#a1cd57d7b105c92c875a14af122c3598c">CharData</a>
+, <a class="el" href="structGlyph.html#a1dbd1ac5bfd0c8c806c084e67ccae326">Glyph</a>
 </li>
 <li>y1
 : <a class="el" href="structGlyph.html#a63495a5441d35f43d1c5f3d91cec3906">Glyph</a>
@@ -467,6 +522,11 @@ $(function() {
 
 
 <h3><a id="index_z"></a>- z -</h3><ul>
+<li>z_index
+: <a class="el" href="structBatch.html#afa928c365fc563446537e1f43312858a">Batch</a>
+, <a class="el" href="structBatchKey.html#ac2caee2346430e38727a7351273973c7">BatchKey</a>
+, <a class="el" href="structDrawCommand.html#a159e13d093f2211ac414829d973d7469">DrawCommand</a>
+</li>
 <li>zoom
 : <a class="el" href="structCamera2D.html#ac617e7e6d2ef6aa9df681b63d958d8ac">Camera2D</a>
 </li>

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['w_837',['w',['../structGlyph.html#add29cb686791277ba4766f46baf8c683',1,'Glyph']]],
-  ['white_838',['WHITE',['../structColor.html#a29452f4e0fad1f192715226605c0f03a',1,'Color']]],
-  ['width_839',['width',['../classEngine.html#a5e537cd5ccaca8ee363ec28e858b1487',1,'Engine::width()'],['../structTexture.html#a06a0246cb31343557c3441c5733349cd',1,'Texture::width()'],['../structRect2.html#ae298fbd13e1a4c76902cf408159931e0',1,'Rect2::width()'],['../structRecti.html#a08123cc0bfe6dbb944b021dfee9b19b9',1,'Recti::width()'],['../structSize.html#aa1f23158085de487cfd5434301c077a4',1,'Size::width()']]],
-  ['window_840',['Window',['../classRenderer.html#ae3c1e42d61350deefccd15c12b73c31e',1,'Renderer::Window()'],['../classEngine.html#a135c251d3df7e49984ae4bcdffb11700',1,'Engine::Window()']]]
+  ['x_919',['x',['../structRect2.html#a23f661bb76dfc23dc7a82685f2db0751',1,'Rect2::x()'],['../structRecti.html#abbfc27ec497551a45e7b1e1f56c193d3',1,'Recti::x()']]],
+  ['x0_920',['x0',['../structGlyph.html#a19f632294f4f8921113c53184de5e7bc',1,'Glyph::x0()'],['../structCharData.html#a7e13de10c53714aa60eef5cd9fe83c2f',1,'CharData::x0()']]],
+  ['x1_921',['x1',['../structGlyph.html#ad489d338e37824a2d6ff3a3f38296493',1,'Glyph']]],
+  ['x_5foffset_922',['x_offset',['../structGlyph.html#a90862b2dcc202e94f2820bc6da512438',1,'Glyph']]]
 ];

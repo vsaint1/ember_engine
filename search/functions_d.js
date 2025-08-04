@@ -1,15 +1,12 @@
 var searchData=
 [
-  ['parse_5fbbcode_669',['parse_bbcode',['../structTextToken.html#a24aff607f2c3cf95d8f1d9f0ab46117a',1,'TextToken']]],
-  ['pause_670',['pause',['../classAudio.html#a82c1018cf778eccc8819acfb64be53b2',1,'Audio::pause()'],['../classTimeManager.html#a62001ea2355c65a4c05732fd0119a246',1,'TimeManager::pause()']]],
-  ['platform_5fexpert_671',['platform_expert',['../system__info__macos_8mm.html#a4ab608d603a167ed8bc4371232b26825',1,'system_info_macos.mm']]],
-  ['platform_5fname_672',['platform_name',['../classSystemInfo.html#a109820c1c60bce99bf042bf93c0413ed',1,'SystemInfo']]],
-  ['play_673',['play',['../classAudio.html#a82eddf99ea3a9cf3adb1130683789bf8',1,'Audio']]],
-  ['polygon2d_674',['Polygon2D',['../classPolygon2D.html#a3bff7478e1d64b83cca5d6202fce8727',1,'Polygon2D']]],
-  ['position_5fin_5frect_675',['position_in_rect',['../classInputManager.html#a82cbe11eabe8a11d95c1a83d3ca5f2b5',1,'InputManager']]],
-  ['print_5fdebug_5finfo_676',['print_debug_info',['../classInputManager.html#a373c50f29981d99a75aeaa7bd9451ef9',1,'InputManager::print_debug_info()'],['../classTimeManager.html#aa8c45a6350a5085bd340e8941ceb7694',1,'TimeManager::print_debug_info()']]],
-  ['print_5ftree_677',['print_tree',['../classNode2D.html#a4769b1a0d802ab30b09bef19d6b27042',1,'Node2D']]],
-  ['process_678',['process',['../classCircle2D.html#a3ed2627813932697cf174e2585f3d511',1,'Circle2D::process()'],['../classLabel.html#acfc9c24dd61a72b8ee673eac6b3e21c2',1,'Label::process()'],['../classNode2D.html#a528c5eed5c16fcc38cbb7cdc3f6a2a01',1,'Node2D::process()'],['../classPolygon2D.html#a10864c43d1679d0bbb4343954f88889b',1,'Polygon2D::process()'],['../classSprite2D.html#a83a7a9de130cd9fa1f99f89b568572e3',1,'Sprite2D::process()']]],
-  ['process_5fevent_679',['process_event',['../classTextInputManager.html#aa8e4be56f04885ec680fb042a7a87e2c',1,'TextInputManager::process_event()'],['../classInputManager.html#ad4955c05fa6c39c09d7fffb67ed9f696',1,'InputManager::process_event()']]],
-  ['push_680',['push',['../classLogger.html#a0ed55f920595b395769a210d22a917ef',1,'Logger']]]
+  ['ready_737',['ready',['../classCircle2D.html#a3519ec18555afaf99945ccf7d0144cef',1,'Circle2D::ready()'],['../classLabel.html#a071391569d07aa7ca12f2e957f07fd8c',1,'Label::ready()'],['../classNode2D.html#a0e8dcf354e253d21b086425ccfbc681e',1,'Node2D::ready()'],['../classPolygon2D.html#aa45483376923e109a0c0a90ac2821211',1,'Polygon2D::ready()'],['../classSprite2D.html#a62d768a8cc32eff35f81e4ccb398bd75',1,'Sprite2D::ready()']]],
+  ['rect2_738',['Rect2',['../structRect2.html#ad9d83528d13dc0a26772eae27336b2b0',1,'Rect2']]],
+  ['register_5faction_739',['register_action',['../classInputManager.html#a4b9cbb65148a4cf66260ed57a1fe5e46',1,'InputManager']]],
+  ['reset_740',['reset',['../classTimeManager.html#ab23a732755a5c06a03087adc8095315a',1,'TimeManager']]],
+  ['resize_741',['resize',['../structCamera2D.html#aa3768dc7a6601bc182c3faeed3eacf34',1,'Camera2D']]],
+  ['resize_5fviewport_742',['resize_viewport',['../classRenderer.html#a5512ae7557e785610d7b276ec08a90af',1,'Renderer::resize_viewport()'],['../classOpenglRenderer.html#af99950b0b1a8069d903ab27a8351b77b',1,'OpenglRenderer::resize_viewport()']]],
+  ['resize_5fwindow_743',['resize_window',['../classEngine.html#a0828840a2df098ef1534274d271f6190',1,'Engine']]],
+  ['resume_744',['resume',['../classTimeManager.html#a8281b595c89d27c5e1e2e49fc5468a20',1,'TimeManager']]],
+  ['rotate_745',['rotate',['../classNode2D.html#a273bd183b7b8f8610897eaacb044716c',1,'Node2D']]]
 ];

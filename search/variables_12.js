@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['sample_5frate_817',['SAMPLE_RATE',['../ember__audio_8h.html#a07459f94c952522f2df6e9c3ab32c485',1,'ember_audio.h']]],
-  ['scale_818',['scale',['../structTransform.html#a022d11e8d5c86e142e721d7acf16c314',1,'Transform::scale()'],['../structFont.html#a344b272e0ec1ed3f9cf274f6cab801f6',1,'Font::scale()']]],
-  ['shadow_819',['Shadow',['../classUberShader.html#a5e7175f6da2908e6009bd93e645c55ba',1,'UberShader']]],
-  ['spec_820',['spec',['../classEngine.html#a35fc638a793a42354b716727ed026b4b',1,'Engine']]],
-  ['start_5fposition_821',['start_position',['../structTouchPoint.html#ad6606c8cc001726c9ab3d92a9881a11b',1,'TouchPoint']]],
-  ['start_5ftime_822',['start_time',['../structTouchPoint.html#aa8910bff0fac9e8771edebe64f139b0a',1,'TouchPoint']]],
-  ['stream_823',['stream',['../structEmber__File.html#aadfb71e1ce00254f3d60cc557b89e187',1,'Ember_File']]],
-  ['strike_824',['strike',['../structTextToken.html#a660e8fe03d4267a576dea5fbc7413fed',1,'TextToken']]]
+  ['tex_5fcoord_898',['tex_coord',['../structVertex.html#a44ee386add2179067660f264982e59d1',1,'Vertex']]],
+  ['text_899',['text',['../structTextToken.html#accc67519092c9ba257d5e91b84d23553',1,'TextToken']]],
+  ['texture_5fid_900',['texture_id',['../structDrawCommand.html#a2965247d305ee0b60de3f0230497a983',1,'DrawCommand::texture_id()'],['../structBatchKey.html#adc0674fa58b5163e8ed385d96833f70a',1,'BatchKey::texture_id()'],['../structBatch.html#a7ef236af17c5aa9a62885e2a5460c883',1,'Batch::texture_id()'],['../structCharacter.html#af802f5dc16e12ccd75269f13a2e04d52',1,'Character::texture_id()']]],
+  ['textures_901',['textures',['../classRenderer.html#abd4e93c25f99e2c4edbb076ce53393db',1,'Renderer']]],
+  ['title_902',['title',['../classEngine.html#acbe6d61aa37e5303e9eb20727aee178e',1,'Engine']]],
+  ['token_5fcolor_903',['token_color',['../structCharData.html#ae884552c0f9bd71c4f06e23f13095ed7',1,'CharData']]],
+  ['transform_904',['transform',['../structCamera2D.html#a05294bc9672c2e3e9d61d9fda8dd37ce',1,'Camera2D']]],
+  ['transparent_905',['TRANSPARENT',['../structColor.html#a98460e613e3ea3688a4006ea8157170a',1,'Color']]],
+  ['type_906',['type',['../structDrawCommand.html#a720fc5648acaee0567fcff5334ae681d',1,'DrawCommand::type()'],['../structBatchKey.html#adf0b294952c07a677601ea975ebc0ea9',1,'BatchKey::type()'],['../structBatch.html#aa702a3314eb36bbfd796d759e26cf008',1,'Batch::type()']]],
+  ['type_907',['Type',['../classRenderer.html#a1fbe88ef2e802aa2b40905b3995a495e',1,'Renderer']]]
 ];
