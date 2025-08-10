@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['batch_484',['Batch',['../structBatch.html',1,'']]],
-  ['batchkey_485',['BatchKey',['../structBatchKey.html',1,'']]]
+  ['batch_488',['Batch',['../structBatch.html',1,'']]],
+  ['batchkey_489',['BatchKey',['../structBatchKey.html',1,'']]]
 ];

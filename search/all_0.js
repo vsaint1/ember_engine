@@ -14,7 +14,7 @@ var searchData=
   ['_5frotate_5fpoint_11',['_rotate_point',['../classRenderer.html#af914c3207c1e9cc15e73c45dbbaf1aef',1,'Renderer']]],
   ['_5fset_5fdefault_5ffont_12',['_set_default_font',['../classOpenglRenderer.html#a4a25c8710d6b2ccb7669ba785ac9a5f7',1,'OpenglRenderer::_set_default_font()'],['../classRenderer.html#a259b5a4b970463ef692e20f505bd4131',1,'Renderer::_set_default_font(const std::string &amp;font_name)=0']]],
   ['_5fset_5feffect_5funiforms_13',['_set_effect_uniforms',['../classRenderer.html#a4456a8e2e6e83006294edee34a977127',1,'Renderer']]],
-  ['_5ftexture_5fsizes_14',['_texture_sizes',['../classRenderer.html#aa314b0e1f673d99037ea454a323e0ce8',1,'Renderer']]],
+  ['_5ftexture_5fsizes_14',['_texture_sizes',['../classRenderer.html#a276a882ad2f47cc1bb324b7c5052e45c',1,'Renderer']]],
   ['_5ftransform_15',['_transform',['../classNode2D.html#ac999d76205acbad9a0936eeec2e558c1',1,'Node2D']]],
   ['_5funiforms_16',['_uniforms',['../classShader.html#a5c40c4c3cfabbd83132d827ce2abfdf9',1,'Shader']]],
   ['_5fuse_5fmath_5fdefines_17',['_USE_MATH_DEFINES',['../imports_8h.html#a525335710b53cb064ca56b936120431e',1,'imports.h']]],

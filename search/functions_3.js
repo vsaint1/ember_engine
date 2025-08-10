@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['calc_5ftext_5fsize_599',['calc_text_size',['../engine__structs_8h.html#a57e44c0b335cdbdda01799ac7d804746',1,'engine_structs.h']]],
-  ['camera2d_600',['Camera2D',['../structCamera2D.html#a1d68c29b9e23a0db0c623e9643fa26dc',1,'Camera2D']]],
-  ['change_5fvisibility_601',['change_visibility',['../classNode2D.html#a02ba1779bdee059c0e9b494594dc2d29',1,'Node2D']]],
-  ['circle2d_602',['Circle2D',['../classCircle2D.html#a0a17a250f12d222e913fe425a15f7832',1,'Circle2D']]],
-  ['clear_603',['clear',['../classRenderer.html#a021d376b6d36f7c809ea9c8ff38c2ade',1,'Renderer::clear()'],['../classOpenglRenderer.html#a0f5330e8ba4670f0b7c42383e718aa9e',1,'OpenglRenderer::clear()']]],
-  ['clear_5ftext_604',['clear_text',['../classTextInputManager.html#a4df94269470caa8c1ad2b94d2a78ada7',1,'TextInputManager']]],
-  ['close_5faudio_5fengine_605',['close_audio_engine',['../ember__audio_8cpp.html#ae97aed854b525ebaee38bf977a7456cf',1,'close_audio_engine():&#160;ember_audio.cpp'],['../ember__audio_8h.html#ae97aed854b525ebaee38bf977a7456cf',1,'close_audio_engine():&#160;ember_audio.cpp']]]
+  ['calc_5ftext_5fsize_605',['calc_text_size',['../engine__structs_8h.html#a57e44c0b335cdbdda01799ac7d804746',1,'engine_structs.h']]],
+  ['camera2d_606',['Camera2D',['../structCamera2D.html#a1d68c29b9e23a0db0c623e9643fa26dc',1,'Camera2D']]],
+  ['change_5fvisibility_607',['change_visibility',['../classNode2D.html#a02ba1779bdee059c0e9b494594dc2d29',1,'Node2D']]],
+  ['circle2d_608',['Circle2D',['../classCircle2D.html#a0a17a250f12d222e913fe425a15f7832',1,'Circle2D']]],
+  ['clear_609',['clear',['../classRenderer.html#a021d376b6d36f7c809ea9c8ff38c2ade',1,'Renderer::clear()'],['../classOpenglRenderer.html#a0f5330e8ba4670f0b7c42383e718aa9e',1,'OpenglRenderer::clear()']]],
+  ['clear_5ftext_610',['clear_text',['../classTextInputManager.html#a4df94269470caa8c1ad2b94d2a78ada7',1,'TextInputManager']]],
+  ['close_5faudio_5fengine_611',['close_audio_engine',['../ember__audio_8cpp.html#ae97aed854b525ebaee38bf977a7456cf',1,'close_audio_engine():&#160;ember_audio.cpp'],['../ember__audio_8h.html#ae97aed854b525ebaee38bf977a7456cf',1,'close_audio_engine():&#160;ember_audio.cpp']]]
 ];

@@ -84,7 +84,7 @@ $(function() {
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classNode2D.html#aebdba85c7c32594509a1cb52f49efdf0">   12</a></span>&#160;    <a class="code" href="classNode2D.html#aebdba85c7c32594509a1cb52f49efdf0">Node2D</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">   14</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">Node2D</a>(std::string name) : <a class="code" href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">_name</a>(<a class="code" href="namespacestd.html">std</a>::move(name)) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">   14</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">Node2D</a>(std::string name) : <a class="code" href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">_name</a>(std::move(name)) {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#aaddef9c60156d2cc151695bbf51b2459">set_z_index</a>(<span class="keywordtype">int</span> index);</div>
@@ -138,7 +138,7 @@ $(function() {
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap&lt;std::string, Node2D*&gt;</a> _nodes;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="ttc" id="aclassInputManager_html"><div class="ttname"><a href="classInputManager.html">InputManager</a></div><div class="ttdef"><b>Definition:</b> input_manager.h:111</div></div>
+<div class="ttc" id="aclassInputManager_html"><div class="ttname"><a href="classInputManager.html">InputManager</a></div><div class="ttdef"><b>Definition:</b> input_manager.h:110</div></div>
 <div class="ttc" id="aclassNode2D_html"><div class="ttname"><a href="classNode2D.html">Node2D</a></div><div class="ttdef"><b>Definition:</b> node.h:10</div></div>
 <div class="ttc" id="aclassNode2D_html_a02ba1779bdee059c0e9b494594dc2d29"><div class="ttname"><a href="classNode2D.html#a02ba1779bdee059c0e9b494594dc2d29">Node2D::change_visibility</a></div><div class="ttdeci">void change_visibility(bool visible)</div><div class="ttdef"><b>Definition:</b> node.cpp:106</div></div>
 <div class="ttc" id="aclassNode2D_html_a0b18b5ebad03c9252b8c3838261e7674"><div class="ttname"><a href="classNode2D.html#a0b18b5ebad03c9252b8c3838261e7674">Node2D::get_effective_z_index</a></div><div class="ttdeci">int get_effective_z_index() const</div><div class="ttdef"><b>Definition:</b> node.cpp:28</div></div>
@@ -164,12 +164,11 @@ $(function() {
 <div class="ttc" id="aclassNode2D_html_aebdba85c7c32594509a1cb52f49efdf0"><div class="ttname"><a href="classNode2D.html#aebdba85c7c32594509a1cb52f49efdf0">Node2D::Node2D</a></div><div class="ttdeci">Node2D()=default</div></div>
 <div class="ttc" id="aclassNode2D_html_aed9b79c2aa01980d41e9fde19da80734"><div class="ttname"><a href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">Node2D::input</a></div><div class="ttdeci">virtual void input(const InputManager *input)</div><div class="ttdef"><b>Definition:</b> node.cpp:142</div></div>
 <div class="ttc" id="aclassNode2D_html_af4dc24465f297785fb87ea1d20d31b05"><div class="ttname"><a href="classNode2D.html#af4dc24465f297785fb87ea1d20d31b05">Node2D::scale</a></div><div class="ttdeci">void scale(float sx, float sy)</div><div class="ttdef"><b>Definition:</b> node.cpp:12</div></div>
-<div class="ttc" id="aclassRenderer_html"><div class="ttname"><a href="classRenderer.html">Renderer</a></div><div class="ttdoc">Base class for all renderers.</div><div class="ttdef"><b>Definition:</b> ember_core.h:117</div></div>
+<div class="ttc" id="aclassRenderer_html"><div class="ttname"><a href="classRenderer.html">Renderer</a></div><div class="ttdoc">Base class for all renderers.</div><div class="ttdef"><b>Definition:</b> ember_core.h:107</div></div>
 <div class="ttc" id="aengine__structs_8h_html"><div class="ttname"><a href="engine__structs_8h.html">engine_structs.h</a></div></div>
 <div class="ttc" id="aimports_8h_html_a3add277adb6767a3ab5a34cf3b2cbb7f"><div class="ttname"><a href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a></div><div class="ttdeci">std::unordered_map&lt; K, V &gt; HashMap</div><div class="ttdef"><b>Definition:</b> imports.h:11</div></div>
 <div class="ttc" id="ainput__manager_8h_html"><div class="ttname"><a href="input__manager_8h.html">input_manager.h</a></div></div>
 <div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
-<div class="ttc" id="anamespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div><div class="ttdoc">Hash function for BatchKey to use in unordered_map.</div><div class="ttdef"><b>Definition:</b> ember_core.h:86</div></div>
 <div class="ttc" id="ashader_8h_html"><div class="ttname"><a href="shader_8h.html">shader.h</a></div></div>
 <div class="ttc" id="astructTransform_html"><div class="ttname"><a href="structTransform.html">Transform</a></div><div class="ttdoc">Transform struct 2D.</div><div class="ttdef"><b>Definition:</b> transform.h:11</div></div>
 <div class="ttc" id="atransform_8h_html"><div class="ttname"><a href="transform_8h.html">transform.h</a></div></div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Ember: engine/public/imports.h File Reference</title>
+<title>Ember: engine/public/definitions.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,89 +69,83 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">imports.h File Reference</div>  </div>
+<div class="title">definitions.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;queue&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &lt;unordered_map&gt;</code><br />
-<code>#include &lt;unordered_set&gt;</code><br />
-<code>#include &quot;<a class="el" href="definitions_8h_source.html">definitions.h</a>&quot;</code><br />
-<code>#include &lt;array&gt;</code><br />
-<code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;glad.h&gt;</code><br />
-<code>#include &lt;glm/glm.hpp&gt;</code><br />
-<code>#include &lt;glm/gtc/matrix_transform.hpp&gt;</code><br />
-<code>#include &lt;glm/gtc/type_ptr.hpp&gt;</code><br />
-<code>#include &lt;glm/gtx/string_cast.hpp&gt;</code><br />
-<code>#include &lt;miniaudio.h&gt;</code><br />
-<code>#include &lt;tinyxml2.h&gt;</code><br />
-<code>#include &quot;imgui_impl_opengl3.h&quot;</code><br />
-<code>#include &quot;imgui_impl_sdl3.h&quot;</code><br />
-<code>#include &lt;mutex&gt;</code><br />
-<code>#include &lt;condition_variable&gt;</code><br />
-<code>#include &lt;atomic&gt;</code><br />
-<code>#include &lt;freetype/freetype.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;SDL3/SDL.h&gt;</code><br />
+<code>#include &lt;filesystem&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div>
-<p><a href="imports_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="definitions_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a525335710b53cb064ca56b936120431e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imports_8h.html#a525335710b53cb064ca56b936120431e">_USE_MATH_DEFINES</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a525335710b53cb064ca56b936120431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd75661fe7969e19439052a5f69ba5d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="imports_8h.html#abd75661fe7969e19439052a5f69ba5d1">GLM_ENABLE_EXPERIMENTAL</a></td></tr>
-<tr class="separator:abd75661fe7969e19439052a5f69ba5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf16e31ed83557124b89ff1b06617ded"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#adf16e31ed83557124b89ff1b06617ded">ASSETS_PATH</a>&#160;&#160;&#160;std::string(&quot;res/&quot;)</td></tr>
+<tr class="separator:adf16e31ed83557124b89ff1b06617ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a669ad3a8d3b77fa1a03004b592328382"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#a669ad3a8d3b77fa1a03004b592328382">ENGINE_NAME</a>&#160;&#160;&#160;&quot;EMBER_ENGINE&quot;</td></tr>
+<tr class="separator:a669ad3a8d3b77fa1a03004b592328382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaf4fa0d2dd847f90879c3a1445f0f93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#aaaf4fa0d2dd847f90879c3a1445f0f93">ENGINE_VERSION_STR</a>&#160;&#160;&#160;&quot;0.0.9&quot;</td></tr>
+<tr class="separator:aaaf4fa0d2dd847f90879c3a1445f0f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a3add277adb6767a3ab5a34cf3b2cbb7f"><td class="memTemplParams" colspan="2">template&lt;typename K , typename V &gt; </td></tr>
-<tr class="memitem:a3add277adb6767a3ab5a34cf3b2cbb7f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a> = std::unordered_map&lt; K, V &gt;</td></tr>
-<tr class="separator:a3add277adb6767a3ab5a34cf3b2cbb7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a81e929c8a4009133f33f3c0464dab492"><td class="memItemLeft" align="right" valign="top">const std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="definitions_8h.html#a81e929c8a4009133f33f3c0464dab492">BASE_PATH</a> = SDL_GetBasePath()</td></tr>
+<tr class="separator:a81e929c8a4009133f33f3c0464dab492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a525335710b53cb064ca56b936120431e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a525335710b53cb064ca56b936120431e">&#9670;&nbsp;</a></span>_USE_MATH_DEFINES</h2>
+<a id="adf16e31ed83557124b89ff1b06617ded"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf16e31ed83557124b89ff1b06617ded">&#9670;&nbsp;</a></span>ASSETS_PATH</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _USE_MATH_DEFINES&#160;&#160;&#160;1</td>
+          <td class="memname">#define ASSETS_PATH&#160;&#160;&#160;std::string(&quot;res/&quot;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="abd75661fe7969e19439052a5f69ba5d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd75661fe7969e19439052a5f69ba5d1">&#9670;&nbsp;</a></span>GLM_ENABLE_EXPERIMENTAL</h2>
+<a id="a669ad3a8d3b77fa1a03004b592328382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a669ad3a8d3b77fa1a03004b592328382">&#9670;&nbsp;</a></span>ENGINE_NAME</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define GLM_ENABLE_EXPERIMENTAL</td>
+          <td class="memname">#define ENGINE_NAME&#160;&#160;&#160;&quot;EMBER_ENGINE&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="a3add277adb6767a3ab5a34cf3b2cbb7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3add277adb6767a3ab5a34cf3b2cbb7f">&#9670;&nbsp;</a></span>HashMap</h2>
+<a id="aaaf4fa0d2dd847f90879c3a1445f0f93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaf4fa0d2dd847f90879c3a1445f0f93">&#9670;&nbsp;</a></span>ENGINE_VERSION_STR</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename K , typename V &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a> =  std::unordered_map&lt;K, V&gt;</td>
+          <td class="memname">#define ENGINE_VERSION_STR&#160;&#160;&#160;&quot;0.0.9&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a81e929c8a4009133f33f3c0464dab492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81e929c8a4009133f33f3c0464dab492">&#9670;&nbsp;</a></span>BASE_PATH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::filesystem::path BASE_PATH = SDL_GetBasePath()</td>
         </tr>
       </table>
 </div><div class="memdoc">

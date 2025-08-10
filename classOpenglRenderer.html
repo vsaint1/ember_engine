@@ -108,12 +108,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a767e587c746660f000ef1c7f173f97cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#a767e587c746660f000ef1c7f173f97cf">destroy</a> () override</td></tr>
 <tr class="memdesc:a767e587c746660f000ef1c7f173f97cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy rendering resources.  <a href="classOpenglRenderer.html#a767e587c746660f000ef1c7f173f97cf">More...</a><br /></td></tr>
 <tr class="separator:a767e587c746660f000ef1c7f173f97cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a045e9ca00e1bf6076358c0b529d3bc18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTexture.html">Texture</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#a045e9ca00e1bf6076358c0b529d3bc18">load_texture</a> (const std::string &amp;file_path) override</td></tr>
-<tr class="memdesc:a045e9ca00e1bf6076358c0b529d3bc18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a texture from disk.  <a href="classOpenglRenderer.html#a045e9ca00e1bf6076358c0b529d3bc18">More...</a><br /></td></tr>
-<tr class="separator:a045e9ca00e1bf6076358c0b529d3bc18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedddb3e3703170bac30fa9a1635ef0b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTexture.html">Texture</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#aedddb3e3703170bac30fa9a1635ef0b1">get_texture</a> (const std::string &amp;path) override</td></tr>
-<tr class="memdesc:aedddb3e3703170bac30fa9a1635ef0b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a previously loaded texture.  <a href="classOpenglRenderer.html#aedddb3e3703170bac30fa9a1635ef0b1">More...</a><br /></td></tr>
-<tr class="separator:aedddb3e3703170bac30fa9a1635ef0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8127a774b83a0b9869993d8b1bb9c43"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#ae8127a774b83a0b9869993d8b1bb9c43">load_texture</a> (const std::string &amp;file_path) override</td></tr>
+<tr class="memdesc:ae8127a774b83a0b9869993d8b1bb9c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a texture from disk.  <a href="classOpenglRenderer.html#ae8127a774b83a0b9869993d8b1bb9c43">More...</a><br /></td></tr>
+<tr class="separator:ae8127a774b83a0b9869993d8b1bb9c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e10cc00ee5495e2ecfa200e5fb5a278"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#a2e10cc00ee5495e2ecfa200e5fb5a278">get_texture</a> (const std::string &amp;path) override</td></tr>
+<tr class="memdesc:a2e10cc00ee5495e2ecfa200e5fb5a278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a previously loaded texture.  <a href="classOpenglRenderer.html#a2e10cc00ee5495e2ecfa200e5fb5a278">More...</a><br /></td></tr>
+<tr class="separator:a2e10cc00ee5495e2ecfa200e5fb5a278"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a913a2b4b2815942d38919ab3cb9e1bc8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#a913a2b4b2815942d38919ab3cb9e1bc8">load_font</a> (const std::string &amp;file_path, const std::string &amp;font_alias, int font_size) override</td></tr>
 <tr class="memdesc:a913a2b4b2815942d38919ab3cb9e1bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a font.  <a href="classOpenglRenderer.html#a913a2b4b2815942d38919ab3cb9e1bc8">More...</a><br /></td></tr>
 <tr class="separator:a913a2b4b2815942d38919ab3cb9e1bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,9 +126,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6467eb9f3fc279cf108542503a4c2d23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#a6467eb9f3fc279cf108542503a4c2d23">unload_texture</a> (Uint32 id) override</td></tr>
 <tr class="memdesc:a6467eb9f3fc279cf108542503a4c2d23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a texture by its ID.  <a href="classOpenglRenderer.html#a6467eb9f3fc279cf108542503a4c2d23">More...</a><br /></td></tr>
 <tr class="separator:a6467eb9f3fc279cf108542503a4c2d23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea1feda83d1e913686206c93a83ce594"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#aea1feda83d1e913686206c93a83ce594">draw_texture</a> (const <a class="el" href="structTexture.html">Texture</a> &amp;texture, const <a class="el" href="structRect2.html">Rect2</a> &amp;dest_rect, float rotation, const glm::vec4 &amp;color, const <a class="el" href="structRect2.html">Rect2</a> &amp;src_rect, int z_index, const <a class="el" href="structUberShader.html">UberShader</a> &amp;uber_shader) override</td></tr>
-<tr class="memdesc:aea1feda83d1e913686206c93a83ce594"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a textured quad.  <a href="classOpenglRenderer.html#aea1feda83d1e913686206c93a83ce594">More...</a><br /></td></tr>
-<tr class="separator:aea1feda83d1e913686206c93a83ce594"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a166857b2f3668929fcb265b1becbd3cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#a166857b2f3668929fcb265b1becbd3cb">draw_texture</a> (const <a class="el" href="structTexture.html">Texture</a> *texture, const <a class="el" href="structRect2.html">Rect2</a> &amp;dest_rect, float rotation, const glm::vec4 &amp;color, const <a class="el" href="structRect2.html">Rect2</a> &amp;src_rect, int z_index, const <a class="el" href="structUberShader.html">UberShader</a> &amp;uber_shader) override</td></tr>
+<tr class="memdesc:a166857b2f3668929fcb265b1becbd3cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a textured quad.  <a href="classOpenglRenderer.html#a166857b2f3668929fcb265b1becbd3cb">More...</a><br /></td></tr>
+<tr class="separator:a166857b2f3668929fcb265b1becbd3cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5e09ac117a49867fd2bef8436154a6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#ae5e09ac117a49867fd2bef8436154a6a">draw_rect</a> (<a class="el" href="structRect2.html">Rect2</a> rect, float rotation, const glm::vec4 &amp;color, bool filled, int z_index) override</td></tr>
 <tr class="memdesc:ae5e09ac117a49867fd2bef8436154a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a rectangle (filled or outlined).  <a href="classOpenglRenderer.html#ae5e09ac117a49867fd2bef8436154a6a">More...</a><br /></td></tr>
 <tr class="separator:ae5e09ac117a49867fd2bef8436154a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,7 +177,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:ae3c1e42d61350deefccd15c12b73c31e inherit pub_attribs_classRenderer"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDL Window.  <a href="classRenderer.html#ae3c1e42d61350deefccd15c12b73c31e">More...</a><br /></td></tr>
 <tr class="separator:ae3c1e42d61350deefccd15c12b73c31e inherit pub_attribs_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fbe88ef2e802aa2b40905b3995a495e inherit pub_attribs_classRenderer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a1fbe88ef2e802aa2b40905b3995a495e">Type</a> = <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6cea4cd6ad65d345a77065fda71b3751ec24">RendererType::OPENGL</a></td></tr>
-<tr class="memdesc:a1fbe88ef2e802aa2b40905b3995a495e inherit pub_attribs_classRenderer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of renderer.  <a href="classRenderer.html#a1fbe88ef2e802aa2b40905b3995a495e">More...</a><br /></td></tr>
+<tr class="memdesc:a1fbe88ef2e802aa2b40905b3995a495e inherit pub_attribs_classRenderer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Type of renderer.  <a href="classRenderer.html#a1fbe88ef2e802aa2b40905b3995a495e">More...</a><br /></td></tr>
 <tr class="separator:a1fbe88ef2e802aa2b40905b3995a495e inherit pub_attribs_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_classRenderer"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classRenderer')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classRenderer.html">Renderer</a></td></tr>
 <tr class="memitem:af914c3207c1e9cc15e73c45dbbaf1aef inherit pro_methods_classRenderer"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#af914c3207c1e9cc15e73c45dbbaf1aef">_rotate_point</a> (const glm::vec2 &amp;point, const glm::vec2 &amp;center, float rotation)</td></tr>
@@ -205,12 +205,12 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a75d64d36a6052852a621bf711047be1d inherit pro_attribs_classRenderer"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structDrawCommand.html">DrawCommand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a75d64d36a6052852a621bf711047be1d">commands</a></td></tr>
 <tr class="memdesc:a75d64d36a6052852a621bf711047be1d inherit pro_attribs_classRenderer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commands to render this frame.  <a href="classRenderer.html#a75d64d36a6052852a621bf711047be1d">More...</a><br /></td></tr>
 <tr class="separator:a75d64d36a6052852a621bf711047be1d inherit pro_attribs_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac97d3d371962325c232c110d9e218c9d inherit pro_attribs_classRenderer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a>&lt; std::string, std::unique_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#ac97d3d371962325c232c110d9e218c9d">textures</a></td></tr>
-<tr class="memdesc:ac97d3d371962325c232c110d9e218c9d inherit pro_attribs_classRenderer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cached textures.  <a href="classRenderer.html#ac97d3d371962325c232c110d9e218c9d">More...</a><br /></td></tr>
-<tr class="separator:ac97d3d371962325c232c110d9e218c9d inherit pro_attribs_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa314b0e1f673d99037ea454a323e0ce8 inherit pro_attribs_classRenderer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a>&lt; Uint32, glm::vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#aa314b0e1f673d99037ea454a323e0ce8">_texture_sizes</a></td></tr>
-<tr class="memdesc:aa314b0e1f673d99037ea454a323e0ce8 inherit pro_attribs_classRenderer"><td class="mdescLeft">&#160;</td><td class="mdescRight">HACK_FIX: Cached texture sizes by ID.  <a href="classRenderer.html#aa314b0e1f673d99037ea454a323e0ce8">More...</a><br /></td></tr>
-<tr class="separator:aa314b0e1f673d99037ea454a323e0ce8 inherit pro_attribs_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334d27fdb839e0657f3bf9ce5f8f2767 inherit pro_attribs_classRenderer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a>&lt; std::string, std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a334d27fdb839e0657f3bf9ce5f8f2767">textures</a></td></tr>
+<tr class="memdesc:a334d27fdb839e0657f3bf9ce5f8f2767 inherit pro_attribs_classRenderer"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cached textures.  <a href="classRenderer.html#a334d27fdb839e0657f3bf9ce5f8f2767">More...</a><br /></td></tr>
+<tr class="separator:a334d27fdb839e0657f3bf9ce5f8f2767 inherit pro_attribs_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a276a882ad2f47cc1bb324b7c5052e45c inherit pro_attribs_classRenderer"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a>&lt; Uint32, glm::vec2 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a276a882ad2f47cc1bb324b7c5052e45c">_texture_sizes</a></td></tr>
+<tr class="memdesc:a276a882ad2f47cc1bb324b7c5052e45c inherit pro_attribs_classRenderer"><td class="mdescLeft">&#160;</td><td class="mdescRight">HACK_FIX: Cached texture sizes by ID.  <a href="classRenderer.html#a276a882ad2f47cc1bb324b7c5052e45c">More...</a><br /></td></tr>
+<tr class="separator:a276a882ad2f47cc1bb324b7c5052e45c inherit pro_attribs_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Opengl <a class="el" href="classRenderer.html" title="Base class for all renderers.">Renderer</a> implementation. </p>
@@ -749,8 +749,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aea1feda83d1e913686206c93a83ce594"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea1feda83d1e913686206c93a83ce594">&#9670;&nbsp;</a></span>draw_texture()</h2>
+<a id="a166857b2f3668929fcb265b1becbd3cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a166857b2f3668929fcb265b1becbd3cb">&#9670;&nbsp;</a></span>draw_texture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -761,7 +761,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">void OpenglRenderer::draw_texture </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structTexture.html">Texture</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structTexture.html">Texture</a> *&#160;</td>
           <td class="paramname"><em>texture</em>, </td>
         </tr>
         <tr>
@@ -815,7 +815,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Draw a textured quad. </p>
 
-<p>Implements <a class="el" href="classRenderer.html#a1c8952f730fbde5982b3d9ca56e4f860">Renderer</a>.</p>
+<p>Implements <a class="el" href="classRenderer.html#addacae6276e60fc8b7ecd2d27b4c26b7">Renderer</a>.</p>
 
 </div>
 </div>
@@ -965,8 +965,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="aedddb3e3703170bac30fa9a1635ef0b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedddb3e3703170bac30fa9a1635ef0b1">&#9670;&nbsp;</a></span>get_texture()</h2>
+<a id="a2e10cc00ee5495e2ecfa200e5fb5a278"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e10cc00ee5495e2ecfa200e5fb5a278">&#9670;&nbsp;</a></span>get_texture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -975,7 +975,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structTexture.html">Texture</a> &amp; OpenglRenderer::get_texture </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt; OpenglRenderer::get_texture </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -998,7 +998,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the <a class="el" href="structTexture.html" title="Texture base class.">Texture</a>. </dd></dl>
 
-<p>Implements <a class="el" href="classRenderer.html#a5e0fb959e8f8e67296fa6fbc8f720913">Renderer</a>.</p>
+<p>Implements <a class="el" href="classRenderer.html#a6300702efe861d73c4320ce933657a8a">Renderer</a>.</p>
 
 </div>
 </div>
@@ -1086,8 +1086,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a045e9ca00e1bf6076358c0b529d3bc18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a045e9ca00e1bf6076358c0b529d3bc18">&#9670;&nbsp;</a></span>load_texture()</h2>
+<a id="ae8127a774b83a0b9869993d8b1bb9c43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8127a774b83a0b9869993d8b1bb9c43">&#9670;&nbsp;</a></span>load_texture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1096,7 +1096,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structTexture.html">Texture</a> &amp; OpenglRenderer::load_texture </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt; OpenglRenderer::load_texture </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>
@@ -1119,7 +1119,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the loaded <a class="el" href="structTexture.html" title="Texture base class.">Texture</a>. </dd></dl>
 
-<p>Implements <a class="el" href="classRenderer.html#adf6663f4ef9c7aaf5e67a332d4ecba9f">Renderer</a>.</p>
+<p>Implements <a class="el" href="classRenderer.html#aefde0c760e40e399968ff4f640462466">Renderer</a>.</p>
 
 </div>
 </div>

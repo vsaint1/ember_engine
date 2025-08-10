@@ -94,6 +94,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4bbccf668c46064559c99a999f7b9932"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a4bbccf668c46064559c99a999f7b9932">shutdown</a> ()</td></tr>
 <tr class="memdesc:a4bbccf668c46064559c99a999f7b9932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitialize window, renderer, and modules.  <a href="classEngine.html#a4bbccf668c46064559c99a999f7b9932">More...</a><br /></td></tr>
 <tr class="separator:a4bbccf668c46064559c99a999f7b9932"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a664ba94dd405466b78d04dbb5aed06fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a664ba94dd405466b78d04dbb5aed06fa">get_vsync</a> () const</td></tr>
+<tr class="memdesc:a664ba94dd405466b78d04dbb5aed06fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get vsync status.  <a href="classEngine.html#a664ba94dd405466b78d04dbb5aed06fa">More...</a><br /></td></tr>
+<tr class="separator:a664ba94dd405466b78d04dbb5aed06fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6c02feca338fd5d4fcf712563bb62d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#ad6c02feca338fd5d4fcf712563bb62d7">set_vsync</a> (bool enabled)</td></tr>
+<tr class="memdesc:ad6c02feca338fd5d4fcf712563bb62d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable or enable vertical synchronization (VSync).  <a href="classEngine.html#ad6c02feca338fd5d4fcf712563bb62d7">More...</a><br /></td></tr>
+<tr class="separator:ad6c02feca338fd5d4fcf712563bb62d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f128793b8e3cad58bcb5859faa9b824"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a7f128793b8e3cad58bcb5859faa9b824">initialize</a> (const char *<a class="el" href="classEngine.html#acbe6d61aa37e5303e9eb20727aee178e">title</a>, int <a class="el" href="classEngine.html#a5e537cd5ccaca8ee363ec28e858b1487">width</a>, int <a class="el" href="classEngine.html#af96739cc628f8f1ad1de8f11e6d77bad">height</a>, <a class="el" href="engine_8h.html#ae9c668e3a273ce92b9f4e134d0cbd6ce">RendererType</a> type, Uint64 flags=0)</td></tr>
 <tr class="memdesc:a7f128793b8e3cad58bcb5859faa9b824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the engine: SDL window, renderer, audio, fonts.  <a href="classEngine.html#a7f128793b8e3cad58bcb5859faa9b824">More...</a><br /></td></tr>
 <tr class="separator:a7f128793b8e3cad58bcb5859faa9b824"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,6 +160,27 @@ Public Attributes</h2></td></tr>
 
 <p>Get the renderer instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>Renderer* <a class="el" href="classRenderer.html" title="Base class for all renderers.">Renderer</a> pointer. </dd></dl>
+
+</div>
+</div>
+<a id="a664ba94dd405466b78d04dbb5aed06fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a664ba94dd405466b78d04dbb5aed06fa">&#9670;&nbsp;</a></span>get_vsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Engine::get_vsync </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get vsync status. </p>
+<p>Returns true if vertical synchronization (VSync) is enabled, false otherwise.</p>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
 
 </div>
 </div>
@@ -278,6 +305,28 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ad6c02feca338fd5d4fcf712563bb62d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6c02feca338fd5d4fcf712563bb62d7">&#9670;&nbsp;</a></span>set_vsync()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Engine::set_vsync </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enabled</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable or enable vertical synchronization (VSync). </p>
+<p>by default, VSync is disabled.</p>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
 
 </div>
 </div>
