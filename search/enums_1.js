@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['drawcommandmode_947',['DrawCommandMode',['../ember__core_8h.html#a507f2dc721468d572ac2fead9c7b3646',1,'ember_core.h']]],
-  ['drawcommandtype_948',['DrawCommandType',['../ember__core_8h.html#a4b4eec3cc4a3904bebbe0cea4dc56b65',1,'ember_core.h']]]
+  ['backend_1007',['Backend',['../engine_8h.html#ae4db5848267c1a5a1413b7f87cf6889d',1,'engine.h']]],
+  ['batterylevel_1008',['BatteryLevel',['../system__info_8h.html#ac8dce038d65272fd2301359f0c3eba56',1,'system_info.h']]]
 ];

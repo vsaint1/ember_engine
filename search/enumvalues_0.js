@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['batterylevel_5funknown_952',['BatteryLevel_Unknown',['../system__info_8h.html#ac8dce038d65272fd2301359f0c3eba56a2e063acd62da4fb5c0b7e5ec1c9c84f5',1,'system_info.h']]],
-  ['button_5fx1_953',['BUTTON_X1',['../input__manager_8h.html#ac1ec3647c005eacad401b06e7e18f711a48e08a3a883aaaf4958c0064215ff55b',1,'input_manager.h']]],
-  ['button_5fx2_954',['BUTTON_X2',['../input__manager_8h.html#ac1ec3647c005eacad401b06e7e18f711afdb680f30e7d686d2ed435ab5bc2a4a4',1,'input_manager.h']]]
+  ['auto_1017',['AUTO',['../engine__config_8h.html#aeaf96e5aaa197baec9edba6557961504ae1f2d5134ed2543d38a0de9751cf75d9',1,'engine_config.h']]]
 ];
