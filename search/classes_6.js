@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['gamepadinfo_661',['GamepadInfo',['../structGamepadInfo.html',1,'']]],
-  ['glyph_662',['Glyph',['../structGlyph.html',1,'']]]
+  ['gamepadinfo_660',['GamepadInfo',['../structGamepadInfo.html',1,'']]],
+  ['glyph_661',['Glyph',['../structGlyph.html',1,'']]]
 ];
