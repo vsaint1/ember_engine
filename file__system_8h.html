@@ -69,6 +69,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">file_system.h File Reference</div>  </div>
@@ -86,18 +87,72 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structEmber__VFS.html">Ember_VFS</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> virtual file system.  <a href="structEmber__VFS.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classFileAccess.html">FileAccess</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A RAII wrapper for SDL3 file operations supporting read/write access.  <a href="classFileAccess.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a218842dce041b5bb59eaeaf80cc107b2"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a218842dce041b5bb59eaeaf80cc107b2">ModeFlags</a> { <a class="el" href="file__system_8h.html#a218842dce041b5bb59eaeaf80cc107b2a3466fab4975481651940ed328aa990e4">READ</a>
+, <a class="el" href="file__system_8h.html#a218842dce041b5bb59eaeaf80cc107b2ad4b9e47f65b6e79b010582f15785867e">WRITE</a>
+, <a class="el" href="file__system_8h.html#a218842dce041b5bb59eaeaf80cc107b2aa7b843fb734e3b3fea8e5f902d3f4144">READ_WRITE</a>
+, <a class="el" href="file__system_8h.html#a218842dce041b5bb59eaeaf80cc107b2af7f09ec74b3e3d3d03ad13c542d372b4">WRITE_READ</a>
+ }</td></tr>
+<tr class="memdesc:a218842dce041b5bb59eaeaf80cc107b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags to indicate access modes.  <a href="file__system_8h.html#a218842dce041b5bb59eaeaf80cc107b2">More...</a><br /></td></tr>
+<tr class="separator:a218842dce041b5bb59eaeaf80cc107b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afbeee1232999f08240f43bf512967950"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#afbeee1232999f08240f43bf512967950">_load_assets_file</a> (const std::string &amp;file_path)</td></tr>
-<tr class="memdesc:afbeee1232999f08240f43bf512967950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a given file from <code>res</code> folder.  <a href="file__system_8h.html#afbeee1232999f08240f43bf512967950">More...</a><br /></td></tr>
-<tr class="separator:afbeee1232999f08240f43bf512967950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d233901179575b38690828dc084f03d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a7d233901179575b38690828dc084f03d">_load_file_into_memory</a> (const std::string &amp;file_path)</td></tr>
-<tr class="memdesc:a7d233901179575b38690828dc084f03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a given file from <code>res</code> folder into memory.  <a href="file__system_8h.html#a7d233901179575b38690828dc084f03d">More...</a><br /></td></tr>
-<tr class="separator:a7d233901179575b38690828dc084f03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1644728dc7f4b43d8d82d495bfcb6c3f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a1644728dc7f4b43d8d82d495bfcb6c3f">load_assets_file</a> (const std::string &amp;file_path)</td></tr>
+<tr class="memdesc:a1644728dc7f4b43d8d82d495bfcb6c3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a given file from <code>res</code> folder.  <a href="file__system_8h.html#a1644728dc7f4b43d8d82d495bfcb6c3f">More...</a><br /></td></tr>
+<tr class="separator:a1644728dc7f4b43d8d82d495bfcb6c3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a822ad7f81972bd753a444bedd61a6d30"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a822ad7f81972bd753a444bedd61a6d30">load_file_into_memory</a> (const std::string &amp;file_path)</td></tr>
+<tr class="memdesc:a822ad7f81972bd753a444bedd61a6d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a given file from <code>res</code> folder into memory.  <a href="file__system_8h.html#a822ad7f81972bd753a444bedd61a6d30">More...</a><br /></td></tr>
+<tr class="separator:a822ad7f81972bd753a444bedd61a6d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a609756a0e3bfa5a0f8dc4aa0e97d1ad6"><td class="memItemLeft" align="right" valign="top">ma_result&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8h.html#a609756a0e3bfa5a0f8dc4aa0e97d1ad6">_ember_init_vfs</a> (<a class="el" href="structEmber__VFS.html">Ember_VFS</a> *vfs)</td></tr>
 <tr class="separator:a609756a0e3bfa5a0f8dc4aa0e97d1ad6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a218842dce041b5bb59eaeaf80cc107b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a218842dce041b5bb59eaeaf80cc107b2">&#9670;&nbsp;</a></span>ModeFlags</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="file__system_8h.html#a218842dce041b5bb59eaeaf80cc107b2">ModeFlags</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flags to indicate access modes. </p>
+<ul>
+<li>READ : Read-only access</li>
+<li>WRITE : Write-only access</li>
+<li>READ_WRITE : Read + Write access (read first, then write)</li>
+<li>WRITE_READ : Write + Read access (write first, then read) </li>
+</ul>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a218842dce041b5bb59eaeaf80cc107b2a3466fab4975481651940ed328aa990e4"></a>READ&#160;</td><td class="fielddoc"><p>Read-only access. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a218842dce041b5bb59eaeaf80cc107b2ad4b9e47f65b6e79b010582f15785867e"></a>WRITE&#160;</td><td class="fielddoc"><p>Write-only access. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a218842dce041b5bb59eaeaf80cc107b2aa7b843fb734e3b3fea8e5f902d3f4144"></a>READ_WRITE&#160;</td><td class="fielddoc"><p>Read then Write access. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a218842dce041b5bb59eaeaf80cc107b2af7f09ec74b3e3d3d03ad13c542d372b4"></a>WRITE_READ&#160;</td><td class="fielddoc"><p>Write then Read access. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a609756a0e3bfa5a0f8dc4aa0e97d1ad6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a609756a0e3bfa5a0f8dc4aa0e97d1ad6">&#9670;&nbsp;</a></span>_ember_init_vfs()</h2>
@@ -117,14 +172,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afbeee1232999f08240f43bf512967950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbeee1232999f08240f43bf512967950">&#9670;&nbsp;</a></span>_load_assets_file()</h2>
+<a id="a1644728dc7f4b43d8d82d495bfcb6c3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1644728dc7f4b43d8d82d495bfcb6c3f">&#9670;&nbsp;</a></span>load_assets_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string _load_assets_file </td>
+          <td class="memname">std::string load_assets_file </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>file_path</em></td><td>)</td>
@@ -148,14 +203,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7d233901179575b38690828dc084f03d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d233901179575b38690828dc084f03d">&#9670;&nbsp;</a></span>_load_file_into_memory()</h2>
+<a id="a822ad7f81972bd753a444bedd61a6d30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a822ad7f81972bd753a444bedd61a6d30">&#9670;&nbsp;</a></span>load_file_into_memory()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;char&gt; _load_file_into_memory </td>
+          <td class="memname">std::vector&lt;char&gt; load_file_into_memory </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>file_path</em></td><td>)</td>

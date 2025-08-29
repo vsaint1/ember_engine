@@ -1,11 +1,21 @@
 var searchData=
 [
-  ['_7egamepadinfo_518',['~GamepadInfo',['../structGamepadInfo.html#a4172d3f38c931f5ca1ae78b39754f5e1',1,'GamepadInfo']]],
-  ['_7einputmanager_519',['~InputManager',['../classInputManager.html#af518290877dd183606709d5852db5491',1,'InputManager']]],
-  ['_7emesh_520',['~Mesh',['../classMesh.html#a5efe4da1a4c0971cfb037bd70304c303',1,'Mesh']]],
-  ['_7enode2d_521',['~Node2D',['../classNode2D.html#ac366eae55e52580da5a323f511d1b6a6',1,'Node2D']]],
-  ['_7eopenglrenderer_522',['~OpenglRenderer',['../classOpenglRenderer.html#a88438fbc7e1c64566dfd842659b1adeb',1,'OpenglRenderer']]],
-  ['_7erenderer_523',['~Renderer',['../classRenderer.html#add2012f269f157754034e7b5475a8927',1,'Renderer']]],
-  ['_7eshader_524',['~Shader',['../classShader.html#a5875638f21a17c547bd38dac2d803738',1,'Shader']]],
-  ['_7etexture_525',['~Texture',['../structTexture.html#a09c4bcb7462f64c1d20fa69dba3cee8a',1,'Texture']]]
+  ['_7eaudiomanager_631',['~AudioManager',['../classAudioManager.html#ae8d650e9e5705262f4808376182dbe82',1,'AudioManager']]],
+  ['_7ecollisionshape2d_632',['~CollisionShape2D',['../classCollisionShape2D.html#a443e8791f2a8639c5da035b5ecdeeca6',1,'CollisionShape2D']]],
+  ['_7eenginemanager_633',['~EngineManager',['../classEngineManager.html#ab35e38f9aee5c790132f10bc1adeed55',1,'EngineManager']]],
+  ['_7efileaccess_634',['~FileAccess',['../classFileAccess.html#a10459e5e524182ed3cd6a82dbebb5643',1,'FileAccess']]],
+  ['_7efont_635',['~Font',['../structFont.html#a134aaa2f78af0c12d3ce504957169768',1,'Font']]],
+  ['_7egamepadinfo_636',['~GamepadInfo',['../structGamepadInfo.html#a4172d3f38c931f5ca1ae78b39754f5e1',1,'GamepadInfo']]],
+  ['_7ehttpclient_637',['~HttpClient',['../classHttpClient.html#a3a10dd5f2752ed1fb3cf0e40f3067a81',1,'HttpClient']]],
+  ['_7einputmanager_638',['~InputManager',['../classInputManager.html#af518290877dd183606709d5852db5491',1,'InputManager']]],
+  ['_7emesh_639',['~Mesh',['../classMesh.html#a5efe4da1a4c0971cfb037bd70304c303',1,'Mesh']]],
+  ['_7emetalrenderer_640',['~MetalRenderer',['../classMetalRenderer.html#a11517537384900faf8401978253644e1',1,'MetalRenderer']]],
+  ['_7enode2d_641',['~Node2D',['../classNode2D.html#ac366eae55e52580da5a323f511d1b6a6',1,'Node2D']]],
+  ['_7eopenglrenderer_642',['~OpenglRenderer',['../classOpenglRenderer.html#a88438fbc7e1c64566dfd842659b1adeb',1,'OpenglRenderer']]],
+  ['_7ephysicsmanager_643',['~PhysicsManager',['../classPhysicsManager.html#ae26250ebb66027078b3c21bb34050fa1',1,'PhysicsManager']]],
+  ['_7erenderer_644',['~Renderer',['../classRenderer.html#add2012f269f157754034e7b5475a8927',1,'Renderer']]],
+  ['_7erigidbody2d_645',['~RigidBody2D',['../classRigidBody2D.html#a531688c3aa40ba98ea0e4f6fd11ef409',1,'RigidBody2D']]],
+  ['_7eshader_646',['~Shader',['../classShader.html#a5875638f21a17c547bd38dac2d803738',1,'Shader']]],
+  ['_7etexture_647',['~Texture',['../structTexture.html#a09c4bcb7462f64c1d20fa69dba3cee8a',1,'Texture']]],
+  ['_7ethreadpool_648',['~ThreadPool',['../classThreadPool.html#a44d3d2ab618970605e684efc216655eb',1,'ThreadPool']]]
 ];

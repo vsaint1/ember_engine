@@ -78,13 +78,18 @@ $(function() {
 , <a class="el" href="structDrawCommand.html#afa0fbf2f0cbb082d982c17c4542f52a4">DrawCommand</a>
 </li>
 <li>initialize()
-: <a class="el" href="classEngine.html#adea87f89b2c086031e5130d95d5a30c7">Engine</a>
+: <a class="el" href="classAudioManager.html#acaeb342473db4ccc692ae22e4441f96a">AudioManager</a>
+, <a class="el" href="classEngine.html#adea87f89b2c086031e5130d95d5a30c7">Engine</a>
+, <a class="el" href="classEngineManager.html#a9e930064c04a0327217ca94d224cf9cf">EngineManager</a>
 , <a class="el" href="classLogger.html#ae784283f1de7827b7e7049641eaf0a53">Logger</a>
+, <a class="el" href="classMetalRenderer.html#ab350f44a5417776fdc1113abd519f122">MetalRenderer</a>
 , <a class="el" href="classOpenglRenderer.html#ae9975173bfc62175faea7af638d28a9a">OpenglRenderer</a>
+, <a class="el" href="classPhysicsManager.html#a7fa0d27967a992afb1d545b866621a93">PhysicsManager</a>
 , <a class="el" href="classRenderer.html#a2ea5c8d1ba8bf65f82cc4f65d8d1c636">Renderer</a>
 </li>
 <li>input()
-: <a class="el" href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">Node2D</a>
+: <a class="el" href="classCollisionShape2D.html#a94b28d5b974227121430ab855891bd98">CollisionShape2D</a>
+, <a class="el" href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">Node2D</a>
 , <a class="el" href="classSprite2D.html#adf2c1441de1b8747440c2249fee6dea2">Sprite2D</a>
 </li>
 <li>input_manager()
@@ -119,6 +124,19 @@ $(function() {
 </li>
 <li>is_controller
 : <a class="el" href="structGamepadInfo.html#a75bb34d6ebb756fb5119628a4c5c6b55">GamepadInfo</a>
+</li>
+<li>is_disabled
+: <a class="el" href="classCollisionShape2D.html#a2dbb0fcd965c07a0d04ad9a05861223e">CollisionShape2D</a>
+, <a class="el" href="classRigidBody2D.html#aea2a538899d740c9cbcd4df65e2cb5d6">RigidBody2D</a>
+</li>
+<li>is_effective_visible()
+: <a class="el" href="classNode2D.html#af227f079d480fe761426e58aa92e08c8">Node2D</a>
+</li>
+<li>is_fixed_rotation
+: <a class="el" href="classRigidBody2D.html#a775fa6f86699bfe457eab5e01e25006b">RigidBody2D</a>
+</li>
+<li>is_fullscreen
+: <a class="el" href="structApplication.html#a9a30c03bd8aed9a505f8e0dc98b4d4df">Application</a>
 </li>
 <li>is_gamepad_button_held()
 : <a class="el" href="classInputManager.html#a3a2ac36be87e852a1112a2c7462a8bbc">InputManager</a>
@@ -156,6 +174,21 @@ $(function() {
 <li>is_mouse_button_released()
 : <a class="el" href="classInputManager.html#a21beb955532f3f6b045ff9ee895a10e3">InputManager</a>
 </li>
+<li>is_multithreaded
+: <a class="el" href="structThreading.html#afefcf693f3b77ca710250c7b6dcb9130">Threading</a>
+</li>
+<li>is_muted
+: <a class="el" href="classAudioBus.html#afbb9df360fa6c0900aeb97f46e02fc7a">AudioBus</a>
+</li>
+<li>is_none()
+: <a class="el" href="structUberShader.html#aee8244cb443c5bfebd48cd49a55a7eb6">UberShader</a>
+</li>
+<li>is_on_ground()
+: <a class="el" href="classRigidBody2D.html#a7a06eb3200a70a55bf69ef8cb74741e7">RigidBody2D</a>
+</li>
+<li>is_open()
+: <a class="el" href="classFileAccess.html#af4264677ea7bf131f83870df7993fcde">FileAccess</a>
+</li>
 <li>is_paused()
 : <a class="el" href="classTimeManager.html#a85f9dd44c206849596b374d960323b22">TimeManager</a>
 </li>
@@ -164,6 +197,15 @@ $(function() {
 </li>
 <li>is_relative_mouse_mode()
 : <a class="el" href="classInputManager.html#a2f85e75193b9cd345ecaae4753b3ae43">InputManager</a>
+</li>
+<li>is_resizable
+: <a class="el" href="structApplication.html#af63ada34948ee2b687e32b1da4f5dcd1">Application</a>
+</li>
+<li>is_running
+: <a class="el" href="classEngine.html#ad0106de4cd5aaf9e5f403b91d2a68203">Engine</a>
+</li>
+<li>is_sensor
+: <a class="el" href="classRigidBody2D.html#aee190bd492bc5bec49448ffb4f5e948e">RigidBody2D</a>
 </li>
 <li>is_touch_active()
 : <a class="el" href="classInputManager.html#a2ff94bba94b77df6f97b4b6d09d06ef8">InputManager</a>
@@ -174,13 +216,14 @@ $(function() {
 , <a class="el" href="classShader.html#ab0f73eb1452b1ad7c57ad0d6892cba27">Shader</a>
 </li>
 <li>is_visible()
-: <a class="el" href="structCamera2D.html#a9d1b8c8e8081e31cfe5221d658ec3974">Camera2D</a>
+: <a class="el" href="classNode2D.html#a558b6822a1c3894e0cc2d1d0f7b04b38">Node2D</a>
 </li>
 <li>is_vsync()
 : <a class="el" href="structEngineConfig.html#a00127a5427835dfb61f6d9259e165697">EngineConfig</a>
 </li>
 <li>is_zero()
 : <a class="el" href="structRect2.html#a34166b782d9a6c4d9e9a8ffb4ee8fdef">Rect2</a>
+, <a class="el" href="structRecti.html#abe71339ba8ac8734bbef44ee83daec9a">Recti</a>
 </li>
 <li>italic
 : <a class="el" href="structTextToken.html#a6691425b803dfb24cefd6c16d6aa775f">TextToken</a>

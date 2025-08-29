@@ -68,6 +68,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">engine.cpp File Reference</div>  </div>
@@ -76,8 +77,17 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="engine_8h_source.html">core/engine.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ember__audio_8h_source.html">core/audio/ember_audio.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ember__core_8h_source.html">core/ember_core.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ember__mtl_8h_source.html">core/renderer/metal/ember_mtl.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ember__gl_8h_source.html">core/renderer/opengl/ember_gl.h</a>&quot;</code><br />
+<code>#include &lt;stb_image.h&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a68880fb490017683be6f4c510669d9fa"><td class="memItemLeft" align="right" valign="top">b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a68880fb490017683be6f4c510669d9fa">pixels_to_world</a> (const glm::vec2 &amp;pixelPos)</td></tr>
+<tr class="separator:a68880fb490017683be6f4c510669d9fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dddc84397bcec966bd0ec861428b39a"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a4dddc84397bcec966bd0ec861428b39a">world_to_pixels</a> (const b2Vec2 &amp;worldPos)</td></tr>
+<tr class="separator:a4dddc84397bcec966bd0ec861428b39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a86ef02718d8da83f5f144ddb6237c9ee"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classEngine.html">Engine</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a86ef02718d8da83f5f144ddb6237c9ee">GEngine</a> = std::make_unique&lt;<a class="el" href="classEngine.html">Engine</a>&gt;()</td></tr>
@@ -85,6 +95,43 @@ Variables</h2></td></tr>
 <tr class="memitem:a5d35f1c9963920ee5b646c65b714d22a"><td class="memItemLeft" align="right" valign="top">ma_engine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8cpp.html#a5d35f1c9963920ee5b646c65b714d22a">audio_engine</a></td></tr>
 <tr class="separator:a5d35f1c9963920ee5b646c65b714d22a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a68880fb490017683be6f4c510669d9fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68880fb490017683be6f4c510669d9fa">&#9670;&nbsp;</a></span>pixels_to_world()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">b2Vec2 pixels_to_world </td>
+          <td>(</td>
+          <td class="paramtype">const glm::vec2 &amp;&#160;</td>
+          <td class="paramname"><em>pixelPos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4dddc84397bcec966bd0ec861428b39a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dddc84397bcec966bd0ec861428b39a">&#9670;&nbsp;</a></span>world_to_pixels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 world_to_pixels </td>
+          <td>(</td>
+          <td class="paramtype">const b2Vec2 &amp;&#160;</td>
+          <td class="paramname"><em>worldPos</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="a5d35f1c9963920ee5b646c65b714d22a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5d35f1c9963920ee5b646c65b714d22a">&#9670;&nbsp;</a></span>audio_engine</h2>

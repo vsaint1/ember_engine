@@ -82,6 +82,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae29bf96af4db5cda3c69edeaa5f31613"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structColor.html#ae29bf96af4db5cda3c69edeaa5f31613">normalize_color</a> () const</td></tr>
 <tr class="separator:ae29bf96af4db5cda3c69edeaa5f31613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab0003111f4f7be097d2b9f50c88734e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structColor.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structColor.html#aab0003111f4f7be097d2b9f50c88734e">to_rgba</a> () const</td></tr>
+<tr class="separator:aab0003111f4f7be097d2b9f50c88734e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4b5d5500c2ee028e3f7d92a4d098ee0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structColor.html#ae4b5d5500c2ee028e3f7d92a4d098ee0">operator==</a> (const <a class="el" href="structColor.html">Color</a> &amp;other) const</td></tr>
 <tr class="separator:ae4b5d5500c2ee028e3f7d92a4d098ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -114,8 +116,6 @@ Static Public Attributes</h2></td></tr>
 <tr class="separator:adeaa1974140f586f6c1cc9b4e90bf210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acabb6e83958b97e98baa1d8b9251676e"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structColor.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structColor.html#acabb6e83958b97e98baa1d8b9251676e">MAGENTA</a> = {255, 0, 255, 255}</td></tr>
 <tr class="separator:acabb6e83958b97e98baa1d8b9251676e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98460e613e3ea3688a4006ea8157170a"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="structColor.html">Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structColor.html#a98460e613e3ea3688a4006ea8157170a">TRANSPARENT</a> = {0, 0, 0, 0}</td></tr>
-<tr class="separator:a98460e613e3ea3688a4006ea8157170a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="structColor.html" title="Color struct.">Color</a> struct. </p>
@@ -150,6 +150,23 @@ Static Public Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structColor.html">Color</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab0003111f4f7be097d2b9f50c88734e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab0003111f4f7be097d2b9f50c88734e">&#9670;&nbsp;</a></span>to_rgba()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structColor.html">Color</a> Color::to_rgba </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -335,28 +352,6 @@ Static Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">const <a class="el" href="structColor.html">Color</a> Color::RED = {255, 0, 0, 255}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a98460e613e3ea3688a4006ea8157170a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98460e613e3ea3688a4006ea8157170a">&#9670;&nbsp;</a></span>TRANSPARENT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="structColor.html">Color</a> Color::TRANSPARENT = {0, 0, 0, 0}</td>
         </tr>
       </table>
   </td>

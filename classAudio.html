@@ -67,13 +67,14 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="classAudio-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Audio Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classAudio.html" title="Audio struct.">Audio</a> struct.  
+<p><a class="el" href="classAudio.html" title="Audio (sound resource)">Audio</a> (sound resource)  
  <a href="classAudio.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ember__audio_8h_source.html">ember_audio.h</a>&gt;</code></p>
@@ -81,20 +82,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3a63d384adbb1240c26f77a2e5e17293"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a3a63d384adbb1240c26f77a2e5e17293">set_volume</a> (float vol)</td></tr>
-<tr class="memdesc:a3a63d384adbb1240c26f77a2e5e17293"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the audio volume.  <a href="classAudio.html#a3a63d384adbb1240c26f77a2e5e17293">More...</a><br /></td></tr>
 <tr class="separator:a3a63d384adbb1240c26f77a2e5e17293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82c1018cf778eccc8819acfb64be53b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a82c1018cf778eccc8819acfb64be53b2">pause</a> ()</td></tr>
-<tr class="memdesc:a82c1018cf778eccc8819acfb64be53b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause audio and fade out.  <a href="classAudio.html#a82c1018cf778eccc8819acfb64be53b2">More...</a><br /></td></tr>
 <tr class="separator:a82c1018cf778eccc8819acfb64be53b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82eddf99ea3a9cf3adb1130683789bf8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a82eddf99ea3a9cf3adb1130683789bf8">play</a> (bool loop=false)</td></tr>
-<tr class="memdesc:a82eddf99ea3a9cf3adb1130683789bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Play audio.  <a href="classAudio.html#a82eddf99ea3a9cf3adb1130683789bf8">More...</a><br /></td></tr>
 <tr class="separator:a82eddf99ea3a9cf3adb1130683789bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a675b105025b667239f58723c8862b2b0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a675b105025b667239f58723c8862b2b0">is_playing</a> ()</td></tr>
 <tr class="separator:a675b105025b667239f58723c8862b2b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2eff4c711760295a5a1e512fe898e00c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a2eff4c711760295a5a1e512fe898e00c">set_loop</a> (bool loop)</td></tr>
 <tr class="separator:a2eff4c711760295a5a1e512fe898e00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4210736f3c99e0820e241190ea7201c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a4210736f3c99e0820e241190ea7201c2">destroy</a> ()</td></tr>
-<tr class="memdesc:a4210736f3c99e0820e241190ea7201c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload <a class="el" href="classAudio.html" title="Audio struct.">Audio</a> allocated memory.  <a href="classAudio.html#a4210736f3c99e0820e241190ea7201c2">More...</a><br /></td></tr>
 <tr class="separator:a4210736f3c99e0820e241190ea7201c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab8d2b5325cad423ca2f82350a0647a24"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#ab8d2b5325cad423ca2f82350a0647a24">Audio</a> (const <a class="el" href="classAudio.html">Audio</a> &amp;)=delete</td></tr>
 <tr class="separator:ab8d2b5325cad423ca2f82350a0647a24"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,9 +102,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad37a13f24c01871ccab76c5aa90cbbc7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classAudio.html">Audio</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#ad37a13f24c01871ccab76c5aa90cbbc7">load</a> (const std::string &amp;file_Path)</td></tr>
-<tr class="memdesc:ad37a13f24c01871ccab76c5aa90cbbc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load <a class="el" href="classAudio.html" title="Audio struct.">Audio</a> and keep track of it.  <a href="classAudio.html#ad37a13f24c01871ccab76c5aa90cbbc7">More...</a><br /></td></tr>
-<tr class="separator:ad37a13f24c01871ccab76c5aa90cbbc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae91ebc1dea4b5aba1d6fb7eaf86a64a2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classAudio.html">Audio</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#ae91ebc1dea4b5aba1d6fb7eaf86a64a2">load</a> (const std::string &amp;file_Path, const std::string &amp;busName=&quot;Master&quot;)</td></tr>
+<tr class="separator:ae91ebc1dea4b5aba1d6fb7eaf86a64a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -115,13 +111,14 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a8b42ea56f7151594499cef364862af42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5512ded0620adc4bbfcc20d7e9bd969a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a5512ded0620adc4bbfcc20d7e9bd969a">duration</a> = 0.0f</td></tr>
 <tr class="separator:a5512ded0620adc4bbfcc20d7e9bd969a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a066719cd4a4f2e2d6dedb7c37143e747"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html#a066719cd4a4f2e2d6dedb7c37143e747">AudioBus</a></td></tr>
+<tr class="separator:a066719cd4a4f2e2d6dedb7c37143e747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classAudio.html" title="Audio struct.">Audio</a> struct. </p>
-<ul>
-<li>mini-audio backend</li>
-</ul>
-<dl class="section version"><dt>Version</dt><dd>0.0.9 </dd></dl>
+<div class="textblock"><p><a class="el" href="classAudio.html" title="Audio (sound resource)">Audio</a> (sound resource) </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab8d2b5325cad423ca2f82350a0647a24"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab8d2b5325cad423ca2f82350a0647a24">&#9670;&nbsp;</a></span>Audio() <span class="overload">[1/2]</span></h2>
@@ -191,17 +188,6 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Unload <a class="el" href="classAudio.html" title="Audio struct.">Audio</a> allocated memory. </p>
-<ul>
-<li>Manually clear allocated audio or at the end will be freed<ul>
-<li>automatically</li>
-</ul>
-</li>
-</ul>
-<dl class="section see"><dt>See also</dt><dd>CloseAudio</dd></dl>
-<dl class="section version"><dt>Version</dt><dd>0.0.3 </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
 </div>
 </div>
 <a id="a675b105025b667239f58723c8862b2b0"></a>
@@ -221,8 +207,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad37a13f24c01871ccab76c5aa90cbbc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad37a13f24c01871ccab76c5aa90cbbc7">&#9670;&nbsp;</a></span>load()</h2>
+<a id="ae91ebc1dea4b5aba1d6fb7eaf86a64a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae91ebc1dea4b5aba1d6fb7eaf86a64a2">&#9670;&nbsp;</a></span>load()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,8 +220,18 @@ Public Attributes</h2></td></tr>
           <td class="memname"><a class="el" href="classAudio.html">Audio</a> * Audio::load </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>file_Path</em></td><td>)</td>
+          <td class="paramname"><em>file_Path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>busName</em> = <code>&quot;Master&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -244,19 +240,6 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Load <a class="el" href="classAudio.html" title="Audio struct.">Audio</a> and keep track of it. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file_Path</td><td>Path to the audio file</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section version"><dt>Version</dt><dd>0.0.3</dd></dl>
-<ul>
-<li><dl class="section return"><dt>Returns</dt><dd><a class="el" href="classAudio.html" title="Audio struct.">Audio</a> allocated audio memory struct </dd></dl>
-</li>
-</ul>
 
 </div>
 </div>
@@ -301,10 +284,6 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pause audio and fade out. </p>
-<dl class="section version"><dt>Version</dt><dd>0.0.3 </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
 </div>
 </div>
 <a id="a82eddf99ea3a9cf3adb1130683789bf8"></a>
@@ -322,16 +301,6 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Play audio. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">loop</td><td>Play audio in <code>loop</code> or not</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section version"><dt>Version</dt><dd>0.0.3 </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -369,16 +338,28 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Change the audio volume. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">vol</td><td><a class="el" href="classAudio.html" title="Audio struct.">Audio</a> volume from 0.0 to 1.0</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section version"><dt>Version</dt><dd>0.0.3 </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd><pre class="fragment">  * void
-</pre> </dd></dl>
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a066719cd4a4f2e2d6dedb7c37143e747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a066719cd4a4f2e2d6dedb7c37143e747">&#9670;&nbsp;</a></span>AudioBus</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="classAudioBus.html">AudioBus</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

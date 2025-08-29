@@ -82,20 +82,21 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudio.html">Audio</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classAudio.html" title="Audio struct.">Audio</a> struct.  <a href="classAudio.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classAudio.html" title="Audio (sound resource)">Audio</a> (sound resource)  <a href="classAudio.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioBus.html">AudioBus</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic <a class="el" href="classAudioBus.html" title="Basic AudioBus.">AudioBus</a>.  <a href="classAudioBus.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAudioManager.html">AudioManager</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa410e52feab296fabf516bd83138d6aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8h.html#aa410e52feab296fabf516bd83138d6aa">init_audio_engine</a> ()</td></tr>
-<tr class="memdesc:aa410e52feab296fabf516bd83138d6aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize Sound <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a>.  <a href="ember__audio_8h.html#aa410e52feab296fabf516bd83138d6aa">More...</a><br /></td></tr>
+<tr class="memdesc:aa410e52feab296fabf516bd83138d6aa"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> <a class="el" href="classAudio.html" title="Audio (sound resource)">Audio</a> API.  <a href="ember__audio_8h.html#aa410e52feab296fabf516bd83138d6aa">More...</a><br /></td></tr>
 <tr class="separator:aa410e52feab296fabf516bd83138d6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae97aed854b525ebaee38bf977a7456cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8h.html#ae97aed854b525ebaee38bf977a7456cf">close_audio_engine</a> ()</td></tr>
-<tr class="memdesc:ae97aed854b525ebaee38bf977a7456cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close Sound <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> and free allocated resources.  <a href="ember__audio_8h.html#ae97aed854b525ebaee38bf977a7456cf">More...</a><br /></td></tr>
 <tr class="separator:ae97aed854b525ebaee38bf977a7456cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1190e686fc70f11718b37d33acdf84af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8h.html#a1190e686fc70f11718b37d33acdf84af">Audio_SetMasterVolume</a> (float volume)</td></tr>
-<tr class="memdesc:a1190e686fc70f11718b37d33acdf84af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the [audio engine] global volume.  <a href="ember__audio_8h.html#a1190e686fc70f11718b37d33acdf84af">More...</a><br /></td></tr>
-<tr class="separator:a1190e686fc70f11718b37d33acdf84af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -103,41 +104,8 @@ Variables</h2></td></tr>
 <tr class="separator:a6784aa734e014cd74616cd622505cc94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07459f94c952522f2df6e9c3ab32c485"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8h.html#a07459f94c952522f2df6e9c3ab32c485">SAMPLE_RATE</a> = 48000</td></tr>
 <tr class="separator:a07459f94c952522f2df6e9c3ab32c485"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1db9c19c96067611f810483e896e8eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a>&lt; std::string, <a class="el" href="classAudio.html">Audio</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ember__audio_8h.html#ae1db9c19c96067611f810483e896e8eb">audios</a></td></tr>
-<tr class="separator:ae1db9c19c96067611f810483e896e8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a1190e686fc70f11718b37d33acdf84af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1190e686fc70f11718b37d33acdf84af">&#9670;&nbsp;</a></span>Audio_SetMasterVolume()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Audio_SetMasterVolume </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>volume</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Change the [audio engine] global volume. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">volume</td><td><a class="el" href="classAudio.html" title="Audio struct.">Audio</a> volume from [0.0f -&gt; 1.f]</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section version"><dt>Version</dt><dd></dd></dl>
-<ul>
-<li>0.0.3 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-</li>
-</ul>
-
-</div>
-</div>
 <a id="ae97aed854b525ebaee38bf977a7456cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae97aed854b525ebaee38bf977a7456cf">&#9670;&nbsp;</a></span>close_audio_engine()</h2>
 
@@ -152,10 +120,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Close Sound <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> and free allocated resources. </p>
-<dl class="section version"><dt>Version</dt><dd>0.0.3 </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 </div>
 </div>
@@ -174,38 +138,11 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initialize Sound <a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a>. </p>
-<ul>
-<li>mini-audio backend</li>
-</ul>
-<dl class="section version"><dt>Version</dt><dd>0.0.3 </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+<p><a class="el" href="classEngine.html" title="Core Engine singleton.">Engine</a> <a class="el" href="classAudio.html" title="Audio (sound resource)">Audio</a> API. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="ae1db9c19c96067611f810483e896e8eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1db9c19c96067611f810483e896e8eb">&#9670;&nbsp;</a></span>audios</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a>&lt;std::string, <a class="el" href="classAudio.html">Audio</a>*&gt; audios</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a6784aa734e014cd74616cd622505cc94"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6784aa734e014cd74616cd622505cc94">&#9670;&nbsp;</a></span>NUM_CHANNELS</h2>
 

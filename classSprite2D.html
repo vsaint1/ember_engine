@@ -86,6 +86,8 @@ Inheritance diagram for Sprite2D:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a04752ff2f0cb61135b61480656d999b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite2D.html#a04752ff2f0cb61135b61480656d999b2">Sprite2D</a> (const std::weak_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt; &amp;tex, const <a class="el" href="structColor.html">Color</a> col=<a class="el" href="structColor.html">Color</a>(255, 255, 255, 255), const glm::vec2 size={0, 0})</td></tr>
 <tr class="separator:a04752ff2f0cb61135b61480656d999b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c69f968af6933ccbcdea83265fbeb84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structRect2.html">Rect2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite2D.html#a3c69f968af6933ccbcdea83265fbeb84">get_region</a> () const</td></tr>
+<tr class="separator:a3c69f968af6933ccbcdea83265fbeb84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2651ea20d05f7efb32e2d1748b1f2eac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite2D.html#a2651ea20d05f7efb32e2d1748b1f2eac">set_region</a> (const <a class="el" href="structRect2.html">Rect2</a> &amp;region, glm::vec2 size)</td></tr>
 <tr class="separator:a2651ea20d05f7efb32e2d1748b1f2eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb100224db5ba8abfef80210b729a55d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite2D.html#acb100224db5ba8abfef80210b729a55d">set_color</a> (const <a class="el" href="structColor.html">Color</a> &amp;col)</td></tr>
@@ -99,8 +101,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adf2c1441de1b8747440c2249fee6dea2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSprite2D.html#adf2c1441de1b8747440c2249fee6dea2">input</a> (const <a class="el" href="classInputManager.html">InputManager</a> *input) override</td></tr>
 <tr class="separator:adf2c1441de1b8747440c2249fee6dea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classNode2D"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNode2D')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNode2D.html">Node2D</a></td></tr>
-<tr class="memitem:aebdba85c7c32594509a1cb52f49efdf0 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#aebdba85c7c32594509a1cb52f49efdf0">Node2D</a> ()=default</td></tr>
-<tr class="separator:aebdba85c7c32594509a1cb52f49efdf0 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2681fb70d3b2900787af87e7ba0a870 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ad2681fb70d3b2900787af87e7ba0a870">Node2D</a> ()</td></tr>
+<tr class="separator:ad2681fb70d3b2900787af87e7ba0a870 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94294a03fb66d73198cb7475bd4158e0 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">Node2D</a> (std::string name)</td></tr>
 <tr class="separator:a94294a03fb66d73198cb7475bd4158e0 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaddef9c60156d2cc151695bbf51b2459 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#aaddef9c60156d2cc151695bbf51b2459">set_z_index</a> (int index)</td></tr>
@@ -119,24 +121,33 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a273bd183b7b8f8610897eaacb044716c inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4dc24465f297785fb87ea1d20d31b05 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#af4dc24465f297785fb87ea1d20d31b05">scale</a> (float sx, float sy)</td></tr>
 <tr class="separator:af4dc24465f297785fb87ea1d20d31b05 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adfbb79c741e24e9e26363288cd49f255 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#adfbb79c741e24e9e26363288cd49f255">get_global_transform</a> () const</td></tr>
-<tr class="separator:adfbb79c741e24e9e26363288cd49f255 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac140bda0659b989459f0fcbb12453c9 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#aac140bda0659b989459f0fcbb12453c9">get_transform</a> () const</td></tr>
-<tr class="separator:aac140bda0659b989459f0fcbb12453c9 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a922eaffc604e9410c38d0a9286fb88 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a4a922eaffc604e9410c38d0a9286fb88">set_transform</a> (const <a class="el" href="structTransform.html">Transform</a> &amp;transform)</td></tr>
-<tr class="separator:a4a922eaffc604e9410c38d0a9286fb88 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac05077f57484e5846f9c1af1230f8685 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransform2D.html">Transform2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ac05077f57484e5846f9c1af1230f8685">get_global_transform</a> () const</td></tr>
+<tr class="separator:ac05077f57484e5846f9c1af1230f8685 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a004a6fe4bc0b853bc5eb23067efd53 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransform2D.html">Transform2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a5a004a6fe4bc0b853bc5eb23067efd53">get_transform</a> () const</td></tr>
+<tr class="separator:a5a004a6fe4bc0b853bc5eb23067efd53 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c61697a43558e504d1023f49094d155 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a7c61697a43558e504d1023f49094d155">set_transform</a> (const <a class="el" href="structTransform2D.html">Transform2D</a> &amp;transform)</td></tr>
+<tr class="separator:a7c61697a43558e504d1023f49094d155 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6c0c71886e4a90a557e69f69a4675be inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ae6c0c71886e4a90a557e69f69a4675be">add_child</a> (const std::string &amp;name, <a class="el" href="classNode2D.html">Node2D</a> *node)</td></tr>
 <tr class="separator:ae6c0c71886e4a90a557e69f69a4675be inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1972083486a6f2820efd973ecb5fa1d3 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNode2D.html">Node2D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a1972083486a6f2820efd973ecb5fa1d3">get_node</a> (const std::string &amp;path)</td></tr>
 <tr class="separator:a1972083486a6f2820efd973ecb5fa1d3 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad80337e5e666150c1a0746e7537437a2 inherit pub_methods_classNode2D"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad80337e5e666150c1a0746e7537437a2 inherit pub_methods_classNode2D"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">get_node</a> ()</td></tr>
+<tr class="separator:ad80337e5e666150c1a0746e7537437a2 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac366eae55e52580da5a323f511d1b6a6 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ac366eae55e52580da5a323f511d1b6a6">~Node2D</a> ()</td></tr>
 <tr class="separator:ac366eae55e52580da5a323f511d1b6a6 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a99a950561bc53ea9b3b1a56414c275 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a9a99a950561bc53ea9b3b1a56414c275">get_name</a> () const</td></tr>
+<tr class="separator:a9a99a950561bc53ea9b3b1a56414c275 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a558b6822a1c3894e0cc2d1d0f7b04b38 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a558b6822a1c3894e0cc2d1d0f7b04b38">is_visible</a> () const</td></tr>
+<tr class="separator:a558b6822a1c3894e0cc2d1d0f7b04b38 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af227f079d480fe761426e58aa92e08c8 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#af227f079d480fe761426e58aa92e08c8">is_effective_visible</a> () const</td></tr>
+<tr class="separator:af227f079d480fe761426e58aa92e08c8 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classNode2D"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classNode2D')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classNode2D.html">Node2D</a></td></tr>
-<tr class="memitem:ac999d76205acbad9a0936eeec2e558c1 inherit pro_attribs_classNode2D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransform.html">Transform</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ac999d76205acbad9a0936eeec2e558c1">_transform</a> = {}</td></tr>
-<tr class="separator:ac999d76205acbad9a0936eeec2e558c1 inherit pro_attribs_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3121ed01bafe0565291a200c1711b8e6 inherit pro_attribs_classNode2D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransform2D.html">Transform2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a3121ed01bafe0565291a200c1711b8e6">_transform</a> = {}</td></tr>
+<tr class="separator:a3121ed01bafe0565291a200c1711b8e6 inherit pro_attribs_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50dbc8060638e2c83ed968e9de0252ff inherit pro_attribs_classNode2D"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">_name</a> = &quot;Node&quot;</td></tr>
 <tr class="separator:a50dbc8060638e2c83ed968e9de0252ff inherit pro_attribs_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ff244be8ef04a5e0338752bd87b296a inherit pro_attribs_classNode2D"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a4ff244be8ef04a5e0338752bd87b296a">_z_index</a> = 0</td></tr>
@@ -213,6 +224,23 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="classNode2D.html#a2fa4c19c70d593a7f9a3485772721d3c">Node2D</a>.</p>
+
+</div>
+</div>
+<a id="a3c69f968af6933ccbcdea83265fbeb84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c69f968af6933ccbcdea83265fbeb84">&#9670;&nbsp;</a></span>get_region()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structRect2.html">Rect2</a> Sprite2D::get_region </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

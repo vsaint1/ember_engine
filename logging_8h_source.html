@@ -79,25 +79,8 @@ $(function() {
 <div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="logging_8h.html#aa49b6a1041bf80c96599056af0bc5b4a">    6</a></span>&#160;<span class="preprocessor">#define TO_STRING(x) STRINGIFY(x)</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="logging_8h.html#ad81fedf305a67bf04cfc2ea287fe2370">    7</a></span>&#160;<span class="preprocessor">#define TRACE_FILE_LOG \</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">    &quot;[&quot;</span> __TIME__ &quot;]&quot;   \</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    &quot;[EMBER_ENGINE - &quot; __FILE__ &quot;:&quot; TO_STRING(__LINE__) &quot;] - &quot;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    &quot;[EMBER_ENGINE][&quot; __FILE__ &quot;:&quot; TO_STRING(__LINE__) &quot;]: &quot;</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">   @brief Class for logging, tracing and debugging</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">   - Web - Output to javascript console</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">   - Windows - Output to console and file</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">   - macOS - Output to xcode console</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">   - Linux - Output to console and file</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">   - Android - Output to logcat</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">   - iOS - Output to xcode console</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">   Use the LOG_ERROR, LOG_INFO, LOG_WARN, LOG_DEBUG macros to log messages</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">   @note Do not push sensitive data to the logs</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">   @version 0.0.9</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">*/</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classLogger.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLogger.html">Logger</a> {</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">static</span> <a class="code" href="classLogger.html">Logger</a>&amp; <a class="code" href="classLogger.html#a0a977184f901136049f2da50ad0c0881">get_instance</a>();</div>
@@ -112,7 +95,7 @@ $(function() {
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="classLogger.html">Logger</a>()  = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    ~<a class="code" href="classLogger.html">Logger</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> _log_thread();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> log_thread();</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    std::mutex _mutex                  = std::mutex();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    SDL_Thread* _thread                = <span class="keyword">nullptr</span>;</div>
@@ -203,7 +186,7 @@ $(function() {
 <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;<span class="preprocessor">        auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start).count(); \</span></div>
 <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">        LOG_INFO(&quot;%s took %lld (us), %.2f (ms)&quot;</span>, description, duration, (float) duration / 1000.f); \</div>
 <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    } while (0)</div>
-<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdef"><b>Definition:</b> logging.h:28</div></div>
+<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Class for logging, tracing and debugging.</div><div class="ttdef"><b>Definition:</b> logging.h:28</div></div>
 <div class="ttc" id="aclassLogger_html_a0a977184f901136049f2da50ad0c0881"><div class="ttname"><a href="classLogger.html#a0a977184f901136049f2da50ad0c0881">Logger::get_instance</a></div><div class="ttdeci">static Logger &amp; get_instance()</div><div class="ttdef"><b>Definition:</b> logging.cpp:4</div></div>
 <div class="ttc" id="aclassLogger_html_a0ed55f920595b395769a210d22a917ef"><div class="ttname"><a href="classLogger.html#a0ed55f920595b395769a210d22a917ef">Logger::push</a></div><div class="ttdeci">void push(const std::string &amp;formatted_log)</div><div class="ttdef"><b>Definition:</b> logging.cpp:25</div></div>
 <div class="ttc" id="aclassLogger_html_a45bbe5b05294541b9ee7e2758c6c30b7"><div class="ttname"><a href="classLogger.html#a45bbe5b05294541b9ee7e2758c6c30b7">Logger::destroy</a></div><div class="ttdeci">static void destroy()</div><div class="ttdef"><b>Definition:</b> logging.cpp:36</div></div>
