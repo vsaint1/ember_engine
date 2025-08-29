@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['httpclient_904',['HttpClient',['../classHttpClient.html#a30fe3a951e8f7a0c6e58755c91f3a1d4',1,'HttpClient']]],
-  ['httprequest_905',['HttpRequest',['../structHttpRequest.html#a174c6e84c810d73236298dc4a0176414',1,'HttpRequest']]]
+  ['httpclient_891',['HttpClient',['../classHttpClient.html#a30fe3a951e8f7a0c6e58755c91f3a1d4',1,'HttpClient']]],
+  ['httprequest_892',['HttpRequest',['../structHttpRequest.html#a174c6e84c810d73236298dc4a0176414',1,'HttpRequest']]]
 ];
