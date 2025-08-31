@@ -105,9 +105,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6300702efe861d73c4320ce933657a8a"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a6300702efe861d73c4320ce933657a8a">get_texture</a> (const std::string &amp;path)=0</td></tr>
 <tr class="memdesc:a6300702efe861d73c4320ce933657a8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a previously loaded texture.  <a href="classRenderer.html#a6300702efe861d73c4320ce933657a8a">More...</a><br /></td></tr>
 <tr class="separator:a6300702efe861d73c4320ce933657a8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd199c97ea4d6c49b760c9d6d792faf6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#acd199c97ea4d6c49b760c9d6d792faf6">draw_texture</a> (const <a class="el" href="structTexture.html">Texture</a> *texture, const <a class="el" href="structRect2.html">Rect2</a> &amp;dest_rect, float rotation, const glm::vec4 &amp;color=glm::vec4(1.0f), const <a class="el" href="structRect2.html">Rect2</a> &amp;src_rect=<a class="el" href="structRect2.html">Rect2</a>(), int z_index=0, const <a class="el" href="structUberShader.html">UberShader</a> &amp;uber_shader=<a class="el" href="structUberShader.html#ab2d105137b3f99c1b2f34cb129f9c919">UberShader::none</a>())=0</td></tr>
-<tr class="memdesc:acd199c97ea4d6c49b760c9d6d792faf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a textured quad.  <a href="classRenderer.html#acd199c97ea4d6c49b760c9d6d792faf6">More...</a><br /></td></tr>
-<tr class="separator:acd199c97ea4d6c49b760c9d6d792faf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60c483b033b1e665165cdc0f3c00f689"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a60c483b033b1e665165cdc0f3c00f689">draw_texture</a> (const <a class="el" href="structTexture.html">Texture</a> *texture, const <a class="el" href="structRect2.html">Rect2</a> &amp;dest_rect, float rotation, const glm::vec4 &amp;color, const <a class="el" href="structRect2.html">Rect2</a> &amp;src_rect, int z_index, bool flip_h=false, bool flip_v=false, const <a class="el" href="structUberShader.html">UberShader</a> &amp;uber_shader={})=0</td></tr>
+<tr class="memdesc:a60c483b033b1e665165cdc0f3c00f689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a textured quad.  <a href="classRenderer.html#a60c483b033b1e665165cdc0f3c00f689">More...</a><br /></td></tr>
+<tr class="separator:a60c483b033b1e665165cdc0f3c00f689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f4f677ec092028b30f48dd473b59607"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a3f4f677ec092028b30f48dd473b59607">draw_rect</a> (<a class="el" href="structRect2.html">Rect2</a> rect, float rotation, const glm::vec4 &amp;color, bool filled=true, int z_index=0)=0</td></tr>
 <tr class="memdesc:a3f4f677ec092028b30f48dd473b59607"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a rectangle (filled or outlined).  <a href="classRenderer.html#a3f4f677ec092028b30f48dd473b59607">More...</a><br /></td></tr>
 <tr class="separator:a3f4f677ec092028b30f48dd473b59607"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -704,8 +704,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="acd199c97ea4d6c49b760c9d6d792faf6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd199c97ea4d6c49b760c9d6d792faf6">&#9670;&nbsp;</a></span>draw_texture()</h2>
+<a id="a60c483b033b1e665165cdc0f3c00f689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c483b033b1e665165cdc0f3c00f689">&#9670;&nbsp;</a></span>draw_texture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -735,25 +735,37 @@ Protected Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const glm::vec4 &amp;&#160;</td>
-          <td class="paramname"><em>color</em> = <code>glm::vec4(1.0f)</code>, </td>
+          <td class="paramname"><em>color</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structRect2.html">Rect2</a> &amp;&#160;</td>
-          <td class="paramname"><em>src_rect</em> = <code><a class="el" href="structRect2.html">Rect2</a>()</code>, </td>
+          <td class="paramname"><em>src_rect</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>z_index</em> = <code>0</code>, </td>
+          <td class="paramname"><em>z_index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>flip_h</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>flip_v</em> = <code>false</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structUberShader.html">UberShader</a> &amp;&#160;</td>
-          <td class="paramname"><em>uber_shader</em> = <code><a class="el" href="structUberShader.html#ab2d105137b3f99c1b2f34cb129f9c919">UberShader::none</a>()</code>&#160;</td>
+          <td class="paramname"><em>uber_shader</em> = <code>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -770,7 +782,7 @@ Protected Attributes</h2></td></tr>
 
 <p>Draw a textured quad. </p>
 
-<p>Implemented in <a class="el" href="classOpenglRenderer.html#a166857b2f3668929fcb265b1becbd3cb">OpenglRenderer</a>, and <a class="el" href="classMetalRenderer.html#a828d1885dbea85e0ec5de598f7d3e709">MetalRenderer</a>.</p>
+<p>Implemented in <a class="el" href="classOpenglRenderer.html#a20e923c3ad7e03d75fd785d77b330433">OpenglRenderer</a>, and <a class="el" href="classMetalRenderer.html#a8167c752dfc9e8e22fa1407bc56d1ae3">MetalRenderer</a>.</p>
 
 </div>
 </div>

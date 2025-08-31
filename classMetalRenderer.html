@@ -125,9 +125,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a21d0d7f4f630bc37b8a1d114824a8c3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetalRenderer.html#a21d0d7f4f630bc37b8a1d114824a8c3c">unload_texture</a> (Uint32) override</td></tr>
 <tr class="memdesc:a21d0d7f4f630bc37b8a1d114824a8c3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unload a texture by its ID.  <a href="classMetalRenderer.html#a21d0d7f4f630bc37b8a1d114824a8c3c">More...</a><br /></td></tr>
 <tr class="separator:a21d0d7f4f630bc37b8a1d114824a8c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a828d1885dbea85e0ec5de598f7d3e709"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetalRenderer.html#a828d1885dbea85e0ec5de598f7d3e709">draw_texture</a> (const <a class="el" href="structTexture.html">Texture</a> *, const <a class="el" href="structRect2.html">Rect2</a> &amp;, float, const glm::vec4 &amp;, const <a class="el" href="structRect2.html">Rect2</a> &amp;, int, const <a class="el" href="structUberShader.html">UberShader</a> &amp;) override</td></tr>
-<tr class="memdesc:a828d1885dbea85e0ec5de598f7d3e709"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a textured quad.  <a href="classMetalRenderer.html#a828d1885dbea85e0ec5de598f7d3e709">More...</a><br /></td></tr>
-<tr class="separator:a828d1885dbea85e0ec5de598f7d3e709"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8167c752dfc9e8e22fa1407bc56d1ae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetalRenderer.html#a8167c752dfc9e8e22fa1407bc56d1ae3">draw_texture</a> (const <a class="el" href="structTexture.html">Texture</a> *texture, const <a class="el" href="structRect2.html">Rect2</a> &amp;dest_rect, float rotation, const glm::vec4 &amp;color, const <a class="el" href="structRect2.html">Rect2</a> &amp;src_rect, int z_index, bool flip_h, bool flip_v, const <a class="el" href="structUberShader.html">UberShader</a> &amp;uber_shader) override</td></tr>
+<tr class="memdesc:a8167c752dfc9e8e22fa1407bc56d1ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a textured quad.  <a href="classMetalRenderer.html#a8167c752dfc9e8e22fa1407bc56d1ae3">More...</a><br /></td></tr>
+<tr class="separator:a8167c752dfc9e8e22fa1407bc56d1ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ba97f8ba99cfbecc08ec7c7f6179e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetalRenderer.html#ac4ba97f8ba99cfbecc08ec7c7f6179e7">draw_rect</a> (<a class="el" href="structRect2.html">Rect2</a>, float, const glm::vec4 &amp;, bool, int) override</td></tr>
 <tr class="memdesc:ac4ba97f8ba99cfbecc08ec7c7f6179e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a rectangle (filled or outlined).  <a href="classMetalRenderer.html#ac4ba97f8ba99cfbecc08ec7c7f6179e7">More...</a><br /></td></tr>
 <tr class="separator:ac4ba97f8ba99cfbecc08ec7c7f6179e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -697,8 +697,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a828d1885dbea85e0ec5de598f7d3e709"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a828d1885dbea85e0ec5de598f7d3e709">&#9670;&nbsp;</a></span>draw_texture()</h2>
+<a id="a8167c752dfc9e8e22fa1407bc56d1ae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8167c752dfc9e8e22fa1407bc56d1ae3">&#9670;&nbsp;</a></span>draw_texture()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -745,6 +745,18 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>flip_h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>flip_v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const <a class="el" href="structUberShader.html">UberShader</a> &amp;&#160;</td>
           <td class="paramname"><em>uber_shader</em>&#160;</td>
         </tr>
@@ -763,7 +775,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Draw a textured quad. </p>
 
-<p>Implements <a class="el" href="classRenderer.html#acd199c97ea4d6c49b760c9d6d792faf6">Renderer</a>.</p>
+<p>Implements <a class="el" href="classRenderer.html#a60c483b033b1e665165cdc0f3c00f689">Renderer</a>.</p>
 
 </div>
 </div>

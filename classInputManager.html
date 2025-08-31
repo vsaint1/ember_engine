@@ -119,6 +119,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adbe3348ffb82043aea481ae36f68b8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f85e75193b9cd345ecaae4753b3ae43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a2f85e75193b9cd345ecaae4753b3ae43">is_relative_mouse_mode</a> () const</td></tr>
 <tr class="separator:a2f85e75193b9cd345ecaae4753b3ae43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeabb50d63ee79a0fbf76cf5e0b92bd2"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#adeabb50d63ee79a0fbf76cf5e0b92bd2">screen_to_world</a> (const glm::vec2 &amp;screen_pos) const</td></tr>
+<tr class="separator:adeabb50d63ee79a0fbf76cf5e0b92bd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2f44b2e27279f350fff27f0b6cfc4d9"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#af2f44b2e27279f350fff27f0b6cfc4d9">world_to_screen</a> (const glm::vec2 &amp;world_pos) const</td></tr>
+<tr class="separator:af2f44b2e27279f350fff27f0b6cfc4d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29fba277ea106eaf4243ccf6a829f2dd"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a29fba277ea106eaf4243ccf6a829f2dd">get_gamepad_count</a> () const</td></tr>
 <tr class="separator:a29fba277ea106eaf4243ccf6a829f2dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9eaab0b0ee8ce861b93096860071d965"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structGamepadInfo.html">GamepadInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputManager.html#a9eaab0b0ee8ce861b93096860071d965">get_gamepad</a> (int index) const</td></tr>
@@ -1061,6 +1065,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="adeabb50d63ee79a0fbf76cf5e0b92bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeabb50d63ee79a0fbf76cf5e0b92bd2">&#9670;&nbsp;</a></span>screen_to_world()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 InputManager::screen_to_world </td>
+          <td>(</td>
+          <td class="paramtype">const glm::vec2 &amp;&#160;</td>
+          <td class="paramname"><em>screen_pos</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab455bab03c6ba1a3a23b59d7e8e419e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab455bab03c6ba1a3a23b59d7e8e419e6">&#9670;&nbsp;</a></span>set_gamepad_deadzone()</h2>
 
@@ -1266,6 +1288,24 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af2f44b2e27279f350fff27f0b6cfc4d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2f44b2e27279f350fff27f0b6cfc4d9">&#9670;&nbsp;</a></span>world_to_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 InputManager::world_to_screen </td>
+          <td>(</td>
+          <td class="paramtype">const glm::vec2 &amp;&#160;</td>
+          <td class="paramname"><em>world_pos</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">

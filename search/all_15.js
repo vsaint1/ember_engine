@@ -1,12 +1,14 @@
 var searchData=
 [
-  ['version_599',['version',['../structApplication.html#a43dc0c7ff23befb74fc1a0d24926f90b',1,'Application']]],
-  ['vertex_600',['Vertex',['../structVertex.html',1,'']]],
-  ['vertices_601',['vertices',['../structDrawCommand.html#a330deec98bee22797a4b166104304d9f',1,'DrawCommand::vertices()'],['../structBatch.html#aa2581f5e6148c284de43a211f64b72be',1,'Batch::vertices()']]],
-  ['viewport_602',['Viewport',['../structViewport.html',1,'Viewport'],['../classRenderer.html#a8bdddc7162e16c97f4d606612f10581f',1,'Renderer::Viewport()']]],
-  ['viewport_603',['VIEWPORT',['../engine__config_8h.html#a3cb99b4fe7073212af5991df19dfd102a7e3322f8eda2bd931d22ddb4ef14aeca',1,'engine_config.h']]],
-  ['viewportmode_604',['ViewportMode',['../engine__config_8h.html#a3cb99b4fe7073212af5991df19dfd102',1,'engine_config.h']]],
-  ['virtualfilesystem_605',['VirtualFileSystem',['../classEngine.html#a0f9abc8b69119217d1ae1408e9dd938a',1,'Engine']]],
-  ['vk_5fforward_606',['VK_FORWARD',['../engine__config_8h.html#ae4db5848267c1a5a1413b7f87cf6889da7c5a9a815d5da1e6091a5802c3878bc2',1,'engine_config.h']]],
-  ['volume_607',['volume',['../classAudio.html#a8b42ea56f7151594499cef364862af42',1,'Audio::volume()'],['../classAudioBus.html#a304694e920167e1d5b3b85115997eb6d',1,'AudioBus::volume()']]]
+  ['uber_5fshader_608',['uber_shader',['../structBatchKey.html#ad6e669d59f02e98212643fd06e106614',1,'BatchKey::uber_shader()'],['../structBatch.html#aa6fcad9d1d57b6a377b43d133576f30e',1,'Batch::uber_shader()']]],
+  ['ubershader_609',['UberShader',['../structUberShader.html',1,'']]],
+  ['unload_5ffont_610',['unload_font',['../classRenderer.html#aff8e95e280c33cbd102e74a7b97412bd',1,'Renderer::unload_font()'],['../classMetalRenderer.html#abf340094174e0a5f759dd2644c1047fe',1,'MetalRenderer::unload_font()'],['../classOpenglRenderer.html#a436043f26ef3ef7b6f895ec90de242cd',1,'OpenglRenderer::unload_font()']]],
+  ['unload_5ftexture_611',['unload_texture',['../classRenderer.html#a0f219ff158e4757c5bb6cc839be5c0a7',1,'Renderer::unload_texture()'],['../classMetalRenderer.html#a21d0d7f4f630bc37b8a1d114824a8c3c',1,'MetalRenderer::unload_texture()'],['../classOpenglRenderer.html#a6467eb9f3fc279cf108542503a4c2d23',1,'OpenglRenderer::unload_texture()']]],
+  ['unregister_5faction_612',['unregister_action',['../classInputManager.html#a6bc3d244229fbe12f0a1b7d634299d9c',1,'InputManager']]],
+  ['unregister_5fbody_613',['unregister_body',['../classPhysicsManager.html#a5847c3ad44fc715e7308d10ed3e6573b',1,'PhysicsManager']]],
+  ['update_614',['update',['../classAudioManager.html#aaa7577876034b84be45ee52c467fc566',1,'AudioManager::update()'],['../classEngine.html#a2c1b40e3d38cdae81eee9b5d53cfb7dd',1,'Engine::update()'],['../classInputManager.html#a136d6afa55ee74eeda5eb72e78e3ee97',1,'InputManager::update()'],['../classEngineManager.html#a800bb26089cc084956bd3cf9dbe9c3d8',1,'EngineManager::update()'],['../classPhysicsManager.html#a16070c221290de344d07ed6b571cc213',1,'PhysicsManager::update()'],['../classTimeManager.html#a97d902b19861efc099141eeb846671a3',1,'TimeManager::update()']]],
+  ['update_615',['Update',['../classMesh.html#a04822aa5c824a2940a80d292e9031ae7',1,'Mesh']]],
+  ['url_616',['url',['../structHttpRequest.html#acefd911e01785cc9cf8e6d9b5de986bd',1,'HttpRequest']]],
+  ['use_5foutline_617',['use_outline',['../structUberShader.html#a096b40a6281757b8d7a4e83a4ce1b884',1,'UberShader']]],
+  ['use_5fshadow_618',['use_shadow',['../structUberShader.html#a298955d819769fa15a23c430f1295bfd',1,'UberShader']]]
 ];
