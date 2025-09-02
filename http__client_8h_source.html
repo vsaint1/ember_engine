@@ -72,7 +72,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="http__client_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">helpers/logging.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging__sys_8h.html">core/systems/logging_sys.h</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;curl/curl.h&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="structHttpRequest.html">    5</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structHttpRequest.html">HttpRequest</a> {</div>
@@ -105,7 +105,7 @@ $(function() {
 <div class="ttc" id="aclassHttpClient_html_a26e8604354c4cb1d8818dc24fe46c03d"><div class="ttname"><a href="classHttpClient.html#a26e8604354c4cb1d8818dc24fe46c03d">HttpClient::request_async</a></div><div class="ttdeci">void request_async(HttpRequest request, const std::function&lt; void(const HttpResponse &amp;)&gt; &amp;callback) const</div><div class="ttdoc">Non-blocking (cross-platform)</div><div class="ttdef"><b>Definition:</b> http_client.cpp:77</div></div>
 <div class="ttc" id="aclassHttpClient_html_a30fe3a951e8f7a0c6e58755c91f3a1d4"><div class="ttname"><a href="classHttpClient.html#a30fe3a951e8f7a0c6e58755c91f3a1d4">HttpClient::HttpClient</a></div><div class="ttdeci">HttpClient()</div><div class="ttdef"><b>Definition:</b> http_client.cpp:16</div></div>
 <div class="ttc" id="aclassHttpClient_html_a3a10dd5f2752ed1fb3cf0e40f3067a81"><div class="ttname"><a href="classHttpClient.html#a3a10dd5f2752ed1fb3cf0e40f3067a81">HttpClient::~HttpClient</a></div><div class="ttdeci">~HttpClient()</div><div class="ttdef"><b>Definition:</b> http_client.cpp:20</div></div>
-<div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
+<div class="ttc" id="alogging__sys_8h_html"><div class="ttname"><a href="logging__sys_8h.html">logging_sys.h</a></div></div>
 <div class="ttc" id="astructHttpRequest_html"><div class="ttname"><a href="structHttpRequest.html">HttpRequest</a></div><div class="ttdef"><b>Definition:</b> http_client.h:5</div></div>
 <div class="ttc" id="astructHttpRequest_html_a174c6e84c810d73236298dc4a0176414"><div class="ttname"><a href="structHttpRequest.html#a174c6e84c810d73236298dc4a0176414">HttpRequest::HttpRequest</a></div><div class="ttdeci">HttpRequest(const char *url=&quot;&quot;, const std::string &amp;method=&quot;GET&quot;)</div><div class="ttdef"><b>Definition:</b> http_client.h:11</div></div>
 <div class="ttc" id="astructHttpRequest_html_a61d8ed5d589f27f751832a9e08940e02"><div class="ttname"><a href="structHttpRequest.html#a61d8ed5d589f27f751832a9e08940e02">HttpRequest::body</a></div><div class="ttdeci">std::string body</div><div class="ttdoc">Request body for POST/PUT requests.</div><div class="ttdef"><b>Definition:</b> http_client.h:9</div></div>

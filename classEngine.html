@@ -102,11 +102,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adea87f89b2c086031e5130d95d5a30c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#adea87f89b2c086031e5130d95d5a30c7">initialize</a> (int <a class="el" href="classEngine.html#a5e537cd5ccaca8ee363ec28e858b1487">width</a>, int <a class="el" href="classEngine.html#af96739cc628f8f1ad1de8f11e6d77bad">height</a>, <a class="el" href="engine__config_8h.html#ae4db5848267c1a5a1413b7f87cf6889d">Backend</a> type, Uint64 flags=0)</td></tr>
 <tr class="memdesc:adea87f89b2c086031e5130d95d5a30c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the engine: SDL window, renderer, audio, fonts.  <a href="classEngine.html#adea87f89b2c086031e5130d95d5a30c7">More...</a><br /></td></tr>
 <tr class="separator:adea87f89b2c086031e5130d95d5a30c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c1b40e3d38cdae81eee9b5d53cfb7dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a2c1b40e3d38cdae81eee9b5d53cfb7dd">update</a> (double delta_time)</td></tr>
-<tr class="separator:a2c1b40e3d38cdae81eee9b5d53cfb7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12778d144fde9cfe31080999b344fea9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classThreadPool.html">ThreadPool</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a12778d144fde9cfe31080999b344fea9">get_thread_pool</a> ()</td></tr>
-<tr class="separator:a12778d144fde9cfe31080999b344fea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a404befb9a4628573141fef15d81d6a66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a404befb9a4628573141fef15d81d6a66">update</a> (double delta_time) const</td></tr>
+<tr class="memdesc:a404befb9a4628573141fef15d81d6a66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update all engine systems.  <a href="classEngine.html#a404befb9a4628573141fef15d81d6a66">More...</a><br /></td></tr>
+<tr class="separator:a404befb9a4628573141fef15d81d6a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38dc0e114d6ca8771cf72a7d7ad0ce4c"><td class="memItemLeft" align="right" valign="top">b2WorldId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a38dc0e114d6ca8771cf72a7d7ad0ce4c">get_physics_world</a> () const</td></tr>
+<tr class="memdesc:a38dc0e114d6ca8771cf72a7d7ad0ce4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the created physics world.  <a href="classEngine.html#a38dc0e114d6ca8771cf72a7d7ad0ce4c">More...</a><br /></td></tr>
 <tr class="separator:a38dc0e114d6ca8771cf72a7d7ad0ce4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bf7a231e9d5e33773a8ef097deca735"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a0bf7a231e9d5e33773a8ef097deca735"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classEngine.html#a0bf7a231e9d5e33773a8ef097deca735">get_system</a> ()</td></tr>
@@ -182,6 +182,9 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Get the created physics world. </p>
+<dl class="section return"><dt>Returns</dt><dd>b2WorldId Physics world ID. </dd></dl>
+
 </div>
 </div>
 <a id="a398f3201f211004ff2cdd2e57776608e"></a>
@@ -214,23 +217,6 @@ template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T * Engine::get_system</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a12778d144fde9cfe31080999b344fea9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12778d144fde9cfe31080999b344fea9">&#9670;&nbsp;</a></span>get_thread_pool()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classThreadPool.html">ThreadPool</a> &amp; Engine::get_thread_pool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -416,8 +402,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a2c1b40e3d38cdae81eee9b5d53cfb7dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c1b40e3d38cdae81eee9b5d53cfb7dd">&#9670;&nbsp;</a></span>update()</h2>
+<a id="a404befb9a4628573141fef15d81d6a66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a404befb9a4628573141fef15d81d6a66">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -427,10 +413,19 @@ template&lt;typename T &gt; </div>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>delta_time</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Update all engine systems. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">delta_time</td><td>Time elapsed since last frame (in seconds).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section version"><dt>Version</dt><dd>0.0.1 </dd></dl>
 
 </div>
 </div>

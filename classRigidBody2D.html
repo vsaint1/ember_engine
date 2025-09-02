@@ -82,7 +82,7 @@ Inheritance diagram for RigidBody2D:</div>
  <div class="center">
   <img src="classRigidBody2D.png" usemap="#RigidBody2D_map" alt=""/>
   <map id="RigidBody2D_map" name="RigidBody2D_map">
-<area href="classNode2D.html" alt="Node2D" shape="rect" coords="0,0,85,24"/>
+<area href="classNode2D.html" title="2D Node base class for scene graph." alt="Node2D" shape="rect" coords="0,0,85,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -110,6 +110,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab3c6deebea3cfb47a5aff63cbf73e7a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a995d5ef7403d34ec89a9a6811435f11c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a995d5ef7403d34ec89a9a6811435f11c">apply_impulse</a> (const glm::vec2 &amp;impulse) const</td></tr>
 <tr class="separator:a995d5ef7403d34ec89a9a6811435f11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a087e05e1d51ff6101c43927937c39e1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a087e05e1d51ff6101c43927937c39e1f">apply_force</a> (const glm::vec2 &amp;force) const</td></tr>
+<tr class="separator:a087e05e1d51ff6101c43927937c39e1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72271d981135ca539bdc69a90bb3c561"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a72271d981135ca539bdc69a90bb3c561">set_velocity</a> (const glm::vec2 &amp;velocity) const</td></tr>
 <tr class="separator:a72271d981135ca539bdc69a90bb3c561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45c84342b124567af6bb1f3626c71e44"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a45c84342b124567af6bb1f3626c71e44">get_velocity</a> () const</td></tr>
@@ -226,7 +228,12 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>2D rigid body with physics properties. </p>
-<p>Supports 12 layers (0-11) and collision masks. </p>
+<ul>
+<li>Supports 16 layers (0-16) and collision masks.</li>
+<li>Can be static, dynamic, or kinematic.</li>
+<li>Supports rectangle, circle and polygon shapes.</li>
+</ul>
+<dl class="section version"><dt>Version</dt><dd>1.2.0 </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a531688c3aa40ba98ea0e4f6fd11ef409"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a531688c3aa40ba98ea0e4f6fd11ef409">&#9670;&nbsp;</a></span>~RigidBody2D()</h2>
@@ -266,6 +273,24 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>target_layer</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a087e05e1d51ff6101c43927937c39e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a087e05e1d51ff6101c43927937c39e1f">&#9670;&nbsp;</a></span>apply_force()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RigidBody2D::apply_force </td>
+          <td>(</td>
+          <td class="paramtype">const glm::vec2 &amp;&#160;</td>
+          <td class="paramname"><em>force</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">

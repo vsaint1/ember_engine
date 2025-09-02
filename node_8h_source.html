@@ -72,10 +72,10 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="node_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="engine__structs_8h.html">core/engine_structs.h</a>&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="input__manager_8h.html">core/input/input_manager.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shader_8h.html">core/renderer/shader.h</a>&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">helpers/logging.h</a>&quot;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../systems/input_manager.h&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../systems/logging_sys.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="engine__structs_8h.html">core/engine_structs.h</a>&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="shader_8h.html">core/renderer/shader.h</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transform__node_8h.html">transform_node.h</a>&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="node_8h.html#a5a4538eeab397888d88a4eefcc5a1345">    8</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="node_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a> {</div>
@@ -87,135 +87,135 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="classRenderer.html">Renderer</a>;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classNode2D.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNode2D.html">Node2D</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classNode2D.html#ad2681fb70d3b2900787af87e7ba0a870">   19</a></span>&#160;    <a class="code" href="classNode2D.html#ad2681fb70d3b2900787af87e7ba0a870">Node2D</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">   21</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">Node2D</a>(std::string name) : <a class="code" href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">_name</a>(std::move(name)) {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#aaddef9c60156d2cc151695bbf51b2459">set_z_index</a>(<span class="keywordtype">int</span> index);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="classNode2D.html#ae91358cf3e26a6023e16122689e2885c">get_z_index</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="classNode2D.html#a0b18b5ebad03c9252b8c3838261e7674">get_effective_z_index</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a4769b1a0d802ab30b09bef19d6b27042">print_tree</a>(<span class="keywordtype">int</span> indent = 0) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a02ba1779bdee059c0e9b494594dc2d29">change_visibility</a>(<span class="keywordtype">bool</span> visible);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a666d1453503f4f453f3a5f10e7395969">translate</a>(<span class="keywordtype">float</span> dx, <span class="keywordtype">float</span> dy);</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classNode2D.html">   29</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNode2D.html">Node2D</a> {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classNode2D.html#ad2681fb70d3b2900787af87e7ba0a870">   31</a></span>&#160;    <a class="code" href="classNode2D.html#ad2681fb70d3b2900787af87e7ba0a870">Node2D</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">   33</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">Node2D</a>(std::string name) : <a class="code" href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">_name</a>(std::move(name)) {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a4cf2bb28f1869b293f1a856a312f806e">rotate</a>(<span class="keywordtype">float</span> radians);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#aaddef9c60156d2cc151695bbf51b2459">set_z_index</a>(<span class="keywordtype">int</span> index);</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#af4dc24465f297785fb87ea1d20d31b05">scale</a>(<span class="keywordtype">float</span> sx, <span class="keywordtype">float</span> sy);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="classNode2D.html#ae91358cf3e26a6023e16122689e2885c">get_z_index</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    [[nodiscard]] <a class="code" href="structTransform2D.html">Transform2D</a> <a class="code" href="classNode2D.html#ac05077f57484e5846f9c1af1230f8685">get_global_transform</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    [[nodiscard]] <a class="code" href="structTransform2D.html">Transform2D</a> <a class="code" href="classNode2D.html#a5a004a6fe4bc0b853bc5eb23067efd53">get_transform</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a7c61697a43558e504d1023f49094d155">set_transform</a>(<span class="keyword">const</span> <a class="code" href="structTransform2D.html">Transform2D</a>&amp; transform);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a646ef451076777f05101d2154732a3ef">add_child</a>(<span class="keyword">const</span> std::string&amp; base_name, <a class="code" href="classNode2D.html">Node2D</a>* node);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classNode2D.html">Node2D</a>* <a class="code" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">get_node</a>(<span class="keyword">const</span> std::string&amp; path);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    T* <a class="code" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">get_node</a>();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a0e8dcf354e253d21b086425ccfbc681e">ready</a>();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a528c5eed5c16fcc38cbb7cdc3f6a2a01">process</a>(<span class="keywordtype">double</span> delta_time);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a2fa4c19c70d593a7f9a3485772721d3c">draw</a>(<a class="code" href="classRenderer.html">Renderer</a>* renderer);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">input</a>(<span class="keyword">const</span> <a class="code" href="classInputManager.html">InputManager</a>* <a class="code" href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">input</a>);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#ab607a3f15c50f07091ce09b5969f84b5">queue_free</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classNode2D.html#ac366eae55e52580da5a323f511d1b6a6">~Node2D</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    [[nodiscard]] <span class="keywordtype">int</span> <a class="code" href="classNode2D.html#a0b18b5ebad03c9252b8c3838261e7674">get_effective_z_index</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a4769b1a0d802ab30b09bef19d6b27042">print_tree</a>(<span class="keywordtype">int</span> indent = 0) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a02ba1779bdee059c0e9b494594dc2d29">change_visibility</a>(<span class="keywordtype">bool</span> visible);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a666d1453503f4f453f3a5f10e7395969">translate</a>(<span class="keywordtype">float</span> dx, <span class="keywordtype">float</span> dy);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a4cf2bb28f1869b293f1a856a312f806e">rotate</a>(<span class="keywordtype">float</span> radians);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#af4dc24465f297785fb87ea1d20d31b05">scale</a>(<span class="keywordtype">float</span> sx, <span class="keywordtype">float</span> sy);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    [[nodiscard]] <a class="code" href="structTransform2D.html">Transform2D</a> <a class="code" href="classNode2D.html#ac05077f57484e5846f9c1af1230f8685">get_global_transform</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    [[nodiscard]] <a class="code" href="structTransform2D.html">Transform2D</a> <a class="code" href="classNode2D.html#a5a004a6fe4bc0b853bc5eb23067efd53">get_transform</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a7c61697a43558e504d1023f49094d155">set_transform</a>(<span class="keyword">const</span> <a class="code" href="structTransform2D.html">Transform2D</a>&amp; transform);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a646ef451076777f05101d2154732a3ef">add_child</a>(<span class="keyword">const</span> std::string&amp; base_name, <a class="code" href="classNode2D.html">Node2D</a>* node);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="classNode2D.html">Node2D</a>* <a class="code" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">get_node</a>(<span class="keyword">const</span> std::string&amp; path);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    T* <a class="code" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">get_node</a>();</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    [[nodiscard]] <span class="keyword">const</span> std::string&amp; <a class="code" href="classNode2D.html#a9a99a950561bc53ea9b3b1a56414c275">get_name</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a0e8dcf354e253d21b086425ccfbc681e">ready</a>();</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#a558b6822a1c3894e0cc2d1d0f7b04b38">is_visible</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a528c5eed5c16fcc38cbb7cdc3f6a2a01">process</a>(<span class="keywordtype">double</span> delta_time);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#af227f079d480fe761426e58aa92e08c8">is_effective_visible</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#a2fa4c19c70d593a7f9a3485772721d3c">draw</a>(<a class="code" href="classRenderer.html">Renderer</a>* renderer);</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap&lt;std::string, Node2D*&gt;</a>&amp; <a class="code" href="classNode2D.html#a1f3c01c59a0367592a16125bf521e8d2">get_tree</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">input</a>(<span class="keyword">const</span> <a class="code" href="classInputManager.html">InputManager</a>* <a class="code" href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">input</a>);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#ab504cf9b4bd54931344995ebcdd986b3">is_alive</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNode2D.html#ab607a3f15c50f07091ce09b5969f84b5">queue_free</a>();</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classNode2D.html#a3121ed01bafe0565291a200c1711b8e6">   77</a></span>&#160;    <a class="code" href="structTransform2D.html">Transform2D</a> <a class="code" href="classNode2D.html#a3121ed01bafe0565291a200c1711b8e6">_transform</a> = {};</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">   79</a></span>&#160;    std::string <a class="code" href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">_name</a> = <span class="stringliteral">&quot;Node&quot;</span>;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classNode2D.html#a4ff244be8ef04a5e0338752bd87b296a">   81</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classNode2D.html#a4ff244be8ef04a5e0338752bd87b296a">_z_index</a> = 0;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classNode2D.html#a18a5b0e13e5ce204592105b1b9c10bd6">   83</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#a18a5b0e13e5ce204592105b1b9c10bd6">_is_visible</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classNode2D.html#aaebb82f5fe86beb64df74c96cdc16bf0">   85</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#aaebb82f5fe86beb64df74c96cdc16bf0">_is_ready</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classNode2D.html#ae7124fa08c32b3203c6bb6c299f80a74">   87</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#ae7124fa08c32b3203c6bb6c299f80a74">_to_free</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="classNode2D.html">Node2D</a>* _parent = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap&lt;std::string, Node2D*&gt;</a> _nodes;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="classNode2D.html#ac366eae55e52580da5a323f511d1b6a6">~Node2D</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    [[nodiscard]] <span class="keyword">const</span> std::string&amp; <a class="code" href="classNode2D.html#a9a99a950561bc53ea9b3b1a56414c275">get_name</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#a558b6822a1c3894e0cc2d1d0f7b04b38">is_visible</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    [[nodiscard]] <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#af227f079d480fe761426e58aa92e08c8">is_effective_visible</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap&lt;std::string, Node2D*&gt;</a>&amp; <a class="code" href="classNode2D.html#a1f3c01c59a0367592a16125bf521e8d2">get_tree</a>();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#ab504cf9b4bd54931344995ebcdd986b3">is_alive</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classNode2D.html#a3121ed01bafe0565291a200c1711b8e6">   89</a></span>&#160;    <a class="code" href="structTransform2D.html">Transform2D</a> <a class="code" href="classNode2D.html#a3121ed01bafe0565291a200c1711b8e6">_transform</a> = {};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">   91</a></span>&#160;    std::string <a class="code" href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">_name</a> = <span class="stringliteral">&quot;Node&quot;</span>;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">   95</a></span>&#160;T* <a class="code" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">Node2D::get_node</a>() {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span> self_as_t = <span class="keyword">dynamic_cast&lt;</span>T*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)) {</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keywordflow">return</span> self_as_t;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, child] : _nodes) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">auto</span> val = <span class="keyword">dynamic_cast&lt;</span>T*<span class="keyword">&gt;</span>(child)) {</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            <span class="keywordflow">return</span> val;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classNode2D.html#a4ff244be8ef04a5e0338752bd87b296a">   93</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classNode2D.html#a4ff244be8ef04a5e0338752bd87b296a">_z_index</a> = 0;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classNode2D.html#a18a5b0e13e5ce204592105b1b9c10bd6">   95</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#a18a5b0e13e5ce204592105b1b9c10bd6">_is_visible</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classNode2D.html#aaebb82f5fe86beb64df74c96cdc16bf0">   97</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#aaebb82f5fe86beb64df74c96cdc16bf0">_is_ready</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="classNode2D.html#ae7124fa08c32b3203c6bb6c299f80a74">   99</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNode2D.html#ae7124fa08c32b3203c6bb6c299f80a74">_to_free</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="classNode2D.html">Node2D</a>* _parent = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap&lt;std::string, Node2D*&gt;</a> _nodes;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, child] : _nodes) {</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">auto</span> val = child-&gt;get_node&lt;T&gt;()) {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            <span class="keywordflow">return</span> val;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">  107</a></span>&#160;T* <a class="code" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">Node2D::get_node</a>() {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">if</span> (<span class="keyword">auto</span> self_as_t = <span class="keyword">dynamic_cast&lt;</span>T*<span class="keyword">&gt;</span>(<span class="keyword">this</span>)) {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">return</span> self_as_t;</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="logging_8h.html#add82efa459e0af380b68522c29b9fd44">LOG_WARN</a>(<span class="stringliteral">&quot;Node of requested type %s was not found.&quot;</span>, <span class="keyword">typeid</span>(T).name());</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
-<div class="ttc" id="aclassInputManager_html"><div class="ttname"><a href="classInputManager.html">InputManager</a></div><div class="ttdef"><b>Definition:</b> input_manager.h:110</div></div>
-<div class="ttc" id="aclassNode2D_html"><div class="ttname"><a href="classNode2D.html">Node2D</a></div><div class="ttdef"><b>Definition:</b> node.h:17</div></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, child] : _nodes) {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">auto</span> val = <span class="keyword">dynamic_cast&lt;</span>T*<span class="keyword">&gt;</span>(child)) {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; [name, child] : _nodes) {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">auto</span> val = child-&gt;get_node&lt;T&gt;()) {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="logging__sys_8h.html#add82efa459e0af380b68522c29b9fd44">LOG_WARN</a>(<span class="stringliteral">&quot;Node of requested type %s was not found.&quot;</span>, <span class="keyword">typeid</span>(T).name());</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="ttc" id="aclassInputManager_html"><div class="ttname"><a href="classInputManager.html">InputManager</a></div><div class="ttdef"><b>Definition:</b> input_manager.h:117</div></div>
+<div class="ttc" id="aclassNode2D_html"><div class="ttname"><a href="classNode2D.html">Node2D</a></div><div class="ttdoc">2D Node base class for scene graph.</div><div class="ttdef"><b>Definition:</b> node.h:29</div></div>
 <div class="ttc" id="aclassNode2D_html_a02ba1779bdee059c0e9b494594dc2d29"><div class="ttname"><a href="classNode2D.html#a02ba1779bdee059c0e9b494594dc2d29">Node2D::change_visibility</a></div><div class="ttdeci">void change_visibility(bool visible)</div><div class="ttdef"><b>Definition:</b> node.cpp:152</div></div>
 <div class="ttc" id="aclassNode2D_html_a0b18b5ebad03c9252b8c3838261e7674"><div class="ttname"><a href="classNode2D.html#a0b18b5ebad03c9252b8c3838261e7674">Node2D::get_effective_z_index</a></div><div class="ttdeci">int get_effective_z_index() const</div><div class="ttdef"><b>Definition:</b> node.cpp:31</div></div>
 <div class="ttc" id="aclassNode2D_html_a0e8dcf354e253d21b086425ccfbc681e"><div class="ttname"><a href="classNode2D.html#a0e8dcf354e253d21b086425ccfbc681e">Node2D::ready</a></div><div class="ttdeci">virtual void ready()</div><div class="ttdef"><b>Definition:</b> node.cpp:156</div></div>
-<div class="ttc" id="aclassNode2D_html_a18a5b0e13e5ce204592105b1b9c10bd6"><div class="ttname"><a href="classNode2D.html#a18a5b0e13e5ce204592105b1b9c10bd6">Node2D::_is_visible</a></div><div class="ttdeci">bool _is_visible</div><div class="ttdef"><b>Definition:</b> node.h:83</div></div>
+<div class="ttc" id="aclassNode2D_html_a18a5b0e13e5ce204592105b1b9c10bd6"><div class="ttname"><a href="classNode2D.html#a18a5b0e13e5ce204592105b1b9c10bd6">Node2D::_is_visible</a></div><div class="ttdeci">bool _is_visible</div><div class="ttdef"><b>Definition:</b> node.h:95</div></div>
 <div class="ttc" id="aclassNode2D_html_a1f3c01c59a0367592a16125bf521e8d2"><div class="ttname"><a href="classNode2D.html#a1f3c01c59a0367592a16125bf521e8d2">Node2D::get_tree</a></div><div class="ttdeci">HashMap&lt; std::string, Node2D * &gt; &amp; get_tree()</div><div class="ttdef"><b>Definition:</b> node.cpp:143</div></div>
 <div class="ttc" id="aclassNode2D_html_a2fa4c19c70d593a7f9a3485772721d3c"><div class="ttname"><a href="classNode2D.html#a2fa4c19c70d593a7f9a3485772721d3c">Node2D::draw</a></div><div class="ttdeci">virtual void draw(Renderer *renderer)</div><div class="ttdef"><b>Definition:</b> node.cpp:188</div></div>
-<div class="ttc" id="aclassNode2D_html_a3121ed01bafe0565291a200c1711b8e6"><div class="ttname"><a href="classNode2D.html#a3121ed01bafe0565291a200c1711b8e6">Node2D::_transform</a></div><div class="ttdeci">Transform2D _transform</div><div class="ttdef"><b>Definition:</b> node.h:77</div></div>
+<div class="ttc" id="aclassNode2D_html_a3121ed01bafe0565291a200c1711b8e6"><div class="ttname"><a href="classNode2D.html#a3121ed01bafe0565291a200c1711b8e6">Node2D::_transform</a></div><div class="ttdeci">Transform2D _transform</div><div class="ttdef"><b>Definition:</b> node.h:89</div></div>
 <div class="ttc" id="aclassNode2D_html_a4769b1a0d802ab30b09bef19d6b27042"><div class="ttname"><a href="classNode2D.html#a4769b1a0d802ab30b09bef19d6b27042">Node2D::print_tree</a></div><div class="ttdeci">void print_tree(int indent=0) const</div><div class="ttdef"><b>Definition:</b> node.cpp:38</div></div>
 <div class="ttc" id="aclassNode2D_html_a4cf2bb28f1869b293f1a856a312f806e"><div class="ttname"><a href="classNode2D.html#a4cf2bb28f1869b293f1a856a312f806e">Node2D::rotate</a></div><div class="ttdeci">void rotate(float radians)</div><div class="ttdef"><b>Definition:</b> node.cpp:8</div></div>
-<div class="ttc" id="aclassNode2D_html_a4ff244be8ef04a5e0338752bd87b296a"><div class="ttname"><a href="classNode2D.html#a4ff244be8ef04a5e0338752bd87b296a">Node2D::_z_index</a></div><div class="ttdeci">int _z_index</div><div class="ttdef"><b>Definition:</b> node.h:81</div></div>
-<div class="ttc" id="aclassNode2D_html_a50dbc8060638e2c83ed968e9de0252ff"><div class="ttname"><a href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">Node2D::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition:</b> node.h:79</div></div>
+<div class="ttc" id="aclassNode2D_html_a4ff244be8ef04a5e0338752bd87b296a"><div class="ttname"><a href="classNode2D.html#a4ff244be8ef04a5e0338752bd87b296a">Node2D::_z_index</a></div><div class="ttdeci">int _z_index</div><div class="ttdef"><b>Definition:</b> node.h:93</div></div>
+<div class="ttc" id="aclassNode2D_html_a50dbc8060638e2c83ed968e9de0252ff"><div class="ttname"><a href="classNode2D.html#a50dbc8060638e2c83ed968e9de0252ff">Node2D::_name</a></div><div class="ttdeci">std::string _name</div><div class="ttdef"><b>Definition:</b> node.h:91</div></div>
 <div class="ttc" id="aclassNode2D_html_a528c5eed5c16fcc38cbb7cdc3f6a2a01"><div class="ttname"><a href="classNode2D.html#a528c5eed5c16fcc38cbb7cdc3f6a2a01">Node2D::process</a></div><div class="ttdeci">virtual void process(double delta_time)</div><div class="ttdef"><b>Definition:</b> node.cpp:170</div></div>
 <div class="ttc" id="aclassNode2D_html_a558b6822a1c3894e0cc2d1d0f7b04b38"><div class="ttname"><a href="classNode2D.html#a558b6822a1c3894e0cc2d1d0f7b04b38">Node2D::is_visible</a></div><div class="ttdeci">bool is_visible() const</div><div class="ttdef"><b>Definition:</b> node.cpp:130</div></div>
 <div class="ttc" id="aclassNode2D_html_a5a004a6fe4bc0b853bc5eb23067efd53"><div class="ttname"><a href="classNode2D.html#a5a004a6fe4bc0b853bc5eb23067efd53">Node2D::get_transform</a></div><div class="ttdeci">Transform2D get_transform() const</div><div class="ttdef"><b>Definition:</b> node.cpp:65</div></div>
 <div class="ttc" id="aclassNode2D_html_a646ef451076777f05101d2154732a3ef"><div class="ttname"><a href="classNode2D.html#a646ef451076777f05101d2154732a3ef">Node2D::add_child</a></div><div class="ttdeci">void add_child(const std::string &amp;base_name, Node2D *node)</div><div class="ttdef"><b>Definition:</b> node.cpp:85</div></div>
 <div class="ttc" id="aclassNode2D_html_a666d1453503f4f453f3a5f10e7395969"><div class="ttname"><a href="classNode2D.html#a666d1453503f4f453f3a5f10e7395969">Node2D::translate</a></div><div class="ttdeci">void translate(float dx, float dy)</div><div class="ttdef"><b>Definition:</b> node.cpp:4</div></div>
 <div class="ttc" id="aclassNode2D_html_a7c61697a43558e504d1023f49094d155"><div class="ttname"><a href="classNode2D.html#a7c61697a43558e504d1023f49094d155">Node2D::set_transform</a></div><div class="ttdeci">void set_transform(const Transform2D &amp;transform)</div><div class="ttdef"><b>Definition:</b> node.cpp:69</div></div>
-<div class="ttc" id="aclassNode2D_html_a94294a03fb66d73198cb7475bd4158e0"><div class="ttname"><a href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">Node2D::Node2D</a></div><div class="ttdeci">Node2D(std::string name)</div><div class="ttdef"><b>Definition:</b> node.h:21</div></div>
+<div class="ttc" id="aclassNode2D_html_a94294a03fb66d73198cb7475bd4158e0"><div class="ttname"><a href="classNode2D.html#a94294a03fb66d73198cb7475bd4158e0">Node2D::Node2D</a></div><div class="ttdeci">Node2D(std::string name)</div><div class="ttdef"><b>Definition:</b> node.h:33</div></div>
 <div class="ttc" id="aclassNode2D_html_a9a99a950561bc53ea9b3b1a56414c275"><div class="ttname"><a href="classNode2D.html#a9a99a950561bc53ea9b3b1a56414c275">Node2D::get_name</a></div><div class="ttdeci">const std::string &amp; get_name() const</div><div class="ttdef"><b>Definition:</b> node.cpp:126</div></div>
 <div class="ttc" id="aclassNode2D_html_aaddef9c60156d2cc151695bbf51b2459"><div class="ttname"><a href="classNode2D.html#aaddef9c60156d2cc151695bbf51b2459">Node2D::set_z_index</a></div><div class="ttdeci">void set_z_index(int index)</div><div class="ttdef"><b>Definition:</b> node.cpp:18</div></div>
-<div class="ttc" id="aclassNode2D_html_aaebb82f5fe86beb64df74c96cdc16bf0"><div class="ttname"><a href="classNode2D.html#aaebb82f5fe86beb64df74c96cdc16bf0">Node2D::_is_ready</a></div><div class="ttdeci">bool _is_ready</div><div class="ttdef"><b>Definition:</b> node.h:85</div></div>
+<div class="ttc" id="aclassNode2D_html_aaebb82f5fe86beb64df74c96cdc16bf0"><div class="ttname"><a href="classNode2D.html#aaebb82f5fe86beb64df74c96cdc16bf0">Node2D::_is_ready</a></div><div class="ttdeci">bool _is_ready</div><div class="ttdef"><b>Definition:</b> node.h:97</div></div>
 <div class="ttc" id="aclassNode2D_html_ab504cf9b4bd54931344995ebcdd986b3"><div class="ttname"><a href="classNode2D.html#ab504cf9b4bd54931344995ebcdd986b3">Node2D::is_alive</a></div><div class="ttdeci">bool is_alive() const</div><div class="ttdef"><b>Definition:</b> node.cpp:147</div></div>
 <div class="ttc" id="aclassNode2D_html_ab607a3f15c50f07091ce09b5969f84b5"><div class="ttname"><a href="classNode2D.html#ab607a3f15c50f07091ce09b5969f84b5">Node2D::queue_free</a></div><div class="ttdeci">void queue_free()</div><div class="ttdef"><b>Definition:</b> node.cpp:208</div></div>
 <div class="ttc" id="aclassNode2D_html_ac05077f57484e5846f9c1af1230f8685"><div class="ttname"><a href="classNode2D.html#ac05077f57484e5846f9c1af1230f8685">Node2D::get_global_transform</a></div><div class="ttdeci">Transform2D get_global_transform() const</div><div class="ttdef"><b>Definition:</b> node.cpp:50</div></div>
 <div class="ttc" id="aclassNode2D_html_ac366eae55e52580da5a323f511d1b6a6"><div class="ttname"><a href="classNode2D.html#ac366eae55e52580da5a323f511d1b6a6">Node2D::~Node2D</a></div><div class="ttdeci">virtual ~Node2D()</div><div class="ttdef"><b>Definition:</b> node.cpp:74</div></div>
 <div class="ttc" id="aclassNode2D_html_ad2681fb70d3b2900787af87e7ba0a870"><div class="ttname"><a href="classNode2D.html#ad2681fb70d3b2900787af87e7ba0a870">Node2D::Node2D</a></div><div class="ttdeci">Node2D()</div></div>
-<div class="ttc" id="aclassNode2D_html_ad80337e5e666150c1a0746e7537437a2"><div class="ttname"><a href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">Node2D::get_node</a></div><div class="ttdeci">T * get_node()</div><div class="ttdef"><b>Definition:</b> node.h:95</div></div>
-<div class="ttc" id="aclassNode2D_html_ae7124fa08c32b3203c6bb6c299f80a74"><div class="ttname"><a href="classNode2D.html#ae7124fa08c32b3203c6bb6c299f80a74">Node2D::_to_free</a></div><div class="ttdeci">bool _to_free</div><div class="ttdef"><b>Definition:</b> node.h:87</div></div>
+<div class="ttc" id="aclassNode2D_html_ad80337e5e666150c1a0746e7537437a2"><div class="ttname"><a href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">Node2D::get_node</a></div><div class="ttdeci">T * get_node()</div><div class="ttdef"><b>Definition:</b> node.h:107</div></div>
+<div class="ttc" id="aclassNode2D_html_ae7124fa08c32b3203c6bb6c299f80a74"><div class="ttname"><a href="classNode2D.html#ae7124fa08c32b3203c6bb6c299f80a74">Node2D::_to_free</a></div><div class="ttdeci">bool _to_free</div><div class="ttdef"><b>Definition:</b> node.h:99</div></div>
 <div class="ttc" id="aclassNode2D_html_ae91358cf3e26a6023e16122689e2885c"><div class="ttname"><a href="classNode2D.html#ae91358cf3e26a6023e16122689e2885c">Node2D::get_z_index</a></div><div class="ttdeci">int get_z_index() const</div><div class="ttdef"><b>Definition:</b> node.cpp:27</div></div>
 <div class="ttc" id="aclassNode2D_html_aed9b79c2aa01980d41e9fde19da80734"><div class="ttname"><a href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">Node2D::input</a></div><div class="ttdeci">virtual void input(const InputManager *input)</div><div class="ttdef"><b>Definition:</b> node.cpp:198</div></div>
 <div class="ttc" id="aclassNode2D_html_af227f079d480fe761426e58aa92e08c8"><div class="ttname"><a href="classNode2D.html#af227f079d480fe761426e58aa92e08c8">Node2D::is_effective_visible</a></div><div class="ttdeci">bool is_effective_visible() const</div><div class="ttdef"><b>Definition:</b> node.cpp:134</div></div>
@@ -223,9 +223,7 @@ $(function() {
 <div class="ttc" id="aclassRenderer_html"><div class="ttname"><a href="classRenderer.html">Renderer</a></div><div class="ttdoc">Base class for all renderers.</div><div class="ttdef"><b>Definition:</b> ember_core.h:109</div></div>
 <div class="ttc" id="aengine__structs_8h_html"><div class="ttname"><a href="engine__structs_8h.html">engine_structs.h</a></div></div>
 <div class="ttc" id="aimports_8h_html_a3add277adb6767a3ab5a34cf3b2cbb7f"><div class="ttname"><a href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a></div><div class="ttdeci">std::unordered_map&lt; K, V &gt; HashMap</div><div class="ttdef"><b>Definition:</b> imports.h:12</div></div>
-<div class="ttc" id="ainput__manager_8h_html"><div class="ttname"><a href="input__manager_8h.html">input_manager.h</a></div></div>
-<div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
-<div class="ttc" id="alogging_8h_html_add82efa459e0af380b68522c29b9fd44"><div class="ttname"><a href="logging_8h.html#add82efa459e0af380b68522c29b9fd44">LOG_WARN</a></div><div class="ttdeci">#define LOG_WARN(...)</div><div class="ttdoc">WARNING logging.</div><div class="ttdef"><b>Definition:</b> logging.h:120</div></div>
+<div class="ttc" id="alogging__sys_8h_html_add82efa459e0af380b68522c29b9fd44"><div class="ttname"><a href="logging__sys_8h.html#add82efa459e0af380b68522c29b9fd44">LOG_WARN</a></div><div class="ttdeci">#define LOG_WARN(...)</div><div class="ttdoc">WARNING logging.</div><div class="ttdef"><b>Definition:</b> logging_sys.h:120</div></div>
 <div class="ttc" id="anode_8h_html_a5a4538eeab397888d88a4eefcc5a1345"><div class="ttname"><a href="node_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a></div><div class="ttdeci">ShapeType</div><div class="ttdef"><b>Definition:</b> node.h:8</div></div>
 <div class="ttc" id="anode_8h_html_a5a4538eeab397888d88a4eefcc5a1345a0af50777920c1401ab975cab64c4d491"><div class="ttname"><a href="node_8h.html#a5a4538eeab397888d88a4eefcc5a1345a0af50777920c1401ab975cab64c4d491">ShapeType::CIRCLE</a></div><div class="ttdeci">@ CIRCLE</div></div>
 <div class="ttc" id="anode_8h_html_a5a4538eeab397888d88a4eefcc5a1345a67586f12c9792da11a4bdf60360d40e9"><div class="ttname"><a href="node_8h.html#a5a4538eeab397888d88a4eefcc5a1345a67586f12c9792da11a4bdf60360d40e9">ShapeType::CAPSULE</a></div><div class="ttdeci">@ CAPSULE</div></div>

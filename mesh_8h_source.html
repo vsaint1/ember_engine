@@ -73,7 +73,7 @@ $(function() {
 <div class="contents">
 <a href="mesh_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logging_8h.html">helpers/logging.h</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;../systems/logging_sys.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="structVertex.html">    9</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structVertex.html">Vertex</a> {</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structVertex.html#a5efee132fdc7e4f47cba4dc51713d12a">   10</a></span>&#160;    glm::vec2 <a class="code" href="structVertex.html#a5efee132fdc7e4f47cba4dc51713d12a">position</a>;</div>
@@ -82,33 +82,33 @@ $(function() {
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;};</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classMesh.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMesh.html">Mesh</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classMesh.html#a2af137f1571af89172b9c102302c416b">   25</a></span>&#160;    <a class="code" href="classMesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="classMesh.html#a06b7163d2013b908714d0969bddbe7c6">   27</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMesh.html#a06b7163d2013b908714d0969bddbe7c6">Mesh</a>(<span class="keyword">const</span> std::vector&lt;Vertex&gt;&amp; vertices, <span class="keyword">const</span> std::vector&lt;Uint32&gt;&amp; indices = {});</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classMesh.html#a5efe4da1a4c0971cfb037bd70304c303">   29</a></span>&#160;    <a class="code" href="classMesh.html#a5efe4da1a4c0971cfb037bd70304c303">~Mesh</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="classMesh.html#a8f574e21179fd5887544a90631d392b7">   31</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a8f574e21179fd5887544a90631d392b7">Bind</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classMesh.html#a61f21e657767120186fe21ccf7dd9bbf">   33</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a61f21e657767120186fe21ccf7dd9bbf">Draw</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mode = GL_TRIANGLES) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classMesh.html#a04822aa5c824a2940a80d292e9031ae7">   35</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a04822aa5c824a2940a80d292e9031ae7">Update</a>(<span class="keyword">const</span> std::vector&lt;Vertex&gt;&amp; new_vertices, <span class="keyword">const</span> std::vector&lt;Uint32&gt;&amp; new_indices = {});</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classMesh.html#a54bff60f565d980e734d777ec9bcf666">   37</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classMesh.html#a54bff60f565d980e734d777ec9bcf666">GetVertexCount</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> VAO, VBO, EBO;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    std::vector&lt;Vertex&gt; vertices;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::vector&lt;Uint32&gt; indices;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> Setup();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> bIsDirty = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="ttc" id="aclassMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">Mesh class.</div><div class="ttdef"><b>Definition:</b> mesh.h:23</div></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classMesh.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMesh.html">Mesh</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classMesh.html#a2af137f1571af89172b9c102302c416b">   26</a></span>&#160;    <a class="code" href="classMesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classMesh.html#a06b7163d2013b908714d0969bddbe7c6">   28</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMesh.html#a06b7163d2013b908714d0969bddbe7c6">Mesh</a>(<span class="keyword">const</span> std::vector&lt;Vertex&gt;&amp; vertices, <span class="keyword">const</span> std::vector&lt;Uint32&gt;&amp; indices = {});</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="classMesh.html#a5efe4da1a4c0971cfb037bd70304c303">   30</a></span>&#160;    <a class="code" href="classMesh.html#a5efe4da1a4c0971cfb037bd70304c303">~Mesh</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classMesh.html#a8f574e21179fd5887544a90631d392b7">   32</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a8f574e21179fd5887544a90631d392b7">Bind</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classMesh.html#a61f21e657767120186fe21ccf7dd9bbf">   34</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a61f21e657767120186fe21ccf7dd9bbf">Draw</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mode = GL_TRIANGLES) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classMesh.html#a04822aa5c824a2940a80d292e9031ae7">   36</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMesh.html#a04822aa5c824a2940a80d292e9031ae7">Update</a>(<span class="keyword">const</span> std::vector&lt;Vertex&gt;&amp; new_vertices, <span class="keyword">const</span> std::vector&lt;Uint32&gt;&amp; new_indices = {});</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classMesh.html#a54bff60f565d980e734d777ec9bcf666">   38</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="classMesh.html#a54bff60f565d980e734d777ec9bcf666">GetVertexCount</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> VAO, VBO, EBO;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::vector&lt;Vertex&gt; vertices;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    std::vector&lt;Uint32&gt; indices;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> Setup();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">bool</span> bIsDirty = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="ttc" id="aclassMesh_html"><div class="ttname"><a href="classMesh.html">Mesh</a></div><div class="ttdoc">Mesh class.</div><div class="ttdef"><b>Definition:</b> mesh.h:24</div></div>
 <div class="ttc" id="aclassMesh_html_a04822aa5c824a2940a80d292e9031ae7"><div class="ttname"><a href="classMesh.html#a04822aa5c824a2940a80d292e9031ae7">Mesh::Update</a></div><div class="ttdeci">void Update(const std::vector&lt; Vertex &gt; &amp;new_vertices, const std::vector&lt; Uint32 &gt; &amp;new_indices={})</div></div>
 <div class="ttc" id="aclassMesh_html_a06b7163d2013b908714d0969bddbe7c6"><div class="ttname"><a href="classMesh.html#a06b7163d2013b908714d0969bddbe7c6">Mesh::Mesh</a></div><div class="ttdeci">Mesh(const std::vector&lt; Vertex &gt; &amp;vertices, const std::vector&lt; Uint32 &gt; &amp;indices={})</div></div>
 <div class="ttc" id="aclassMesh_html_a2af137f1571af89172b9c102302c416b"><div class="ttname"><a href="classMesh.html#a2af137f1571af89172b9c102302c416b">Mesh::Mesh</a></div><div class="ttdeci">Mesh()</div></div>
@@ -116,7 +116,6 @@ $(function() {
 <div class="ttc" id="aclassMesh_html_a5efe4da1a4c0971cfb037bd70304c303"><div class="ttname"><a href="classMesh.html#a5efe4da1a4c0971cfb037bd70304c303">Mesh::~Mesh</a></div><div class="ttdeci">~Mesh()</div></div>
 <div class="ttc" id="aclassMesh_html_a61f21e657767120186fe21ccf7dd9bbf"><div class="ttname"><a href="classMesh.html#a61f21e657767120186fe21ccf7dd9bbf">Mesh::Draw</a></div><div class="ttdeci">void Draw(unsigned int mode=GL_TRIANGLES) const</div></div>
 <div class="ttc" id="aclassMesh_html_a8f574e21179fd5887544a90631d392b7"><div class="ttname"><a href="classMesh.html#a8f574e21179fd5887544a90631d392b7">Mesh::Bind</a></div><div class="ttdeci">void Bind() const</div></div>
-<div class="ttc" id="alogging_8h_html"><div class="ttname"><a href="logging_8h.html">logging.h</a></div></div>
 <div class="ttc" id="astructVertex_html"><div class="ttname"><a href="structVertex.html">Vertex</a></div><div class="ttdoc">Vertex struct.</div><div class="ttdef"><b>Definition:</b> mesh.h:9</div></div>
 <div class="ttc" id="astructVertex_html_a44ee386add2179067660f264982e59d1"><div class="ttname"><a href="structVertex.html#a44ee386add2179067660f264982e59d1">Vertex::tex_coord</a></div><div class="ttdeci">glm::vec2 tex_coord</div><div class="ttdef"><b>Definition:</b> mesh.h:11</div></div>
 <div class="ttc" id="astructVertex_html_a5efee132fdc7e4f47cba4dc51713d12a"><div class="ttname"><a href="structVertex.html#a5efee132fdc7e4f47cba4dc51713d12a">Vertex::position</a></div><div class="ttdeci">glm::vec2 position</div><div class="ttdef"><b>Definition:</b> mesh.h:10</div></div>

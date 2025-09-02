@@ -74,7 +74,7 @@ $(function() {
 <a href="camera_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="node_8h.html">node.h</a>&quot;</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classCamera2D.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCamera2D.html">Camera2D</a> : <span class="keyword">public</span> <a class="code" href="classNode2D.html">Node2D</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="classCamera2D.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="classCamera2D.html">Camera2D</a> final : <span class="keyword">public</span> <a class="code" href="classNode2D.html">Node2D</a> {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="classCamera2D.html#a5e4da45005ae4117ef5f2c60dcd5ff10">   16</a></span>&#160;    <a class="code" href="classCamera2D.html#a5e4da45005ae4117ef5f2c60dcd5ff10">Camera2D</a>();</div>
 <div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classCamera2D.html#a3de198ee04413226005957a4add50cfc">   17</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classCamera2D.html#a3de198ee04413226005957a4add50cfc">Camera2D</a>(<span class="keyword">const</span> std::string&amp; name) : <a class="code" href="classNode2D.html">Node2D</a>(name) {}</div>
@@ -117,7 +117,7 @@ $(function() {
 <div class="ttc" id="aclassCamera2D_html_accbbc365f0c98cbfe12e9f6b6e62fdc7"><div class="ttname"><a href="classCamera2D.html#accbbc365f0c98cbfe12e9f6b6e62fdc7">Camera2D::set_viewport</a></div><div class="ttdeci">void set_viewport(int width, int height)</div><div class="ttdef"><b>Definition:</b> camera.cpp:12</div></div>
 <div class="ttc" id="aclassCamera2D_html_acddede1a85dad51d759b3245de8b3622"><div class="ttname"><a href="classCamera2D.html#acddede1a85dad51d759b3245de8b3622">Camera2D::get_zoom</a></div><div class="ttdeci">glm::vec2 get_zoom() const</div><div class="ttdef"><b>Definition:</b> camera.cpp:10</div></div>
 <div class="ttc" id="aclassCamera2D_html_ad22f07e263c3cf9aadd80b8b2d2955d7"><div class="ttname"><a href="classCamera2D.html#ad22f07e263c3cf9aadd80b8b2d2955d7">Camera2D::get_view_matrix</a></div><div class="ttdeci">glm::mat4 get_view_matrix() const</div><div class="ttdef"><b>Definition:</b> camera.cpp:32</div></div>
-<div class="ttc" id="aclassNode2D_html"><div class="ttname"><a href="classNode2D.html">Node2D</a></div><div class="ttdef"><b>Definition:</b> node.h:17</div></div>
+<div class="ttc" id="aclassNode2D_html"><div class="ttname"><a href="classNode2D.html">Node2D</a></div><div class="ttdoc">2D Node base class for scene graph.</div><div class="ttdef"><b>Definition:</b> node.h:29</div></div>
 <div class="ttc" id="anode_8h_html"><div class="ttname"><a href="node_8h.html">node.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
