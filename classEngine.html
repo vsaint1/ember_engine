@@ -99,7 +99,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad6c02feca338fd5d4fcf712563bb62d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#ad6c02feca338fd5d4fcf712563bb62d7">set_vsync</a> (bool enabled)</td></tr>
 <tr class="memdesc:ad6c02feca338fd5d4fcf712563bb62d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable or enable vertical synchronization (VSync).  <a href="classEngine.html#ad6c02feca338fd5d4fcf712563bb62d7">More...</a><br /></td></tr>
 <tr class="separator:ad6c02feca338fd5d4fcf712563bb62d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adea87f89b2c086031e5130d95d5a30c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#adea87f89b2c086031e5130d95d5a30c7">initialize</a> (int <a class="el" href="classEngine.html#a5e537cd5ccaca8ee363ec28e858b1487">width</a>, int <a class="el" href="classEngine.html#af96739cc628f8f1ad1de8f11e6d77bad">height</a>, <a class="el" href="engine__config_8h.html#ae4db5848267c1a5a1413b7f87cf6889d">Backend</a> type, Uint64 flags=0)</td></tr>
+<tr class="memitem:adea87f89b2c086031e5130d95d5a30c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#adea87f89b2c086031e5130d95d5a30c7">initialize</a> (int <a class="el" href="classEngine.html#ab1a5f87738c5daae321ac9ac918691c4">width</a>, int <a class="el" href="classEngine.html#ae2281e60b2167386371ac79f999fa502">height</a>, <a class="el" href="engine__config_8h.html#ae4db5848267c1a5a1413b7f87cf6889d">Backend</a> type, Uint64 flags=0)</td></tr>
 <tr class="memdesc:adea87f89b2c086031e5130d95d5a30c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the engine: SDL window, renderer, audio, fonts.  <a href="classEngine.html#adea87f89b2c086031e5130d95d5a30c7">More...</a><br /></td></tr>
 <tr class="separator:adea87f89b2c086031e5130d95d5a30c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a404befb9a4628573141fef15d81d6a66"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html#a404befb9a4628573141fef15d81d6a66">update</a> (double delta_time) const</td></tr>
@@ -115,10 +115,10 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a135c251d3df7e49984ae4bcdffb11700"><td class="memItemLeft" >struct {</td></tr>
-<tr class="memitem:ae6d916e9323f1101c56cf9d88e5a2b29"><td class="memItemLeft" >&#160;&#160;&#160;int&#160;&#160;&#160;<a class="el" href="classEngine.html#a5e537cd5ccaca8ee363ec28e858b1487">width</a> = 0</td></tr>
-<tr class="separator:ae6d916e9323f1101c56cf9d88e5a2b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02f94ccb791dea703809d670af9171b6"><td class="memItemLeft" >&#160;&#160;&#160;int&#160;&#160;&#160;<a class="el" href="classEngine.html#af96739cc628f8f1ad1de8f11e6d77bad">height</a> = 0</td></tr>
-<tr class="separator:a02f94ccb791dea703809d670af9171b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dbf1a6c1a1b4e98339d43940c98f0be"><td class="memItemLeft" >&#160;&#160;&#160;float&#160;&#160;&#160;<a class="el" href="classEngine.html#ab1a5f87738c5daae321ac9ac918691c4">width</a> = 0</td></tr>
+<tr class="separator:a9dbf1a6c1a1b4e98339d43940c98f0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56acfc6adc10f9809eeaefb720933bc3"><td class="memItemLeft" >&#160;&#160;&#160;float&#160;&#160;&#160;<a class="el" href="classEngine.html#ae2281e60b2167386371ac79f999fa502">height</a> = 0</td></tr>
+<tr class="separator:a56acfc6adc10f9809eeaefb720933bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5da977fd2db01480904fd7a8cc088bf5"><td class="memItemLeft" >&#160;&#160;&#160;const SDL_DisplayMode *&#160;&#160;&#160;<a class="el" href="classEngine.html#aacbde3542aa95bce4858e126bb6ae0dd">data</a> = nullptr</td></tr>
 <tr class="separator:a5da977fd2db01480904fd7a8cc088bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e4515bc68b8c7be40299e121bca199f"><td class="memItemLeft" >&#160;&#160;&#160;int&#160;&#160;&#160;<a class="el" href="classEngine.html#a41c41497b93063cecb4e0c5468992395">bbWidth</a> = 0</td></tr>
@@ -542,14 +542,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="af96739cc628f8f1ad1de8f11e6d77bad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af96739cc628f8f1ad1de8f11e6d77bad">&#9670;&nbsp;</a></span>height</h2>
+<a id="ae2281e60b2167386371ac79f999fa502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2281e60b2167386371ac79f999fa502">&#9670;&nbsp;</a></span>height</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Engine::height = 0</td>
+          <td class="memname">float Engine::height = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -598,14 +598,14 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a5e537cd5ccaca8ee363ec28e858b1487"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e537cd5ccaca8ee363ec28e858b1487">&#9670;&nbsp;</a></span>width</h2>
+<a id="ab1a5f87738c5daae321ac9ac918691c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1a5f87738c5daae321ac9ac918691c4">&#9670;&nbsp;</a></span>width</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Engine::width = 0</td>
+          <td class="memname">float Engine::width = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">

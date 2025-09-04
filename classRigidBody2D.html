@@ -122,6 +122,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af6ac4d5b2a9dc31fb7a18f3d5d978eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a903abcaaf0ba84d43ed45e51c75dc887"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a903abcaaf0ba84d43ed45e51c75dc887">on_body_exited</a> (const std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &amp;callback)</td></tr>
 <tr class="separator:a903abcaaf0ba84d43ed45e51c75dc887"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfd0b7b1efb24d6740839a73e25f3761"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#acfd0b7b1efb24d6740839a73e25f3761">input</a> (const <a class="el" href="classInputManager.html">InputManager</a> *input) override</td></tr>
+<tr class="separator:acfd0b7b1efb24d6740839a73e25f3761"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63026714c7e8c7df231b0116a1d6bf70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a63026714c7e8c7df231b0116a1d6bf70">draw_inspector</a> () override</td></tr>
+<tr class="separator:a63026714c7e8c7df231b0116a1d6bf70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98df554035e3ab2cbbf476b18f21a91a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a98df554035e3ab2cbbf476b18f21a91a">draw_hierarchy</a> () override</td></tr>
+<tr class="separator:a98df554035e3ab2cbbf476b18f21a91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a531688c3aa40ba98ea0e4f6fd11ef409"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a531688c3aa40ba98ea0e4f6fd11ef409">~RigidBody2D</a> () override</td></tr>
 <tr class="separator:a531688c3aa40ba98ea0e4f6fd11ef409"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classNode2D"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNode2D')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNode2D.html">Node2D</a></td></tr>
@@ -158,8 +164,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad80337e5e666150c1a0746e7537437a2 inherit pub_methods_classNode2D"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad80337e5e666150c1a0746e7537437a2 inherit pub_methods_classNode2D"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classNode2D.html#ad80337e5e666150c1a0746e7537437a2">get_node</a> ()</td></tr>
 <tr class="separator:ad80337e5e666150c1a0746e7537437a2 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed9b79c2aa01980d41e9fde19da80734 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">input</a> (const <a class="el" href="classInputManager.html">InputManager</a> *input)</td></tr>
-<tr class="separator:aed9b79c2aa01980d41e9fde19da80734 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab607a3f15c50f07091ce09b5969f84b5 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ab607a3f15c50f07091ce09b5969f84b5">queue_free</a> ()</td></tr>
 <tr class="separator:ab607a3f15c50f07091ce09b5969f84b5 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac366eae55e52580da5a323f511d1b6a6 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ac366eae55e52580da5a323f511d1b6a6">~Node2D</a> ()</td></tr>
@@ -343,6 +347,60 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
+<a id="a98df554035e3ab2cbbf476b18f21a91a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98df554035e3ab2cbbf476b18f21a91a">&#9670;&nbsp;</a></span>draw_hierarchy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RigidBody2D::draw_hierarchy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classNode2D.html#a4d3aad20dd11918aa242efb2784e1a15">Node2D</a>.</p>
+
+</div>
+</div>
+<a id="a63026714c7e8c7df231b0116a1d6bf70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63026714c7e8c7df231b0116a1d6bf70">&#9670;&nbsp;</a></span>draw_inspector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RigidBody2D::draw_inspector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classNode2D.html#a52503fbafecb8215af85b6f9192d7f49">Node2D</a>.</p>
+
+</div>
+</div>
 <a id="a40b9615a07d9bf661db1362e4fbbd413"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40b9615a07d9bf661db1362e4fbbd413">&#9670;&nbsp;</a></span>get_collision_layer()</h2>
 
@@ -391,6 +449,34 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfd0b7b1efb24d6740839a73e25f3761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfd0b7b1efb24d6740839a73e25f3761">&#9670;&nbsp;</a></span>input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RigidBody2D::input </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classInputManager.html">InputManager</a> *&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">Node2D</a>.</p>
 
 </div>
 </div>

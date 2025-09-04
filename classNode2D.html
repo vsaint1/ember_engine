@@ -134,6 +134,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2fa4c19c70d593a7f9a3485772721d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed9b79c2aa01980d41e9fde19da80734"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#aed9b79c2aa01980d41e9fde19da80734">input</a> (const <a class="el" href="classInputManager.html">InputManager</a> *input)</td></tr>
 <tr class="separator:aed9b79c2aa01980d41e9fde19da80734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52503fbafecb8215af85b6f9192d7f49"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a52503fbafecb8215af85b6f9192d7f49">draw_inspector</a> ()</td></tr>
+<tr class="separator:a52503fbafecb8215af85b6f9192d7f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d3aad20dd11918aa242efb2784e1a15"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a4d3aad20dd11918aa242efb2784e1a15">draw_hierarchy</a> ()</td></tr>
+<tr class="separator:a4d3aad20dd11918aa242efb2784e1a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab607a3f15c50f07091ce09b5969f84b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ab607a3f15c50f07091ce09b5969f84b5">queue_free</a> ()</td></tr>
 <tr class="separator:ab607a3f15c50f07091ce09b5969f84b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac366eae55e52580da5a323f511d1b6a6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ac366eae55e52580da5a323f511d1b6a6">~Node2D</a> ()</td></tr>
@@ -325,6 +329,60 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a4d3aad20dd11918aa242efb2784e1a15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d3aad20dd11918aa242efb2784e1a15">&#9670;&nbsp;</a></span>draw_hierarchy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node2D::draw_hierarchy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classSprite2D.html#a418733363cd3840ba186f3f8cd492a1f">Sprite2D</a>, <a class="el" href="classRigidBody2D.html#a98df554035e3ab2cbbf476b18f21a91a">RigidBody2D</a>, and <a class="el" href="classLabel.html#aefa3d4def71483761492b6f3a04d27ec">Label</a>.</p>
+
+</div>
+</div>
+<a id="a52503fbafecb8215af85b6f9192d7f49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52503fbafecb8215af85b6f9192d7f49">&#9670;&nbsp;</a></span>draw_inspector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Node2D::draw_inspector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classSprite2D.html#aeb27b4d8090e2abd0cce43bb40f7e756">Sprite2D</a>, <a class="el" href="classRigidBody2D.html#a63026714c7e8c7df231b0116a1d6bf70">RigidBody2D</a>, and <a class="el" href="classLabel.html#ab073253b15e8d7db5403b32377403650">Label</a>.</p>
+
+</div>
+</div>
 <a id="a0b18b5ebad03c9252b8c3838261e7674"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0b18b5ebad03c9252b8c3838261e7674">&#9670;&nbsp;</a></span>get_effective_z_index()</h2>
 
@@ -485,7 +543,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classSprite2D.html#adf2c1441de1b8747440c2249fee6dea2">Sprite2D</a>.</p>
+<p>Reimplemented in <a class="el" href="classSprite2D.html#adf2c1441de1b8747440c2249fee6dea2">Sprite2D</a>, <a class="el" href="classRigidBody2D.html#acfd0b7b1efb24d6740839a73e25f3761">RigidBody2D</a>, and <a class="el" href="classLabel.html#a0a4a38708dea686bedf4b26fb7bdbf82">Label</a>.</p>
 
 </div>
 </div>

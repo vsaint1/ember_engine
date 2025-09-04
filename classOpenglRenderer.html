@@ -156,6 +156,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a638e1791527996239fe4b04e9ea0fed6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#a638e1791527996239fe4b04e9ea0fed6">clear</a> (glm::vec4 color) override</td></tr>
 <tr class="memdesc:a638e1791527996239fe4b04e9ea0fed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the screen to the given color.  <a href="classOpenglRenderer.html#a638e1791527996239fe4b04e9ea0fed6">More...</a><br /></td></tr>
 <tr class="separator:a638e1791527996239fe4b04e9ea0fed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4cb388fc56197bb78fdb60b0914a0c5"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classOpenglRenderer.html#ab4cb388fc56197bb78fdb60b0914a0c5">get_framebuffer_texture</a> () const override</td></tr>
+<tr class="separator:ab4cb388fc56197bb78fdb60b0914a0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classRenderer"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classRenderer')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classRenderer.html">Renderer</a></td></tr>
 <tr class="memitem:add2012f269f157754034e7b5475a8927 inherit pub_methods_classRenderer"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#add2012f269f157754034e7b5475a8927">~Renderer</a> ()=default</td></tr>
 <tr class="separator:add2012f269f157754034e7b5475a8927 inherit pub_methods_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -163,6 +165,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9d2407888a4f55c7231799ef4c265e42 inherit pub_methods_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d18c9edbbe7016f25b02abdd520c80b inherit pub_methods_classRenderer"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a3d18c9edbbe7016f25b02abdd520c80b">get_view_matrix</a> () const</td></tr>
 <tr class="separator:a3d18c9edbbe7016f25b02abdd520c80b inherit pub_methods_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a22e2edbcfd9badd808c27258a8da83 inherit pub_methods_classRenderer"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a>&lt; std::string, std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a9a22e2edbcfd9badd808c27258a8da83">get_loaded_textures</a> ()</td></tr>
+<tr class="separator:a9a22e2edbcfd9badd808c27258a8da83 inherit pub_methods_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed9bd63cfaf38de525408055acf26309 inherit pub_methods_classRenderer"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#aed9bd63cfaf38de525408055acf26309">get_loaded_fonts_name</a> ()</td></tr>
+<tr class="separator:aed9bd63cfaf38de525408055acf26309 inherit pub_methods_classRenderer"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -908,6 +914,33 @@ Additional Inherited Members</h2></td></tr>
 <p>Get the platform-specific rendering context. </p>
 
 <p>Implements <a class="el" href="classRenderer.html#a966e28d25cffae5a720a475c778d2b28">Renderer</a>.</p>
+
+</div>
+</div>
+<a id="ab4cb388fc56197bb78fdb60b0914a0c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4cb388fc56197bb78fdb60b0914a0c5">&#9670;&nbsp;</a></span>get_framebuffer_texture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 OpenglRenderer::get_framebuffer_texture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="classRenderer.html#af3ab5eff6209bffa9a0ba7b7b9810157">Renderer</a>.</p>
 
 </div>
 </div>

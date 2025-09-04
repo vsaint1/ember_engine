@@ -157,6 +157,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9d2407888a4f55c7231799ef4c265e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d18c9edbbe7016f25b02abdd520c80b"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a3d18c9edbbe7016f25b02abdd520c80b">get_view_matrix</a> () const</td></tr>
 <tr class="separator:a3d18c9edbbe7016f25b02abdd520c80b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3ab5eff6209bffa9a0ba7b7b9810157"><td class="memItemLeft" align="right" valign="top">virtual Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#af3ab5eff6209bffa9a0ba7b7b9810157">get_framebuffer_texture</a> () const</td></tr>
+<tr class="separator:af3ab5eff6209bffa9a0ba7b7b9810157"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a22e2edbcfd9badd808c27258a8da83"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a>&lt; std::string, std::shared_ptr&lt; <a class="el" href="structTexture.html">Texture</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a9a22e2edbcfd9badd808c27258a8da83">get_loaded_textures</a> ()</td></tr>
+<tr class="separator:a9a22e2edbcfd9badd808c27258a8da83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed9bd63cfaf38de525408055acf26309"><td class="memItemLeft" align="right" valign="top">virtual std::vector&lt; std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#aed9bd63cfaf38de525408055acf26309">get_loaded_fonts_name</a> ()</td></tr>
+<tr class="separator:aed9bd63cfaf38de525408055acf26309"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -923,6 +929,83 @@ Protected Attributes</h2></td></tr>
 <p>Get the platform-specific rendering context. </p>
 
 <p>Implemented in <a class="el" href="classOpenglRenderer.html#afbdfec564a18a3a71eb454066373fde1">OpenglRenderer</a>, and <a class="el" href="classMetalRenderer.html#a03a3fe4233e7bcb0643e95c9d4d7aab8">MetalRenderer</a>.</p>
+
+</div>
+</div>
+<a id="af3ab5eff6209bffa9a0ba7b7b9810157"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3ab5eff6209bffa9a0ba7b7b9810157">&#9670;&nbsp;</a></span>get_framebuffer_texture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Uint32 Renderer::get_framebuffer_texture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classOpenglRenderer.html#ab4cb388fc56197bb78fdb60b0914a0c5">OpenglRenderer</a>.</p>
+
+</div>
+</div>
+<a id="aed9bd63cfaf38de525408055acf26309"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed9bd63cfaf38de525408055acf26309">&#9670;&nbsp;</a></span>get_loaded_fonts_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::vector&lt;std::string&gt;&amp; Renderer::get_loaded_fonts_name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9a22e2edbcfd9badd808c27258a8da83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a22e2edbcfd9badd808c27258a8da83">&#9670;&nbsp;</a></span>get_loaded_textures()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="imports_8h.html#a3add277adb6767a3ab5a34cf3b2cbb7f">HashMap</a>&lt;std::string, std::shared_ptr&lt;<a class="el" href="structTexture.html">Texture</a>&gt; &gt;&amp; Renderer::get_loaded_textures </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
