@@ -82,26 +82,13 @@ Inheritance diagram for RigidBody2D:</div>
  <div class="center">
   <img src="classRigidBody2D.png" usemap="#RigidBody2D_map" alt=""/>
   <map id="RigidBody2D_map" name="RigidBody2D_map">
-<area href="classNode2D.html" title="2D Node base class for scene graph." alt="Node2D" shape="rect" coords="0,0,85,24"/>
+<area href="classPhysicsObject2D.html" title="2D physical object node." alt="PhysicsObject2D" shape="rect" coords="0,56,109,80"/>
+<area href="classNode2D.html" title="2D Node base class for scene graph." alt="Node2D" shape="rect" coords="0,0,109,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af239bfea717d74ee64578bcab73c11b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#af239bfea717d74ee64578bcab73c11b1">set_layer</a> (uint8_t new_layer)</td></tr>
-<tr class="separator:af239bfea717d74ee64578bcab73c11b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5770e1eaec367fbb67ff63b4f46ac2cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a5770e1eaec367fbb67ff63b4f46ac2cb">set_collision_mask</a> (uint8_t bit_mask)</td></tr>
-<tr class="separator:a5770e1eaec367fbb67ff63b4f46ac2cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3aa5daf2c2967fa260a95fca8cc07087"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a3aa5daf2c2967fa260a95fca8cc07087">add_collision_layer</a> (uint8_t target_layer)</td></tr>
-<tr class="separator:a3aa5daf2c2967fa260a95fca8cc07087"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa51bbda7c71c05289734bf432b2fd84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#afa51bbda7c71c05289734bf432b2fd84">remove_collision_layer</a> (uint8_t target_layer)</td></tr>
-<tr class="separator:afa51bbda7c71c05289734bf432b2fd84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addbf04c125bdd573f7af61f45f1851f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#addbf04c125bdd573f7af61f45f1851f4">set_collision_layers</a> (const std::initializer_list&lt; uint8_t &gt; &amp;layers)</td></tr>
-<tr class="separator:addbf04c125bdd573f7af61f45f1851f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b9615a07d9bf661db1362e4fbbd413"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a40b9615a07d9bf661db1362e4fbbd413">get_collision_layer</a> () const</td></tr>
-<tr class="separator:a40b9615a07d9bf661db1362e4fbbd413"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ed0f8c4a381d8d4c44b88a9ad1bc3f1"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a7ed0f8c4a381d8d4c44b88a9ad1bc3f1">get_collision_mask</a> () const</td></tr>
-<tr class="separator:a7ed0f8c4a381d8d4c44b88a9ad1bc3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f6b7fba6b9548d61cfc21176222352b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a9f6b7fba6b9548d61cfc21176222352b">ready</a> () override</td></tr>
 <tr class="separator:a9f6b7fba6b9548d61cfc21176222352b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe8486be6f4ebe577633d4259c2b56f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#afe8486be6f4ebe577633d4259c2b56f3">process</a> (double delta_time) override</td></tr>
@@ -118,10 +105,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a45c84342b124567af6bb1f3626c71e44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a06eb3200a70a55bf69ef8cb74741e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a7a06eb3200a70a55bf69ef8cb74741e7">is_on_ground</a> () const</td></tr>
 <tr class="separator:a7a06eb3200a70a55bf69ef8cb74741e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6ac4d5b2a9dc31fb7a18f3d5d978eea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#af6ac4d5b2a9dc31fb7a18f3d5d978eea">on_body_entered</a> (const std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &amp;callback)</td></tr>
-<tr class="separator:af6ac4d5b2a9dc31fb7a18f3d5d978eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a903abcaaf0ba84d43ed45e51c75dc887"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a903abcaaf0ba84d43ed45e51c75dc887">on_body_exited</a> (const std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &amp;callback)</td></tr>
-<tr class="separator:a903abcaaf0ba84d43ed45e51c75dc887"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfd0b7b1efb24d6740839a73e25f3761"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#acfd0b7b1efb24d6740839a73e25f3761">input</a> (const <a class="el" href="classInputManager.html">InputManager</a> *input) override</td></tr>
 <tr class="separator:acfd0b7b1efb24d6740839a73e25f3761"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63026714c7e8c7df231b0116a1d6bf70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a63026714c7e8c7df231b0116a1d6bf70">draw_inspector</a> () override</td></tr>
@@ -130,6 +113,29 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a98df554035e3ab2cbbf476b18f21a91a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a531688c3aa40ba98ea0e4f6fd11ef409"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a531688c3aa40ba98ea0e4f6fd11ef409">~RigidBody2D</a> () override</td></tr>
 <tr class="separator:a531688c3aa40ba98ea0e4f6fd11ef409"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classPhysicsObject2D"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classPhysicsObject2D')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classPhysicsObject2D.html">PhysicsObject2D</a></td></tr>
+<tr class="memitem:a832bf6a701962577dff840635b1d2b4b inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a832bf6a701962577dff840635b1d2b4b">PhysicsObject2D</a> ()</td></tr>
+<tr class="separator:a832bf6a701962577dff840635b1d2b4b inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24028e99393410400a13d8bf02634e89 inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a24028e99393410400a13d8bf02634e89">set_layer</a> (uint8_t new_layer)</td></tr>
+<tr class="separator:a24028e99393410400a13d8bf02634e89 inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b9a7e13a0d2bd4ab94d5f66342752c8 inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a2b9a7e13a0d2bd4ab94d5f66342752c8">set_collision_mask</a> (uint8_t mask)</td></tr>
+<tr class="separator:a2b9a7e13a0d2bd4ab94d5f66342752c8 inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab31c15b8b960aa6a09292bba83dbd674 inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#ab31c15b8b960aa6a09292bba83dbd674">add_collision_layer</a> (uint8_t target_layer)</td></tr>
+<tr class="separator:ab31c15b8b960aa6a09292bba83dbd674 inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6085815406c1240739bc85f377aa5e86 inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a6085815406c1240739bc85f377aa5e86">remove_collision_layer</a> (uint8_t target_layer)</td></tr>
+<tr class="separator:a6085815406c1240739bc85f377aa5e86 inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9de84b8ad0d6fee84e573089e6e9cc95 inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a9de84b8ad0d6fee84e573089e6e9cc95">set_collision_layers</a> (const std::initializer_list&lt; uint8_t &gt; &amp;layers)</td></tr>
+<tr class="separator:a9de84b8ad0d6fee84e573089e6e9cc95 inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39da6d35589fb13c5af6451beea8877b inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a39da6d35589fb13c5af6451beea8877b">get_collision_layer</a> () const</td></tr>
+<tr class="separator:a39da6d35589fb13c5af6451beea8877b inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4779fde3721445fd60f8346e79739952 inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a4779fde3721445fd60f8346e79739952">get_collision_mask</a> () const</td></tr>
+<tr class="separator:a4779fde3721445fd60f8346e79739952 inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a6439d9e65981901a04469c3597837b inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a0a6439d9e65981901a04469c3597837b">~PhysicsObject2D</a> () override</td></tr>
+<tr class="separator:a0a6439d9e65981901a04469c3597837b inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dbc0dd5f8598c632e228c3eac7d4301 inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a9dbc0dd5f8598c632e228c3eac7d4301">on_body_entered</a> (const std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &amp;callback)</td></tr>
+<tr class="separator:a9dbc0dd5f8598c632e228c3eac7d4301 inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69a29ada80f683111ff3adb6bc1beec4 inherit pub_methods_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a69a29ada80f683111ff3adb6bc1beec4">on_body_exited</a> (const std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &amp;callback)</td></tr>
+<tr class="separator:a69a29ada80f683111ff3adb6bc1beec4 inherit pub_methods_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classNode2D"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classNode2D')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classNode2D.html">Node2D</a></td></tr>
 <tr class="memitem:ad2681fb70d3b2900787af87e7ba0a870 inherit pub_methods_classNode2D"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#ad2681fb70d3b2900787af87e7ba0a870">Node2D</a> ()</td></tr>
 <tr class="separator:ad2681fb70d3b2900787af87e7ba0a870 inherit pub_methods_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -181,41 +187,35 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5eb03202c9e6c26b7325000bbf35ba93"><td class="memItemLeft" align="right" valign="top">b2BodyId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a5eb03202c9e6c26b7325000bbf35ba93">body_id</a> = b2_nullBodyId</td></tr>
-<tr class="separator:a5eb03202c9e6c26b7325000bbf35ba93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8e5233ce22d659b2b9dbd79ba543691"><td class="memItemLeft" align="right" valign="top"><a class="el" href="rigidbody__node_8h.html#acf0ce63e34327e5bc336f9fe3d2d47a2">BodyType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#aa8e5233ce22d659b2b9dbd79ba543691">body_type</a> = <a class="el" href="rigidbody__node_8h.html#acf0ce63e34327e5bc336f9fe3d2d47a2afe6f99ef1ec99efbdc19a9786cf1facc">BodyType::STATIC</a></td></tr>
-<tr class="separator:aa8e5233ce22d659b2b9dbd79ba543691"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4eb3299fb9daafd5b24557bb84476ab0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="node_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a4eb3299fb9daafd5b24557bb84476ab0">shape_type</a> = <a class="el" href="node_8h.html#a5a4538eeab397888d88a4eefcc5a1345a8e8e58fe94ab307a826e087028a7c01a">ShapeType::RECTANGLE</a></td></tr>
-<tr class="separator:a4eb3299fb9daafd5b24557bb84476ab0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f762bea4b1ac28d4b64b01d4ca84a39"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a5f762bea4b1ac28d4b64b01d4ca84a39">body_size</a> = glm::vec2(32.0f, 32.0f)</td></tr>
-<tr class="separator:a5f762bea4b1ac28d4b64b01d4ca84a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8274cc673c46eef52d381a18d582495f"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a8274cc673c46eef52d381a18d582495f">offset</a> = glm::vec2(0.0f)</td></tr>
-<tr class="separator:a8274cc673c46eef52d381a18d582495f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a403b1e577a0e8e0941462e51a29ab5fd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a403b1e577a0e8e0941462e51a29ab5fd">friction</a> = 0.3f</td></tr>
 <tr class="separator:a403b1e577a0e8e0941462e51a29ab5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb150457bdef1521e5451b9bbe2f59e6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#afb150457bdef1521e5451b9bbe2f59e6">density</a> = 1.0f</td></tr>
 <tr class="separator:afb150457bdef1521e5451b9bbe2f59e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9040da48c1b093a48c79300bcb185290"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a9040da48c1b093a48c79300bcb185290">restitution</a> = 0.0f</td></tr>
 <tr class="separator:a9040da48c1b093a48c79300bcb185290"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7df6e844f8248db5098769083809f06c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a7df6e844f8248db5098769083809f06c">radius</a> = 16.0f</td></tr>
-<tr class="separator:a7df6e844f8248db5098769083809f06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee190bd492bc5bec49448ffb4f5e948e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#aee190bd492bc5bec49448ffb4f5e948e">is_sensor</a> = false</td></tr>
 <tr class="separator:aee190bd492bc5bec49448ffb4f5e948e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea2a538899d740c9cbcd4df65e2cb5d6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#aea2a538899d740c9cbcd4df65e2cb5d6">is_disabled</a> = false</td></tr>
-<tr class="separator:aea2a538899d740c9cbcd4df65e2cb5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a775fa6f86699bfe457eab5e01e25006b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a775fa6f86699bfe457eab5e01e25006b">is_fixed_rotation</a> = false</td></tr>
 <tr class="separator:a775fa6f86699bfe457eab5e01e25006b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaedd48fb835ea45b8bf7cf373735e62e"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#aaedd48fb835ea45b8bf7cf373735e62e">color</a> = glm::vec4(1, 0, 0, 0.5f)</td></tr>
-<tr class="separator:aaedd48fb835ea45b8bf7cf373735e62e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a161db0125aa7304705f302f9ef43be82"><td class="memItemLeft" align="right" valign="top">std::unordered_set&lt; <a class="el" href="classRigidBody2D.html">RigidBody2D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#a161db0125aa7304705f302f9ef43be82">currently_colliding</a></td></tr>
-<tr class="separator:a161db0125aa7304705f302f9ef43be82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae402dbb0d7e48809a69dbd85e73751fa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#ae402dbb0d7e48809a69dbd85e73751fa">on_enter_callbacks</a></td></tr>
-<tr class="separator:ae402dbb0d7e48809a69dbd85e73751fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb8eefafb090de924487f78e020a47a1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRigidBody2D.html#acb8eefafb090de924487f78e020a47a1">on_exit_callbacks</a></td></tr>
-<tr class="separator:acb8eefafb090de924487f78e020a47a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_attribs_classPhysicsObject2D"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classPhysicsObject2D')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classPhysicsObject2D.html">PhysicsObject2D</a></td></tr>
+<tr class="memitem:afed6a155a2008cad0f417cdaa4b07e76 inherit pub_attribs_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">std::unordered_set&lt; <a class="el" href="classPhysicsObject2D.html">PhysicsObject2D</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#afed6a155a2008cad0f417cdaa4b07e76">overlapping</a></td></tr>
+<tr class="separator:afed6a155a2008cad0f417cdaa4b07e76 inherit pub_attribs_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f8c366df1087e74d980c2530658178 inherit pub_attribs_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a45f8c366df1087e74d980c2530658178">on_enter_callbacks</a></td></tr>
+<tr class="separator:a45f8c366df1087e74d980c2530658178 inherit pub_attribs_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0f1e95059ce89ff96aeaf6b2553a003 inherit pub_attribs_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#ac0f1e95059ce89ff96aeaf6b2553a003">on_exit_callbacks</a></td></tr>
+<tr class="separator:ac0f1e95059ce89ff96aeaf6b2553a003 inherit pub_attribs_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a148d8c2f4e2e367744824b4b660cf363 inherit pub_attribs_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">b2BodyId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a148d8c2f4e2e367744824b4b660cf363">body_id</a> = b2_nullBodyId</td></tr>
+<tr class="separator:a148d8c2f4e2e367744824b4b660cf363 inherit pub_attribs_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a845ca8844fd87189a505501640f80b84 inherit pub_attribs_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="structCollisionShape.html">CollisionShape</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a845ca8844fd87189a505501640f80b84">collision_shape</a></td></tr>
+<tr class="separator:a845ca8844fd87189a505501640f80b84 inherit pub_attribs_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classPhysicsObject2D"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classPhysicsObject2D')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classPhysicsObject2D.html">PhysicsObject2D</a></td></tr>
+<tr class="memitem:a1cdf70d7207c7c11e749d71091cd32f3 inherit pro_attribs_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a1cdf70d7207c7c11e749d71091cd32f3">is_disabled</a> = false</td></tr>
+<tr class="separator:a1cdf70d7207c7c11e749d71091cd32f3 inherit pro_attribs_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0128d098f35e2f30e001a5c0fecf8c3f inherit pro_attribs_classPhysicsObject2D"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPhysicsObject2D.html#a0128d098f35e2f30e001a5c0fecf8c3f">color</a> = glm::vec4(1, 0, 0, 0.5f)</td></tr>
+<tr class="separator:a0128d098f35e2f30e001a5c0fecf8c3f inherit pro_attribs_classPhysicsObject2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_classNode2D"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classNode2D')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="classNode2D.html">Node2D</a></td></tr>
 <tr class="memitem:a3121ed01bafe0565291a200c1711b8e6 inherit pro_attribs_classNode2D"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structTransform2D.html">Transform2D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNode2D.html#a3121ed01bafe0565291a200c1711b8e6">_transform</a> = {}</td></tr>
 <tr class="separator:a3121ed01bafe0565291a200c1711b8e6 inherit pro_attribs_classNode2D"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -265,24 +265,6 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3aa5daf2c2967fa260a95fca8cc07087"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3aa5daf2c2967fa260a95fca8cc07087">&#9670;&nbsp;</a></span>add_collision_layer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RigidBody2D::add_collision_layer </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>target_layer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a087e05e1d51ff6101c43927937c39e1f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a087e05e1d51ff6101c43927937c39e1f">&#9670;&nbsp;</a></span>apply_force()</h2>
 
@@ -343,7 +325,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="classNode2D.html#a2fa4c19c70d593a7f9a3485772721d3c">Node2D</a>.</p>
+<p>Implements <a class="el" href="classPhysicsObject2D.html#a59397c2450a16fa2847116df35bbc738">PhysicsObject2D</a>.</p>
 
 </div>
 </div>
@@ -398,40 +380,6 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reimplemented from <a class="el" href="classNode2D.html#a52503fbafecb8215af85b6f9192d7f49">Node2D</a>.</p>
-
-</div>
-</div>
-<a id="a40b9615a07d9bf661db1362e4fbbd413"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40b9615a07d9bf661db1362e4fbbd413">&#9670;&nbsp;</a></span>get_collision_layer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t RigidBody2D::get_collision_layer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7ed0f8c4a381d8d4c44b88a9ad1bc3f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ed0f8c4a381d8d4c44b88a9ad1bc3f1">&#9670;&nbsp;</a></span>get_collision_mask()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t RigidBody2D::get_collision_mask </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -497,42 +445,6 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="af6ac4d5b2a9dc31fb7a18f3d5d978eea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6ac4d5b2a9dc31fb7a18f3d5d978eea">&#9670;&nbsp;</a></span>on_body_entered()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RigidBody2D::on_body_entered </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>callback</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a903abcaaf0ba84d43ed45e51c75dc887"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a903abcaaf0ba84d43ed45e51c75dc887">&#9670;&nbsp;</a></span>on_body_exited()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RigidBody2D::on_body_exited </td>
-          <td>(</td>
-          <td class="paramtype">const std::function&lt; void(<a class="el" href="classNode2D.html">Node2D</a> *)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>callback</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="afe8486be6f4ebe577633d4259c2b56f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afe8486be6f4ebe577633d4259c2b56f3">&#9670;&nbsp;</a></span>process()</h2>
 
@@ -557,7 +469,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="classNode2D.html#a528c5eed5c16fcc38cbb7cdc3f6a2a01">Node2D</a>.</p>
+<p>Implements <a class="el" href="classPhysicsObject2D.html#a03285789b9f9a9eae2c78a3d8ad20a70">PhysicsObject2D</a>.</p>
 
 </div>
 </div>
@@ -584,79 +496,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="classNode2D.html#a0e8dcf354e253d21b086425ccfbc681e">Node2D</a>.</p>
-
-</div>
-</div>
-<a id="afa51bbda7c71c05289734bf432b2fd84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa51bbda7c71c05289734bf432b2fd84">&#9670;&nbsp;</a></span>remove_collision_layer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RigidBody2D::remove_collision_layer </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>target_layer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="addbf04c125bdd573f7af61f45f1851f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addbf04c125bdd573f7af61f45f1851f4">&#9670;&nbsp;</a></span>set_collision_layers()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RigidBody2D::set_collision_layers </td>
-          <td>(</td>
-          <td class="paramtype">const std::initializer_list&lt; uint8_t &gt; &amp;&#160;</td>
-          <td class="paramname"><em>layers</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5770e1eaec367fbb67ff63b4f46ac2cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5770e1eaec367fbb67ff63b4f46ac2cb">&#9670;&nbsp;</a></span>set_collision_mask()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RigidBody2D::set_collision_mask </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>bit_mask</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af239bfea717d74ee64578bcab73c11b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af239bfea717d74ee64578bcab73c11b1">&#9670;&nbsp;</a></span>set_layer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RigidBody2D::set_layer </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>new_layer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>Implements <a class="el" href="classPhysicsObject2D.html#aabca1c7d4208a33b4980627dfecc3da4">PhysicsObject2D</a>.</p>
 
 </div>
 </div>
@@ -679,76 +519,6 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a5eb03202c9e6c26b7325000bbf35ba93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eb03202c9e6c26b7325000bbf35ba93">&#9670;&nbsp;</a></span>body_id</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">b2BodyId RigidBody2D::body_id = b2_nullBodyId</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5f762bea4b1ac28d4b64b01d4ca84a39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f762bea4b1ac28d4b64b01d4ca84a39">&#9670;&nbsp;</a></span>body_size</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec2 RigidBody2D::body_size = glm::vec2(32.0f, 32.0f)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa8e5233ce22d659b2b9dbd79ba543691"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8e5233ce22d659b2b9dbd79ba543691">&#9670;&nbsp;</a></span>body_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="rigidbody__node_8h.html#acf0ce63e34327e5bc336f9fe3d2d47a2">BodyType</a> RigidBody2D::body_type = <a class="el" href="rigidbody__node_8h.html#acf0ce63e34327e5bc336f9fe3d2d47a2afe6f99ef1ec99efbdc19a9786cf1facc">BodyType::STATIC</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaedd48fb835ea45b8bf7cf373735e62e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaedd48fb835ea45b8bf7cf373735e62e">&#9670;&nbsp;</a></span>color</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec4 RigidBody2D::color = glm::vec4(1, 0, 0, 0.5f)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a161db0125aa7304705f302f9ef43be82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a161db0125aa7304705f302f9ef43be82">&#9670;&nbsp;</a></span>currently_colliding</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::unordered_set&lt;<a class="el" href="classRigidBody2D.html">RigidBody2D</a>*&gt; RigidBody2D::currently_colliding</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="afb150457bdef1521e5451b9bbe2f59e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb150457bdef1521e5451b9bbe2f59e6">&#9670;&nbsp;</a></span>density</h2>
 
@@ -771,20 +541,6 @@ Additional Inherited Members</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">float RigidBody2D::friction = 0.3f</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aea2a538899d740c9cbcd4df65e2cb5d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea2a538899d740c9cbcd4df65e2cb5d6">&#9670;&nbsp;</a></span>is_disabled</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RigidBody2D::is_disabled = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -819,62 +575,6 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a8274cc673c46eef52d381a18d582495f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8274cc673c46eef52d381a18d582495f">&#9670;&nbsp;</a></span>offset</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">glm::vec2 RigidBody2D::offset = glm::vec2(0.0f)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae402dbb0d7e48809a69dbd85e73751fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae402dbb0d7e48809a69dbd85e73751fa">&#9670;&nbsp;</a></span>on_enter_callbacks</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;std::function&lt;void(<a class="el" href="classNode2D.html">Node2D</a>*)&gt; &gt; RigidBody2D::on_enter_callbacks</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acb8eefafb090de924487f78e020a47a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb8eefafb090de924487f78e020a47a1">&#9670;&nbsp;</a></span>on_exit_callbacks</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;std::function&lt;void(<a class="el" href="classNode2D.html">Node2D</a>*)&gt; &gt; RigidBody2D::on_exit_callbacks</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7df6e844f8248db5098769083809f06c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7df6e844f8248db5098769083809f06c">&#9670;&nbsp;</a></span>radius</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float RigidBody2D::radius = 16.0f</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a9040da48c1b093a48c79300bcb185290"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9040da48c1b093a48c79300bcb185290">&#9670;&nbsp;</a></span>restitution</h2>
 
@@ -883,20 +583,6 @@ Additional Inherited Members</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">float RigidBody2D::restitution = 0.0f</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4eb3299fb9daafd5b24557bb84476ab0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4eb3299fb9daafd5b24557bb84476ab0">&#9670;&nbsp;</a></span>shape_type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="node_8h.html#a5a4538eeab397888d88a4eefcc5a1345">ShapeType</a> RigidBody2D::shape_type = <a class="el" href="node_8h.html#a5a4538eeab397888d88a4eefcc5a1345a8e8e58fe94ab307a826e087028a7c01a">ShapeType::RECTANGLE</a></td>
         </tr>
       </table>
 </div><div class="memdoc">

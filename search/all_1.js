@@ -4,7 +4,7 @@ var searchData=
   ['active_18',['active',['../structTouchPoint.html#aba889ead71c677a307703128f29d8f4f',1,'TouchPoint']]],
   ['add_5faudio_19',['add_audio',['../classAudioBus.html#ac9ca1e37ead25e6a470edeb44048dc2f',1,'AudioBus']]],
   ['add_5fchild_20',['add_child',['../classNode2D.html#a646ef451076777f05101d2154732a3ef',1,'Node2D']]],
-  ['add_5fcollision_5flayer_21',['add_collision_layer',['../classRigidBody2D.html#a3aa5daf2c2967fa260a95fca8cc07087',1,'RigidBody2D']]],
+  ['add_5fcollision_5flayer_21',['add_collision_layer',['../classPhysicsObject2D.html#ab31c15b8b960aa6a09292bba83dbd674',1,'PhysicsObject2D']]],
   ['advance_22',['advance',['../structCharacter.html#a13643226cabd7805a2b99a6e135ba619',1,'Character']]],
   ['any_5fkey_5fpressed_23',['any_key_pressed',['../classInputManager.html#a247f269f38545f0654553d510f85ff9f',1,'InputManager']]],
   ['application_24',['Application',['../structApplication.html',1,'']]],
