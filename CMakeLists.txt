@@ -21,6 +21,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(WITH_EDITOR "Build the engine with editor support" OFF)
 option(BUILD_SERVER "Build server binaries" ON)
 option(BUILD_RUNTIME "Build runtime binaries" ON)
+option(BUILD_TESTING "Build tests" OFF)
 
 message(STATUS "Build configuration:")
 message(STATUS "  WITH_EDITOR: ${WITH_EDITOR}")
