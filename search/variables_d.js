@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['magenta_1411',['MAGENTA',['../structColor.html#acabb6e83958b97e98baa1d8b9251676e',1,'Color']]],
+  ['margin_5fbottom_1412',['margin_bottom',['../classControl.html#a5e97387d7681b20a5dd3a73103e236fc',1,'Control']]],
+  ['margin_5fleft_1413',['margin_left',['../classControl.html#a600a46df2665153b8a6c1a37aefd2952',1,'Control']]],
+  ['margin_5fright_1414',['margin_right',['../classControl.html#a4b75d2d85964d820d179778dac09fd9c',1,'Control']]],
+  ['margin_5ftop_1415',['margin_top',['../classControl.html#ac02ba0826bc2f3515e75e228f3f93dfc',1,'Control']]],
+  ['mask_1416',['mask',['../classButton.html#a420310d8db3ff21026a0b5bc10d10a9f',1,'Button']]],
+  ['max_5ffps_1417',['max_fps',['../structApplication.html#a6b547d2f0a690d3d864ed2833f097253',1,'Application']]],
+  ['max_5findices_1418',['MAX_INDICES',['../ember__gl_8h.html#a19ebb028661807b6206d71563943ae03',1,'ember_gl.h']]],
+  ['max_5fquads_1419',['MAX_QUADS',['../ember__gl_8h.html#a240c7b9bc3f7261483294a4b7d5078fe',1,'ember_gl.h']]],
+  ['max_5ftexture_5fslots_1420',['MAX_TEXTURE_SLOTS',['../ember__gl_8h.html#a70261f7ca57e50cbf721a469f29dc739',1,'ember_gl.h']]],
+  ['max_5fvertices_1421',['MAX_VERTICES',['../ember__gl_8h.html#ac0292d56344592af3c18af1d8edb7f63',1,'ember_gl.h']]],
+  ['meters_5fper_5fpixel_1422',['METERS_PER_PIXEL',['../engine_8h.html#ad17e8f20630a8e3c6bd913f21fc08255',1,'engine.h']]],
+  ['method_1423',['method',['../structHttpRequest.html#a7932a5cbb2edde60e5bc9950bca8569c',1,'HttpRequest']]],
+  ['min_5fsize_1424',['min_size',['../classButton.html#a66f1a2ab6d083c6064fb1e070887c3c2',1,'Button']]],
+  ['mode_1425',['mode',['../structViewport.html#adf35141205c064bf4d46e0956ac47ca7',1,'Viewport::mode()'],['../structBatch.html#a0b3ceb783a9175fddc10afa79c72aa2a',1,'Batch::mode()']]],
+  ['mouse_5fbuttons_1426',['mouse_buttons',['../structInputAction.html#a57e47fd41c7995e12a7cbed63fadd4a9',1,'InputAction']]],
+  ['mtltexture_1427',['mtlTexture',['../structTexture.html#a835892c8bb172a8362e5bd8aada09b8d',1,'Texture']]]
+];
