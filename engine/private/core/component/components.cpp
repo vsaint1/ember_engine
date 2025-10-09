@@ -38,8 +38,17 @@ void Camera3D::update_vectors() {
 }
 
 
-glm::mat4 Camera3D::get_view() const {
-    return glm::lookAt(position, position + front, up);
+glm::mat4 Camera3D::get_view(const Transform3D* parent) const {
+    glm::vec3 world_pos = position;
+        glm::vec3 world_front = front;
+
+        if (parent) {
+            world_pos = parent->world_position + 
+                        parent->world_rotation * (parent->world_scale * position);
+            world_front = glm::normalize(parent->world_rotation * front);
+        }
+
+        return glm::lookAt(world_pos, world_pos + world_front, up);
 }
 
 glm::mat4 Camera3D::get_projection(int w, int h) const {

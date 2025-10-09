@@ -187,7 +187,7 @@ public:
         update_vectors();
     }
 
-    glm::mat4 get_view() const;
+    glm::mat4 get_view(const Transform3D* parent = nullptr) const;
 
     glm::mat4 get_projection(int w, int h) const;
 
@@ -203,13 +203,14 @@ public:
 
     void zoom(float yoffset);
 
-private:
     glm::vec3 front{0.0f, 0.0f, -1.0f};
     glm::vec3 up{};
     glm::vec3 right{};
     glm::vec3 world_up{0.0f, 1.0f, 0.0f};
 
     void update_vectors();
+
+  
 };
 
 

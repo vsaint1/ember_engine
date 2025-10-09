@@ -143,11 +143,19 @@ void assets_handler_system(flecs::entity e) {
 }
 
 void camera_follow_system(flecs::entity e, Camera3D& cam) {
-   const auto& parent = e.parent();
-    if (parent.is_valid() && parent.has<Transform3D>()) {
-         const Transform3D& parent_t = parent.get<Transform3D>();
-         cam.position = parent_t.world_position + glm::vec3(0, 5, 10);
-    }
+     const auto parent = e.parent();
+    if (!parent.is_valid() || !parent.has<Transform3D>())
+        return;
+
+    const auto& parent_t = parent.get<Transform3D>();
+
+    glm::vec3 offset(0.0f, 3.0f, -8.0f);
+
+    glm::vec3 world_offset = parent_t.world_rotation * offset;
+    glm::vec3 world_pos = parent_t.world_position + world_offset;
+    
+    cam.position = world_pos;
+    cam.update_vectors();
 }
 
 void render_world_3d_system(flecs::entity e, Camera3D& camera) {
