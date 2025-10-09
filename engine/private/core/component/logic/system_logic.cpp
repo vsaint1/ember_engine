@@ -3,6 +3,22 @@
 #include "core/binding/lua.h"
 #include "core/engine.h"
 
+
+void update_transforms_3d_system(flecs::entity e, Transform3D& t) {
+    auto parent = e.parent();
+    if (parent.is_valid() && parent.has<Transform3D>()) {
+        const Transform3D& parent_t = parent.get<Transform3D>();
+
+        t.world_position = parent_t.world_position + parent_t.rotation * (t.position * parent_t.world_scale);
+        t.world_scale    = parent_t.world_scale * t.scale;
+        t.world_rotation = parent_t.world_rotation * t.rotation;
+    } else {
+        t.world_position = t.position;
+        t.world_scale    = t.scale;
+        t.world_rotation = t.rotation;
+    }
+}
+
 #if defined(EMBER_2D)
 
 
@@ -36,7 +52,6 @@ void render_world_2d_system(flecs::entity e, Camera2D& camera) {
         if (e.has<Label2D>()) {
             render_labels_system(t, e.get_mut<Label2D>());
         }
-
     });
 }
 
@@ -108,6 +123,33 @@ void update_transforms_system(flecs::entity e, Transform2D& t) {
 
 #if defined(EMBER_3D)
 
+
+
+void assets_handler_system(flecs::entity e) {
+
+    if (!e.is_alive()) {
+        return;
+    }
+
+    if (e.has<Model>()) {
+        auto& model = e.get<Model>();
+
+        if (model.path.empty()) {
+            return;
+        }
+
+        GEngine->get_renderer()->load_model(model.path.c_str());
+    }
+}
+
+void camera_follow_system(flecs::entity e, Camera3D& cam) {
+   const auto& parent = e.parent();
+    if (parent.is_valid() && parent.has<Transform3D>()) {
+         const Transform3D& parent_t = parent.get<Transform3D>();
+         cam.position = parent_t.world_position + glm::vec3(0, 5, 10);
+    }
+}
+
 void render_world_3d_system(flecs::entity e, Camera3D& camera) {
 
 
@@ -117,10 +159,15 @@ void render_world_3d_system(flecs::entity e, Camera3D& camera) {
 
     const auto& window = GEngine->get_config().get_window();
 
+
+    GEngine->get_world().each([&](flecs::entity e, Transform3D& t) { update_transforms_3d_system(e, t); });
+
+    camera_follow_system(e, camera);
+
     // Render all 3D models in the scene
-    GEngine->get_world().each([&](flecs::entity e, Transform3D& t, const std::shared_ptr<Model>& model) {
-        // push to instanced_batches
-        GEngine->get_renderer()->draw_model(t, model.get());
+    GEngine->get_world().each([&](flecs::entity e, Transform3D& t, const Model& model) {
+      
+        GEngine->get_renderer()->draw_model(t, &model);
     });
 
     // Render all cubes in the scene
@@ -134,6 +181,7 @@ void render_world_3d_system(flecs::entity e, Camera3D& camera) {
 #endif
 
 void setup_scripts_system(flecs::entity e, Script& script) {
+    LOG_INFO("Setting up script: %s", script.path.c_str());
     // Create a NEW lua_State for THIS script
     script.lua_state = luaL_newstate();
     luaL_openlibs(script.lua_state);
@@ -157,8 +205,7 @@ void setup_scripts_system(flecs::entity e, Script& script) {
     const std::string& lua_script = lua_file.get_file_as_str();
 
     // Load & execute script file
-    if (luaL_loadstring(script.lua_state, lua_script.c_str()) || 
-        lua_pcall(script.lua_state, 0, 0, 0)) {
+    if (luaL_loadstring(script.lua_state, lua_script.c_str()) || lua_pcall(script.lua_state, 0, 0, 0)) {
         const char* err = lua_tostring(script.lua_state, -1);
         LOG_ERROR("Failed to load script %s: %s", script.path.c_str(), err);
         lua_pop(script.lua_state, 1);
@@ -166,7 +213,7 @@ void setup_scripts_system(flecs::entity e, Script& script) {
     }
 
     generate_bindings(script.lua_state);
-    
+
     push_entity_to_lua(script.lua_state, e);
 
     // Call _ready() if it exists
@@ -215,7 +262,7 @@ void process_scripts_system(Script& script) {
     lua_getglobal(script.lua_state, "_process");
     if (lua_isfunction(script.lua_state, -1)) {
         lua_pushnumber(script.lua_state, static_cast<lua_Number>(GEngine->get_timer().delta));
-        
+
         if (lua_pcall(script.lua_state, 1, 0, 0) != LUA_OK) {
             const char* err_msg = lua_tostring(script.lua_state, -1);
             LOG_ERROR("Error in _process() of %s: %s", script.path.c_str(), err_msg);
@@ -245,20 +292,33 @@ void scene_manager_system(flecs::world& world) {
             LOG_INFO("Scene requested: %s", req.name.c_str());
 
             auto new_scene = world.lookup(req.name.c_str());
-
-            if (new_scene.is_valid() && new_scene.has<tags::Scene>()) {
-
-                world.each([&](flecs::entity e, tags::Scene) {
-                    e.add(flecs::Disabled);
-                    e.remove<tags::ActiveScene>();
-                });
-
-                new_scene.remove(flecs::Disabled);
-                new_scene.add<tags::ActiveScene>();
-                LOG_INFO("Switched to scene: %s", req.name.c_str());
-            } else {
+            if (!new_scene.is_valid() || !new_scene.has<tags::Scene>()) {
                 LOG_WARN("Scene '%s' not found", req.name.c_str());
+                it.entity(i).remove<SceneChangeRequest>();
+                return;
             }
+
+            flecs::entity active_scene;
+            world.each([&](flecs::entity e, tags::ActiveScene) { 
+                active_scene = e;
+            
+            });
+
+            if (active_scene.is_valid()) {
+                active_scene.children([](flecs::entity child) {
+                    LOG_INFO("Destroying entity: %s", child.name().c_str());
+                    child.destruct();
+                });
+            }
+
+            world.each([](flecs::entity e, tags::Scene) {
+                e.add(flecs::Disabled);
+                e.remove<tags::ActiveScene>();
+            });
+
+            new_scene.remove(flecs::Disabled);
+            new_scene.add<tags::ActiveScene>();
+            LOG_INFO("Switched to scene: %s", req.name.c_str());
 
             it.entity(i).remove<SceneChangeRequest>();
         });

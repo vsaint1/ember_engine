@@ -105,6 +105,11 @@ struct Transform3D {
     glm::vec3 rotation{0.0f};
     glm::vec3 scale{1.0f};
 
+
+    glm::vec3 world_position{0, 0, 0};
+    glm::quat world_rotation{1, 0, 0, 0};
+    glm::vec3 world_scale{1, 1, 1};
+
     glm::mat4 get_model_matrix() const {
         glm::mat4 m(1.0f);
         m = glm::translate(m, position);
@@ -130,18 +135,10 @@ struct Cube {
     glm::vec3 color = glm::vec3(0.5f, 0.5f, 0.5f);
 };
 
+
 struct Model {
     std::string path;
-    std::vector<std::unique_ptr<Mesh>> meshes;
-
-    Model() = default;
-
-    Model(Model&&) noexcept            = default;
-    Model& operator=(Model&&) noexcept = default;
-
-    Model(const Model&)            = delete;
-    Model& operator=(const Model&) = delete;
-
+    std::vector<std::shared_ptr<Mesh>> meshes;
 
     ~Model();
 };

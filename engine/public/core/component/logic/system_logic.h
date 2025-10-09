@@ -36,3 +36,6 @@ void setup_scripts_system(flecs::entity e, Script& script);
 void process_scripts_system(Script& script);
 
 void process_event_scripts_system(Script&, const SDL_Event& event);
+
+
+void assets_handler_system(flecs::entity e);

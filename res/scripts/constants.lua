@@ -462,7 +462,7 @@ BUTTON_MASK = {
 
 
 ---@class Cube
----@field size number Size of the cube
+---@field size vec3 Size of the cube
 ---@field color vec4 Color of the cube
 
 

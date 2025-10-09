@@ -63,7 +63,7 @@ private:
     void setup_cubemap();
 
 protected:
-    std::unique_ptr<Mesh> load_mesh(aiMesh* mesh, const aiScene* scene, const std::string& base_dir) override;
+    std::shared_ptr<Mesh> load_mesh(aiMesh* mesh, const aiScene* scene, const std::string& base_dir) override;
 
     OpenglMesh* skybox_mesh               = nullptr;
     std::shared_ptr<OpenglMesh> cube_mesh = nullptr;

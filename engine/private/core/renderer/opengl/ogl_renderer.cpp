@@ -593,8 +593,8 @@ void OpenglRenderer::draw_triangle_3d(const glm::vec3& v1, const glm::vec3& v2, 
                                       bool is_filled) {
 }
 
-std::unique_ptr<Mesh> OpenglRenderer::load_mesh(aiMesh* mesh, const aiScene* scene, const std::string& base_dir) {
-    auto m  = std::make_unique<OpenglMesh>();
+std::shared_ptr<Mesh> OpenglRenderer::load_mesh(aiMesh* mesh, const aiScene* scene, const std::string& base_dir) {
+    auto m  = std::make_shared<OpenglMesh>();
     m->name = mesh->mName.C_Str();
 
 
@@ -689,10 +689,14 @@ void OpenglRenderer::draw_model(const Transform3D& t, const Model* model) {
 
 
     if (!model || !default_shader) {
+        LOG_INFO("Model or default shader is null");
         return;
     }
 
-    for (auto& mesh : model->meshes) {
+    // TODO: resource manager???
+   auto m =  load_model(model->path.c_str());
+
+    for (auto& mesh : m->meshes) {
         if (!mesh) {
             continue;
         }

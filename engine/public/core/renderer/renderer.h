@@ -10,7 +10,7 @@
     @version 0.0.3
 */
 struct InstancedBatch {
-    Mesh* mesh; /// Model->meshes[i]
+    Mesh* mesh = nullptr; /// Model->meshes[i]
     Shader* shader = nullptr; /// Shader to use for rendering
     std::vector<glm::mat4> models; /// model matrices for instancing
     std::vector<glm::vec3> colors; /// colors for instancing (later)
@@ -103,7 +103,7 @@ public:
 protected:
     SDL_Window* _window = nullptr;
 
-    virtual std::unique_ptr<Mesh> load_mesh(aiMesh* mesh, const aiScene* scene, const std::string& base_dir) {
+    virtual std::shared_ptr<Mesh> load_mesh(aiMesh* mesh, const aiScene* scene, const std::string& base_dir) {
         LOG_WARN("load_meshes not implemented for this renderer");
         return nullptr;
     }
