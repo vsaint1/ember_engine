@@ -62,6 +62,8 @@ private:
 
     void setup_cubemap();
 
+    GLuint framebuffer, texture_id, rbo;
+
 protected:
     std::shared_ptr<Mesh> load_mesh(aiMesh* mesh, const aiScene* scene, const std::string& base_dir) override;
 

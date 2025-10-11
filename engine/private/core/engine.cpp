@@ -2,8 +2,8 @@
 
 #include "core/binding/lua.h"
 
-std::unique_ptr<Engine> GEngine = std::make_unique<Engine>();
 
+std::unique_ptr<Engine> GEngine = std::make_unique<Engine>();
 
 Renderer* create_renderer_internal(SDL_Window* window, EngineConfig& config) {
 
@@ -158,6 +158,8 @@ bool Engine::initialize(int window_w, int window_h, const char* title, Uint32 wi
 
     SDL_ShowWindow(_window);
 
+
+
     is_running = true;
 
     return true;
@@ -212,17 +214,18 @@ void engine_core_loop() {
             app_win.height = new_h;
         }
 
-#if defined(EMBER_3D)
-        GEngine->get_world().each([&](flecs::entity e, Camera3D& camera) { camera_touch_system(e, camera, GEngine->event); });
-#endif
+        // GEngine->get_world().each([&](flecs::entity e, Script& s) { process_event_scripts_system(s, GEngine->event); });
     }
+
 
 
     GEngine->get_renderer()->clear(GEngine->get_config().get_environment().clear_color);
 
-    GEngine->get_world().progress(static_cast<float>(GEngine->get_timer().delta));
+    // GEngine->get_world().progress(static_cast<float>(GEngine->get_timer().delta));
+
 
     GEngine->get_renderer()->present();
+
 
     // FIXME: Cap framerate for now
     SDL_Delay(16); // ~60 FPS
@@ -245,9 +248,13 @@ void Engine::run() {
 Engine::~Engine() {
     LOG_INFO("Shutting down engine");
 
+
     delete _renderer;
 
+    _world.release();
+
     SDL_DestroyWindow(_window);
+
 
     TTF_Quit();
     SDL_Quit();
@@ -260,11 +267,6 @@ void engine_setup_systems(flecs::world& world) {
 
 #if defined(EMBER_3D)
     world.system<Camera3D>("Render_World_3D_OnUpdate").kind(flecs::OnUpdate).each(render_world_3d_system);
-
-    world.system<Camera3D>("Camera3D_Keyboard_OnUpdate").kind(flecs::OnUpdate).each([&](flecs::entity e, Camera3D& camera) {
-        camera_keyboard_system(e, camera, static_cast<float>(GEngine->get_timer().delta));
-    });
-
 
 #endif
 

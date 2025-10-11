@@ -2,48 +2,62 @@
 #include <SDL3/SDL_main.h>
 
 
-#define WINDOW_W 1280
-#define WINDOW_H 720
-
 int main(int argc, char* argv[]) {
-
-    if (!GEngine->initialize(WINDOW_W, WINDOW_H)) {
-        return SDL_APP_FAILURE;
+    if (!GEngine->initialize(1280, 720, "Ember Engine - Client")) {
+        return -1;
     }
 
 
-    auto ui_icons = GEngine->get_renderer()->load_texture("ui_icons", "res://ui/icons/icons_64.png");
+    Cube cube;
+    cube.color = glm::vec3(0.2f, 0.7f, 0.3f);
+    cube.size  = glm::vec3(2.0f);
+    Camera3D camera;
 
-    auto& world = GEngine->get_world();
-
-
-    auto scene1 = world.entity("MenuScene").add<tags::Scene>().add<tags::ActiveScene>();
-    auto scene2 = world.entity("GameScene").add<tags::Scene>();
-
-    auto player = world.entity("Player")
-                      .set<Transform2D>({{100, 100}, {1, 1}, 50, 1})
-                      .set<Shape2D>({ShapeType::RECTANGLE, {0, 1, 0, 1}, true, {50, 50}})
-                      .set<Script>({"res://scripts/test.lua"})
-                      .child_of(scene1);
-
-    auto& camera = world.entity("MainCamera").add<tags::MainCamera>().set<Camera2D>({})
-    .set<Follow>({player, {0, -100,0}, 0.1f})
-    .child_of(scene1);
-
-    auto enemy = world.entity("Enemy")
-                     .set<Transform2D>({{300, 200}, {1, 1}, 0})
-                     .set<Shape2D>({ShapeType::CIRCLE, {1, 0, 0, 1}, false, {32, 32}, 32})
-                     .child_of(scene1);
-
-    auto enemy_sprite = world.entity("EnemySprite").set<Transform2D>({{0, 0}, {1, 1}, 0}).set<Sprite2D>({"ui_icons"}).child_of(enemy);
-
-    auto enemy_label = world.entity("EnemyLabel").set<Transform2D>({{0, -20}, {1, 1}, 0}).set<Label2D>({"Enemy 💀"}).child_of(enemy);
+    camera.position = glm::vec3(0, 1.5f, 10.0f);
+    Transform3D cube_transform;
+    while (GEngine->is_running) {
+        GEngine->get_timer().tick();
 
 
-    // FileAccess("user://scenes/test.json",ModeFlags::WRITE).store_string(world.to_json().c_str());
+        while (SDL_PollEvent(&GEngine->event)) {
+
+            if (GEngine->event.type == SDL_EVENT_QUIT) {
+                GEngine->is_running = false;
+            }
 
 
-    GEngine->run();
+            if (GEngine->event.type == SDL_EVENT_KEY_DOWN) {
+
+                if (GEngine->event.key.scancode == SDL_SCANCODE_F9) {
+                    GEngine->get_config().is_debug = !GEngine->get_config().is_debug;
+                }
+            }
+
+
+            if (GEngine->event.type == SDL_EVENT_WINDOW_RESIZED) {
+                int new_w      = GEngine->event.window.data1;
+                int new_h      = GEngine->event.window.data2;
+                auto& app_win  = GEngine->get_config().get_window();
+                app_win.width  = new_w;
+                app_win.height = new_h;
+            }
+
+        }
+
+
+        auto view = camera.get_view();
+        auto proj = camera.get_projection(GEngine->get_config().get_window().width, GEngine->get_config().get_window().height);
+        GEngine->get_renderer()->clear(GEngine->get_config().get_environment().clear_color);
+
+        GEngine->get_renderer()->draw_cube(cube_transform, cube);
+
+        GEngine->get_renderer()->flush(view, proj);
+
+        GEngine->get_renderer()->present();
+
+
+        SDL_Delay(16); // ~60 FPS
+    }
 
     return 0;
 }

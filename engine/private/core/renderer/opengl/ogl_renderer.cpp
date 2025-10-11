@@ -272,7 +272,8 @@ GLuint load_cubemap_atlas(const std::string& atlasPath, CUBEMAP_ORIENTATION orie
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
     glGenerateMipmap(GL_TEXTURE_CUBE_MAP);
 
-    LOG_INFO("Loaded Cubemap atlas %s (%dx%d) Layout %d Face %dx%d Texture Handle: %d", atlasPath.c_str(), W, H, layout, face_w, face_h, texID);
+    LOG_INFO("Loaded Cubemap atlas %s (%dx%d) Layout %d Face %dx%d Texture Handle: %d", atlasPath.c_str(), W, H, layout, face_w, face_h,
+             texID);
 
     SDL_DestroySurface(surf);
     return texID;
@@ -314,13 +315,6 @@ void OpenglRenderer::setup_cubemap() {
     LOG_INFO("Environment setup complete");
 }
 
-struct BatchGL {
-    GLuint instanceVBO;
-    GLuint colorVBO;
-    size_t capacity; // how many instances this buffer can hold
-};
-
-static BatchGL ogl_batch;
 
 bool OpenglRenderer::initialize(SDL_Window* window) {
 
@@ -422,39 +416,67 @@ bool OpenglRenderer::initialize(SDL_Window* window) {
     glEnable(GL_CULL_FACE);
     glCullFace(GL_BACK);
 
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_STENCIL_TEST);
-    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+#pragma region FBO SETUP
+    glGenFramebuffers(1, &framebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+
+    glGenTextures(1, &texture_id);
+    glBindTexture(GL_TEXTURE_2D, texture_id);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, viewport.width, viewport.height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture_id, 0);
+
+
+    glGenRenderbuffers(1, &rbo);
+    glBindRenderbuffer(GL_RENDERBUFFER, rbo);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, viewport.width, viewport.height);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo);
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+#pragma endregion
+
+    // glEnable(GL_DEPTH_TEST);
+    // glEnable(GL_STENCIL_TEST);
+    // glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
     // glViewport(0, 0, viewport.width, viewport.height);
-    glGenBuffers(1, &ogl_batch.instanceVBO);
-    glBindBuffer(GL_ARRAY_BUFFER, ogl_batch.instanceVBO);
-    // allocate some capacity (e.g. 10k transforms)
-    glBufferData(GL_ARRAY_BUFFER, 10000 * sizeof(glm::mat4), nullptr, GL_DYNAMIC_DRAW);
 
-    glGenBuffers(1, &ogl_batch.colorVBO);
-    glBindBuffer(GL_ARRAY_BUFFER, ogl_batch.colorVBO);
-    glBufferData(GL_ARRAY_BUFFER, 10000 * sizeof(glm::vec4), nullptr, GL_DYNAMIC_DRAW);
-    ogl_batch.capacity = 10000;
 
     return true;
 }
 
+
 void OpenglRenderer::clear(glm::vec4 color) {
 
-    // NOTE: Nuklear disables depth test, so we need to re-enable it each frame
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 
-    // TODO: handle viewport/window changes
-    const auto& window = GEngine->get_config().get_window();
-    glViewport(0, 0, window.width, window.height);
+    const auto& viewport = GEngine->get_config().get_viewport();
+    glViewport(0, 0, viewport.width, viewport.height);
     glClearColor(color.r, color.g, color.b, color.a);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
 void OpenglRenderer::present() {
-
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+   
+    const auto& window = GEngine->get_config().get_window();
+    const auto& viewport = GEngine->get_config().get_viewport();
+    
+    glViewport(0, 0, window.width, window.height);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+   
+    glBindFramebuffer(GL_READ_FRAMEBUFFER, framebuffer);
+    glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+    
+    // Source: framebuffer (viewport size: 640x360)
+    // Destination: window (1280x720)
+    glBlitFramebuffer(0, 0, viewport.width, viewport.height,
+                      0, 0, window.width, window.height,
+                      GL_COLOR_BUFFER_BIT, GL_LINEAR);
+   
     SDL_GL_SwapWindow(_window);
 }
 
@@ -694,7 +716,7 @@ void OpenglRenderer::draw_model(const Transform3D& t, const Model* model) {
     }
 
     // TODO: resource manager???
-   auto m =  load_model(model->path.c_str());
+    auto m = load_model(model->path.c_str());
 
     for (auto& mesh : m->meshes) {
         if (!mesh) {
@@ -783,7 +805,8 @@ void OpenglRenderer::flush(const glm::mat4& view, const glm::mat4& projection) {
     _instanced_batches.clear();
 
     // Draw the "World Environment" ( the last )
-    draw_environment(view, projection);
+    // draw_environment(view, projection);
+
 }
 
 void OpenglRenderer::draw_cube(const Transform3D& transform, const Cube& cube, const Shader* shader) {
@@ -795,10 +818,10 @@ void OpenglRenderer::draw_cube(const Transform3D& transform, const Cube& cube, c
     Transform3D temp = transform;
     temp.scale *= cube.size;
 
-    auto& batch                  = _instanced_batches[cube_mesh.get()];
-    batch.mesh                   = cube_mesh.get();
+    auto& batch                 = _instanced_batches[cube_mesh.get()];
+    batch.mesh                  = cube_mesh.get();
     batch.mesh->material.albedo = cube.color;
-    batch.shader                 = default_shader;
+    batch.shader                = default_shader;
     batch.models.push_back(temp.get_model_matrix());
     batch.colors.push_back(cube.color);
     batch.mode = GEngine->get_config().is_debug ? EDrawMode::LINES : EDrawMode::TRIANGLES;
@@ -854,6 +877,10 @@ void OpenglRenderer::draw_polygon(const Transform2D& transform, const std::vecto
 
 OpenglRenderer::~OpenglRenderer() {
 
+
+    glDeleteTextures(1, &texture_id);
+    glDeleteRenderbuffers(1, &rbo);
+    glDeleteFramebuffers(1, &framebuffer);
 
     // cubemap resources
     delete skybox_mesh;

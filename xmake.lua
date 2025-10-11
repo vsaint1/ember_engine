@@ -25,32 +25,30 @@ add_requires("glm 1.0.1", {configs = {shared = false}})
 add_requires("miniaudio 0.11.23", "tinyxml2 11.0.0", {configs = {shared = false}})
 add_requires("assimp v5.4.0", {configs = {shared = false}})
 add_requires("nuklear 4.12.7", {configs = {shared = false}})
+add_requires("imguizmo[shared=n]")
+add_requireconfs("**.imgui", {override = true, configs = {sdl3 = true, opengl3 = true, shared = false}})
 
--- add_options("mode", {description = "Engine mode 2D/3D", default = "2D", values = {"2D", "3D"}})
+add_options("mode", {description = "Engine mode 2D/3D", default = "3D", values = {"2D", "3D"}})
 
 if not (is_plat("wasm") or is_plat("android") or is_plat("iphoneos")) then
     add_requires("doctest v2.4.9", {configs = {shared = false}})
 end
 
 add_defines("EMBER_3D")
-printf("Ember Engine - Building in 3D mode | (OPENGL/VULKAN/METAL/DIRECTX12) | Version %s | Date: %s\n", base_version, os.date("%Y-%m-%d %H:%M"))
+printf("Ember Engine - Building in 3D mode | (OPENGL/METAL) | Version %s | Date: %s\n", base_version, os.date("%Y-%m-%d %H:%M"))
 
 
-target("glad")
-    set_kind("static")
-    add_files("vendor/glad/src/glad.c")
-    add_includedirs("vendor/glad/include", {public = true})
 
 target("engine")
     set_kind("static")
     add_files("engine/private/**/*.cpp")
     add_files("engine/private/*.cpp")
     add_includedirs("engine/public", {public = true})
-   
-    add_deps("glad") -- using glad vendored, from repository cant build to wasm
 
     add_includedirs("vendor/glad/include", {public = true})
     add_files("vendor/glad/src/glad.c")
+
+    add_includedirs("vendor/sol2", {public = true})
 
     set_pcxxheader("engine/public/stdafx.h")
 
@@ -99,6 +97,8 @@ target("client")
         set_kind("shared")
         add_syslinks("log", "android", "m", "dl")
     end
+
+    add_packages("imgui", "imguizmo")
 
  if is_plat("wasm") then
         

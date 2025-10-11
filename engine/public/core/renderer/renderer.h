@@ -100,6 +100,10 @@ public:
         return nullptr;
     }
 
+    void* get_fbo_texture(){
+        return nullptr;
+    }
+    
 protected:
     SDL_Window* _window = nullptr;
 
