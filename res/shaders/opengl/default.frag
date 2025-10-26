@@ -48,7 +48,7 @@ uniform sampler2D NORMAL_MAP;
 uniform sampler2D AO_MAP;
 uniform sampler2D EMISSIVE_MAP;
 uniform sampler2D SHADOW_MAP;
-uniform samplerCube ENVIRONMENT_MAP; // environment cubemap for reflection/refraction
+uniform samplerCube ENVIRONMENT_MAP; // environment cubemap for reflection/refraction/IBL
 
 // Usage flags
 uniform bool USE_ALBEDO_MAP;
@@ -57,8 +57,7 @@ uniform bool USE_ROUGHNESS_MAP;
 uniform bool USE_NORMAL_MAP;
 uniform bool USE_AO_MAP;
 uniform bool USE_EMISSIVE_MAP;
-uniform bool USE_REFRACTION;
-uniform bool USE_REFLECTION;
+uniform bool USE_IBL;
 
 const float PI = 3.14159265359;
 
@@ -74,9 +73,11 @@ float shadow_calculation(vec4 frag_pos_light_space, vec3 N, vec3 L)
     vec3 projCoords = frag_pos_light_space.xyz / frag_pos_light_space.w;
     projCoords = projCoords * 0.5 + 0.5;
 
+    if (projCoords.z > 1.0) return 0.0;
+
     float closestDepth = texture(SHADOW_MAP, projCoords.xy).r;
     float currentDepth = projCoords.z;
-    float bias = max(0.002 * (1.0 - dot(N, L)), 0.0005);
+    float bias = max(0.005 * (1.0 - dot(N, L)), 0.001);
 
     float shadow = 0.0;
     vec2 texelSize = 1.0 / vec2(textureSize(SHADOW_MAP, 0));
@@ -91,8 +92,6 @@ float shadow_calculation(vec4 frag_pos_light_space, vec3 N, vec3 L)
     }
 
     shadow /= 9.0;
-
-    if (projCoords.z > 1.0) shadow = 0.0;
     return shadow;
 }
 
@@ -116,8 +115,12 @@ float distribution_ggx(vec3 N, vec3 H, float roughness)
     float a = roughness * roughness;
     float a2 = a * a;
     float NdotH = max(dot(N, H), 0.0);
-    float denom = (NdotH * NdotH) * (a2 - 1.0) + 1.0;
-    return a2 / (PI * denom * denom);
+    float NdotH2 = NdotH * NdotH;
+
+    float denom = NdotH2 * (a2 - 1.0) + 1.0;
+    denom = PI * denom * denom;
+
+    return a2 / max(denom, 0.0000001);
 }
 
 // ============================================================================
@@ -129,7 +132,7 @@ float geometry_schlick_ggx(float NdotV, float roughness)
 {
     float r = (roughness + 1.0);
     float k = (r * r) / 8.0;
-    return NdotV / (NdotV * (1.0 - k) + k);
+    return NdotV / (NdotV * (1.0 - k) + k + 0.0000001);
 }
 
 // -----------------------------------------------------------------------------
@@ -137,7 +140,9 @@ float geometry_smith(vec3 N, vec3 V, vec3 L, float roughness)
 {
     float NdotV = max(dot(N, V), 0.0);
     float NdotL = max(dot(N, L), 0.0);
-    return geometry_schlick_ggx(NdotV, roughness) * geometry_schlick_ggx(NdotL, roughness);
+    float ggx2 = geometry_schlick_ggx(NdotV, roughness);
+    float ggx1 = geometry_schlick_ggx(NdotL, roughness);
+    return ggx1 * ggx2;
 }
 
 // -----------------------------------------------------------------------------
@@ -145,13 +150,13 @@ float geometry_smith(vec3 N, vec3 V, vec3 L, float roughness)
 // -----------------------------------------------------------------------------
 vec3 fresnel_schlick(float cosTheta, vec3 F0)
 {
-    return F0 + (1.0 - F0) * pow(1.0 - cosTheta, 5.0);
+    return F0 + (1.0 - F0) * pow(clamp(1.0 - cosTheta, 0.0, 1.0), 5.0);
 }
 
 // Roughness-variant fresnel for more realistic grazing reflections
 vec3 fresnel_schlick_roughness(float cosTheta, vec3 F0, float roughness)
 {
-    return F0 + (max(vec3(1.0 - roughness), F0) - F0) * pow(1.0 - cosTheta, 5.0);
+    return F0 + (max(vec3(1.0 - roughness), F0) - F0) * pow(clamp(1.0 - cosTheta, 0.0, 1.0), 5.0);
 }
 
 // ============================================================================
@@ -172,22 +177,22 @@ vec3 calculate_pbr_contribution(
 {
     vec3 H = normalize(V + L);
 
-    // Cook-Torrance BRDF components
+    float NdotV = max(dot(N, V), 0.0);
+    float NdotL = max(dot(N, L), 0.0);
+    float HdotV = max(dot(H, V), 0.0);
+
     float NDF = distribution_ggx(N, H, roughness);
     float G = geometry_smith(N, V, L, roughness);
-    vec3 F = fresnel_schlick_roughness(max(dot(H, V), 0.0), F0, roughness);
+    vec3 F = fresnel_schlick(HdotV, F0);
 
-    // Specular reflection ratio (kS) and diffuse ratio (kD)
     vec3 kS = F;
-    vec3 kD = (1.0 - kS) * (1.0 - metallic);
+    vec3 kD = vec3(1.0) - kS;
+    kD *= 1.0 - metallic;
 
-    // Cook-Torrance specular term
     vec3 numerator = NDF * G * F;
-    float denom = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.001;
-    vec3 specular = numerator / denom;
+    float denominator = 4.0 * NdotV * NdotL + 0.0001;
+    vec3 specular = numerator / denominator;
 
-    // Combine diffuse and specular with Lambert's cosine law
-    float NdotL = max(dot(N, L), 0.0);
     return (kD * albedo / PI + specular) * radiance * NdotL;
 }
 
@@ -208,7 +213,7 @@ vec3 calculate_normal_map()
 
     vec3 N = normalize(NORMAL);
     vec3 T = normalize(Q1 * st2.t - Q2 * st1.t);
-    vec3 B = normalize(cross(N, T));
+    vec3 B = -normalize(cross(N, T));
     mat3 TBN = mat3(T, B, N);
 
     return normalize(TBN * tangentNormal);
@@ -227,31 +232,82 @@ vec3 sample_refraction(vec3 I, vec3 N, float eta)
     return texture(ENVIRONMENT_MAP, R).rgb;
 }
 
+// ============================================================================
+// Image-Based Lighting (IBL) using Environment Map
+// ============================================================================
+// Approximates IBL by sampling the environment map at different mip levels
+// Lower mip levels = sharper reflections (low roughness)
+// Higher mip levels = blurrier reflections (high roughness)
+// References:
+// - https://learnopengl.com/PBR/IBL/Diffuse-irradiance
+// - https://learnopengl.com/PBR/IBL/Specular-IBL
+vec3 calculate_ibl(
+    vec3 N,
+    vec3 V,
+    vec3 F0,
+    vec3 albedo,
+    float metallic,
+    float roughness,
+    float ao
+)
+{
+    vec3 R = reflect(-V, N);
+
+    float NdotV = max(dot(N, V), 0.0);
+    vec3 F = fresnel_schlick_roughness(NdotV, F0, roughness);
+
+    vec3 kS = F;
+    vec3 kD = (1.0 - kS) * (1.0 - metallic);
+
+    const float DIFFUSE_MIP = 5.0;
+    vec3 irradiance = textureLod(ENVIRONMENT_MAP, N, DIFFUSE_MIP).rgb;
+    vec3 diffuse = kD * irradiance * albedo;
+
+    const float MAX_REFLECTION_LOD = 7.0;
+    float lod = roughness * MAX_REFLECTION_LOD;
+    vec3 prefilteredColor = textureLod(ENVIRONMENT_MAP, R, lod).rgb;
+
+    vec2 envBRDF = vec2(1.0 - roughness, 1.0 - roughness);
+    vec3 specular = prefilteredColor * (F * envBRDF.x + envBRDF.y);
+
+    return (diffuse + specular) * ao;
+}
+
 
 void main()
 {
-    if (texture(ALBEDO_MAP, UV).a < 0.1)
+    vec4 albedoSample = texture(ALBEDO_MAP, UV);
+    if (albedoSample.a < 0.1)
     discard;
 
-
-    vec3 finalAlbedo = USE_ALBEDO_MAP ? pow(texture(ALBEDO_MAP, UV).rgb, vec3(2.2)) : material.albedo;
+    vec3 finalAlbedo = USE_ALBEDO_MAP ? pow(albedoSample.rgb, vec3(2.2)) : material.albedo;
     float finalMetallic = material.metallic;
     float finalRoughness = material.roughness;
-    float finalAO = USE_AO_MAP ? texture(AO_MAP, UV).r : material.ao;
+    float finalAO = material.ao;
 
     // Red = Ambient Occlusion, Green channel = roughness, Blue channel = metallic (glTF 2.0 format)
     if (USE_METALLIC_MAP) {
         vec3 mr = texture(METALLIC_MAP, UV).rgb;
-        finalMetallic = mr.b;
+        finalAO = mr.r;
         finalRoughness = mr.g;
+        finalMetallic = mr.b;
     }
+
+    if (USE_AO_MAP)
+    finalAO = texture(AO_MAP, UV).r;
 
     if (USE_ROUGHNESS_MAP)
     finalRoughness = texture(ROUGHNESS_MAP, UV).r;
 
-    vec3 finalEmissive = USE_EMISSIVE_MAP
-    ? texture(EMISSIVE_MAP, UV).rgb * material.emissiveStrength
-    : material.emissive * material.emissiveStrength;
+    finalMetallic = clamp(finalMetallic, 0.0, 1.0);
+    finalRoughness = clamp(finalRoughness, 0.04, 1.0);
+    finalAO = clamp(finalAO, 0.0, 1.0);
+
+    vec3 finalEmissive = material.emissive * material.emissiveStrength;
+    if (USE_EMISSIVE_MAP) {
+        vec3 emissiveSample = texture(EMISSIVE_MAP, UV).rgb;
+        finalEmissive = pow(emissiveSample, vec3(2.2)) * material.emissiveStrength;
+    }
 
     // --- Normal & View Direction ---
     vec3 N = USE_NORMAL_MAP ? calculate_normal_map() : normalize(NORMAL);
@@ -259,7 +315,8 @@ void main()
     vec3 I = normalize(POSITION - CAMERA_POSITION_WORLD); // incident ray for reflection/refraction
 
     // --- Base Reflectance ---
-    vec3 F0 = mix(vec3(0.04), finalAlbedo, finalMetallic);
+    vec3 F0 = vec3(0.04);
+    F0 = mix(F0, finalAlbedo, finalMetallic);
 
     // --- Lighting ---
     vec3 Lo = vec3(0.0);
@@ -274,8 +331,11 @@ void main()
             N, V, L, radiance, F0, finalAlbedo, finalMetallic, finalRoughness
         );
 
-        // Apply shadows if enabled
-        float shadow = dirLights[i].cast_shadows ? (1.0 - shadow_calculation(LIGHT_SPACE_POSITION, N, L)) : 1.0;
+        float shadow = 1.0;
+        if (dirLights[i].cast_shadows) {
+            shadow = 1.0 - shadow_calculation(LIGHT_SPACE_POSITION, N, L);
+        }
+
         Lo += contribution * shadow;
     }
 
@@ -300,16 +360,17 @@ void main()
         Lo += contribution;
     }
 
-    // --- Environment Reflection & Refraction ---
-    vec3 reflection_color = USE_REFLECTION ? sample_reflection(I, N) : vec3(0.0);
-    vec3 refraction_color = USE_REFRACTION ? sample_refraction(I, N, material.ior) : vec3(0.0);
-    float fresnel_ratio = clamp(pow(1.0 - max(dot(N, V), 0.0), 5.0), 0.0, 1.0);
+    // --- Image-Based Lighting (IBL) ---
+    vec3 ibl_contribution = vec3(0.0);
+    vec3 env_color = vec3(0.0);
 
-    vec3 env_color = mix(refraction_color, reflection_color, fresnel_ratio);
+    if (USE_IBL) {
+        ibl_contribution = calculate_ibl(N, V, F0, finalAlbedo, finalMetallic, finalRoughness, finalAO);
+    }
 
     // --- Ambient Light & Emission ---
-    vec3 ambient = vec3(0.03) * finalAlbedo * finalAO;
-    vec3 color = ambient + Lo + env_color + finalEmissive;
+    vec3 ambient = USE_IBL ? vec3(0.0) : vec3(0.03) * finalAlbedo * finalAO;
+    vec3 color = ambient + Lo + ibl_contribution + env_color + finalEmissive;
 
     // ========================================================================
     // Tone Mapping (ACES Filmic)
@@ -324,5 +385,5 @@ void main()
     // ========================================================================
     color = pow(color, vec3(1.0 / 2.2));
 
-    COLOR = vec4(clamp(color, 0.0, 1.0), 1.0);
+    COLOR = vec4(color, 1.0);
 }
