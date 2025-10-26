@@ -8,11 +8,10 @@ Renderer* create_renderer_internal(SDL_Window* window, EngineConfig& config) {
 
     Renderer* renderer = nullptr;
     switch (config.get_renderer_device().backend) {
-    case Backend::GL_COMPATIBILITY:
-        {
-            renderer = new OpenGLRenderer();
-            break;
-        }
+    case Backend::GL_COMPATIBILITY: {
+        renderer = new OpenGLRenderer();
+        break;
+    }
     case Backend::VK_FORWARD:
         spdlog::error("Vulkan backend is not yet supported");
         break;
@@ -22,11 +21,10 @@ Renderer* create_renderer_internal(SDL_Window* window, EngineConfig& config) {
     case Backend::METAL:
         spdlog::error("Metal backend is not yet supported");
         break;
-    case Backend::AUTO:
-        {
-            spdlog::error("SDL Renderer backend is not yet supported");
-            break;
-        }
+    case Backend::AUTO: {
+        spdlog::error("SDL Renderer backend is not yet supported");
+        break;
+    }
     }
 
     // TODO: later use viewport
@@ -230,7 +228,9 @@ void engine_draw_loop() {
     glm::mat4 lightSpaceMatrix(1.0f);
 
     Camera3D mainCamera;
-    GEngine->get_world().each([&](const Camera3D& cam) { mainCamera = cam; });
+    GEngine->get_world().each([&](const Camera3D& cam) {
+        mainCamera = cam;
+    });
 
     GEngine->get_world().each([&](flecs::entity e, Transform3D& t, DirectionalLight& light) {
         directionalLights.push_back(light);
@@ -241,7 +241,9 @@ void engine_draw_loop() {
     });
 
     std::vector<std::pair<Transform3D, SpotLight>> spotLights;
-    GEngine->get_world().each([&](flecs::entity e, Transform3D& t, SpotLight& light) { spotLights.push_back({t, light}); });
+    GEngine->get_world().each([&](flecs::entity e, Transform3D& t, SpotLight& light) {
+        spotLights.push_back({t, light});
+    });
 
     // Shadow pass
     GEngine->get_renderer()->begin_shadow_pass();
@@ -256,6 +258,10 @@ void engine_draw_loop() {
         GEngine->get_renderer()->render_entity(t, mesh, mat, mainCamera, lightSpaceMatrix, directionalLights, spotLights);
     });
     GEngine->get_renderer()->end_render_target();
+
+    GEngine->get_renderer()->begin_environment_pass();
+    GEngine->get_renderer()->render_environment_pass(mainCamera);
+    GEngine->get_renderer()->end_environment_pass();
 
     GEngine->get_renderer()->swap_chain();
 }
@@ -286,6 +292,8 @@ void engine_core_loop() {
             auto& app_win  = GEngine->get_config().get_window();
             app_win.width  = new_w;
             app_win.height = new_h;
+
+            GEngine->get_renderer()->resize(new_w,new_h);
         }
     }
 

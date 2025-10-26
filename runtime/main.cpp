@@ -92,7 +92,7 @@ int main(int argc, char* argv[]) {
     ecs.entity("Sphere")
        .set(Transform3D{glm::vec3(-3, 0, 0), glm::vec3(0), glm::vec3(1.5f)})
        .set(sphereMesh)
-       .set(Material{glm::vec3(1.f), 0.0f, 0.1f, 1.0f});
+       .set(Material{glm::vec3(1.f), 0.9f, 0.1f, 1.0f});
 
     ecs.entity("Cube")
        .set(Transform3D{glm::vec3(3, 0, 0), glm::vec3(0), glm::vec3(1.f)})

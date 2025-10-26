@@ -3,7 +3,6 @@
 #include "base_struct.h"
 
 
-
 class Renderer {
 public:
     virtual ~Renderer() = default;
@@ -31,19 +30,23 @@ public:
                                const std::vector<std::pair<Transform3D, SpotLight>>& spotLights) = 0;
     virtual void end_render_target() = 0;
 
+    virtual void begin_environment_pass() =0;
+    virtual void render_environment_pass(const Camera3D& camera) =0;
+    virtual void end_environment_pass() =0;
+
     virtual void swap_chain() = 0;
 
-
 protected:
-    SDL_Window *_window = nullptr;
+    SDL_Window* _window = nullptr;
 
-    std::unique_ptr<Shader> _default_shader     = nullptr;
-    std::unique_ptr<Shader> _shadow_shader      = nullptr;
+    std::unique_ptr<Shader> _default_shader = nullptr;
+    std::unique_ptr<Shader> _shadow_shader  = nullptr;
+    std::unique_ptr<Shader> _environment_shader  = nullptr;
 
     std::shared_ptr<Framebuffer> shadow_map_fbo = nullptr;
 
     std::unordered_map<std::string, Uint32> _textures;
 
-    int width              = 0, height = 0;
+    int width = 0, height = 0;
 
 };

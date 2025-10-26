@@ -2,9 +2,7 @@
 #include  "ogl_struct.h"
 
 class OpenGLRenderer final : public Renderer {
-    SDL_GLContext _context = nullptr;
 
-    static GLuint create_gl_texture(const unsigned char* data, int w, int h, int channels);
 
 public:
     ~OpenGLRenderer() override;
@@ -35,9 +33,26 @@ public:
 
     void end_render_target() override;
 
+    void begin_environment_pass() override;
+    void render_environment_pass(const Camera3D& camera) override;
+    void end_environment_pass() override;
+
     void resize(int w, int h) override;
 
     void cleanup() override;
 
     void swap_chain() override;
+
+
+private:
+
+    SDL_GLContext _context = nullptr;
+
+    GLuint create_gl_texture(const unsigned char* data, int w, int h, int channels);
+
+    Skybox create_skybox_from_atlas(const std::string& atlas_path,
+                                       CubemapOrientation orient = CubemapOrientation::DEFAULT,
+                                       float brightness          = 1.0f);
+
+    Skybox _skybox;
 };

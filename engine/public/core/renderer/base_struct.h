@@ -1,6 +1,20 @@
 #pragma once
 #include "core/io/file_system.h"
 
+enum class CubemapOrientation {
+    DEFAULT,
+    TOP,
+    BOTTOM,
+    FLIP_X,
+    FLIP_Y
+};
+
+struct Skybox {
+    GLuint texture = 0;
+    GLuint VAO = 0;
+    GLuint VBO = 0;
+    float brightness = 1.0f;
+};
 
 enum class FramebufferTextureFormat {
     None = 0,
