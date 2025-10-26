@@ -8,14 +8,10 @@ void APIENTRY ogl_validation_layer(
     GLenum severity,
     GLsizei length,
     const GLchar* message,
-    const void* userParam)
-{
+    const void* userParam) {
 
 
-    SDL_LogDebug(SDL_LOG_CATEGORY_APPLICATION,
-        "\n[ValidationLayer]\n"
-        "Source: %s\nType: %s\nID: %u\nSeverity: %s\nMessage: %s\n\n",
-        source, type, id, severity, message);
+    SDL_Log("ValidationLayer Type: 0x%x | Severity: 0x%x | ID: %u | Message: %s", type, severity, id, message);
 
 #if defined(_MSC_VER)
 #define DEBUG_BREAK() __debugbreak()
@@ -193,49 +189,49 @@ Skybox OpenGLRenderer::create_skybox_from_atlas(const std::string& atlas_path,
                                                 float brightness) {
     Skybox sky{};
 
-     constexpr float skybox_vertices[] = {
+    constexpr float skybox_vertices[] = {
         // positions
-        -1.0f,  1.0f, -1.0f,
+        -1.0f, 1.0f, -1.0f,
         -1.0f, -1.0f, -1.0f,
-         1.0f, -1.0f, -1.0f,
-         1.0f, -1.0f, -1.0f,
-         1.0f,  1.0f, -1.0f,
-        -1.0f,  1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, 1.0f, -1.0f,
+        -1.0f, 1.0f, -1.0f,
 
-        -1.0f, -1.0f,  1.0f,
+        -1.0f, -1.0f, 1.0f,
         -1.0f, -1.0f, -1.0f,
-        -1.0f,  1.0f, -1.0f,
-        -1.0f,  1.0f, -1.0f,
-        -1.0f,  1.0f,  1.0f,
-        -1.0f, -1.0f,  1.0f,
+        -1.0f, 1.0f, -1.0f,
+        -1.0f, 1.0f, -1.0f,
+        -1.0f, 1.0f, 1.0f,
+        -1.0f, -1.0f, 1.0f,
 
-         1.0f, -1.0f, -1.0f,
-         1.0f, -1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f, -1.0f,
-         1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
 
-        -1.0f, -1.0f,  1.0f,
-        -1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f, -1.0f,  1.0f,
-        -1.0f, -1.0f,  1.0f,
+        -1.0f, -1.0f, 1.0f,
+        -1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,
+        1.0f, -1.0f, 1.0f,
+        -1.0f, -1.0f, 1.0f,
 
-        -1.0f,  1.0f, -1.0f,
-         1.0f,  1.0f, -1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
-        -1.0f,  1.0f,  1.0f,
-        -1.0f,  1.0f, -1.0f,
+        -1.0f, 1.0f, -1.0f,
+        1.0f, 1.0f, -1.0f,
+        1.0f, 1.0f, 1.0f,
+        1.0f, 1.0f, 1.0f,
+        -1.0f, 1.0f, 1.0f,
+        -1.0f, 1.0f, -1.0f,
 
         -1.0f, -1.0f, -1.0f,
-        -1.0f, -1.0f,  1.0f,
-         1.0f, -1.0f, -1.0f,
-         1.0f, -1.0f, -1.0f,
-        -1.0f, -1.0f,  1.0f,
-         1.0f, -1.0f,  1.0f
+        -1.0f, -1.0f, 1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        -1.0f, -1.0f, 1.0f,
+        1.0f, -1.0f, 1.0f
     };
 
     if (sky.VAO == 0) {
@@ -388,8 +384,8 @@ bool OpenGLRenderer::initialize(int w, int h, SDL_Window* window) {
     glEnable(GL_DEPTH_TEST);
     glViewport(0, 0, width, height);
 
-    _default_shader     = std::make_unique<OpenglShader>("shaders/opengl/default.vert", "shaders/opengl/default.frag");
-    _default_shader->set_value("USE_IBL",false);
+    _default_shader = std::make_unique<OpenglShader>("shaders/opengl/default.vert", "shaders/opengl/default.frag");
+    _default_shader->set_value("USE_IBL", false);
 
     _shadow_shader      = std::make_unique<OpenglShader>("shaders/opengl/shadow.vert", "shaders/opengl/shadow.frag");
     _environment_shader = std::make_unique<OpenglShader>("shaders/opengl/skybox.vert", "shaders/opengl/skybox.frag");
@@ -402,7 +398,7 @@ bool OpenGLRenderer::initialize(int w, int h, SDL_Window* window) {
     };
 
     shadow_map_fbo = std::make_shared<OpenGLFramebuffer>(spec);
-    _skybox = create_skybox_from_atlas("res/environment_sky.png", CubemapOrientation::DEFAULT, 1.0f);
+    _skybox        = create_skybox_from_atlas("res/environment_sky.png", CubemapOrientation::DEFAULT, 1.0f);
     return true;
 }
 
@@ -632,7 +628,6 @@ void OpenGLRenderer::cleanup() {
         glDeleteBuffers(1, &_skybox.VBO);
         _skybox.VBO = 0;
     }
-
 
 
     SDL_GL_DestroyContext(_context);

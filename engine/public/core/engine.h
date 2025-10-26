@@ -41,7 +41,7 @@ private:
     Timer _timer         = {};
     flecs::world _world;
     SDL_Window* _window = nullptr;
-   Renderer* _renderer = nullptr;
+    Renderer* _renderer = nullptr;
 
 
 };

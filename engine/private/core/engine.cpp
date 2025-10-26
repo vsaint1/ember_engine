@@ -364,8 +364,6 @@ void Engine::run() {
 
 Engine::~Engine() {
 
-    _renderer->cleanup();
-
     delete _renderer;
 
     SDL_DestroyWindow(_window);
