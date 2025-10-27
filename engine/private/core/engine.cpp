@@ -225,45 +225,52 @@ flecs::world& Engine::get_world() {
 
 void engine_draw_loop() {
     std::vector<DirectionalLight> directionalLights;
-    glm::mat4 lightSpaceMatrix(1.0f);
+    glm::mat4 light_space_matrix(1.0f);
 
-    Camera3D mainCamera;
-    GEngine->get_world().each([&](const Camera3D& cam) {
-        mainCamera = cam;
+    Camera3D main_camera;
+    Transform3D camera_transform;
+    GEngine->get_world().each([&](const Camera3D& cam, const Transform3D& transform) {
+        main_camera      = cam;
+        camera_transform = transform;
     });
 
     GEngine->get_world().each([&](flecs::entity e, Transform3D& t, DirectionalLight& light) {
         directionalLights.push_back(light);
 
-        if (light.castShadows && lightSpaceMatrix == glm::mat4(1.0f)) {
-            lightSpaceMatrix = light.get_light_space_matrix();
+        if (light.castShadows && light_space_matrix == glm::mat4(1.0f)) {
+            const auto width = GEngine->get_config().get_window().width;
+                const auto height = GEngine->get_config().get_window().height;
+            light_space_matrix = light.get_light_space_matrix();
         }
     });
 
     std::vector<std::pair<Transform3D, SpotLight>> spotLights;
     GEngine->get_world().each([&](flecs::entity e, Transform3D& t, SpotLight& light) {
-        spotLights.push_back({t, light});
+        spotLights.emplace_back(t, light);
     });
 
-    // Shadow pass
-    GEngine->get_renderer()->begin_shadow_pass();
-    GEngine->get_world().each([&](Transform3D& t, MeshInstance3D& mesh, Material& mat) {
-        GEngine->get_renderer()->render_shadow_pass(t, mesh, lightSpaceMatrix);
+
+    const auto renderer = GEngine->get_renderer();
+
+    renderer->begin_frame();
+    auto query = GEngine->get_world().query<const Transform3D, const MeshRef, const MaterialRef>();
+
+    query.each([&](const Transform3D& transform,
+                   const MeshRef& mesh,
+                   const MaterialRef& material) {
+        renderer->add_to_render_batch(transform, mesh, material);
+        renderer->add_to_shadow_batch(transform, mesh);
     });
-    GEngine->get_renderer()->end_shadow_pass();
 
-    // Main render pass
-    GEngine->get_renderer()->begin_render_target();
-    GEngine->get_world().each([&](Transform3D& t, MeshInstance3D& mesh, Material& mat) {
-        GEngine->get_renderer()->render_entity(t, mesh, mat, mainCamera, lightSpaceMatrix, directionalLights, spotLights);
-    });
-    GEngine->get_renderer()->end_render_target();
+    renderer->begin_shadow_pass();
+    renderer->render_shadow_pass(light_space_matrix);
+    renderer->end_shadow_pass();
 
-    GEngine->get_renderer()->begin_environment_pass();
-    GEngine->get_renderer()->render_environment_pass(mainCamera);
-    GEngine->get_renderer()->end_environment_pass();
+    renderer->begin_render_target();
+    renderer->render_main_target(main_camera, camera_transform, light_space_matrix, directionalLights, spotLights);
+    renderer->end_render_target();
 
-    GEngine->get_renderer()->swap_chain();
+    renderer->swap_chain();
 }
 
 void engine_core_loop() {
@@ -293,7 +300,7 @@ void engine_core_loop() {
             app_win.width  = new_w;
             app_win.height = new_h;
 
-            GEngine->get_renderer()->resize(new_w,new_h);
+            GEngine->get_renderer()->resize(new_w, new_h);
         }
     }
 
@@ -345,7 +352,7 @@ void engine_core_loop() {
     engine_draw_loop();
 
     // FIXME: Cap framerate for now
-    SDL_Delay(16); // ~60 FPS
+    // SDL_Delay(16); // ~60 FPS
 }
 
 

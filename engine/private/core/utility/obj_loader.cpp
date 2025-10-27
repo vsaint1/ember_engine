@@ -60,6 +60,8 @@ Model ObjectLoader::load_model(const std::string& path) {
         mesh.name           = aiMesh->mName.C_Str();
         model.meshes.push_back(mesh);
 
+
+
         Material material = load_material(scene, aiMesh, base_dir, *renderer);
         model.materials.push_back(material);
         spdlog::info("    Material [{}]: Albedo ({:.2f},{:.2f},{:.2f}) | Metallic {:.2f} | Roughness {:.2f} | AO {:.2f}",
@@ -75,6 +77,8 @@ Model ObjectLoader::load_model(const std::string& path) {
         parse_animations(scene, model);
     }
 
+    renderer->_meshes[path] = model.meshes;
+    renderer->_materials[path] = model.materials;
 
     return model;
 }

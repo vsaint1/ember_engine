@@ -10,8 +10,16 @@ void create_camera_entity(
     float near_plane          = 0.1f,
     float far_plane           = 1000.0f);
 
+void create_mesh_entity(
+    const char* name,
+    const char* path,
+    const glm::vec3& position = glm::vec3(0),
+    const glm::vec3& rotation = glm::vec3(0),
+    const glm::vec3& scale    = glm::vec3(1.0f),
+    const Material& material  = Material{});
+
 void create_model_entity(
-    const Model& model,
+    const char* path,
     const glm::vec3& position = glm::vec3(0),
     const glm::vec3& rotation = glm::vec3(0),
     const glm::vec3& scale    = glm::vec3(1.0f));

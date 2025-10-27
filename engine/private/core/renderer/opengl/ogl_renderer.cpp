@@ -187,8 +187,8 @@ GLuint load_cubemap_from_atlas(const std::string& atlas_path, CubemapOrientation
 
 
 WorldEnvironment* OpenGLRenderer::create_skybox_from_atlas(const std::string& atlas_path,
-                                                CubemapOrientation orient,
-                                                float brightness) {
+                                                           CubemapOrientation orient,
+                                                           float brightness) {
 
     WorldEnvironment* world_environment = new WorldEnvironment();
 
@@ -237,7 +237,7 @@ WorldEnvironment* OpenGLRenderer::create_skybox_from_atlas(const std::string& at
         1.0f, -1.0f, 1.0f
     };
 
-    const    std::vector<unsigned int>   indices = {
+    const std::vector<unsigned int> indices = {
         0, 1, 2, 2, 3, 0,
         4, 5, 6, 6, 7, 4,
         8, 9, 10, 10, 11, 8,
@@ -261,7 +261,7 @@ WorldEnvironment* OpenGLRenderer::create_skybox_from_atlas(const std::string& at
         world_environment->index_buffer.get(),
         attributes,
         3 * sizeof(float)
-    );
+        );
 
 
     spdlog::info("Skybox geometry initialized");
@@ -278,7 +278,59 @@ WorldEnvironment* OpenGLRenderer::create_skybox_from_atlas(const std::string& at
 
     _textures[atlas_path] = cubemap;
 
+    instance_buffer    = allocate_gpu_buffer(GpuBufferType::STORAGE);
+    size_t buffer_size = max_instances * sizeof(glm::mat4);
+    instance_buffer->upload(nullptr, buffer_size);
+
     return world_environment;
+}
+
+void OpenGLRenderer::setup_instance_matrix_attribute(GpuVertexLayout* vao) {
+    vao->bind();
+    instance_buffer->bind();
+
+    for (int i = 0; i < 4; i++) {
+        GLuint location = 3 + i;
+        glEnableVertexAttribArray(location);
+        glVertexAttribPointer(location, 4, GL_FLOAT, GL_FALSE,
+                              sizeof(glm::mat4),
+                              (void*) (i * sizeof(glm::vec4)));
+        glVertexAttribDivisor(location, 1);
+    }
+
+    vao->unbind();
+}
+
+void OpenGLRenderer::setup_lights(const std::vector<DirectionalLight>& directional_lights,
+    const std::vector<std::pair<Transform3D, SpotLight>>& spot_lights) {
+    _default_shader->set_value("numDirLights", static_cast<int>(directional_lights.size()));
+    if (!directional_lights.empty()) {
+        for (int i = 0; i < static_cast<int>(directional_lights.size()); ++i) {
+            _default_shader->set_value(fmt::format("dirLights[{}].direction", i),
+                                       directional_lights[i].direction);
+            _default_shader->set_value(fmt::format("dirLights[{}].color", i),
+                                       directional_lights[i].color * directional_lights[i].intensity);
+            _default_shader->set_value(fmt::format("dirLights[{}].cast_shadows", i),
+                                       directional_lights[i].castShadows ? 1 : 0);
+        }
+    }
+
+    _default_shader->set_value("numSpotLights", static_cast<int>(spot_lights.size()));
+    if (!spot_lights.empty()) {
+        for (int i = 0; i < static_cast<int>(spot_lights.size()); ++i) {
+            const auto& [transform, light] = spot_lights[i];
+            _default_shader->set_value(fmt::format("spotLights[{}].position", i),
+                                       transform.position);
+            _default_shader->set_value(fmt::format("spotLights[{}].direction", i),
+                                       light.direction);
+            _default_shader->set_value(fmt::format("spotLights[{}].color", i),
+                                       light.color * light.intensity);
+            _default_shader->set_value(fmt::format("spotLights[{}].inner_cut_off", i),
+                                       glm::cos(glm::radians(light.cutOff)));
+            _default_shader->set_value(fmt::format("spotLights[{}].outer_cut_off", i),
+                                       glm::cos(glm::radians(light.outerCutOff)));
+        }
+    }
 }
 
 GLuint OpenGLRenderer::create_gl_texture(const unsigned char* data, int w, int h, int channels) {
@@ -308,6 +360,7 @@ GLuint OpenGLRenderer::create_gl_texture(const unsigned char* data, int w, int h
 OpenGLRenderer::~OpenGLRenderer() {
     OpenGLRenderer::cleanup();
 }
+
 
 bool OpenGLRenderer::initialize(int w, int h, SDL_Window* window) {
 
@@ -416,8 +469,8 @@ bool OpenGLRenderer::initialize(int w, int h, SDL_Window* window) {
         {FramebufferTextureFormat::DEPTH_COMPONENT}
     };
 
-    shadow_map_fbo = std::make_shared<OpenGLFramebuffer>(spec);
-    _world_environment        = create_skybox_from_atlas("res/environment_sky.png", CubemapOrientation::DEFAULT, 1.0f);
+    shadow_map_fbo     = std::make_shared<OpenGLFramebuffer>(spec);
+    _world_environment = create_skybox_from_atlas("res/environment_sky.png", CubemapOrientation::DEFAULT, 1.0f);
     return true;
 }
 
@@ -484,6 +537,15 @@ GLuint OpenGLRenderer::load_texture_from_raw_data(const unsigned char* data, int
     return texID;
 }
 
+void OpenGLRenderer::begin_frame() {
+    for (auto& [key, batch] : render_batches) {
+        batch.clear();
+    }
+    for (auto& [mesh, batch] : shadow_batches) {
+        batch.clear();
+    }
+}
+
 void OpenGLRenderer::begin_shadow_pass() {
     shadow_map_fbo->bind();
     glEnable(GL_DEPTH_TEST);
@@ -491,16 +553,27 @@ void OpenGLRenderer::begin_shadow_pass() {
     _shadow_shader->activate();
 }
 
-void OpenGLRenderer::render_shadow_pass(const Transform3D& transform, const MeshInstance3D& mesh, const glm::mat4& light_space_matrix) {
-    glm::mat4 model = transform.get_matrix();
-
+void OpenGLRenderer::render_shadow_pass(const glm::mat4& light_space_matrix) {
     _shadow_shader->set_value("LIGHT_MATRIX", light_space_matrix, 1);
-    _shadow_shader->set_value("MODEL", model, 1);
 
-    mesh.vertex_layout->bind();
-    glDrawElements(GL_TRIANGLES, mesh.index_count, GL_UNSIGNED_INT, 0);
-    mesh.vertex_layout->unbind();
+    for (auto& [mesh_ptr, batch] : shadow_batches) {
+        if (batch.model_matrices.empty())
+            continue;
 
+        instance_buffer->bind();
+        instance_buffer->upload(batch.model_matrices.data(),
+                                batch.model_matrices.size() * sizeof(glm::mat4));
+
+        setup_instance_matrix_attribute(batch.mesh->vertex_layout.get());
+
+        batch.mesh->vertex_layout->bind();
+        glDrawElementsInstanced(GL_TRIANGLES,
+                                batch.mesh->index_count,
+                                GL_UNSIGNED_INT,
+                                0,
+                                batch.model_matrices.size());
+        batch.mesh->vertex_layout->unbind();
+    }
 }
 
 void OpenGLRenderer::end_shadow_pass() {
@@ -510,84 +583,30 @@ void OpenGLRenderer::end_shadow_pass() {
 }
 
 void OpenGLRenderer::begin_render_target() {
-    glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
+    glClearColor(_world_environment->color.r, _world_environment->color.g, _world_environment->color.b, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     _default_shader->activate();
     glViewport(0, 0, width, height);
 }
 
-void OpenGLRenderer::render_entity(const Transform3D& transform, const MeshInstance3D& mesh, const Material& material,
-                                   const Camera3D& camera,
-                                   const glm::mat4& light_space_matrix, const std::vector<DirectionalLight>& directional_lights,
-                                   const std::vector<std::pair<Transform3D, SpotLight>>& spot_lights) {
-    glm::mat4 model = transform.get_matrix();
+void OpenGLRenderer::render_main_target(const Camera3D& camera,
+                                        const Transform3D& camera_transform,
+                                        const glm::mat4& light_space_matrix,
+                                        const std::vector<DirectionalLight>& directional_lights,
+                                        const std::vector<std::pair<Transform3D, SpotLight>>& spot_lights) {
 
-    // TODO:  PASS camera transform directly
-    auto camera_query = GEngine->get_world().query<const Transform3D, const Camera3D>();
-
-    const Transform3D& camera_transform = camera_query.first().get<Transform3D>();
+    int total_instances = 0;
+    int draw_calls = 0;
 
     glm::mat4 view       = camera.get_view(camera_transform);
     glm::mat4 projection = camera.get_projection(width, height);
 
-    _default_shader->set_value("MODEL", model);
     _default_shader->set_value("VIEW", view);
     _default_shader->set_value("PROJECTION", projection);
     _default_shader->set_value("LIGHT_MATRIX", light_space_matrix);
-
-    // Camera
     _default_shader->set_value("CAMERA_POSITION_WORLD", camera_transform.position);
 
-
-    material.bind(_default_shader.get());
-
-
-    // REFACTORED: Directional lights using DirectionalLight class
-    _default_shader->set_value("numDirLights", static_cast<int>(directional_lights.size()));
-    if (!directional_lights.empty()) {
-        std::vector<glm::vec3> directions;
-        std::vector<glm::vec3> colors;
-        std::vector<int> castShadows;
-
-        for (const auto& light : directional_lights) {
-            directions.push_back(light.direction);
-            colors.push_back(light.color * light.intensity);
-            castShadows.push_back(light.castShadows ? 1 : 0);
-        }
-
-        for (int i = 0; i < static_cast<int>(directional_lights.size()); ++i) {
-            _default_shader->set_value(fmt::format("dirLights[{}].direction", i), directions[i]);
-            _default_shader->set_value(fmt::format("dirLights[{}].color", i), colors[i]);
-            _default_shader->set_value(fmt::format("dirLights[{}].cast_shadows", i), castShadows[i]);
-        }
-
-    }
-
-    _default_shader->set_value("numSpotLights", static_cast<int>(spot_lights.size()));
-    if (!spot_lights.empty()) {
-        std::vector<glm::vec3> positions;
-        std::vector<glm::vec3> directions;
-        std::vector<glm::vec3> colors;
-        std::vector<float> cutOffs;
-        std::vector<float> outerCutOffs;
-
-        for (const auto& [transform, light] : spot_lights) {
-            positions.push_back(transform.position);
-            directions.push_back(light.direction);
-            colors.push_back(light.color * light.intensity);
-            cutOffs.push_back(glm::cos(glm::radians(light.cutOff)));
-            outerCutOffs.push_back(glm::cos(glm::radians(light.outerCutOff)));
-        }
-
-        for (int i = 0; i < static_cast<int>(spot_lights.size()); ++i) {
-            _default_shader->set_value(fmt::format("spotLights[{}].position", i), positions[i]);
-            _default_shader->set_value(fmt::format("spotLights[{}].direction", i), directions[i]);
-            _default_shader->set_value(fmt::format("spotLights[{}].color", i), colors[i]);
-            _default_shader->set_value(fmt::format("spotLights[{}].inner_cut_off", i), cutOffs[i]);
-            _default_shader->set_value(fmt::format("spotLights[{}].outer_cut_off", i), outerCutOffs[i]);
-        }
-
-    }
+    setup_lights(directional_lights, spot_lights);
 
     glActiveTexture(GL_TEXTURE0 + SHADOW_TEXTURE_UNIT);
     glBindTexture(GL_TEXTURE_2D, shadow_map_fbo->get_depth_attachment_id());
@@ -597,10 +616,31 @@ void OpenGLRenderer::render_entity(const Transform3D& transform, const MeshInsta
     glBindTexture(GL_TEXTURE_CUBE_MAP, _world_environment->texture);
     _default_shader->set_value("ENVIRONMENT_MAP", ENVIRONMENT_TEXTURE_UNIT);
 
-    mesh.vertex_layout->bind();
-    glDrawElements(GL_TRIANGLES, mesh.index_count, GL_UNSIGNED_INT, 0);
-    mesh.vertex_layout->unbind();
+    for (auto& [key, batch] : render_batches) {
+        if (batch.model_matrices.empty())
+            continue;
 
+        draw_calls++;
+        total_instances += batch.model_matrices.size();
+
+        instance_buffer->bind();
+        instance_buffer->upload(batch.model_matrices.data(),
+                                batch.model_matrices.size() * sizeof(glm::mat4));
+
+        batch.material->bind(_default_shader.get());
+
+        setup_instance_matrix_attribute(batch.mesh->vertex_layout.get());
+
+        batch.mesh->vertex_layout->bind();
+        glDrawElementsInstanced(GL_TRIANGLES,
+                                batch.mesh->index_count,
+                                GL_UNSIGNED_INT,
+                                0,
+                                batch.model_matrices.size());
+        batch.mesh->vertex_layout->unbind();
+    }
+
+    // spdlog::info("Frame: {} draw calls, {} instances", draw_calls, total_instances);
 }
 
 void OpenGLRenderer::end_render_target() {
@@ -636,6 +676,21 @@ void OpenGLRenderer::render_environment_pass(const Camera3D& camera) {
 
 void OpenGLRenderer::end_environment_pass() {
     glDepthFunc(GL_LESS);
+}
+
+void OpenGLRenderer::add_to_render_batch(const Transform3D& transform, const MeshRef& mesh_ref, const MaterialRef& mat_ref) {
+    auto key = std::make_pair(mesh_ref.mesh, mat_ref.material);
+    auto& batch = render_batches[key];
+
+    batch.mesh = mesh_ref.mesh;
+    batch.material = mat_ref.material;
+    batch.model_matrices.push_back(transform.get_matrix());
+}
+
+void OpenGLRenderer::add_to_shadow_batch(const Transform3D& transform, const MeshRef& mesh_ref) {
+    auto& batch = shadow_batches[mesh_ref.mesh];
+    batch.mesh = mesh_ref.mesh;
+    batch.model_matrices.push_back(transform.get_matrix());
 }
 
 void OpenGLRenderer::resize(int w, int h) {

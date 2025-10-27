@@ -140,7 +140,15 @@ struct SpotLight {
 
 
 struct Model {
-    std::string_view path;
+    std::string path;
     std::vector<MeshInstance3D> meshes;
     std::vector<Material> materials;
+};
+
+struct MeshRef {
+    const MeshInstance3D* mesh;
+};
+
+struct MaterialRef {
+    const Material* material;
 };
