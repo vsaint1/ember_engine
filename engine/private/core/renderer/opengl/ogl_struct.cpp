@@ -11,10 +11,13 @@ bool validate_gl_shader(GLuint handle, GLenum op, bool is_program = false) {
     GLint success = 0;
     char infoLog[1024];
 
-    const char* op_str = (op == GL_COMPILE_STATUS)  ? "COMPILE"
-                       : (op == GL_LINK_STATUS)     ? "LINK"
-                       : (op == GL_VALIDATE_STATUS) ? "VALIDATE"
-                                                    : "UNKNOWN";
+    const char* op_str = (op == GL_COMPILE_STATUS)
+                             ? "COMPILE"
+                             : (op == GL_LINK_STATUS)
+                             ? "LINK"
+                             : (op == GL_VALIDATE_STATUS)
+                             ? "VALIDATE"
+                             : "UNKNOWN";
 
     if (is_program) {
         if (op == GL_VALIDATE_STATUS) {
@@ -66,7 +69,7 @@ OpenglShader::OpenglShader(const std::string& vertex, const std::string& fragmen
     glUniform1i(glGetUniformLocation(program, "EMISSIVE_MAP"), EMISSIVE_TEXTURE_UNIT);
     glUniform1i(glGetUniformLocation(program, "SHADOW_MAP"), SHADOW_TEXTURE_UNIT);
     glUniform1i(glGetUniformLocation(program, "ENVIRONMENT_MAP"), ENVIRONMENT_TEXTURE_UNIT);
-    
+
     bool success = validate_gl_shader(program, GL_LINK_STATUS, true);
 
     success &= validate_gl_shader(program, GL_VALIDATE_STATUS, true);
@@ -98,7 +101,8 @@ Uint32 OpenglShader::compile_shader(Uint32 type, const char* source) {
 
 
     if (!success) {
-        spdlog::critical("OpenglShader::compile_shader - Shader compilation failed for type {}", type == GL_VERTEX_SHADER ? "VERTEX" : "FRAGMENT");
+        spdlog::critical("OpenglShader::compile_shader - Shader compilation failed for type {}",
+                         type == GL_VERTEX_SHADER ? "VERTEX" : "FRAGMENT");
         glDeleteShader(shader);
         exit(EXIT_FAILURE);
 
@@ -138,7 +142,115 @@ void OpenglShader::destroy() {
     glDeleteProgram(id);
 }
 
-OpenGLFramebuffer::OpenGLFramebuffer(const FramebufferSpecification& spec): specification(spec) {
+
+OpenglGpuVertexLayout::OpenglGpuVertexLayout(const GpuBuffer* vertex_buffer, const GpuBuffer* index_buffer,
+                                             const std::vector<VertexAttribute>& attributes, uint32_t stride) {
+    glGenVertexArrays(1, &_vao);
+    glBindVertexArray(_vao);
+
+    vertex_buffer->bind();
+
+    for (const auto& attr : attributes) {
+        GLenum gl_type = to_gl_type(attr.type);
+        glVertexAttribPointer(
+            attr.location,
+            attr.components,
+            gl_type,
+            attr.normalized ? GL_TRUE : GL_FALSE,
+            stride,
+            (void*) (uintptr_t) attr.offset
+            );
+        glEnableVertexAttribArray(attr.location);
+    }
+
+    if (index_buffer) {
+        index_buffer->bind();
+    }
+
+    glBindVertexArray(0);
+}
+
+OpenglGpuVertexLayout::~OpenglGpuVertexLayout() {
+    if (_vao)
+        glDeleteVertexArrays(1, &_vao);
+}
+
+void OpenglGpuVertexLayout::bind() const {
+    glBindVertexArray(_vao);
+}
+
+void OpenglGpuVertexLayout::unbind() const {
+    glBindVertexArray(0);
+}
+
+GLenum OpenglGpuVertexLayout::to_gl_type(DataType type) {
+    switch (type) {
+    case DataType::USHORT:
+        return GL_UNSIGNED_SHORT;
+    case DataType::FLOAT:
+        return GL_FLOAT;
+    case DataType::INT:
+        return GL_INT;
+    case DataType::UNSIGNED_INT:
+        return GL_UNSIGNED_INT;
+    default:
+        return GL_FLOAT;
+    }
+}
+
+OpenglGpuBuffer::OpenglGpuBuffer(GpuBufferType type) : _buffer_type(type) {
+
+    switch (type) {
+    case GpuBufferType::VERTEX:
+        _target = GL_ARRAY_BUFFER;
+        break;
+    case GpuBufferType::INDEX:
+        _target = GL_ELEMENT_ARRAY_BUFFER;
+        break;
+    case GpuBufferType::UNIFORM:
+        _target = GL_UNIFORM_BUFFER;
+        break;
+    default:
+        _target = GL_ARRAY_BUFFER;
+        break;
+    }
+
+
+    glGenBuffers(1, &_id);
+
+    spdlog::info("OpenglGpuBuffer::OpenglGpuBuffer - Created GPU Buffer ID: {} of Type: {}", _id,
+                 type == GpuBufferType::VERTEX
+                     ? "VERTEX"
+                     : type == GpuBufferType::INDEX
+                     ? "INDEX"
+                     : type == GpuBufferType::UNIFORM
+                     ? "UNIFORM"
+                     : "STORAGE");
+}
+
+OpenglGpuBuffer::~OpenglGpuBuffer() {
+    glDeleteBuffers(1, &_id);
+}
+
+void OpenglGpuBuffer::bind() const {
+    glBindBuffer(_target, _id);
+}
+
+void OpenglGpuBuffer::upload(const void* data, size_t size) {
+    bind();
+    glBufferData(_target, size, data, GL_STATIC_DRAW);
+    _buffer_size = size;
+}
+
+size_t OpenglGpuBuffer::size() const {
+    return _buffer_size;
+}
+
+GpuBufferType OpenglGpuBuffer::type() const {
+    return _buffer_type;
+}
+
+OpenGLFramebuffer::OpenGLFramebuffer(const FramebufferSpecification& spec) : specification(spec) {
     spdlog::info("OpenGLFramebuffer::OpenGLFramebuffer - Creating Framebuffer ({}x{})", spec.width, spec.height);
     invalidate();
 }
@@ -151,20 +263,20 @@ OpenGLFramebuffer::~OpenGLFramebuffer() {
 void OpenGLFramebuffer::invalidate() {
     if (fbo)
         cleanup();
-    
+
     // Check for valid dimensions
     if (specification.width == 0 || specification.height == 0) {
-        spdlog::error("OpenGLFramebuffer::invalidate - Invalid dimensions ({}x{})", 
+        spdlog::error("OpenGLFramebuffer::invalidate - Invalid dimensions ({}x{})",
                       specification.width, specification.height);
         return;
     }
-    
-    spdlog::warn("OpenGLFramebuffer::invalidate - Recreating Framebuffer ({}x{})", 
+
+    spdlog::warn("OpenGLFramebuffer::invalidate - Recreating Framebuffer ({}x{})",
                  specification.width, specification.height);
-    
+
     glGenFramebuffers(1, &fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
-    
+
     bool hasDepthAttachment = false;
     for (auto& attachment : specification.attachments.attachments) {
         switch (attachment.format) {
@@ -186,7 +298,7 @@ void OpenGLFramebuffer::invalidate() {
             hasDepthAttachment = true;
             glGenTextures(1, &depth_attachment);
             glBindTexture(GL_TEXTURE_2D, depth_attachment);
-            
+
             if (attachment.format == FramebufferTextureFormat::DEPTH24STENCIL8) {
                 glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8, specification.width, specification.height,
                              0, GL_DEPTH_STENCIL, GL_UNSIGNED_INT_24_8, nullptr);
@@ -196,7 +308,7 @@ void OpenGLFramebuffer::invalidate() {
                              0, GL_DEPTH_COMPONENT, GL_UNSIGNED_INT, nullptr);
                 glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depth_attachment, 0);
             }
-            
+
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
@@ -208,7 +320,7 @@ void OpenGLFramebuffer::invalidate() {
             break;
         }
     }
-    
+
     if (color_attachments.empty()) {
         glDrawBuffers(0, nullptr);
         glReadBuffer(GL_NONE);
@@ -216,12 +328,12 @@ void OpenGLFramebuffer::invalidate() {
         GLenum buffers[4] = {GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3};
         glDrawBuffers((GLsizei) color_attachments.size(), buffers);
     }
-    
+
     GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (status != GL_FRAMEBUFFER_COMPLETE) {
         spdlog::critical("OpenGLFramebuffer::invalidate - Framebuffer is incomplete! Status: 0x{:x}", status);
     }
-    
+
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
 
@@ -281,6 +393,7 @@ void OpenglShader::set_value(const std::string& name, int value) {
     const Uint32 location = get_uniform_location(name);
     glUniform1i(location, value);
 }
+
 void OpenglShader::set_value(const std::string& name, Uint32 value) {
     const Uint32 location = get_uniform_location(name);
     glUniform1i(location, value);

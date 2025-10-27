@@ -11,11 +11,9 @@ int main(int argc, char* argv[]) {
 
     auto& ecs = GEngine->get_world();
 
-    auto renderer = GEngine->get_renderer();
-
     // Create camera
     auto camera =
-    ecs.entity("MainCamera").set<Transform3D>({.position = {0, 2, 20}, .rotation = {-0.4f, 0, 0}}).add<Camera3D>();
+        ecs.entity("MainCamera").set<Transform3D>({.position = {0, 2, 20}, .rotation = {-0.4f, 0, 0}}).add<Camera3D>();
 
     // Create directional light (sun) with shadows
     auto dirLight = ecs.entity()
@@ -32,38 +30,18 @@ int main(int argc, char* argv[]) {
                          .set(SpotLight{glm::vec3(1, -1, -1), glm::vec3(0.3f, 0.3f, 1.0f), 50.0f, 12.5f, 17.5f});
 
 
-    Model carModel = ObjectLoader::load_model("res://sprites/obj/Car2.obj", renderer);
-    for (size_t i = 0; i < carModel.meshes.size(); i++) {
-        ecs.entity(("Car_Mesh_" + std::to_string(i)).c_str())
-           .set(Transform3D{glm::vec3(-10, 0, -5), glm::vec3(0), glm::vec3(1.0f)})
-           .set(carModel.meshes[i])
-           .set(carModel.materials[i]);
-    }
+    Model carModel = ObjectLoader::load_model("res://sprites/obj/Car2.obj");
 
+    create_model_entity(carModel, glm::vec3(-10, 0, -5));
 
-    Model damagedHelmet = ObjectLoader::load_model("res://sprites/obj/DamagedHelmet.glb", renderer);
-    for (size_t i = 0; i < damagedHelmet.meshes.size(); i++) {
-        ecs.entity(("Helmet_Mesh_" + std::to_string(i)).c_str())
-           .set(Transform3D{glm::vec3(15, 0, 0), glm::vec3(0), glm::vec3(1.0f)})
-           .set(damagedHelmet.meshes[i])
-           .set(damagedHelmet.materials[i]);
-    }
+    Model damagedHelmet = ObjectLoader::load_model("res://sprites/obj/DamagedHelmet.glb");
+    create_model_entity(damagedHelmet, glm::vec3(10, 0, -5));
 
-    // Model sponza = ObjectLoader::load_model("res://sprites/obj/sponza/sponza.glb", renderer);
-    // for (size_t i = 0; i < sponza.meshes.size(); i++) {
-    //     ecs.entity(("Sponza_Mesh_" + std::to_string(i)).c_str())
-    //         .set(Transform3D{glm::vec3(0, 0, 0), glm::vec3(0), glm::vec3(1.0f)})
-    //         .set(sponza.meshes[i])
-    //         .set(sponza.materials[i]);
-    // }
+    // Model sponza = ObjectLoader::load_model("res://sprites/obj/sponza/sponza.glb");
+    // create_model_entity(sponza, glm::vec3(0, 0, 0));
 
-    Model nagonford = ObjectLoader::load_model("res://sprites/obj/nagonford/Nagonford_Animated.glb", renderer);
-    for (size_t i = 0; i < nagonford.meshes.size(); i++) {
-        ecs.entity(("Nagonford_Mesh_" + std::to_string(i)).c_str())
-           .set(Transform3D{glm::vec3(0, 0, 0), glm::vec3(0), glm::vec3(1.0f)})
-           .set(nagonford.meshes[i])
-           .set(nagonford.materials[i]);
-    }
+    Model nagonford = ObjectLoader::load_model("res://sprites/obj/nagonford/Nagonford_Animated.glb");
+    create_model_entity(nagonford, glm::vec3(0, 0, 0));
 
     MeshInstance3D cylinderMesh = ObjectLoader::load_mesh("res://models/cylinder.obj");
     ecs.entity("Cylinder").set(Transform3D{glm::vec3(0, 0, -10), glm::vec3(0), glm::vec3(1.0f)}).set(cylinderMesh).set(Material{
@@ -71,7 +49,7 @@ int main(int argc, char* argv[]) {
 
     MeshInstance3D torusMesh = ObjectLoader::load_mesh("res://models/torus.obj");
     ecs.entity("Torus").set(Transform3D{glm::vec3(0, 0, 5), glm::vec3(0), glm::vec3(1.0f)}).set(torusMesh).set(Material{
-        .albedo = glm::vec3(1.f, 0.f, 1.0), .metallic = 1.f, .roughness = 0.1, .emissive = glm::vec3(1, 0, 0), .emissiveStrength = 1.0f});
+        .albedo = glm::vec3(1.f, 0.f, 1.0), .metallic = 1.f, .roughness = 0.1, .emissive = glm::vec3(1, 0, 0), .emissive_strength = 1.0f});
 
     MeshInstance3D coneMesh = ObjectLoader::load_mesh("res://models/cone.obj");
     ecs.entity("Cone").set(Transform3D{glm::vec3(0, 0, 20), glm::vec3(0), glm::vec3(1.0f)}).set(coneMesh).set(Material{
@@ -103,6 +81,7 @@ int main(int argc, char* argv[]) {
        .set(Transform3D{glm::vec3(0, -2, 0), glm::vec3(0), glm::vec3(20.0f, 0.1f, 20.0f)})
        .set(cubeMesh)
        .set(Material{glm::vec3(1.0f), 0.0f, 0.8f, 1.0f});
+
 
     GEngine->run();
 

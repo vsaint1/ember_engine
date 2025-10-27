@@ -1,14 +1,16 @@
 #include  "core/utility/obj_loader.h"
 
+#include "core/engine.h"
 #include "core/io/assimp_io.h"
 
 MeshInstance3D ObjectLoader::load_mesh(const std::string& path) {
-    Model model = load_model(path, nullptr);
+    Model model = load_model(path);
     return model.meshes.empty() ? MeshInstance3D() : model.meshes[0];
 }
 
-Model ObjectLoader::load_model(const std::string& path, Renderer* renderer) {
+Model ObjectLoader::load_model(const std::string& path) {
     Model model;
+    model.path = path;
 
     std::string path_str = path;
 
@@ -43,20 +45,26 @@ Model ObjectLoader::load_model(const std::string& path, Renderer* renderer) {
     spdlog::info("  Meshes: {}, Materials: {}, Animations: {}",
                  scene->mNumMeshes, scene->mNumMaterials, scene->mNumAnimations);
 
+    const auto renderer = GEngine->get_renderer();
+
+    if (!renderer) {
+        spdlog::error("Renderer not initialized, cannot load model.");
+        exit(EXIT_FAILURE);
+    }
+
     for (unsigned int i = 0; i < scene->mNumMeshes; ++i) {
         aiMesh* aiMesh = scene->mMeshes[i];
         spdlog::info("  Parsing Mesh({}) - Name {}", i, aiMesh->mName.C_Str());
 
         MeshInstance3D mesh = create_mesh(aiMesh);
+        mesh.name           = aiMesh->mName.C_Str();
         model.meshes.push_back(mesh);
 
-        if (renderer) {
-            Material material = load_material(scene, aiMesh, base_dir, *renderer);
-            model.materials.push_back(material);
-            spdlog::info("    Material [{}]: Albedo ({:.2f},{:.2f},{:.2f}) | Metallic {:.2f} | Roughness {:.2f} | AO {:.2f}",
-                         aiMesh->mName.C_Str(), material.albedo.r, material.albedo.g, material.albedo.b,
-                         material.metallic, material.roughness, material.ao);
-        }
+        Material material = load_material(scene, aiMesh, base_dir, *renderer);
+        model.materials.push_back(material);
+        spdlog::info("    Material [{}]: Albedo ({:.2f},{:.2f},{:.2f}) | Metallic {:.2f} | Roughness {:.2f} | AO {:.2f}",
+                     aiMesh->mName.C_Str(), material.albedo.r, material.albedo.g, material.albedo.b,
+                     material.metallic, material.roughness, material.ao);
 
         if (aiMesh->HasBones()) {
             parse_bones(aiMesh, model);
@@ -122,31 +130,28 @@ MeshInstance3D ObjectLoader::create_mesh(aiMesh* aiMesh) {
     }
 
     MeshInstance3D mesh;
-    mesh.indexCount = indices.size();
+    mesh.index_count = indices.size();
 
-    glGenVertexArrays(1, &mesh.VAO);
-    glGenBuffers(1, &mesh.VBO);
-    glGenBuffers(1, &mesh.EBO);
+    const auto renderer      = GEngine->get_renderer();
 
-    glBindVertexArray(mesh.VAO);
+    mesh.vertex_buffer = renderer->allocate_gpu_buffer(GpuBufferType::VERTEX);
+    mesh.vertex_buffer->upload(vertices.data(), vertices.size() * sizeof(Vertex));
 
-    glBindBuffer(GL_ARRAY_BUFFER, mesh.VBO);
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
+    mesh.index_buffer = renderer->allocate_gpu_buffer(GpuBufferType::INDEX);
+    mesh.index_buffer->upload(indices.data(), indices.size() * sizeof(unsigned int));
 
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int), indices.data(), GL_STATIC_DRAW);
+    std::vector<VertexAttribute> attributes = {
+        {0, 3, DataType::FLOAT, false, offsetof(Vertex, position)},
+        {1, 3, DataType::FLOAT, false, offsetof(Vertex, normal)},
+        {2, 2, DataType::FLOAT, false, offsetof(Vertex, uv)}
+    };
 
-    // Vertex attributes
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) offsetof(Vertex, position));
-    glEnableVertexAttribArray(0);
-
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) offsetof(Vertex, normal));
-    glEnableVertexAttribArray(1);
-
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*) offsetof(Vertex, uv));
-    glEnableVertexAttribArray(2);
-
-    glBindVertexArray(0);
+    mesh.vertex_layout = renderer->create_vertex_layout(
+        mesh.vertex_buffer.get(),
+        mesh.index_buffer.get(),
+        attributes,
+        sizeof(Vertex)
+    );
 
     spdlog::info("  Mesh created: {} vertices, {} triangles", aiMesh->mNumVertices, indices.size() / 3);
     return mesh;
@@ -172,7 +177,7 @@ void ObjectLoader::load_colors(aiMaterial* aiMat, Material& mat) {
     if (aiMat->Get(AI_MATKEY_COLOR_EMISSIVE, emissive) == AI_SUCCESS)
         mat.emissive = {emissive.r, emissive.g, emissive.b};
 
-    aiMat->Get(AI_MATKEY_EMISSIVE_INTENSITY, mat.emissiveStrength);
+    aiMat->Get(AI_MATKEY_EMISSIVE_INTENSITY, mat.emissive_strength);
     aiMat->Get(AI_MATKEY_METALLIC_FACTOR, mat.metallic);
     aiMat->Get(AI_MATKEY_ROUGHNESS_FACTOR, mat.roughness);
 }
@@ -213,19 +218,19 @@ void ObjectLoader::load_textures(aiMaterial* aiMat, const aiScene* scene, const 
             }
         }
 
-        std::string tex_dir = dir  + texStr;
-        id               = renderer.load_texture_from_file(tex_dir);
-        flag             = (id != 0);
+        std::string tex_dir = dir + texStr;
+        id                  = renderer.load_texture_from_file(tex_dir);
+        flag                = (id != 0);
         if (flag)
             spdlog::info("    Texture loaded [{}]: {}", name, tex_dir);
     };
 
-    load_tex(aiTextureType_DIFFUSE, mat.albedoMap, mat.useAlbedoMap, "albedo");
-    load_tex(aiTextureType_NORMALS, mat.normalMap, mat.useNormalMap, "normal");
-    load_tex(aiTextureType_METALNESS, mat.metallicMap, mat.useMetallicMap, "metallic");
-    load_tex(aiTextureType_DIFFUSE_ROUGHNESS, mat.roughnessMap, mat.useRoughnessMap, "roughness");
-    load_tex(aiTextureType_AMBIENT_OCCLUSION, mat.aoMap, mat.useAOMap, "ao");
-    load_tex(aiTextureType_EMISSIVE, mat.emissiveMap, mat.useEmissiveMap, "emissive");
+    load_tex(aiTextureType_DIFFUSE, mat.albedo_map, mat.use_albedo_map, "albedo");
+    load_tex(aiTextureType_NORMALS, mat.normal_map, mat.use_normal_map, "normal");
+    load_tex(aiTextureType_METALNESS, mat.metallic_map, mat.use_metallic_map, "metallic");
+    load_tex(aiTextureType_DIFFUSE_ROUGHNESS, mat.roughness_map, mat.use_roughness_map, "roughness");
+    load_tex(aiTextureType_AMBIENT_OCCLUSION, mat.ao_map, mat.use_ao_map, "ao");
+    load_tex(aiTextureType_EMISSIVE, mat.emissive_map, mat.use_emissive_map, "emissive");
 }
 
 void ObjectLoader::parse_bones(aiMesh* mesh, Model& model) {
@@ -237,7 +242,7 @@ void ObjectLoader::parse_bones(aiMesh* mesh, Model& model) {
 }
 
 void ObjectLoader::parse_animations(const aiScene* scene, Model& model) {
-    spdlog::info("  → Animations: {}", scene->mNumAnimations);
+    spdlog::info("  Animations Count: {}", scene->mNumAnimations);
     for (unsigned int i = 0; i < scene->mNumAnimations; ++i) {
         const aiAnimation* anim = scene->mAnimations[i];
         spdlog::info("    Animation {}: {} | Duration: {:.2f} | FPS: {}",

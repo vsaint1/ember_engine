@@ -2,6 +2,50 @@
 #include "core/renderer/renderer.h"
 #include "core/renderer/base_struct.h"
 
+class OpenglGpuVertexLayout final: public  GpuVertexLayout {
+public:
+
+    OpenglGpuVertexLayout(
+      const GpuBuffer* vertex_buffer,
+      const GpuBuffer* index_buffer,
+      const std::vector<VertexAttribute>& attributes,
+      uint32_t stride);
+
+    ~OpenglGpuVertexLayout() override;
+
+    void bind() const override;
+
+    void unbind() const override;
+
+private:
+    GLuint _vao = 0;
+
+    static GLenum to_gl_type(DataType type);
+};
+
+class OpenglGpuBuffer final : public GpuBuffer {
+
+public:
+    OpenglGpuBuffer(GpuBufferType type);
+
+    ~OpenglGpuBuffer() override;
+
+    void bind() const override;
+
+    void upload(const void* data, size_t size) override;
+
+    size_t size() const override;
+
+    GpuBufferType type() const override;
+
+
+private:
+    GLuint _id                 = 0;
+    GpuBufferType _buffer_type = GpuBufferType::VERTEX;
+    size_t _buffer_size        = 0;
+    GLenum _target             = GL_ARRAY_BUFFER;
+
+};
 
 class OpenGLFramebuffer final : public Framebuffer {
     Uint32 fbo = 0;
@@ -30,7 +74,6 @@ public:
 
     void cleanup();
 };
-
 
 
 class OpenglShader final : public Shader {

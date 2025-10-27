@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-
+#include "core/renderer/base_struct.h"
 
 
 /*!
@@ -27,10 +27,13 @@ struct PhysicsBody {
 
 
 struct MeshInstance3D {
-    Uint32 VAO     = 0;
-    Uint32 VBO     = 0;
-    Uint32 EBO     = 0;
-    int indexCount = 0;
+    std::string name;
+
+    std::shared_ptr<GpuBuffer> vertex_buffer;
+    std::shared_ptr<GpuBuffer> index_buffer;
+    std::shared_ptr<GpuVertexLayout> vertex_layout;
+
+    int index_count = 0;
 };
 
 class Shader;
@@ -39,28 +42,28 @@ struct Material {
     glm::vec3 albedo = glm::vec3(1.0f);
     float metallic   = 0.0f;
     float roughness  = 0.5f;
-    float ao         = 1.0f;
+    float ao         = 1.0f; /// Ambient Occlusion
 
-    // Emissive properties
-    glm::vec3 emissive     = glm::vec3(0.0f);
-    float emissiveStrength = 1.0f;
+    glm::vec3 emissive      = glm::vec3(0.0f);
+    float emissive_strength = 1.0f;
 
-    Uint32 albedoMap    = 0;
-    Uint32 metallicMap  = 0;
-    Uint32 roughnessMap = 0;
-    Uint32 normalMap    = 0;
-    Uint32 aoMap        = 0;
-    Uint32 emissiveMap  = 0;
+    Uint32 albedo_map    = 0;
+    Uint32 metallic_map  = 0;
+    Uint32 roughness_map = 0;
+    Uint32 normal_map    = 0;
+    Uint32 ao_map        = 0;
+    Uint32 emissive_map  = 0;
 
-    bool useAlbedoMap    = false;
-    bool useMetallicMap  = false;
-    bool useRoughnessMap = false;
-    bool useNormalMap    = false;
-    bool useAOMap        = false;
-    bool useEmissiveMap  = false;
+    bool use_albedo_map    = false;
+    bool use_metallic_map  = false;
+    bool use_roughness_map = false;
+    bool use_normal_map    = false;
+    bool use_ao_map        = false;
+    bool use_emissive_map  = false;
 
     void bind(Shader* shader) const;
 };
+
 /*!
 
     @brief 3D Camera
@@ -111,7 +114,6 @@ private:
 };
 
 
-
 struct DirectionalLight {
     glm::vec3 direction{0.0f, -1.0f, 0.0f};
     glm::vec3 color{1.0f};
@@ -137,8 +139,8 @@ struct SpotLight {
 };
 
 
-
 struct Model {
+    std::string_view path;
     std::vector<MeshInstance3D> meshes;
     std::vector<Material> materials;
 };

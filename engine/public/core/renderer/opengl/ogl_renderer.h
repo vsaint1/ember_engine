@@ -9,6 +9,14 @@ public:
 
     bool initialize(int w, int h, SDL_Window* window) override;
 
+    std::shared_ptr<GpuBuffer> allocate_gpu_buffer(GpuBufferType type) override;
+
+    std::shared_ptr<GpuVertexLayout> create_vertex_layout(
+      const GpuBuffer* vertex_buffer,
+      const GpuBuffer* index_buffer,
+      const std::vector<VertexAttribute>& attributes,
+      uint32_t stride) override;
+
     Uint32 load_texture_from_file(const std::string& path) override;
 
     Uint32 load_texture_from_memory(const unsigned char* buffer, size_t size, const std::string& name = "") override;
@@ -50,9 +58,8 @@ private:
 
     GLuint create_gl_texture(const unsigned char* data, int w, int h, int channels);
 
-    Skybox create_skybox_from_atlas(const std::string& atlas_path,
+    WorldEnvironment* create_skybox_from_atlas(const std::string& atlas_path,
                                        CubemapOrientation orient = CubemapOrientation::DEFAULT,
                                        float brightness          = 1.0f);
 
-    Skybox _skybox;
 };

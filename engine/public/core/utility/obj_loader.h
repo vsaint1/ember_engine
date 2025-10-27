@@ -13,7 +13,7 @@ class ObjectLoader {
 public:
     static MeshInstance3D load_mesh(const std::string& path);
 
-    static Model load_model(const std::string& path, Renderer* renderer = nullptr);
+    static Model load_model(const std::string& path);
 
 private:
     static std::string get_directory(const std::string& path);

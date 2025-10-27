@@ -9,12 +9,77 @@ enum class CubemapOrientation {
     FLIP_Y
 };
 
-struct Skybox {
-    GLuint texture = 0;
-    GLuint VAO = 0;
-    GLuint VBO = 0;
-    float brightness = 1.0f;
+
+// TODO: implement
+class Texture2D {
+public:
 };
+
+
+/*!
+
+    @brief GpuBuffer Abstract class
+    - Bind the buffer
+    - Upload data to the buffer
+    - Get buffer size
+
+    @version  0.0.5
+
+*/
+enum class GpuBufferType {
+    VERTEX, /// For Vertex Buffer Objects (VBOs)
+    INDEX, /// For Element Buffer Objects (EBOs)
+    UNIFORM, /// For Uniform Buffer Objects (UBOs)
+    STORAGE /// For Shader Storage Buffer Objects (SSBOs)
+};
+
+/*!
+
+    @brief GpuBuffer Abstract class
+    - Bind the buffer
+    - Upload data to the buffer
+    - Get buffer size
+
+    @version  0.0.5
+
+*/
+class GpuBuffer {
+public:
+    virtual ~GpuBuffer() = default;
+
+    virtual void bind() const = 0;
+
+    virtual void upload(const void* data, size_t size) = 0;
+
+    virtual size_t size() const = 0;
+
+    virtual GpuBufferType type() const = 0;
+
+};
+
+enum class DataType {
+    USHORT,
+    FLOAT,
+    INT,
+    UNSIGNED_INT,
+};
+
+
+struct VertexAttribute {
+    uint32_t location;
+    uint32_t components;
+    DataType type;
+    bool normalized;
+    uint32_t offset;
+};
+
+class GpuVertexLayout {
+public:
+    virtual ~GpuVertexLayout() = default;
+    virtual void bind() const = 0;
+    virtual void unbind() const = 0;
+};
+
 
 enum class FramebufferTextureFormat {
     None = 0,
@@ -131,6 +196,17 @@ protected:
     Uint32 id = 0;
 
     std::unordered_map<std::string, Uint32> _uniforms;
+};
+
+struct WorldEnvironment {
+    Uint32 texture = 0;
+
+    glm::vec3 color = glm::vec3(0.2,0.3,0.3);
+    std::shared_ptr<GpuBuffer> vertex_buffer = nullptr;
+    std::shared_ptr<GpuBuffer> index_buffer  = nullptr;
+    std::shared_ptr<GpuVertexLayout> vertex_layout = nullptr;
+
+    float brightness = 1.0f;
 };
 
 // Forward declaration

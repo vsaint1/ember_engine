@@ -10,6 +10,8 @@ void APIENTRY ogl_validation_layer(
     const GLchar* message,
     const void* userParam) {
 
+    if (severity == GL_DEBUG_SEVERITY_NOTIFICATION)
+        return;
 
     SDL_Log("ValidationLayer Type: 0x%x | Severity: 0x%x | ID: %u | Message: %s", type, severity, id, message);
 
@@ -184,10 +186,11 @@ GLuint load_cubemap_from_atlas(const std::string& atlas_path, CubemapOrientation
 }
 
 
-Skybox OpenGLRenderer::create_skybox_from_atlas(const std::string& atlas_path,
+WorldEnvironment* OpenGLRenderer::create_skybox_from_atlas(const std::string& atlas_path,
                                                 CubemapOrientation orient,
                                                 float brightness) {
-    Skybox sky{};
+
+    WorldEnvironment* world_environment = new WorldEnvironment();
 
     constexpr float skybox_vertices[] = {
         // positions
@@ -234,35 +237,48 @@ Skybox OpenGLRenderer::create_skybox_from_atlas(const std::string& atlas_path,
         1.0f, -1.0f, 1.0f
     };
 
-    if (sky.VAO == 0) {
-        glGenVertexArrays(1, &sky.VAO);
-        glGenBuffers(1, &sky.VBO);
+    const    std::vector<unsigned int>   indices = {
+        0, 1, 2, 2, 3, 0,
+        4, 5, 6, 6, 7, 4,
+        8, 9, 10, 10, 11, 8,
+        12, 13, 14, 14, 15, 12,
+        16, 17, 18, 18, 19, 16,
+        20, 21, 22, 22, 23, 20
+    };
 
-        glBindVertexArray(sky.VAO);
-        glBindBuffer(GL_ARRAY_BUFFER, sky.VBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(skybox_vertices),
-                     skybox_vertices, GL_STATIC_DRAW);
+    world_environment->vertex_buffer = this->allocate_gpu_buffer(GpuBufferType::VERTEX);
+    world_environment->vertex_buffer->upload(skybox_vertices, sizeof(skybox_vertices));
 
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*) 0);
+    world_environment->index_buffer = this->allocate_gpu_buffer(GpuBufferType::INDEX);
+    world_environment->index_buffer->upload(indices.data(), indices.size());
 
-        glBindVertexArray(0);
+    std::vector<VertexAttribute> attributes = {
+        {0, 3, DataType::FLOAT, false, 0}
+    };
 
-        spdlog::info("Skybox geometry initialized");
-    }
+    world_environment->vertex_layout = this->create_vertex_layout(
+        world_environment->vertex_buffer.get(),
+        world_environment->index_buffer.get(),
+        attributes,
+        3 * sizeof(float)
+    );
+
+
+    spdlog::info("Skybox geometry initialized");
 
     GLuint cubemap = load_cubemap_from_atlas(atlas_path, orient);
 
     if (cubemap == 0) {
         spdlog::error("Failed to create skybox from atlas - loading failed");
-        return sky;
+        return world_environment;
     }
 
-    sky.texture = cubemap;
+    world_environment->texture = cubemap;
     spdlog::info("Skybox created from atlas successfully");
 
     _textures[atlas_path] = cubemap;
-    return sky;
+
+    return world_environment;
 }
 
 GLuint OpenGLRenderer::create_gl_texture(const unsigned char* data, int w, int h, int channels) {
@@ -339,6 +355,9 @@ bool OpenGLRenderer::initialize(int w, int h, SDL_Window* window) {
     }
 
 #endif
+    _context = glContext;
+
+    SDL_GL_SetSwapInterval(0);
 
     width  = w;
     height = h;
@@ -398,8 +417,18 @@ bool OpenGLRenderer::initialize(int w, int h, SDL_Window* window) {
     };
 
     shadow_map_fbo = std::make_shared<OpenGLFramebuffer>(spec);
-    _skybox        = create_skybox_from_atlas("res/environment_sky.png", CubemapOrientation::DEFAULT, 1.0f);
+    _world_environment        = create_skybox_from_atlas("res/environment_sky.png", CubemapOrientation::DEFAULT, 1.0f);
     return true;
+}
+
+std::shared_ptr<GpuBuffer> OpenGLRenderer::allocate_gpu_buffer(GpuBufferType type) {
+    return std::make_shared<OpenglGpuBuffer>(type);
+}
+
+std::shared_ptr<GpuVertexLayout> OpenGLRenderer::create_vertex_layout(const GpuBuffer* vertex_buffer, const GpuBuffer* index_buffer,
+                                                                      const std::vector<VertexAttribute>& attributes, uint32_t stride) {
+
+    return std::make_unique<OpenglGpuVertexLayout>(vertex_buffer, index_buffer, attributes, stride);
 }
 
 GLuint OpenGLRenderer::load_texture_from_file(const std::string& path) {
@@ -468,9 +497,10 @@ void OpenGLRenderer::render_shadow_pass(const Transform3D& transform, const Mesh
     _shadow_shader->set_value("LIGHT_MATRIX", light_space_matrix, 1);
     _shadow_shader->set_value("MODEL", model, 1);
 
-    glBindVertexArray(mesh.VAO);
-    glDrawElements(GL_TRIANGLES, mesh.indexCount, GL_UNSIGNED_INT, 0);
-    glBindVertexArray(0);
+    mesh.vertex_layout->bind();
+    glDrawElements(GL_TRIANGLES, mesh.index_count, GL_UNSIGNED_INT, 0);
+    mesh.vertex_layout->unbind();
+
 }
 
 void OpenGLRenderer::end_shadow_pass() {
@@ -564,12 +594,13 @@ void OpenGLRenderer::render_entity(const Transform3D& transform, const MeshInsta
     _default_shader->set_value("SHADOW_MAP", SHADOW_TEXTURE_UNIT);
 
     glActiveTexture(GL_TEXTURE0 + ENVIRONMENT_TEXTURE_UNIT);
-    glBindTexture(GL_TEXTURE_CUBE_MAP, _skybox.texture);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, _world_environment->texture);
     _default_shader->set_value("ENVIRONMENT_MAP", ENVIRONMENT_TEXTURE_UNIT);
 
-    glBindVertexArray(mesh.VAO);
-    glDrawElements(GL_TRIANGLES, mesh.indexCount, GL_UNSIGNED_INT, 0);
-    glBindVertexArray(0);
+    mesh.vertex_layout->bind();
+    glDrawElements(GL_TRIANGLES, mesh.index_count, GL_UNSIGNED_INT, 0);
+    mesh.vertex_layout->unbind();
+
 }
 
 void OpenGLRenderer::end_render_target() {
@@ -594,12 +625,13 @@ void OpenGLRenderer::render_environment_pass(const Camera3D& camera) {
 
 
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_CUBE_MAP, _skybox.texture);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, _world_environment->texture);
     _environment_shader->set_value("TEXTURE", 0);
 
-    glBindVertexArray(_skybox.VAO);
+    _world_environment->vertex_layout->bind();
     glDrawArrays(GL_TRIANGLES, 0, 36);
-    glBindVertexArray(0);
+    _world_environment->vertex_layout->unbind();
+
 }
 
 void OpenGLRenderer::end_environment_pass() {
@@ -619,16 +651,9 @@ void OpenGLRenderer::cleanup() {
 
     _textures.clear();
 
-    if (_skybox.VAO) {
-        glDeleteVertexArrays(1, &_skybox.VAO);
-        _skybox.VAO = 0;
-    }
-
-    if (_skybox.VBO) {
-        glDeleteBuffers(1, &_skybox.VBO);
-        _skybox.VBO = 0;
-    }
-
+    // TODO: unique_ptr ?
+    delete _world_environment;
+    _world_environment = nullptr;
 
     SDL_GL_DestroyContext(_context);
 

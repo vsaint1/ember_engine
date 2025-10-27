@@ -3,6 +3,7 @@
 #include "core/system/timer.h"
 #include "core/utility/project_config.h"
 #include "core/utility/obj_loader.h"
+#include "core/api/engine_api.h"
 
 /*!
     @file engine.h
