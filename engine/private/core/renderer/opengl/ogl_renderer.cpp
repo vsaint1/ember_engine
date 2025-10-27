@@ -538,9 +538,10 @@ GLuint OpenGLRenderer::load_texture_from_raw_data(const unsigned char* data, int
 }
 
 void OpenGLRenderer::begin_frame() {
-    for (auto& [key, batch] : render_batches) {
+    for (auto& [key, batch] : _instanced_batches) {
         batch.clear();
     }
+
     for (auto& [mesh, batch] : shadow_batches) {
         batch.clear();
     }
@@ -616,7 +617,7 @@ void OpenGLRenderer::render_main_target(const Camera3D& camera,
     glBindTexture(GL_TEXTURE_CUBE_MAP, _world_environment->texture);
     _default_shader->set_value("ENVIRONMENT_MAP", ENVIRONMENT_TEXTURE_UNIT);
 
-    for (auto& [key, batch] : render_batches) {
+    for (auto& [key, batch] : _instanced_batches) {
         if (batch.model_matrices.empty())
             continue;
 
@@ -679,8 +680,8 @@ void OpenGLRenderer::end_environment_pass() {
 }
 
 void OpenGLRenderer::add_to_render_batch(const Transform3D& transform, const MeshRef& mesh_ref, const MaterialRef& mat_ref) {
-    auto key = std::make_pair(mesh_ref.mesh, mat_ref.material);
-    auto& batch = render_batches[key];
+    MeshMaterialKey key{mesh_ref.mesh, mat_ref.material};
+    auto& batch = _instanced_batches[key];
 
     batch.mesh = mesh_ref.mesh;
     batch.material = mat_ref.material;
@@ -706,7 +707,7 @@ void OpenGLRenderer::cleanup() {
 
     _textures.clear();
 
-    // TODO: unique_ptr ?
+    // TODO: create world enviroment entity
     delete _world_environment;
     _world_environment = nullptr;
 

@@ -12,14 +12,23 @@ struct RenderBatch {
     }
 };
 
-struct PairHash {
-    template <class T1, class T2>
-    std::size_t operator()(const std::pair<T1, T2>& p) const {
-        auto h1 = std::hash<T1>{}(p.first);
-        auto h2 = std::hash<T2>{}(p.second);
+struct MeshMaterialKey {
+    const MeshInstance3D* mesh;
+    const Material* material;
+
+    bool operator==(const MeshMaterialKey& other) const {
+        return mesh == other.mesh && material == other.material;
+    }
+};
+
+struct MeshMaterialKeyHash {
+    std::size_t operator()(const MeshMaterialKey& key) const {
+        std::size_t h1 = std::hash<const void*>{}(key.mesh);
+        std::size_t h2 = std::hash<const void*>{}(key.material);
         return h1 ^ (h2 << 1);
     }
 };
+
 
 class Renderer {
 public:
@@ -71,6 +80,10 @@ public:
     std::unordered_map<std::string, std::vector<MeshInstance3D>> _meshes;
     std::unordered_map<std::string, std::vector<Material>> _materials;
 
+    void register_material(const char* name, const Material& material) {
+        _materials[name].push_back(material);
+    }
+
 protected:
     SDL_Window* _window = nullptr;
 
@@ -86,9 +99,7 @@ protected:
 
     std::shared_ptr<GpuBuffer> instance_buffer;
 
-    std::unordered_map<std::pair<const MeshInstance3D*, const Material*>,
-                       RenderBatch,
-                       PairHash> render_batches;
+    std::unordered_map<MeshMaterialKey, RenderBatch, MeshMaterialKeyHash> _instanced_batches;
 
     std::unordered_map<const MeshInstance3D*, RenderBatch> shadow_batches;
 

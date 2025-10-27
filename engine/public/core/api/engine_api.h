@@ -16,10 +16,14 @@ void create_mesh_entity(
     const glm::vec3& position = glm::vec3(0),
     const glm::vec3& rotation = glm::vec3(0),
     const glm::vec3& scale    = glm::vec3(1.0f),
-    const Material& material  = Material{});
+    const char* material_tag   = "default_material");
 
 void create_model_entity(
+    const char* name,
     const char* path,
     const glm::vec3& position = glm::vec3(0),
     const glm::vec3& rotation = glm::vec3(0),
     const glm::vec3& scale    = glm::vec3(1.0f));
+
+
+void create_material(const char* name, const Material& material);

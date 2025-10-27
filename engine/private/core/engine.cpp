@@ -239,7 +239,7 @@ void engine_draw_loop() {
 
         if (light.castShadows && light_space_matrix == glm::mat4(1.0f)) {
             const auto width = GEngine->get_config().get_window().width;
-                const auto height = GEngine->get_config().get_window().height;
+            const auto height = GEngine->get_config().get_window().height;
             light_space_matrix = light.get_light_space_matrix();
         }
     });
@@ -274,86 +274,91 @@ void engine_draw_loop() {
 }
 
 void engine_core_loop() {
+    static bool mouse_captured = false;
+    static float mouse_dx = 0.0f;
+    static float mouse_dy = 0.0f;
 
     GEngine->get_timer().tick();
 
+    // Reset mouse delta each frame
+    mouse_dx = 0.0f;
+    mouse_dy = 0.0f;
 
     while (SDL_PollEvent(&GEngine->event)) {
+        auto& ev = GEngine->event;
 
-        if (GEngine->event.type == SDL_EVENT_QUIT) {
-            GEngine->is_running = false;
-        }
+        switch (ev.type) {
+            case SDL_EVENT_QUIT:
+                GEngine->is_running = false;
+                break;
 
+            case SDL_EVENT_KEY_DOWN:
+                if (ev.key.scancode == SDL_SCANCODE_ESCAPE) {
+                    mouse_captured = !mouse_captured;
+                    SDL_SetWindowRelativeMouseMode(GEngine->get_window(), mouse_captured);
+                    SDL_ShowCursor();
+                }
+                if (ev.key.scancode == SDL_SCANCODE_F1) {
+                    GEngine->get_config().is_debug = !GEngine->get_config().is_debug;
+                }
+                break;
 
-        if (GEngine->event.type == SDL_EVENT_KEY_DOWN) {
+            case SDL_EVENT_MOUSE_BUTTON_DOWN:
+                if (ev.button.button == SDL_BUTTON_RIGHT && !mouse_captured) {
+                    mouse_captured = true;
+                    SDL_SetWindowRelativeMouseMode(GEngine->get_window(), true);
+                    SDL_HideCursor();
+                }
+                break;
 
-            if (GEngine->event.key.scancode == SDL_SCANCODE_F9) {
-                GEngine->get_config().is_debug = !GEngine->get_config().is_debug;
+            case SDL_EVENT_MOUSE_MOTION:
+                if (mouse_captured) {
+                    mouse_dx += static_cast<float>(ev.motion.xrel);
+                    mouse_dy += static_cast<float>(ev.motion.yrel);
+                }
+                break;
+
+            case SDL_EVENT_WINDOW_RESIZED: {
+                int new_w = ev.window.data1;
+                int new_h = ev.window.data2;
+                auto& app_win = GEngine->get_config().get_window();
+                app_win.width = new_w;
+                app_win.height = new_h;
+                GEngine->get_renderer()->resize(new_w, new_h);
+                break;
             }
-        }
 
-
-        if (GEngine->event.type == SDL_EVENT_WINDOW_RESIZED) {
-            int new_w      = GEngine->event.window.data1;
-            int new_h      = GEngine->event.window.data2;
-            auto& app_win  = GEngine->get_config().get_window();
-            app_win.width  = new_w;
-            app_win.height = new_h;
-
-            GEngine->get_renderer()->resize(new_w, new_h);
+            default:
+                break;
         }
     }
 
-    // TODO: add script logic and remove this
     const bool* scancodes = SDL_GetKeyboardState(nullptr);
 
     GEngine->get_world().each([&](flecs::entity e, Transform3D& transform, Camera3D& camera) {
         float dt = static_cast<float>(GEngine->get_timer().delta);
 
-        if (scancodes[SDL_SCANCODE_W]) {
-            camera.move_forward(transform, dt);
-        }
-        if (scancodes[SDL_SCANCODE_S]) {
-            camera.move_backward(transform, dt);
-        }
-        if (scancodes[SDL_SCANCODE_A]) {
-            camera.move_left(transform, dt);
-        }
-        if (scancodes[SDL_SCANCODE_D]) {
-            camera.move_right(transform, dt);
+        if (scancodes[SDL_SCANCODE_W]) camera.move_forward(transform, dt);
+        if (scancodes[SDL_SCANCODE_S]) camera.move_backward(transform, dt);
+        if (scancodes[SDL_SCANCODE_A]) camera.move_left(transform, dt);
+        if (scancodes[SDL_SCANCODE_D]) camera.move_right(transform, dt);
+        if (scancodes[SDL_SCANCODE_SPACE]) transform.position.y += camera.speed * dt;
+        if (scancodes[SDL_SCANCODE_LCTRL]) transform.position.y -= camera.speed * dt;
+
+        camera.speed = scancodes[SDL_SCANCODE_LSHIFT] ? 150.0f : 50.0f;
+
+        if (mouse_captured && (mouse_dx != 0.0f || mouse_dy != 0.0f)) {
+            constexpr float sensitivity = 0.1f;
+            camera.look_at(mouse_dx, -mouse_dy, sensitivity);
         }
 
-        if (scancodes[SDL_SCANCODE_SPACE]) {
-            transform.position.y += camera.speed * dt;
-        }
-
-        if (scancodes[SDL_SCANCODE_LCTRL]) {
-            transform.position.y -= camera.speed * dt;
-        }
-
-        if (scancodes[SDL_SCANCODE_Q]) {
-            camera.look_at(-200.0f * dt, 0.0f);
-        }
-
-        if (scancodes[SDL_SCANCODE_E]) {
-            camera.look_at(200.0f * dt, 0.0f);
-        }
-
-        if (scancodes[SDL_SCANCODE_LSHIFT]) {
-            camera.speed = 150.0f;
-        } else {
-            camera.speed = 50.0f;
-        }
     });
 
-
     GEngine->get_world().progress(static_cast<float>(GEngine->get_timer().delta));
-
     engine_draw_loop();
-
-    // FIXME: Cap framerate for now
-    // SDL_Delay(16); // ~60 FPS
 }
+
+
 
 
 void Engine::run() {

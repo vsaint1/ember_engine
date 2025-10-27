@@ -8,52 +8,61 @@ void create_mesh_entity(
     const glm::vec3& position,
     const glm::vec3& rotation,
     const glm::vec3& scale,
-    const Material& material) {
+    const char* material_tag) {
 
     auto renderer = GEngine->get_renderer();
 
-    if (renderer->_meshes.find(path) == renderer->_meshes.end()) {
-        MeshInstance3D mesh        = ObjectLoader::load_mesh(path);
-        renderer->_meshes[path]    = {mesh};
-        renderer->_materials[path] = {material};
+    if (!renderer->_meshes.contains(path)) {
+        MeshInstance3D mesh = ObjectLoader::load_mesh(path);
+        renderer->_meshes[path] = {mesh};
+    }
+
+    if (!renderer->_materials.contains(material_tag)) {
+        spdlog::error("Material '{}' not registered!", material_tag);
+        return;
     }
 
     GEngine->get_world().entity(name)
            .set(Transform3D{position, rotation, scale})
            .set(MeshRef{&renderer->_meshes[path][0]})
-           .set(MaterialRef{&renderer->_materials[path][0]});
+           .set(MaterialRef{&renderer->_materials[material_tag][0]});
 
-
+    spdlog::info("MeshInstance3D entity '{}' created with material '{}'.", name, material_tag);
 }
 
 
 void create_model_entity(
+    const char* name,
     const char* path,
     const glm::vec3& position,
     const glm::vec3& rotation,
     const glm::vec3& scale) {
 
-
     auto renderer = GEngine->get_renderer();
 
-    auto mesh_it = renderer->_meshes.find(path);
-    auto mat_it  = renderer->_materials.find(path);
 
-    if (mesh_it == renderer->_meshes.end() ||
-        mat_it == renderer->_materials.end()) {
-        spdlog::error("Model not loaded: {}", path);
-        return;
+  if (!renderer->_meshes.contains(path) || !renderer->_materials.contains(path)) {
+        Model model = ObjectLoader::load_model(path);
+        renderer->_meshes[path]    = model.meshes;
+        renderer->_materials[path] = model.materials;
     }
 
-    const auto& meshes    = mesh_it->second;
-    const auto& materials = mat_it->second;
+    const auto& meshes    = renderer->_meshes[path];
+    const auto& materials = renderer->_materials[path];
 
-
+    auto entity = GEngine->get_world().entity(name);
 
     for (size_t i = 0; i < meshes.size(); ++i) {
-        GEngine->get_world().entity()
-               .set(Transform3D{position, rotation, scale})
-               .set(MeshRef{&meshes[i]})
-               .set(MaterialRef{&materials[i]});
+        entity.child()
+            .set(Transform3D{position, rotation, scale})
+            .set(MeshRef{&meshes[i]})
+            .set(MaterialRef{&materials[i]});
     }
+
+    spdlog::info("MeshInstance3D entity '{}' created with {} mesh parts.", name, meshes.size());
+}
+
+
+void create_material(const char* name, const Material& material) {
+    GEngine->get_renderer()->register_material(name,material);
 }
