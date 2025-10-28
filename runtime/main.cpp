@@ -101,6 +101,7 @@ int main(int argc, char* argv[]) {
                              17.5f
                          });
 
+    // TODO: create api for lights and camera
     create_model_entity("dmg_helmet", "res://sprites/obj/DamagedHelmet.glb",
                        glm::vec3(10, 0, -5));
 
