@@ -64,30 +64,36 @@ if (ANDROID)
     target_link_libraries(${PROJECT_NAME} PUBLIC android log GLESv3 m dl)
 endif ()
 
-# -----------------------------
-# iOS (Device/Simulator)
-# -----------------------------
-if (APPLE AND NOT BUILD_SHARED_LIBS)
-    set(LAUNCH_SCREEN "${CMAKE_SOURCE_DIR}/templates/ios/LaunchScreen.storyboard")
-    set(ICON_PATH "${CMAKE_SOURCE_DIR}/templates/ios/AppLogo.icns")
-    set(ASSETS_PATH "${CMAKE_SOURCE_DIR}/res")
 
-    add_executable(${PROJECT_NAME} MACOSX_BUNDLE
+# -----------------------------
+# APPLE (macOS/iOS)
+# -----------------------------
+if (APPLE)
+
+    # -----------------------------
+    # iOS (Device/Simulator)
+    # -----------------------------
+    if(CMAKE_OSX_SYSROOT MATCHES ".*iPhoneOS.*" OR CMAKE_OSX_SYSROOT MATCHES ".*iPhoneSimulator.*")
+        set(LAUNCH_SCREEN "${CMAKE_SOURCE_DIR}/templates/ios/LaunchScreen.storyboard")
+        set(ICON_PATH "${CMAKE_SOURCE_DIR}/templates/ios/AppLogo.icns")
+        set(ASSETS_PATH "${CMAKE_SOURCE_DIR}/res")
+
+        add_executable(${PROJECT_NAME} MACOSX_BUNDLE
             ${SOURCES} ${LAUNCH_SCREEN} ${ASSETS_PATH})
 
-    find_library(IO ImageIO REQUIRED)
-    find_library(CS CoreServices REQUIRED)
-    find_library(CT CoreText REQUIRED)
-    find_library(CG CoreGraphics REQUIRED)
-    find_library(CF CoreFoundation REQUIRED)
-    find_library(GL OpenGLES REQUIRED)
-    find_library(CA CoreAudio REQUIRED)
-    find_library(AU AudioToolBox REQUIRED)
-    find_library(UK UIKit REQUIRED)
+        find_library(IO ImageIO REQUIRED)
+        find_library(CS CoreServices REQUIRED)
+        find_library(CT CoreText REQUIRED)
+        find_library(CG CoreGraphics REQUIRED)
+        find_library(CF CoreFoundation REQUIRED)
+        find_library(GL OpenGLES REQUIRED)
+        find_library(CA CoreAudio REQUIRED)
+        find_library(AU AudioToolBox REQUIRED)
+        find_library(UK UIKit REQUIRED)
 
-    target_link_libraries(${PROJECT_NAME} PUBLIC ${CS} ${CT} ${IO} ${CG} ${GL} ${UK} ${CA} ${AU})
+        target_link_libraries(${PROJECT_NAME} PUBLIC ${CS} ${CT} ${IO} ${CG} ${GL} ${UK} ${CA} ${AU})
 
-    set_target_properties(${PROJECT_NAME} PROPERTIES
+        set_target_properties(${PROJECT_NAME} PROPERTIES
             MACOSX_BUNDLE_ICON_FILE ${ICON_PATH}
             MACOSX_BUNDLE TRUE
             MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/templates/ios/Info.plist.in"
@@ -98,48 +104,50 @@ if (APPLE AND NOT BUILD_SHARED_LIBS)
             XCODE_ATTRIBUTE_PRODUCT_BUNDLE_IDENTIFIER ${APP_IDENTIFIER}
             XCODE_ATTRIBUTE_CURRENTYEAR "${CURRENTYEAR}")
 
-    set_source_files_properties(${ASSETS_PATH} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
-    install(DIRECTORY ${ASSETS_PATH} DESTINATION "${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}.app/Contents/Resources")
+        set_source_files_properties(${ASSETS_PATH} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
+        install(DIRECTORY ${ASSETS_PATH} DESTINATION "${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}.app/Contents/Resources")
 
-    if (CMAKE_OSX_SYSROOT MATCHES "iphonesimulator")
-        message(STATUS "SIMULATOR BUILD")
-        set_target_properties(${PROJECT_NAME} PROPERTIES
+        if (CMAKE_OSX_SYSROOT MATCHES "iphonesimulator")
+            message(STATUS "SIMULATOR BUILD")
+            set_target_properties(${PROJECT_NAME} PROPERTIES
                 XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH "NO"
                 XCODE_ATTRIBUTE_SUPPORTED_PLATFORMS "iphonesimulator"
                 XCODE_ATTRIBUTE_ARCHS "x86_64 arm64")
-    else ()
-        message(STATUS "REAL DEVICE BUILD")
-        set_target_properties(${PROJECT_NAME} PROPERTIES
+        else ()
+            message(STATUS "REAL DEVICE BUILD")
+            set_target_properties(${PROJECT_NAME} PROPERTIES
                 XCODE_ATTRIBUTE_ONLY_ACTIVE_ARCH "NO"
                 XCODE_ATTRIBUTE_SUPPORTED_PLATFORMS "iphoneos"
                 XCODE_ATTRIBUTE_ARCHS "arm64")
-    endif ()
-endif ()
+        endif ()
 
-# -----------------------------
-# macOS (x86_64/ARM64)
-# -----------------------------
-if (APPLE AND BUILD_SHARED_LIBS)
-    set(RESOURCES "${CMAKE_SOURCE_DIR}/res")
+    else()
 
-    add_executable(${PROJECT_NAME} MACOSX_BUNDLE
-            ${SOURCES} ${RESOURCES})
+        # -----------------------------
+        # macOS (x86_64/ARM64)
+        # -----------------------------
+        set(RESOURCES "${CMAKE_SOURCE_DIR}/res")
 
-    set_target_properties(${PROJECT_NAME} PROPERTIES
-            MACOSX_BUNDLE TRUE
-            RESOURCE "${RESOURCES}")
+        add_executable(${PROJECT_NAME} MACOSX_BUNDLE
+                ${SOURCES} ${RESOURCES})
 
-    target_link_libraries(${PROJECT_NAME} PRIVATE
-            "-framework CoreGraphics"
-            "-framework CoreAudio"
-            "-framework AudioToolbox"
-            "-framework OpenGL"
-            "-framework QuartzCore"
-            "-framework AppKit"
-            "-framework Metal"
-            "-framework IOKit")
+        set_target_properties(${PROJECT_NAME} PROPERTIES
+                MACOSX_BUNDLE TRUE
+                RESOURCE "${RESOURCES}")
 
-    target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/engine/public)
+        target_link_libraries(${PROJECT_NAME} PRIVATE
+                "-framework CoreGraphics"
+                "-framework CoreAudio"
+                "-framework AudioToolbox"
+                "-framework OpenGL"
+                "-framework QuartzCore"
+                "-framework AppKit"
+                "-framework Metal"
+                "-framework IOKit")
+
+        target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/engine/public)
+
+    endif()
 endif ()
 
 # -----------------------------
@@ -192,7 +200,7 @@ if (EMSCRIPTEN)
         OUTPUT_NAME "index"
         SUFFIX ".html"
         COMPILE_FLAGS "${EM_FLAGS_STR}"
-        LINK_FLAGS "${EM_FLAGS_STR}"  
+        LINK_FLAGS "${EM_FLAGS_STR}"
     )
 
     # Optional: custom shell (HTML template)

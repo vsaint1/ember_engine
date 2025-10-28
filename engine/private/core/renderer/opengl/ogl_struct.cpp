@@ -70,9 +70,9 @@ OpenglShader::OpenglShader(const std::string& vertex, const std::string& fragmen
     glUniform1i(glGetUniformLocation(program, "SHADOW_MAP"), SHADOW_TEXTURE_UNIT);
     glUniform1i(glGetUniformLocation(program, "ENVIRONMENT_MAP"), ENVIRONMENT_TEXTURE_UNIT);
 
-    bool success = validate_gl_shader(program, GL_LINK_STATUS, true);
+    const bool success = validate_gl_shader(program, GL_LINK_STATUS, true);
 
-    success &= validate_gl_shader(program, GL_VALIDATE_STATUS, true);
+    // success &= validate_gl_shader(program, GL_VALIDATE_STATUS, true);
 
     if (!success) {
         spdlog::critical("OpenglShader::OpenglShader - Shader program setup failed");
