@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['camera3d_507',['Camera3D',['../structCamera3D.html#aafc650fff7f122da37572e08a00a614c',1,'Camera3D']]],
+  ['cleanup_508',['cleanup',['../classOpenGLRenderer.html#a0da7865ca5bba6f469b4ad1410f65846',1,'OpenGLRenderer::cleanup()'],['../classOpenGLFramebuffer.html#a6f04bedcb171d538f310c91b80ec35ad',1,'OpenGLFramebuffer::cleanup()'],['../classRenderer.html#a7de90aff4c8886af2d2378d082625f17',1,'Renderer::cleanup()']]],
+  ['clear_509',['clear',['../structRenderBatch.html#ae8a0c8141a97df8e8ecab87b3514f5c9',1,'RenderBatch']]],
+  ['close_510',['close',['../classFileAccess.html#affd60e46ef9f49aed56e60b41eb828a6',1,'FileAccess']]],
+  ['close_511',['Close',['../classSDLIOSystem.html#a83afa5ad34e08c0a0addf04b28c5bfbd',1,'SDLIOSystem']]],
+  ['create_5fcamera_5fentity_512',['create_camera_entity',['../engine__api_8h.html#a0141c1715e331f8c2f5b140b9ae8ad82',1,'engine_api.h']]],
+  ['create_5fmaterial_513',['create_material',['../engine__api_8cpp.html#acb184d75d7077a31da4db7534a77ede9',1,'create_material(const char *name, const Material &amp;material):&#160;engine_api.cpp'],['../engine__api_8h.html#acb184d75d7077a31da4db7534a77ede9',1,'create_material(const char *name, const Material &amp;material):&#160;engine_api.cpp']]],
+  ['create_5fmesh_5fentity_514',['create_mesh_entity',['../engine__api_8cpp.html#ae2881e8ed606720d4b90f7fd04c87709',1,'create_mesh_entity(const char *name, const char *path, const glm::vec3 &amp;position, const glm::vec3 &amp;rotation, const glm::vec3 &amp;scale, const char *material_tag):&#160;engine_api.cpp'],['../engine__api_8h.html#a61df12494ba9e113063057a74747dbd6',1,'create_mesh_entity(const char *name, const char *path, const glm::vec3 &amp;position=glm::vec3(0), const glm::vec3 &amp;rotation=glm::vec3(0), const glm::vec3 &amp;scale=glm::vec3(1.0f), const char *material_tag=&quot;default_material&quot;):&#160;engine_api.cpp']]],
+  ['create_5fmodel_5fentity_515',['create_model_entity',['../engine__api_8h.html#a069ab005e8655225f7537a4223608b30',1,'create_model_entity(const char *name, const char *path, const glm::vec3 &amp;position=glm::vec3(0), const glm::vec3 &amp;rotation=glm::vec3(0), const glm::vec3 &amp;scale=glm::vec3(1.0f)):&#160;engine_api.cpp'],['../engine__api_8cpp.html#a22749a5ae2bcaf22f247d1458c01bfd4',1,'create_model_entity(const char *name, const char *path, const glm::vec3 &amp;position, const glm::vec3 &amp;rotation, const glm::vec3 &amp;scale):&#160;engine_api.cpp']]],
+  ['create_5frenderer_5finternal_516',['create_renderer_internal',['../engine_8cpp.html#ab569451c63cf20cd3bf80ab45366afdd',1,'engine.cpp']]],
+  ['create_5fvertex_5flayout_517',['create_vertex_layout',['../classRenderer.html#a60fd18cba57c49f01f120dd160c77694',1,'Renderer::create_vertex_layout()'],['../classOpenGLRenderer.html#ad4254925b7ead090c992f058bdd03ade',1,'OpenGLRenderer::create_vertex_layout()']]]
+];
