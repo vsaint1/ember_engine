@@ -1,9 +1,9 @@
 #pragma once
-#include "core/io/file_system.h"
-#include "core/project_config.h"
 #include "core/renderer/opengl/ogl_renderer.h"
-#include "core/renderer/sdl/sdl_renderer.h"
 #include "core/system/timer.h"
+#include "core/utility/project_config.h"
+#include "core/utility/obj_loader.h"
+#include "core/api/engine_api.h"
 
 /*!
     @file engine.h
@@ -16,7 +16,7 @@
 */
 class Engine {
 public:
-    bool initialize(int window_w, int window_h, const char* title = "Ember Engine - Window", Uint32 window_flags = SDL_WINDOW_RESIZABLE);
+    bool initialize(int window_w, int window_h, const char* title = "Golias Engine - Window", Uint32 window_flags = SDL_WINDOW_RESIZABLE);
 
     void run();
 
@@ -38,12 +38,13 @@ public:
 
 
 private:
-
     EngineConfig _config = {};
     Timer _timer         = {};
     flecs::world _world;
     SDL_Window* _window = nullptr;
     Renderer* _renderer = nullptr;
+
+
 };
 
 /*!
@@ -55,6 +56,8 @@ private:
     @version 0.0.1
 */
 void engine_core_loop();
+
+void engine_draw_loop();
 
 /*!
 

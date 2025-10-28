@@ -1,161 +1,131 @@
 #pragma once
+#include "core/io/file_system.h"
 
-#include "stdafx.h"
-/*!
-    @brief Cube map orientation options
-    
-    @version 0.0.4
-
-*/
-enum class CUBEMAP_ORIENTATION {
-    DEFAULT, // original layout
-    TOP, //  (+Y)
-    BOTTOM, // (-Y)
-    FLIP_X, // flip left-right
-    FLIP_Y // flip up-down
+enum class CubemapOrientation {
+    DEFAULT,
+    TOP,
+    BOTTOM,
+    FLIP_X,
+    FLIP_Y
 };
 
 
-/*!
-
-    @brief Texture target
-
-    @version  0.0.1
-
-*/
-enum class ETextureTarget {
-    TEXTURE_2D, /// e.g. GL_TEXTURE_2D
-    TEXTURE_3D, /// e.g. GL_TEXTURE_3D
-    TEXTURE_CUBE_MAP, /// e.g. GL_TEXTURE_CUBE_MAP
-    RENDER_TARGET /// e.g. Metal Depth Texture
-};
-
-/*!
-
-    @brief Draw modes
-    - LINES
-    - TRIANGLES
-
-    @version  0.0.1
-
-*/
-enum class EDrawMode {
-    LINES,
-    TRIANGLES,
-};
-
-/*!
-
-    @brief Draw commands for the renderer queue
-
-
-    @version  0.0.1
-
-*/
-enum class EDrawCommand { MODEL, MESH, TEXT, ENVIRONMENT };
-
-
-struct Tokens {
-    std::string text;
-    bool is_emoji;
-};
-
-
-/*!
-
-    @brief Font class
-    - Get size of the text
-    - Get the underlying TTF_Font*
-
-
-    @version  0.0.1
-    @param string path The font path
-*/
-class Font {
+// TODO: implement
+class Texture2D {
 public:
-    Font(TTF_Font* font) : _font(font) {
-    }
+};
 
-    ~Font();
 
-    glm::vec2 get_size(const std::string& text);
-    TTF_Font* get_font() const;
+/*!
 
-protected:
-    TTF_Font* _font = nullptr;
+    @brief GpuBuffer Abstract class
+    - Bind the buffer
+    - Upload data to the buffer
+    - Get buffer size
+
+    @version  0.0.5
+
+*/
+enum class GpuBufferType {
+    VERTEX, /// For Vertex Buffer Objects (VBOs)
+    INDEX, /// For Element Buffer Objects (EBOs)
+    UNIFORM, /// For Uniform Buffer Objects (UBOs)
+    STORAGE /// For Shader Storage Buffer Objects (SSBOs)
 };
 
 /*!
 
-    @brief Texture Abstract class
+    @brief GpuBuffer Abstract class
+    - Bind the buffer
+    - Upload data to the buffer
+    - Get buffer size
 
+    @version  0.0.5
 
-    @version  0.0.1
-    @param string path The texture path
 */
-class Texture {
+class GpuBuffer {
 public:
-    Uint32 id  = -1;
-    int width  = 0;
-    int height = 0;
-    int pitch = 0; /// Number of bytes in a row of pixel data
-    std::string_view path;
-    void* pixels      = nullptr; /// Raw pixel data before uploading to GPU **MUST** be freed after upload
+    virtual ~GpuBuffer() = default;
+
+    virtual void bind() const = 0;
+
+    virtual void upload(const void* data, size_t size) = 0;
+
+    virtual size_t size() const = 0;
+
+    virtual GpuBufferType type() const = 0;
+
+};
+
+enum class DataType {
+    USHORT,
+    FLOAT,
+    INT,
+    UNSIGNED_INT,
+};
 
 
-    Texture() = default;
+struct VertexAttribute {
+    uint32_t location;
+    uint32_t components;
+    DataType type;
+    bool normalized;
+    uint32_t offset;
+};
 
-    // todo: add more texture properties
-    virtual void bind(Uint32 slot = 0) {
-        SDL_Log("Texture::activate - Not implemented for this renderer");
+class GpuVertexLayout {
+public:
+    virtual ~GpuVertexLayout() = default;
+    virtual void bind() const = 0;
+    virtual void unbind() const = 0;
+};
+
+
+enum class FramebufferTextureFormat {
+    None = 0,
+    RGBA8,
+    RED_INTEGER,
+    DEPTH24STENCIL8,
+    DEPTH_COMPONENT
+};
+
+struct FramebufferTextureSpecification {
+    FramebufferTextureFormat format = FramebufferTextureFormat::None;
+};
+
+struct FramebufferAttachmentSpecification {
+    std::vector<FramebufferTextureSpecification> attachments;
+    FramebufferAttachmentSpecification() = default;
+
+    FramebufferAttachmentSpecification(const std::initializer_list<FramebufferTextureSpecification> list)
+        : attachments(list) {
     }
-
-    virtual bool is_valid() const {
-        return id != -1;
-    }
-
-    virtual ~Texture();
-
-    ETextureTarget target = ETextureTarget::TEXTURE_2D;
 };
 
-struct Metallic {
-    glm::vec3 specular               = glm::vec3(0.f); /// specular reflections
-    float value                      = 0.0f; /// 0.0 -> non-metal | 1.0 -> metal
-    std::shared_ptr<Texture> texture = nullptr;
+struct FramebufferSpecification {
+    unsigned int width  = 0;
+    unsigned int height = 0;
+    FramebufferAttachmentSpecification attachments;
+    bool swap_chain_target = false;
 };
 
-class Shader;
-/*!
 
-    @brief Material structure
-    - Albedo texture
-    - Albedo color
-    - Metallic properties
-    - Roughness
+class Framebuffer {
+public:
+    virtual ~Framebuffer() = default;
 
-    @version 0.0.1
+    virtual void bind() = 0;
+    virtual void unbind() = 0;
+    virtual void invalidate() = 0;
 
-*/
-struct Material {
-    std::shared_ptr<Texture> albedo_texture = nullptr;
-    glm::vec3 ambient                       = glm::vec3(0.f);
-    glm::vec3 albedo                        = glm::vec3(1.f);
-    Metallic metallic                       = {};
-    std::shared_ptr<Texture> normal_texture = nullptr;
-    Shader* shader          = nullptr;
+    virtual void resize(unsigned int width, unsigned int height) = 0;
+    virtual uint32_t get_color_attachment_id(size_t index = 0) const = 0;
+    virtual uint32_t get_depth_attachment_id() const = 0;
 
-
-    float roughness       = 0.0f; /// 0.0 -> mirror | 1.0 -> blurs
-    float dissolve        = 1.0f; /// 1.0 -> opaque | 0.0 -> transparent
-    int illumination_mode = 0; // TODO: define illumination modes
-
-
-    bool is_valid() const;
-
-    // TODO: Additional textures (normal, metallic, roughness, etc.) and properties
-    void bind() const;
+    virtual const FramebufferSpecification& get_specification() const = 0;
 };
+
+
 
 /*!
 
@@ -173,64 +143,7 @@ struct Vertex {
     glm::vec2 uv; /// 2D texture coordinates
 };
 
-constexpr int MAX_BONES = 250; /// I NEED TO UPGRADE OPENGL TO SUPPORT SSBO </3
-
-
-/*!
-    @brief Bone structure for skeletal animation
-    - Stores offset matrix (inverse bind pose) and final transform
-    - Used in GPU skinning for animated meshes
-
-    @version 0.0.1
-*/
-struct Bone {
-    std::string name;
-    glm::mat4 offset_matrix   = glm::mat4(1.f); // Inverse bind pose matrix
-    glm::mat4 final_transform = glm::mat4(1.f); // Final transform to upload to GPU
-
-    Bone() = default;
-};
-
-/*!
-
-    @brief Mesh Abstract class
-    - Bind the mesh
-    - Draw the mesh
-    - Unbind the mesh
-
-    @version  0.0.1
-
-*/
-struct Mesh {
-    std::string_view name = "UNNAMED_MESH";
-
-    size_t vertex_count = 0;
-    size_t index_count  = 0;
-
-    std::vector<Vertex> vertices;
-    std::vector<Uint32> indices;
-
-    std::unique_ptr<Material> material = std::make_unique<Material>();
-
-    // Animation support
-    bool has_bones = false;
-    std::unordered_map<std::string, int> bone_map; // Bone name -> bone index
-    std::vector<Bone> bones; // All bones in this mesh
-
-    virtual void bind() = 0;
-
-    virtual void upload_to_gpu() = 0;
-
-    virtual void draw(EDrawMode mode = EDrawMode::TRIANGLES) = 0;
-
-    virtual void unbind() = 0;
-
-    Mesh()          = default;
-    virtual ~Mesh() = default;
-
-protected:
-    virtual void destroy() = 0;
-};
+constexpr int MAX_BONES = 250;
 
 
 /*!
@@ -256,21 +169,21 @@ public:
 
     virtual void set_value(const std::string& name, int value) = 0;
 
-    virtual void set_value(const std::string& name, const int* values, Uint32 count) = 0;
-
-    virtual void set_value(const std::string& name, const float* values, Uint32 count) = 0;
-
-    virtual void set_value(const std::string& name, glm::mat4 value, Uint32 count) = 0;
-
-    virtual void set_value(const std::string& name, glm::vec2 value, Uint32 count) = 0;
-
-    virtual void set_value(const std::string& name, glm::vec3 value, Uint32 count) = 0;
-
-    virtual void set_value(const std::string& name, glm::vec4 value, Uint32 count) = 0;
-
     virtual void set_value(const std::string& name, Uint32 value) = 0;
 
-    virtual void set_value(const std::string& name, const glm::mat4* values, Uint32 count) = 0;
+    virtual void set_value(const std::string& name, glm::mat4 value, Uint32 count = 1) =0;
+
+    virtual void set_value(const std::string& name, const int* value, Uint32 count = 1) =0;
+
+    virtual void set_value(const std::string& name, const float* value, Uint32 count = 1) =0;
+
+    virtual void set_value(const std::string& name, glm::vec2 value, Uint32 count = 1) =0;
+
+    virtual void set_value(const std::string& name, glm::vec3 value, Uint32 count = 1) =0;
+
+    virtual void set_value(const std::string& name, glm::vec4 value, Uint32 count = 1) =0;
+
+    virtual void set_value(const std::string& name, const glm::mat4* values, Uint32 count = 1) =0;
 
 
     virtual void destroy() = 0;
@@ -285,11 +198,16 @@ protected:
     std::unordered_map<std::string, Uint32> _uniforms;
 };
 
+struct WorldEnvironment {
+    Uint32 texture = 0;
+
+    glm::vec3 color = glm::vec3(0.2,0.3,0.3);
+    std::shared_ptr<GpuBuffer> vertex_buffer = nullptr;
+    std::shared_ptr<GpuBuffer> index_buffer  = nullptr;
+    std::shared_ptr<GpuVertexLayout> vertex_layout = nullptr;
+
+    float brightness = 1.0f;
+};
+
 // Forward declaration
 class Renderer;
-
-void parse_material(aiMesh* ai_mesh, const aiScene* scene, const std::string& base_dir, Mesh& mesh_ref);
-
-void parse_meshes(aiMesh* ai_mesh, const aiScene* scene, const std::string& base_dir, Mesh& mesh_ref);
-
-void parse_bones(aiMesh* ai_mesh,std::vector<glm::ivec4>& bone_ids, std::vector<glm::vec4>& bone_weights, Mesh& mesh_ref  );

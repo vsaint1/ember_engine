@@ -1,62 +1,68 @@
+#pragma once
 #include "core/api/engine_api.h"
 
-#include "core/engine.h"
 
+void create_mesh_entity(
+    const char* name,
+    const char* path,
+    const glm::vec3& position,
+    const glm::vec3& rotation,
+    const glm::vec3& scale,
+    const char* material_tag) {
 
-void change_scene(const std::string& scene_name) {
-    auto& world = GEngine->get_world();
-    world.entity().set<SceneChangeRequest>({scene_name});
-}
+    auto renderer = GEngine->get_renderer();
 
-
-flecs::entity get_entity_by_name(const std::string& name) {
-    auto& world = GEngine->get_world();
-    return world.lookup(name.c_str());
-}
-
-bool entity_has_component(flecs::entity& e, const std::string& component_name) {
-    auto& world             = GEngine->get_world();
-    flecs::entity component = world.lookup(component_name.c_str());
-    if (!component.is_valid()) {
-        return false;
+    if (!renderer->_meshes.contains(path)) {
+        MeshInstance3D mesh = ObjectLoader::load_mesh(path);
+        renderer->_meshes[path] = {mesh};
     }
-    return e.has(component);
-}
 
-bool entity_add_component(flecs::entity& e, const std::string& component_name) {
-    auto& world             = GEngine->get_world();
-    flecs::entity component = world.lookup(component_name.c_str());
-    if (!component.is_valid()) {
-        return false;
-    }
-    e.add(component);
-    return true;
-}
-
-void entity_remove_component(flecs::entity& e, const std::string& component_name) {
-    auto& world             = GEngine->get_world();
-    flecs::entity component = world.lookup(component_name.c_str());
-
-    if (!component.is_valid()) {
+    if (!renderer->_materials.contains(material_tag)) {
+        spdlog::error("Material '{}' not registered!", material_tag);
         return;
     }
 
-    e.remove(component);
+    GEngine->get_world().entity(name)
+           .set(Transform3D{position, rotation, scale})
+           .set(MeshRef{&renderer->_meshes[path][0]})
+           .set(MaterialRef{&renderer->_materials[material_tag][0]});
+
+    spdlog::info("MeshInstance3D entity '{}' created with material '{}'.", name, material_tag);
 }
 
-bool entity_is_valid(flecs::entity& e) {
-    return e.is_valid();
+
+void create_model_entity(
+    const char* name,
+    const char* path,
+    const glm::vec3& position,
+    const glm::vec3& rotation,
+    const glm::vec3& scale) {
+
+    auto renderer = GEngine->get_renderer();
+
+
+  if (!renderer->_meshes.contains(path) || !renderer->_materials.contains(path)) {
+        Model model = ObjectLoader::load_model(path);
+        renderer->_meshes[path]    = model.meshes;
+        renderer->_materials[path] = model.materials;
+    }
+
+    const auto& meshes    = renderer->_meshes[path];
+    const auto& materials = renderer->_materials[path];
+
+    auto entity = GEngine->get_world().entity(name);
+
+    for (size_t i = 0; i < meshes.size(); ++i) {
+        entity.child()
+            .set(Transform3D{position, rotation, scale})
+            .set(MeshRef{&meshes[i]})
+            .set(MaterialRef{&materials[i]});
+    }
+
+    spdlog::info("MeshInstance3D entity '{}' created with {} mesh parts.", name, meshes.size());
 }
 
 
-glm::vec2 get_mouse_position() {
-    float x, y;
-    SDL_GetMouseState(&x, &y);
-    return {x,y};
-}
-
-bool is_key_pressed(int key_code) {
-
-    const bool* state = SDL_GetKeyboardState(NULL);
-    return state[key_code] != 0;
+void create_material(const char* name, const Material& material) {
+    GEngine->get_renderer()->register_material(name,material);
 }

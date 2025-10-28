@@ -1,240 +1,389 @@
 out vec4 COLOR;
 
-in vec3 NORMAL; // vertex normal in world-space
-in vec3 WORLD_POSITION;
+in vec3 POSITION;
+in vec3 NORMAL;
 in vec2 UV;
-in vec3 INSTANCE_COLOR;
-in vec4 FRAG_POS_LIGHT_SPACE;
+in vec4 LIGHT_SPACE_POSITION;
 
-uniform sampler2D ALBEDO_TEXTURE;
-uniform sampler2D NORMAL_MAP_TEXTURE;
-uniform sampler2D SHADOW_TEXTURE;
+uniform vec3 CAMERA_POSITION_WORLD;
 
-// DIRECTIONAL LIGHT (SUN)
-// NOTE: LIGHT_DIRECTION is the direction the light is *coming FROM*
-uniform vec3 LIGHT_DIRECTION;
-uniform vec3 LIGHT_COLOR;
-
-uniform vec3 CAMERA_POSITION;
-
-struct Metallic {
-    vec3 specular;
-    float value;
+struct DirectionalLight {
+    vec3 direction;
+    vec3 color;
+    bool cast_shadows;
 };
 
-struct Material {
+uniform DirectionalLight dirLights[100];
+uniform int numDirLights;
+
+struct SpotLight {
+    vec3 position;
+    vec3 direction;
+    vec3 color;
+    float inner_cut_off;
+    float outer_cut_off;
+};
+
+uniform SpotLight spotLights[100];
+uniform int numSpotLights;
+
+
+struct Material{
     vec3 albedo;
-    Metallic metallic;
+    float metallic;
     float roughness;
+    float ao;
+    vec3 emissive;
+    float emissiveStrength;
+    float ior; // index of refraction (e.g. glass ~1.5, water ~1.33)
 };
 
 uniform Material material;
 
-uniform bool USE_ALBEDO_TEXTURE;
-uniform bool USE_NORMAL_MAP_TEXTURE;
+// Texture samplers
+uniform sampler2D ALBEDO_MAP;
+uniform sampler2D METALLIC_MAP;
+uniform sampler2D ROUGHNESS_MAP;
+uniform sampler2D NORMAL_MAP;
+uniform sampler2D AO_MAP;
+uniform sampler2D EMISSIVE_MAP;
+uniform sampler2D SHADOW_MAP;
+uniform samplerCube ENVIRONMENT_MAP; // environment cubemap for reflection/refraction/IBL
 
+// Usage flags
+uniform bool USE_ALBEDO_MAP;
+uniform bool USE_METALLIC_MAP;
+uniform bool USE_ROUGHNESS_MAP;
+uniform bool USE_NORMAL_MAP;
+uniform bool USE_AO_MAP;
+uniform bool USE_EMISSIVE_MAP;
+uniform bool USE_IBL;
 
-float calculate_shadow(vec4 frag_pos_light_space, vec3 normal, vec3 light_dir)
+const float PI = 3.14159265359;
+
+uniform float TIME;
+
+// ============================================================================
+// Shadow Mapping with PCF (Percentage Closer Filtering)
+// ============================================================================
+// References:
+// - https://learnopengl.com/Advanced-Lighting/Shadows/Shadow-Mapping
+float shadow_calculation(vec4 frag_pos_light_space, vec3 N, vec3 L)
 {
-    vec3 proj_coords = frag_pos_light_space.xyz / frag_pos_light_space.w;
-    proj_coords = proj_coords * 0.5 + 0.5;
+    vec3 projCoords = frag_pos_light_space.xyz / frag_pos_light_space.w;
+    projCoords = projCoords * 0.5 + 0.5;
 
-    if (proj_coords.z > 1.0 || proj_coords.x < 0.0 || proj_coords.x > 1.0 ||
-    proj_coords.y < 0.0 || proj_coords.y > 1.0)
-    return 0.0;
+    if (projCoords.z > 1.0) return 0.0;
 
-    float current_depth = proj_coords.z;
-    float NdotL = max(dot(normal, light_dir), 0.0);
-
-    if (NdotL < 0.01) return 1.0;
-
-    float bias = 0.0005 + 0.001 * (1.0 - NdotL);
-
-    vec2 texel_size = 1.0 / vec2(textureSize(SHADOW_TEXTURE, 0));
-
-    const vec2 samples[32] = vec2[](
-    vec2(-0.94201624, -0.39906216),
-    vec2(0.94558609, -0.76890725),
-    vec2(-0.094184101, -0.92938870),
-    vec2(0.34495938, 0.29387760),
-    vec2(-0.91588581, 0.45771432),
-    vec2(-0.81544232, -0.87912464),
-    vec2(-0.38277543, 0.27676845),
-    vec2(0.97484398, 0.75648379),
-    vec2(0.44323325, -0.97511554),
-    vec2(0.53742981, -0.47373420),
-    vec2(-0.26496911, -0.41893023),
-    vec2(0.79197514, 0.19090188),
-    vec2(-0.24188840, 0.99706507),
-    vec2(-0.81409955, 0.91437590),
-    vec2(0.19984126, 0.78641367),
-    vec2(0.14383161, -0.14100790),
-    vec2(0.59490621, 0.44508049),
-    vec2(-0.67888541, 0.06997144),
-    vec2(0.18650039, -0.56448567),
-    vec2(-0.12964488, 0.46467763),
-    vec2(0.71628402, -0.31403765),
-    vec2(-0.46671849, -0.69000623),
-    vec2(0.32782465, 0.88611004),
-    vec2(-0.58654654, 0.73139274),
-    vec2(0.87689108, -0.01333499),
-    vec2(-0.03935671, 0.85738134),
-    vec2(0.06747698, -0.23559207),
-    vec2(-0.39294919, -0.16617249),
-    vec2(0.46717972, -0.70563352),
-    vec2(-0.76943421, -0.45486257),
-    vec2(0.27653325, 0.13415599),
-    vec2(-0.52173114, 0.35023832)
-    );
-
-    float distance_to_camera = length(CAMERA_POSITION - WORLD_POSITION);
-    float adaptive_radius = mix(0.5, 2.5, clamp(distance_to_camera / 50.0, 0.0, 1.0));
-    float depth_scale = mix(1.0, 0.3, current_depth);
-    adaptive_radius *= depth_scale;
+    float closestDepth = texture(SHADOW_MAP, projCoords.xy).r;
+    float currentDepth = projCoords.z;
+    float bias = max(0.005 * (1.0 - dot(N, L)), 0.001);
 
     float shadow = 0.0;
-    int sample_count = distance_to_camera < 20.0 ? 32 : 12;
+    vec2 texelSize = 1.0 / vec2(textureSize(SHADOW_MAP, 0));
 
-    for (int i = 0; i < sample_count; i++)
+    for (int x = -1; x <= 1; ++x)
     {
-        vec2 offset = samples[i] * texel_size * adaptive_radius;
-        float pcf_depth = texture(SHADOW_TEXTURE, proj_coords.xy + offset).r;
-        shadow += (current_depth - bias) > pcf_depth ? 1.0 : 0.0;
+        for (int y = -1; y <= 1; ++y)
+        {
+            float pcfDepth = texture(SHADOW_MAP, projCoords.xy + vec2(x, y) * texelSize).r;
+            shadow += (currentDepth - bias > pcfDepth) ? 1.0 : 0.0;
+        }
     }
-    shadow /= float(sample_count);
-    shadow = smoothstep(0.0, 1.0, shadow);
 
+    shadow /= 9.0;
     return shadow;
 }
 
+// ============================================================================
+// PBR: Cook-Torrance Microfacet BRDF
+// ============================================================================
+// The Cook-Torrance specular BRDF consists of three components:
+// - D: Normal Distribution Function (NDF) - describes microfacet orientation
+// - G: Geometry Function - describes self-shadowing/masking of microfacets
+// - F: Fresnel Equation - describes light reflection at different angles
+//
+// References:
+// - https://learnopengl.com/PBR/Theory
+// - "Real Shading in Unreal Engine 4" by Brian Karis (Epic Games)
 
-vec3 calculate_normal_map(vec2 uv, vec3 normal_ws){
+// ============================================================================
+// NDF: Trowbridge-Reitz GGX Distribution
+// ============================================================================
+float distribution_ggx(vec3 N, vec3 H, float roughness)
+{
+    float a = roughness * roughness;
+    float a2 = a * a;
+    float NdotH = max(dot(N, H), 0.0);
+    float NdotH2 = NdotH * NdotH;
 
-    vec3 tangent_normal = texture(NORMAL_MAP_TEXTURE, UV).rgb * 2.0 - 1.0; // Convert from [0,1] to [-1,1]
+    float denom = NdotH2 * (a2 - 1.0) + 1.0;
+    denom = PI * denom * denom;
 
-    // R X-AXIS
-    // G Y-AXIS
-    // B Z-AXIS
-    vec3 N = normalize(normal_ws);
+    return a2 / max(denom, 0.0000001);
+}
 
-    vec3 Q1  = dFdx(WORLD_POSITION);
-    vec3 Q2  = dFdy(WORLD_POSITION);
-    vec2 uv0 = dFdx(UV);
-    vec2 uv1 = dFdy(UV);
+// ============================================================================
+// Geometry: Schlick-GGX (for direct lighting)
+// ============================================================================
+// Describes microfacet self-shadowing (when some microfacets occlude others).
+// Uses k = (roughness + 1)² / 8 for direct lighting (IBL uses different k).
+float geometry_schlick_ggx(float NdotV, float roughness)
+{
+    float r = (roughness + 1.0);
+    float k = (r * r) / 8.0;
+    return NdotV / (NdotV * (1.0 - k) + k + 0.0000001);
+}
 
-    vec3 T  = normalize(Q1 * uv0.t - Q2 * uv1.t);
-    vec3 B  = -normalize(cross(N, T));
+// -----------------------------------------------------------------------------
+float geometry_smith(vec3 N, vec3 V, vec3 L, float roughness)
+{
+    float NdotV = max(dot(N, V), 0.0);
+    float NdotL = max(dot(N, L), 0.0);
+    float ggx2 = geometry_schlick_ggx(NdotV, roughness);
+    float ggx1 = geometry_schlick_ggx(NdotL, roughness);
+    return ggx1 * ggx2;
+}
+
+// -----------------------------------------------------------------------------
+// Fresnel - Schlick approximation
+// -----------------------------------------------------------------------------
+vec3 fresnel_schlick(float cosTheta, vec3 F0)
+{
+    return F0 + (1.0 - F0) * pow(clamp(1.0 - cosTheta, 0.0, 1.0), 5.0);
+}
+
+// Roughness-variant fresnel for more realistic grazing reflections
+vec3 fresnel_schlick_roughness(float cosTheta, vec3 F0, float roughness)
+{
+    return F0 + (max(vec3(1.0 - roughness), F0) - F0) * pow(clamp(1.0 - cosTheta, 0.0, 1.0), 5.0);
+}
+
+// ============================================================================
+// PBR Light Contribution Calculation
+// ============================================================================
+// Calculates the Cook-Torrance BRDF for a given light direction and radiance.
+// Returns the combined diffuse and specular contribution.
+vec3 calculate_pbr_contribution(
+    vec3 N,              // Surface normal
+    vec3 V,              // View direction
+    vec3 L,              // Light direction
+    vec3 radiance,       // Incoming light radiance
+    vec3 F0,             // Base reflectance
+    vec3 albedo,         // Surface albedo
+    float metallic,      // Metallic factor
+    float roughness      // Roughness factor
+)
+{
+    vec3 H = normalize(V + L);
+
+    float NdotV = max(dot(N, V), 0.0);
+    float NdotL = max(dot(N, L), 0.0);
+    float HdotV = max(dot(H, V), 0.0);
+
+    float NDF = distribution_ggx(N, H, roughness);
+    float G = geometry_smith(N, V, L, roughness);
+    vec3 F = fresnel_schlick(HdotV, F0);
+
+    vec3 kS = F;
+    vec3 kD = vec3(1.0) - kS;
+    kD *= 1.0 - metallic;
+
+    vec3 numerator = NDF * G * F;
+    float denominator = 4.0 * NdotV * NdotL + 0.0001;
+    vec3 specular = numerator / denominator;
+
+    return (kD * albedo / PI + specular) * radiance * NdotL;
+}
+
+// ============================================================================
+// Normal Mapping (Tangent Space)
+// ============================================================================
+// References:
+// - https://learnopengl.com/Advanced-Lighting/Normal-Mapping
+// - http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-13-normal-mapping/
+vec3 calculate_normal_map()
+{
+    vec3 tangentNormal = texture(NORMAL_MAP, UV).xyz * 2.0 - 1.0;
+
+    vec3 Q1 = dFdx(POSITION);
+    vec3 Q2 = dFdy(POSITION);
+    vec2 st1 = dFdx(UV);
+    vec2 st2 = dFdy(UV);
+
+    vec3 N = normalize(NORMAL);
+    vec3 T = normalize(Q1 * st2.t - Q2 * st1.t);
+    vec3 B = -normalize(cross(N, T));
     mat3 TBN = mat3(T, B, N);
 
-    N = normalize(TBN* tangent_normal);
-
-    return N;
+    return normalize(TBN * tangentNormal);
 }
 
 
-// DEBUG MODES:
-// 0 = normal shading (DEFAULT)
-// 1 = visualize normals (colored)
-// 2 = visualize UVs
-// 3 = visualize albedo/texture only
-// 4 = visualize shadow intensity
-// 5 = visualize NdotL (diffuse term)
-// 6 = visualize normal map (tangent space)
-// 7 = visualize light direction
-uniform int DEBUG_MODE;
-
-void enable_debug_mode(int mode, vec3 N, vec3 L, vec2 uv, vec3 albedo, float shadow, float NdotL){
-    if (mode == 1) {
-        // Visualize normals (world space)
-        COLOR = vec4(N * 0.5 + 0.5, 1.0);
-    } else if (mode == 2) {
-        // Visualize UVs
-        COLOR = vec4(uv, 0.0, 1.0);
-    } else if (mode == 3) {
-        // Visualize albedo only
-        COLOR = vec4(albedo, 1.0);
-    } else if (mode == 4) {
-        // Visualize shadow intensity (white = lit, black = shadowed)
-        float shadow_vis = 1.0 - shadow;
-        COLOR = vec4(vec3(shadow_vis), 1.0);
-    } else if (mode == 5) {
-        // Visualize NdotL (diffuse term)
-        COLOR = vec4(vec3(NdotL), 1.0);
-    } else if (mode == 6) {
-        // Visualize normal map (tangent space, raw)
-        if (USE_NORMAL_MAP_TEXTURE) {
-            vec3 tangent_normal = texture(NORMAL_MAP_TEXTURE, uv).rgb;
-            COLOR = vec4(tangent_normal, 1.0);
-        } else {
-            COLOR = vec4(0.5, 0.5, 1.0, 1.0); // Default tangent space normal
-        }
-    } else if (mode == 7) {
-        // Visualize light direction
-        COLOR = vec4(L * 0.5 + 0.5, 1.0);
-    }
+vec3 sample_reflection(vec3 I, vec3 N)
+{
+    vec3 R = reflect(I, N);
+    return texture(ENVIRONMENT_MAP, R).rgb;
 }
+
+vec3 sample_refraction(vec3 I, vec3 N, float eta)
+{
+    vec3 R = refract(I, N, 1.0 / eta);
+    return texture(ENVIRONMENT_MAP, R).rgb;
+}
+
+// ============================================================================
+// Image-Based Lighting (IBL) using Environment Map
+// ============================================================================
+// Approximates IBL by sampling the environment map at different mip levels
+// Lower mip levels = sharper reflections (low roughness)
+// Higher mip levels = blurrier reflections (high roughness)
+// References:
+// - https://learnopengl.com/PBR/IBL/Diffuse-irradiance
+// - https://learnopengl.com/PBR/IBL/Specular-IBL
+vec3 calculate_ibl(
+    vec3 N,
+    vec3 V,
+    vec3 F0,
+    vec3 albedo,
+    float metallic,
+    float roughness,
+    float ao
+)
+{
+    vec3 R = reflect(-V, N);
+
+    float NdotV = max(dot(N, V), 0.0);
+    vec3 F = fresnel_schlick_roughness(NdotV, F0, roughness);
+
+    vec3 kS = F;
+    vec3 kD = (1.0 - kS) * (1.0 - metallic);
+
+    const float DIFFUSE_MIP = 5.0;
+    vec3 irradiance = textureLod(ENVIRONMENT_MAP, N, DIFFUSE_MIP).rgb;
+    vec3 diffuse = kD * irradiance * albedo;
+
+    const float MAX_REFLECTION_LOD = 7.0;
+    float lod = roughness * MAX_REFLECTION_LOD;
+    vec3 prefilteredColor = textureLod(ENVIRONMENT_MAP, R, lod).rgb;
+
+    vec2 envBRDF = vec2(1.0 - roughness, 1.0 - roughness);
+    vec3 specular = prefilteredColor * (F * envBRDF.x + envBRDF.y);
+
+    return (diffuse + specular) * ao;
+}
+
 
 void main()
 {
-    vec3 normal_ws = normalize(NORMAL);
+    vec4 albedoSample = texture(ALBEDO_MAP, UV);
+    if (albedoSample.a < 0.1)
+    discard;
 
-    vec3 N = normalize(NORMAL);
+    vec3 finalAlbedo = USE_ALBEDO_MAP ? pow(albedoSample.rgb, vec3(2.2)) : material.albedo;
+    float finalMetallic = material.metallic;
+    float finalRoughness = material.roughness;
+    float finalAO = material.ao;
 
-    if (USE_NORMAL_MAP_TEXTURE) {
-        N = calculate_normal_map(UV, normal_ws);
+    // Red = Ambient Occlusion, Green channel = roughness, Blue channel = metallic (glTF 2.0 format)
+    if (USE_METALLIC_MAP) {
+        vec3 mr = texture(METALLIC_MAP, UV).rgb;
+        finalAO = mr.r;
+        finalRoughness = mr.g;
+        finalMetallic = mr.b;
     }
 
-    vec3 albedo;
-    float alpha = 1.0;
+    if (USE_AO_MAP)
+    finalAO = texture(AO_MAP, UV).r;
 
-    if (USE_ALBEDO_TEXTURE) {
-        vec4 tex_sample = texture(ALBEDO_TEXTURE, UV);
-        if (tex_sample.a < 0.1)
-            discard;
-        albedo = tex_sample.rgb;
-        alpha = tex_sample.a;
-    } else {
-        albedo = material.albedo;
+    if (USE_ROUGHNESS_MAP)
+    finalRoughness = texture(ROUGHNESS_MAP, UV).r;
+
+    finalMetallic = clamp(finalMetallic, 0.0, 1.0);
+    finalRoughness = clamp(finalRoughness, 0.04, 1.0);
+    finalAO = clamp(finalAO, 0.0, 1.0);
+
+    vec3 finalEmissive = material.emissive * material.emissiveStrength;
+    if (USE_EMISSIVE_MAP) {
+        vec3 emissiveSample = texture(EMISSIVE_MAP, UV).rgb;
+        finalEmissive = pow(emissiveSample, vec3(2.2)) * material.emissiveStrength;
     }
 
-    albedo *= INSTANCE_COLOR;
+    // --- Normal & View Direction ---
+    vec3 N = USE_NORMAL_MAP ? calculate_normal_map() : normalize(NORMAL);
+    vec3 V = normalize(CAMERA_POSITION_WORLD - POSITION);
+    vec3 I = normalize(POSITION - CAMERA_POSITION_WORLD); // incident ray for reflection/refraction
 
-    // View direction (towards camera)
-    vec3 V = normalize(CAMERA_POSITION - WORLD_POSITION);
+    // --- Base Reflectance ---
+    vec3 F0 = vec3(0.04);
+    F0 = mix(F0, finalAlbedo, finalMetallic);
 
-    // Light direction (towards light source)
-    vec3 L = -normalize(LIGHT_DIRECTION);
+    // --- Lighting ---
+    vec3 Lo = vec3(0.0);
 
-    // Half vector for Blinn-Phong
-    vec3 H = normalize(V + L);
+    // Directional Lights
+    for (int i = 0; i < numDirLights; ++i) {
+        vec3 L = normalize(-dirLights[i].direction);
+        vec3 radiance = dirLights[i].color;
 
-    float shadow = calculate_shadow(FRAG_POS_LIGHT_SPACE, normal_ws, L);
+        // Calculate PBR contribution
+        vec3 contribution = calculate_pbr_contribution(
+            N, V, L, radiance, F0, finalAlbedo, finalMetallic, finalRoughness
+        );
 
-    float NdotL = max(dot(N, L), 0.0);
+        float shadow = 1.0;
+        if (dirLights[i].cast_shadows) {
+            shadow = 1.0 - shadow_calculation(LIGHT_SPACE_POSITION, N, L);
+        }
 
-    if (DEBUG_MODE > 0) {
-        enable_debug_mode(DEBUG_MODE, N, L, UV, albedo, shadow, NdotL);
-        return;
+        Lo += contribution * shadow;
     }
 
-    // --- Blinn-Phong Lighting calculation ---
-    const float AMBIENT_INTENSITY = 0.15;
-    vec3 ambient = AMBIENT_INTENSITY * LIGHT_COLOR * albedo;
+    // Spot Lights
+    for (int i = 0; i < numSpotLights; ++i) {
+        vec3 L = normalize(spotLights[i].position - POSITION);
+        float dist = length(spotLights[i].position - POSITION);
+        float attenuation = 1.0 / (dist * dist);
 
-    // Diffuse (Lambertian)
-    vec3 diffuse = NdotL * LIGHT_COLOR * albedo;
+        // Spotlight cone attenuation
+        float theta = dot(L, normalize(-spotLights[i].direction));
+        float epsilon = spotLights[i].inner_cut_off - spotLights[i].outer_cut_off;
+        float intensity = clamp((theta - spotLights[i].outer_cut_off) / epsilon, 0.0, 1.0);
 
-    // Specular (Blinn-Phong)
-    float specular_strength = 0.5;
-    float NdotH = max(dot(N, H), 0.0);
-    float shininess = 32.0;
-    float spec = pow(NdotH, shininess);
-    vec3 specular = specular_strength * spec * LIGHT_COLOR;
+        vec3 radiance = spotLights[i].color * attenuation * intensity;
 
-    vec3 color = ambient + (1.0 - shadow) * (diffuse + specular);
+        // Calculate PBR contribution
+        vec3 contribution = calculate_pbr_contribution(
+            N, V, L, radiance, F0, finalAlbedo, finalMetallic, finalRoughness
+        );
 
-    // Gamma correction (linear to sRGB)
-    color = pow(clamp(color, 0.0, 1.0), vec3(1.0 / 2.2));
+        Lo += contribution;
+    }
 
-    COLOR = vec4(color, alpha);
+    // --- Image-Based Lighting (IBL) ---
+    vec3 ibl_contribution = vec3(0.0);
+    vec3 env_color = vec3(0.0);
+
+    if (USE_IBL) {
+        ibl_contribution = calculate_ibl(N, V, F0, finalAlbedo, finalMetallic, finalRoughness, finalAO);
+    }
+
+    // --- Ambient Light & Emission ---
+    vec3 ambient = USE_IBL ? vec3(0.0) : vec3(0.03) * finalAlbedo * finalAO;
+    vec3 color = ambient + Lo + ibl_contribution + env_color + finalEmissive;
+
+    // ========================================================================
+    // Tone Mapping (ACES Filmic)
+    // ========================================================================
+    // ACES tone mapping provides better color preservation than Reinhard.
+    // Reference: Stephen Hill, "Aces Filmic Tone Mapping Curve"
+    // https://knarkowicz.wordpress.com/2016/01/06/aces-filmic-tone-mapping-curve/
+    color = color * (2.51 * color + 0.03) / (color * (2.43 * color + 0.59) + 0.14);
+
+    // ========================================================================
+    // Gamma Correction (Linear to sRGB)
+    // ========================================================================
+    color = pow(color, vec3(1.0 / 2.2));
+
+    COLOR = vec4(color, 1.0);
 }

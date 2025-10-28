@@ -1,9 +1,10 @@
 #include "core/io/file_system.h"
 
 
+
 std::string load_assets_file(const std::string& file_path) {
 
-    LOG_DEBUG("Loading asset file: %s", file_path.c_str());
+    spdlog::debug("Loading asset file: {}", file_path);
     const auto buffer = load_file_into_memory(file_path);
 
     return std::string(buffer.begin(), buffer.end());
@@ -16,20 +17,20 @@ std::vector<char> load_file_into_memory(const std::string& file_path) {
 
     SDL_IOStream* file_rw = SDL_IOFromFile(path.c_str(), "rb");
     if (!file_rw) {
-        LOG_ERROR("Failed to open file %s, ERROR: %s", path.c_str(), SDL_GetError());
+        spdlog::error("Failed to open file {} , Error: {}", path.c_str(), SDL_GetError());
         return {};
     }
 
     Sint64 size = SDL_GetIOSize(file_rw);
     if (size <= 0) {
-        LOG_ERROR("Failed to get file size %s, ERROR: %s", path.c_str(), SDL_GetError());
+        spdlog::error("Failed to get file size {}, Error: {}", path.c_str(), SDL_GetError());
         SDL_CloseIO(file_rw);
         return {};
     }
 
     std::vector<char> buffer(size);
     if (SDL_ReadIO(file_rw, buffer.data(), size) != size) {
-        LOG_ERROR("Failed to read file %s, ERROR: %s", path.c_str(), SDL_GetError());
+        spdlog::error("Failed to read file {}", path.c_str());
         SDL_CloseIO(file_rw);
         return {};
     }
@@ -63,7 +64,7 @@ bool FileAccess::resolve_path(const std::string& file_path, ModeFlags mode_flags
     else if (file_path.rfind("user://", 0) == 0) {
         char* prefPath = SDL_GetPrefPath(ENGINE_DEFAULT_FOLDER_NAME, ENGINE_PACKAGE_NAME);
         if (!prefPath) {
-            LOG_ERROR("Failed to get pref path: %s", SDL_GetError());
+            spdlog::error("Failed to get pref path: {}", SDL_GetError());
             return false;
         }
 
@@ -75,7 +76,7 @@ bool FileAccess::resolve_path(const std::string& file_path, ModeFlags mode_flags
             if (slashPos != std::string::npos) {
                 const std::string dir = _file_path.substr(0, slashPos);
                 if (!SDL_CreateDirectory(dir.c_str())) {
-                    LOG_ERROR("Failed to create directory %s, ERROR: %s", dir.c_str(), SDL_GetError());
+                    spdlog::error("Failed to create directory {}, Error: {}", dir.c_str(),SDL_GetError());
                     return false;
                 }
             }
@@ -97,7 +98,7 @@ bool FileAccess::open(const std::string& file_path, ModeFlags mode_flags) {
 
     _file = SDL_IOFromFile(_file_path.c_str(), get_mode_str(mode_flags));
     if (!_file) {
-        LOG_ERROR("Failed to open file %s, ERROR: %s", _file_path.c_str(), SDL_GetError());
+        spdlog::error("Failed to open file {}", _file_path.c_str());
         return false;
     }
 
@@ -126,7 +127,7 @@ std::vector<char> FileAccess::get_file_as_bytes() {
     buffer.resize(size);
     Sint64 read = SDL_ReadIO(_file, buffer.data(), size);
     if (read != size) {
-        LOG_ERROR("Failed to read file %s", _file_path.c_str());
+        spdlog::error("Failed to read file %s", _file_path.c_str());
     }
 
     SDL_SeekIO(_file, 0, SDL_IO_SEEK_SET); // rewind
@@ -183,13 +184,13 @@ std::string FileAccess::get_path() const {
 
 bool FileAccess::store_string(const std::string& content) {
     if (!_file) {
-        LOG_ERROR("File not open for writing: %s", _file_path.c_str());
+        spdlog::error("File not open for writing: %s", _file_path.c_str());
         return false;
     }
 
     Sint64 written = SDL_WriteIO(_file, content.data(), content.size());
     if (written != static_cast<Sint64>(content.size())) {
-        LOG_ERROR("Failed to write string to file %s", _file_path.c_str());
+        spdlog::error("Failed to write string to file %s", _file_path.c_str());
         return false;
     }
 
@@ -198,14 +199,14 @@ bool FileAccess::store_string(const std::string& content) {
 
 bool FileAccess::store_bytes(const std::vector<char>& content) {
     if (!_file) {
-        LOG_ERROR("File not open for writing: %s", _file_path.c_str());
+        spdlog::error("File not open for writing: %s", _file_path.c_str());
         return false;
     }
     if (content.empty()) return true;
 
     Sint64 written = SDL_WriteIO(_file, content.data(), content.size());
     if (written != static_cast<Sint64>(content.size())) {
-        LOG_ERROR("Failed to write bytes to file %s", _file_path.c_str());
+        spdlog::error("Failed to write bytes to file %s", _file_path.c_str());
         return false;
     }
 

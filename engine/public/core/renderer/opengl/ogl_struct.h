@@ -1,11 +1,85 @@
 #pragma once
+#include "core/renderer/renderer.h"
 #include "core/renderer/base_struct.h"
+
+class OpenglGpuVertexLayout final: public  GpuVertexLayout {
+public:
+
+    OpenglGpuVertexLayout(
+      const GpuBuffer* vertex_buffer,
+      const GpuBuffer* index_buffer,
+      const std::vector<VertexAttribute>& attributes,
+      uint32_t stride);
+
+    ~OpenglGpuVertexLayout() override;
+
+    void bind() const override;
+
+    void unbind() const override;
+
+private:
+    GLuint _vao = 0;
+
+    static GLenum to_gl_type(DataType type);
+};
+
+class OpenglGpuBuffer final : public GpuBuffer {
+
+public:
+    OpenglGpuBuffer(GpuBufferType type);
+
+    ~OpenglGpuBuffer() override;
+
+    void bind() const override;
+
+    void upload(const void* data, size_t size) override;
+
+    size_t size() const override;
+
+    GpuBufferType type() const override;
+
+
+private:
+    GLuint _id                 = 0;
+    GpuBufferType _buffer_type = GpuBufferType::VERTEX;
+    size_t _buffer_size        = 0;
+    GLenum _target             = GL_ARRAY_BUFFER;
+
+};
+
+class OpenGLFramebuffer final : public Framebuffer {
+    Uint32 fbo = 0;
+    FramebufferSpecification specification;
+    std::vector<Uint32> color_attachments;
+    uint32_t depth_attachment = 0;
+
+public:
+    explicit OpenGLFramebuffer(const FramebufferSpecification& spec);
+
+    ~OpenGLFramebuffer() override;
+
+    void invalidate() override;
+
+    void bind() override;
+
+    void unbind() override;
+
+    void resize(unsigned int width, unsigned int height) override;
+
+    Uint32 get_color_attachment_id(size_t index = 0) const override;
+
+    Uint32 get_depth_attachment_id() const override;
+
+    const FramebufferSpecification& get_specification() const override;
+
+    void cleanup();
+};
 
 
 class OpenglShader final : public Shader {
 public:
     OpenglShader() = default;
-    ~OpenglShader();
+    ~OpenglShader() override;
 
     template <typename T>
     T get_value(const std::string& name);
@@ -20,17 +94,17 @@ public:
 
     void set_value(const std::string& name, Uint32 value) override;
 
-    void set_value(const std::string& name, glm::mat4 value, Uint32 count = 1) override;
+    void set_value(const std::string& name, glm::mat4 value, Uint32 count) override;
 
-    void set_value(const std::string& name, const int* value, Uint32 count = 1) override;
+    void set_value(const std::string& name, const int* value, Uint32 count) override;
 
-    void set_value(const std::string& name, const float* value, Uint32 count = 1) override;
+    void set_value(const std::string& name, const float* value, Uint32 count) override;
 
-    void set_value(const std::string& name, glm::vec2 value, Uint32 count = 1) override;
+    void set_value(const std::string& name, glm::vec2 value, Uint32 count) override;
 
-    void set_value(const std::string& name, glm::vec3 value, Uint32 count = 1) override;
+    void set_value(const std::string& name, glm::vec3 value, Uint32 count) override;
 
-    void set_value(const std::string& name, glm::vec4 value, Uint32 count = 1) override;
+    void set_value(const std::string& name, glm::vec4 value, Uint32 count) override;
 
     void set_value(const std::string& name, const glm::mat4* values, Uint32 count) override;
 
@@ -85,38 +159,3 @@ inline T OpenglShader::get_value(const std::string& name) {
 
     return T();
 }
-
-
-class OpenglTexture : public Texture {
-public:
-    OpenglTexture() = default;
-    ~OpenglTexture();
-
-    void bind(Uint32 slot = 0) override;
-
-};
-
-class OpenglMesh : public Mesh {
-public:
-    Uint32 vao        = 0;
-    Uint32 vbo        = 0;
-    Uint32 ebo        = 0;
-    
-
-    // Skinning support
-    Uint32 bone_id_vbo     = 0;  // VBO for bone IDs (ivec4)
-    Uint32 bone_weight_vbo = 0;  // VBO for bone weights (vec4)
-
-    void bind() override;
-
-    // TODO: implement this method
-    void upload_to_gpu() override;
-
-    void draw(EDrawMode mode) override;
-    
-    void unbind() override;
-
-    void destroy() override;
-
-    ~OpenglMesh();
-};

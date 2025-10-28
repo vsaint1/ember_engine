@@ -16,14 +16,22 @@ powerful**.
 ### 3D Features
 
 - [x] **Model Loading** (OBJ, FBX, GLTF/GLB)
-- [ ] **PBR (Physically Based Rendering)**
-- [x] **Blinn-Phong Shading Model**
-- [ ] **3D Physics** (coming soon)
-- [ ] **Lighting System** (Directional, Point, Spot)
+- [x] **PBR (Physically Based Rendering)** `SIMPLIFIED`
+- [x] **Blinn-Phong Shading Model** 
+- [ ] **Skybox Reflections** IBL (Image Based Lighting)
+- [ ] Frustrum Culling 
+- [x] **Normal mapping** (TBN calculated per fragment)
+- [ ] **3D Physics** (Jolt Physics Engine)
+- [x] **Lighting System** 
+  - [x] **Directional Light**
+  - [ ] **Point Light**
+  - [ ] **Spotlight** 
 - [x] **Shadow Mapping**
+  - [ ] **CSM** (Cascaded Shadow Maps) for Directional Lights 
 - [ ] **Post-Processing Effects** (Bloom, HDR, SSAO, Motion Blur, etc.)
 - [x] **Animation System** (Skeletal Animation)
-- [ ] **Terrain System** (coming soon)
+  - [ ] **GPU** Skinning
+- [ ] **Level of Detail (LOD) Support** 
 - [x] **Skybox Support** (Cubemap -> 6 faces or Equirectangular)
 
 ### 2D Features
@@ -36,8 +44,8 @@ powerful**.
 
 ### General Features
 
-- [ ] **Audio System** (coming soon)
-- [ ] **Particle System** (coming soon)
+- [ ] **Audio System** 
+- [ ] **Particle System** 
 - [x] Cross-Platform **Rendering** and **API** by Design
 - [x] **Web (WASM) Support**
 - [x] **Native Support:** Windows, Linux, macOS, Android, iOS
@@ -45,6 +53,7 @@ powerful**.
 - [x] **Scripting Support** (Lua)
 - [ ] **UI System** (Buttons, Inputs, Checkboxes, etc.)
 - [ ] **Using Custom Shaders** (not implemented yet)
+- [x] **Forward Rendering**
 
 ---
 

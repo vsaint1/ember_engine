@@ -1,83 +1,74 @@
 #pragma once
+#include  "ogl_struct.h"
 
-#include "core/renderer/opengl/ogl_struct.h"
-#include "core/renderer/renderer.h"
+class OpenGLRenderer final : public Renderer {
 
 
-class OpenglRenderer final : public Renderer {
 public:
-    bool initialize(SDL_Window* window) override;
+    ~OpenGLRenderer() override;
 
-    void clear(glm::vec4 color) override;
+    bool initialize(int w, int h, SDL_Window* window) override;
 
-    void present() override;
+    std::shared_ptr<GpuBuffer> allocate_gpu_buffer(GpuBufferType type) override;
 
-    void* get_context() override {
-        return _context;
-    }
+    std::shared_ptr<GpuVertexLayout> create_vertex_layout(
+        const GpuBuffer* vertex_buffer,
+        const GpuBuffer* index_buffer,
+        const std::vector<VertexAttribute>& attributes,
+        uint32_t stride) override;
 
-    bool load_font(const std::string& name, const std::string& path, int size) override;
+    Uint32 load_texture_from_file(const std::string& path) override;
 
-    std::shared_ptr<Texture> load_texture(const std::string& name, const std::string& path, const aiTexture* ai_embedded_tex);
-    
-    std::unique_ptr<Mesh> load_mesh(aiMesh* mesh, const aiScene* scene, const std::string& base_dir) override;
+    Uint32 load_texture_from_memory(const unsigned char* buffer, size_t size, const std::string& name = "") override;
 
-    void draw_texture(const Transform2D& transform, Texture* texture, const glm::vec4& dest, const glm::vec4& source, bool flip_h,
-                      bool flip_v, const glm::vec4& color) override;
+    Uint32 load_texture_from_raw_data(const unsigned char* data, int w, int h, int channels = 4, const std::string& name = "") override;
 
+    void begin_frame() override;
 
-    void draw_text(const Transform2D& transform, const glm::vec4& color, const std::string& font_name, const char* fmt, ...) override;
+    void begin_shadow_pass() override;
 
-    void draw_text_3d(const Transform3D& transform, const glm::mat4& view, const glm::mat4& projection, const glm::vec4& color,
-                      const std::string& font_name, const char* fmt, ...) override;
+    void render_shadow_pass(const glm::mat4& light_space_matrix) override;
 
-    void draw_rect(const Transform2D& transform, float w, float h, glm::vec4 color, bool is_filled) override;
+    void end_shadow_pass() override;
 
-    void draw_triangle(const Transform2D& transform, float size, glm::vec4 color, bool is_filled) override;
+    void begin_render_target() override;
 
-    void draw_line(const Transform2D& transform, glm::vec2 end, glm::vec4 color) override;
+    void render_main_target(const Camera3D& camera,
+                            const Transform3D& camera_transform,
+                         const glm::mat4& light_space_matrix,
+                         const std::vector<DirectionalLight>& directional_lights,
+                         const std::vector<std::pair<Transform3D, SpotLight>>& spot_lights) override;
 
-    void draw_circle(const Transform2D& transform, float radius, glm::vec4 color, bool is_filled) override;
+    void end_render_target() override;
 
-    void draw_polygon(const Transform2D& transform, const std::vector<glm::vec2>& points, glm::vec4 color, bool is_filled) override;
+    void begin_environment_pass() override;
+    void render_environment_pass(const Camera3D& camera) override;
+    void end_environment_pass() override;
 
-    void draw_line_3d(const glm::vec3& from, const glm::vec3& to, const glm::vec4& color) override;
+    void add_to_render_batch(const Transform3D& transform, const MeshRef& mesh_ref, const MaterialRef& mat_ref) override;
 
-    void draw_triangle_3d(const glm::vec3& v1, const glm::vec3& v2, const glm::vec3& v3, const glm::vec4& color, bool is_filled) override;
+    void add_to_shadow_batch(const Transform3D& transform, const MeshRef& mesh_ref) override;
 
-    void flush(const glm::mat4& view, const glm::mat4& projection) override;
+    void resize(int w, int h) override;
 
-    ~OpenglRenderer() override;
+    void cleanup() override;
 
-    void draw_model(const Transform3D& t, const Model* model) override;
-
-    void draw_animated_model(const Transform3D& t, const Model* model, const glm::mat4* bone_transforms, int bone_count) override;
-
-    void draw_mesh(const Transform3D& transform, const MeshInstance3D& cube, const Shader* shader) override;
-
-    void draw_environment(const glm::mat4& view, const glm::mat4& projection) override;
-
-    std::shared_ptr<Model> load_model(const char* path) override;
-
+    void swap_chain() override;
 
 private:
     SDL_GLContext _context = nullptr;
 
-    void setup_default_shaders();
+    GLuint create_gl_texture(const unsigned char* data, int w, int h, int channels);
 
-    void setup_cubemap();
-
-    OpenglMesh* skybox_mesh               = nullptr;
-    std::shared_ptr<OpenglMesh> cube_mesh = nullptr;
-
-    OpenglShader* default_shader = nullptr;
-    OpenglShader* skybox_shader  = nullptr;
-    OpenglShader* shadow_shader  = nullptr;
-
-protected:
+    WorldEnvironment* create_skybox_from_atlas(const std::string& atlas_path,
+                                               CubemapOrientation orient = CubemapOrientation::DEFAULT,
+                                               float brightness          = 1.0f);
 
 
-    std::vector<Tokens> parse_text(const std::string& text) override;
+    void setup_instance_matrix_attribute(GpuVertexLayout* vao);
 
-    void draw_text_internal(const glm::vec2& pos, const glm::vec4& color, const std::string& font_name, const std::string& text) override;
+
+    void setup_lights(const std::vector<DirectionalLight>& directional_lights,
+                      const std::vector<std::pair<Transform3D, SpotLight>>& spot_lights);
+
 };

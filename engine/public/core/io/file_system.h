@@ -1,6 +1,5 @@
 #pragma once
-
-#include "core/system/logging.h"
+#include  "stdafx.h"
 
 /*!
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "stdafx.h"
+
 #include <assimp/IOStream.hpp>
 #include <assimp/IOSystem.hpp>
 #include <string>

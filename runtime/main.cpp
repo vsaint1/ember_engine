@@ -1,106 +1,168 @@
-#include "core/engine.h"
 #include <SDL3/SDL_main.h>
-
-
+#include "core/engine.h"
 int main(int argc, char* argv[]) {
-    const int WINDOW_W = 1280, WINDOW_H = 720;
 
-    if (!GEngine->initialize(WINDOW_W, WINDOW_H)) {
-        LOG_INFO("Failed to initialize engine");
+    if (!GEngine->initialize(1280, 720, "Golias Engine - Window")) {
+        spdlog::error("Engine initialization failed, exiting");
         return -1;
     }
 
+    auto& ecs = GEngine->get_world();
 
-    auto& world = GEngine->get_world();
+    create_material("green_metal", Material{
+        .albedo = glm::vec3(0, 1.0f, 0),
+        .metallic = 0.5f,
+        .roughness = 0.5f
+    });
 
+    create_material("pink_emissive", Material{
+        .albedo = glm::vec3(1.f, 0.f, 1.0),
+        .metallic = 1.f,
+        .roughness = 0.1f,
+        .emissive = glm::vec3(1, 0, 0),
+        .emissive_strength = 1.0f
+    });
 
-    auto scene = world.entity("MainScene").add<tags::Scene>().add<tags::ActiveScene>();
+    create_material("yellow", Material{
+        .albedo = glm::vec3(1.0f, 1.0f, 0)
+    });
 
-    auto player = world.entity("Player")
-                      .set<MeshInstance3D>({.size = {1, 2, 1}, .material = {.albedo = {0.8f, 0.1f, 0.1f}}})
-                      .set<Transform3D>({.position = {0, 2, 30}, .scale = {1, 1, 1}})
-                      .set<Script>({"res://scripts/test.lua"})
-                      .child_of(scene);
+    create_material("cyan", Material{
+        .albedo = glm::vec3(0.0f, 1.0f, 1.0)
+    });
 
-    auto upper_plane =
-        world.entity("upper_plane")
-            .set<MeshInstance3D>({.size = {10, 1, 10}, .material = {.ambient = {0.1f, 0.1f, 0.1f}, .albedo = {1.f, 0,0}}})
-            .set<Transform3D>({.position = {25, 10, 0}})
-            .child_of(scene);
+    create_material("ground_gray", Material{
+        .albedo = glm::vec3(0.5f, 0.5f, 0.5f),
+        .metallic = 0.0f,
+        .roughness = 1.0f
+    });
 
+    create_material("red_rough", Material{
+        .albedo = glm::vec3(1.f, 0.1f, 0.1f),
+        .metallic = 0.0f,
+        .roughness = 0.3f
+    });
 
-    auto m1 = world
-                  .entity()
-                  .set<Model>({.path = "res://sprites/obj/DamagedHelmet.glb"})
-                  .set<Transform3D>({.position = {-10, 2, 30}, .rotation = {0, 180, 0}, .scale = {1, 1, 1}})
-                  .child_of(scene);
+    create_material("green_shiny", Material{
+        .albedo = glm::vec3(0.1f, 0.8f, 0.1f),
+        .metallic = 0.9f,
+        .roughness = 0.1f
+    });
+
+    create_material("blue_metal", Material{
+        .albedo = glm::vec3(0.2f, 0.2f, 1.0f),
+        .metallic = 0.3f,
+        .roughness = 0.7f
+    });
+
+    create_material("dark_metal_ground", Material{
+        .albedo = glm::vec3(0.1f, 0.1f, 0.1f),
+        .metallic = 0.9f,
+        .roughness = 0.9f
+    });
+
+    create_material("random_default", Material{
+        .albedo = glm::vec3(0.5f, 0.5f, 0.5f),
+        .metallic = 0.2f,
+        .roughness = 0.8f
+    });
 
     auto camera =
-        world.entity("MainCamera").set<Transform3D>({.position = {0, 5, 10}, .rotation = {-0.4f, 0, 0}}).add<Camera3D>().child_of(player);
+        ecs.entity("MainCamera")
+           .set<Transform3D>({.position = {0, 2, 20}, .rotation = {-0.4f, 0, 0}})
+           .add<Camera3D>();
+
+    auto dirLight = ecs.entity()
+                       .set(Transform3D{})
+                       .set(DirectionalLight{
+                           glm::vec3(1, -2.5, 1),
+                           glm::vec3(1.0f, 0.95f, 0.8f),
+                           2.0f,
+                           true
+                       });
+
+    auto spotLight1 = ecs.entity()
+                         .set(Transform3D{glm::vec3(5, 5, 5)})
+                         .set(SpotLight{
+                             glm::vec3(-1, -1, -1),
+                             glm::vec3(1.0f, 0.3f, 0.3f),
+                             30.0f,
+                             12.5f,
+                             17.5f
+                         });
+
+    auto spotLight2 = ecs.entity()
+                         .set(Transform3D{glm::vec3(-5, 5, 5)})
+                         .set(SpotLight{
+                             glm::vec3(1, -1, -1),
+                             glm::vec3(0.3f, 0.3f, 1.0f),
+                             50.0f,
+                             12.5f,
+                             17.5f
+                         });
+
+    // TODO: create api for lights and camera
+    create_model_entity("dmg_helmet", "res://sprites/obj/DamagedHelmet.glb",
+                       glm::vec3(10, 0, -5));
+
+    create_model_entity("nagon", "res://sprites/obj/nagonford/Nagonford_Animated.glb",
+                       glm::vec3(0, 0, 0));
+
+    create_mesh_entity("Cylinder", "res://models/cylinder.obj",
+                      glm::vec3(0, 0, -15), glm::vec3(0), glm::vec3(1.0f),
+                      "green_metal");
+
+    create_mesh_entity("Torus", "res://models/torus.obj",
+                      glm::vec3(0, 0, 5), glm::vec3(0), glm::vec3(1.0f),
+                      "pink_emissive");
+
+    create_mesh_entity("Cone", "res://models/cone.obj",
+                      glm::vec3(0, 0, 15), glm::vec3(0), glm::vec3(1.0f),
+                      "yellow");
+
+    create_mesh_entity("BlenderMonkey", "res://models/blender_monkey.obj",
+                      glm::vec3(-10, 0, 10), glm::vec3(0), glm::vec3(1.0f),
+                      "cyan");
+
+    create_mesh_entity("Plane", "res://models/plane.obj",
+                      glm::vec3(0, -0.5, 0), glm::vec3(0), glm::vec3(10.0f),
+                      "ground_gray");
+
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_real_distribution<float> dist(-100.0f, 100.0f);
 
 
-    for (int i = 0; i < 2; i++) {
-        for (int j = 0; j < 2; j++) {
-            auto godette = world.entity()
-                               .set<Model>({.path = "res://sprites/obj/godette/godette.glb"})
-                               .set<Transform3D>({.position = {-10 + i * 2, 0, -5 + j * 2}, .rotation = {0, randf() * 360, 0}})
-                               .set<Animation3D>({.current_animation = 23})
-                               .child_of(scene);
-        }
+    for (int i = 0; i < 100; ++i) {
+        float x = 30.0f + dist(rng);
+        float y = 30.0f + dist(rng);
+        float z = 30.0f + dist(rng);
+
+        std::string name = "Cube_" + std::to_string(i);
+        create_mesh_entity(
+            name.c_str(),
+            "res://models/cube.obj",
+            glm::vec3(x, y, z),
+            glm::vec3(0.0f),
+            glm::vec3(1.0f),
+            "blue_metal"
+        );
     }
 
+    create_mesh_entity("Red Cube", "res://models/cube.obj",
+                      glm::vec3(3, 0, 0), glm::vec3(0), glm::vec3(1.5f),
+                      "red_rough");
 
-    auto nagon = world.entity("Nagon")
-                     .set<Model>({.path = "res://sprites/obj/nagonford/Nagonford_Animated.glb"})
-                     .set<Transform3D>({.position = {0, 3.f, -10}, .scale = {5, 5, 5}})
-                     .set<Animation3D>({.current_animation = 43})
-                     .child_of(scene);
+    create_mesh_entity("Metallic Sphere", "res://models/sphere.obj",
+                      glm::vec3(-3, 0, 0), glm::vec3(0), glm::vec3(1.5f),
+                      "green_shiny");
 
+    create_mesh_entity("SmallCube", "res://models/cube.obj",
+                      glm::vec3(-3, 0, 0), glm::vec3(0), glm::vec3(0.5f),
+                      "blue_metal");
 
-    auto barrel = world.entity()
-                      .set<Model>({.path = "res://sprites/obj/wine_barrel_01_4k.obj"})
-                      .set<Transform3D>({.position = {0, 0, 5}})
-                      .child_of(scene);
-
-    // auto gopher = world.entity()
-    //                         .set<Model>({.path = "res://sprites/obj/go_gopher.glb"})
-    //                         .set<Transform3D>({.position = {5, 10, 5}})
-    //                         .child_of(scene);
-
-    // auto sponza = world.entity()
-    //                   .set<Model>({.path = "res://sprites/obj/sponza/sponza.glb"})
-    //                   .set<Transform3D>({.position = {0, 0, 5}})
-    //                   .child_of(scene);
-
-    // for (int i = 0; i < 25; i++) {
-    //     float x = -15.0f + i * 3.0f;
-    //     float z = -15.0f + (i % 5) * 6.0f;
-
-    //     float y = glm::min(20.0f, std::abs(std::sin(i * 0.5f) * 80.0f));
-
-    //     float yaw   = glm::radians(20.0f * i);
-    //     float pitch = glm::radians(std::sin(i * 0.3f) * 15.0f);
-    //     float roll  = glm::radians(std::cos(i * 0.7f) * 360.0f);
-
-    //     auto dragon = world.entity()
-    //                        .set<Model>({ .path = "res://sprites/obj/dragon.fbx" })
-    //                        .set<Transform3D>({
-    //                            .position = { x, y, z },
-    //                            .rotation = { pitch, yaw, roll }
-    //                        })
-    //                        .child_of(scene);
-    // }
-
-    auto car = world.entity().set<Model>({.path = "res://sprites/obj/Car.obj"}).set<Transform3D>({.position = {-40, 2, 0}}).child_of(scene);
-
-
-    auto plane = world.entity("plane")
-                     .set<MeshInstance3D>({.size     = {100, 0.1f, 100},
-                                           .material = {.ambient  = {0.1f, 0.1f, 0.1f},
-                                                        .albedo   = {0.3f, 1.f, 0.3f},
-                                                        .metallic = {.specular = {1.f, 1.f, 1.f}, .value = 1.0f}}})
-                     .set<Transform3D>({.position = {0, 0, 0}})
-                     .child_of(scene);
+    create_mesh_entity("Ground", "res://models/cube.obj",
+                      glm::vec3(0, -2, 0), glm::vec3(0), glm::vec3(1000.0f, 0.1f, 1000.0f),
+                      "dark_metal_ground");
 
     GEngine->run();
 

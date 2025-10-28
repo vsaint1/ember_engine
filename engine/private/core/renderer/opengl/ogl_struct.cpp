@@ -1,6 +1,4 @@
-#include "core/renderer/opengl/ogl_struct.h"
-
-#include "core/io/file_system.h"
+#include  "core/renderer/opengl/ogl_struct.h"
 
 
 #if defined(SDL_PLATFORM_ANDROID) || defined(SDL_PLATFORM_IOS) || defined(SDL_PLATFORM_EMSCRIPTEN)
@@ -13,29 +11,32 @@ bool validate_gl_shader(GLuint handle, GLenum op, bool is_program = false) {
     GLint success = 0;
     char infoLog[1024];
 
-    const char* op_str = (op == GL_COMPILE_STATUS)  ? "COMPILE"
-                       : (op == GL_LINK_STATUS)     ? "LINK"
-                       : (op == GL_VALIDATE_STATUS) ? "VALIDATE"
-                                                    : "UNKNOWN";
+    const char* op_str = (op == GL_COMPILE_STATUS)
+                             ? "COMPILE"
+                             : (op == GL_LINK_STATUS)
+                             ? "LINK"
+                             : (op == GL_VALIDATE_STATUS)
+                             ? "VALIDATE"
+                             : "UNKNOWN";
 
     if (is_program) {
         if (op == GL_VALIDATE_STATUS) {
             glValidateProgram(handle);
         }
-        
-       
+
+
         glGetProgramiv(handle, op, &success);
         if (!success) {
             glGetProgramInfoLog(handle, sizeof(infoLog), nullptr, infoLog);
-            LOG_CRITICAL("OPENGLPROGRAM::%s:ERROR: %s", op_str, infoLog);
+            spdlog::critical("OPENGLSHADER::{}:ERROR: {}", op_str, infoLog);
             return false;
         }
-       
+
     } else {
         glGetShaderiv(handle, op, &success);
         if (!success) {
             glGetShaderInfoLog(handle, sizeof(infoLog), nullptr, infoLog);
-            LOG_CRITICAL("OPENGLSHADER::%s:ERROR: %s", op_str, infoLog);
+            spdlog::critical("OPENGLSHADER::{}:ERROR: {}", op_str, infoLog);
             return false;
         }
     }
@@ -44,7 +45,7 @@ bool validate_gl_shader(GLuint handle, GLenum op, bool is_program = false) {
 }
 
 OpenglShader::OpenglShader(const std::string& vertex, const std::string& fragment) {
-    LOG_INFO("Compiling Shaders Sources Vertex (%s) | Fragment (%s)", vertex.c_str(), fragment.c_str());
+    spdlog::info("OpenglShader::OpenglShader - Compiling Shaders Sources Vertex ({}) | Fragment ({})", vertex, fragment);
 
 
     const std::string vertexSource   = SHADER_HEADER + load_assets_file(vertex);
@@ -59,12 +60,22 @@ OpenglShader::OpenglShader(const std::string& vertex, const std::string& fragmen
     glAttachShader(program, fs);
     glLinkProgram(program);
 
-    bool success = validate_gl_shader(program, GL_LINK_STATUS, true);
-    
-    success &= validate_gl_shader(program, GL_VALIDATE_STATUS, true);
+    glUseProgram(program);
+    glUniform1i(glGetUniformLocation(program, "ALBEDO_MAP"), ALBEDO_TEXTURE_UNIT);
+    glUniform1i(glGetUniformLocation(program, "METALLIC_MAP"), METALLIC_TEXTURE_UNIT);
+    glUniform1i(glGetUniformLocation(program, "ROUGHNESS_MAP"), ROUGHNESS_TEXTURE_UNIT);
+    glUniform1i(glGetUniformLocation(program, "NORMAL_MAP"), NORMAL_MAP_TEXTURE_UNIT);
+    glUniform1i(glGetUniformLocation(program, "AO_MAP"), AMBIENT_OCCLUSION_TEXTURE_UNIT);
+    glUniform1i(glGetUniformLocation(program, "EMISSIVE_MAP"), EMISSIVE_TEXTURE_UNIT);
+    glUniform1i(glGetUniformLocation(program, "SHADOW_MAP"), SHADOW_TEXTURE_UNIT);
+    glUniform1i(glGetUniformLocation(program, "ENVIRONMENT_MAP"), ENVIRONMENT_TEXTURE_UNIT);
+
+    const bool success = validate_gl_shader(program, GL_LINK_STATUS, true);
+
+    // success &= validate_gl_shader(program, GL_VALIDATE_STATUS, true);
 
     if (!success) {
-        LOG_CRITICAL("Shader program setup failed, exiting");
+        spdlog::critical("OpenglShader::OpenglShader - Shader program setup failed");
         glDeleteProgram(program);
         program = 0;
         exit(EXIT_FAILURE);
@@ -75,25 +86,23 @@ OpenglShader::OpenglShader(const std::string& vertex, const std::string& fragmen
 
     this->id = program;
 
-    // LOG_INFO("Successfully created and linked SHADER_PROGRAM(%d)", program);
 }
 
 Uint32 OpenglShader::compile_shader(Uint32 type, const char* source) {
-    LOG_INFO("OpenglShader::CompileShader() - %s", type == GL_VERTEX_SHADER ? "VERTEX" : "FRAGMENT");
+    spdlog::info("OpenglShader::CompileShader - Compiling shader of type {}", type == GL_VERTEX_SHADER ? "VERTEX" : "FRAGMENT");
 
-    EMBER_TIMER_START();
 
     Uint32 shader = glCreateShader(type);
-    
+
     glShaderSource(shader, 1, &source, nullptr);
     glCompileShader(shader);
 
     bool success = validate_gl_shader(shader, GL_COMPILE_STATUS);
 
-    EMBER_TIMER_END("Compiling Shaders");
 
     if (!success) {
-        LOG_CRITICAL("Shader compilation failed, deleting shader");
+        spdlog::critical("OpenglShader::compile_shader - Shader compilation failed for type {}",
+                         type == GL_VERTEX_SHADER ? "VERTEX" : "FRAGMENT");
         glDeleteShader(shader);
         exit(EXIT_FAILURE);
 
@@ -111,7 +120,8 @@ Uint32 OpenglShader::get_uniform_location(const std::string& name) {
     Uint32 location = glGetUniformLocation(id, name.c_str());
 
     if (location == -1) {
-        LOG_WARN("Uniform %s not found", name.c_str());
+        spdlog::warn("OpenglShader::get_uniform_location - Uniform {} not found in shader {}", name, id);
+        return location;
     }
 
     _uniforms[name] = location;
@@ -132,6 +142,239 @@ void OpenglShader::destroy() {
     glDeleteProgram(id);
 }
 
+
+OpenglGpuVertexLayout::OpenglGpuVertexLayout(const GpuBuffer* vertex_buffer, const GpuBuffer* index_buffer,
+                                             const std::vector<VertexAttribute>& attributes, uint32_t stride) {
+    glGenVertexArrays(1, &_vao);
+    glBindVertexArray(_vao);
+
+    vertex_buffer->bind();
+
+    for (const auto& attr : attributes) {
+        GLenum gl_type = to_gl_type(attr.type);
+        glVertexAttribPointer(
+            attr.location,
+            attr.components,
+            gl_type,
+            attr.normalized ? GL_TRUE : GL_FALSE,
+            stride,
+            (void*) (uintptr_t) attr.offset
+            );
+        glEnableVertexAttribArray(attr.location);
+    }
+
+    if (index_buffer) {
+        index_buffer->bind();
+    }
+
+    glBindVertexArray(0);
+}
+
+OpenglGpuVertexLayout::~OpenglGpuVertexLayout() {
+    if (_vao)
+        glDeleteVertexArrays(1, &_vao);
+}
+
+void OpenglGpuVertexLayout::bind() const {
+    glBindVertexArray(_vao);
+}
+
+void OpenglGpuVertexLayout::unbind() const {
+    glBindVertexArray(0);
+}
+
+GLenum OpenglGpuVertexLayout::to_gl_type(DataType type) {
+    switch (type) {
+    case DataType::USHORT:
+        return GL_UNSIGNED_SHORT;
+    case DataType::FLOAT:
+        return GL_FLOAT;
+    case DataType::INT:
+        return GL_INT;
+    case DataType::UNSIGNED_INT:
+        return GL_UNSIGNED_INT;
+    default:
+        return GL_FLOAT;
+    }
+}
+
+OpenglGpuBuffer::OpenglGpuBuffer(GpuBufferType type) : _buffer_type(type) {
+
+    switch (type) {
+    case GpuBufferType::VERTEX:
+        _target = GL_ARRAY_BUFFER;
+        break;
+    case GpuBufferType::INDEX:
+        _target = GL_ELEMENT_ARRAY_BUFFER;
+        break;
+    case GpuBufferType::UNIFORM:
+        _target = GL_UNIFORM_BUFFER;
+        break;
+    default:
+        _target = GL_ARRAY_BUFFER;
+        break;
+    }
+
+
+    glGenBuffers(1, &_id);
+
+    spdlog::info("OpenglGpuBuffer::OpenglGpuBuffer - Created GPU Buffer ID: {} of Type: {}", _id,
+                 type == GpuBufferType::VERTEX
+                     ? "VERTEX"
+                     : type == GpuBufferType::INDEX
+                     ? "INDEX"
+                     : type == GpuBufferType::UNIFORM
+                     ? "UNIFORM"
+                     : "STORAGE");
+}
+
+OpenglGpuBuffer::~OpenglGpuBuffer() {
+    glDeleteBuffers(1, &_id);
+}
+
+void OpenglGpuBuffer::bind() const {
+    glBindBuffer(_target, _id);
+}
+
+void OpenglGpuBuffer::upload(const void* data, size_t size) {
+    bind();
+    glBufferData(_target, size, data, GL_STATIC_DRAW);
+    _buffer_size = size;
+}
+
+size_t OpenglGpuBuffer::size() const {
+    return _buffer_size;
+}
+
+GpuBufferType OpenglGpuBuffer::type() const {
+    return _buffer_type;
+}
+
+OpenGLFramebuffer::OpenGLFramebuffer(const FramebufferSpecification& spec) : specification(spec) {
+    spdlog::info("OpenGLFramebuffer::OpenGLFramebuffer - Creating Framebuffer ({}x{})", spec.width, spec.height);
+    invalidate();
+}
+
+OpenGLFramebuffer::~OpenGLFramebuffer() {
+    cleanup();
+}
+
+
+void OpenGLFramebuffer::invalidate() {
+    if (fbo)
+        cleanup();
+
+    // Check for valid dimensions
+    if (specification.width == 0 || specification.height == 0) {
+        spdlog::error("OpenGLFramebuffer::invalidate - Invalid dimensions ({}x{})",
+                      specification.width, specification.height);
+        return;
+    }
+
+    spdlog::warn("OpenGLFramebuffer::invalidate - Recreating Framebuffer ({}x{})",
+                 specification.width, specification.height);
+
+    glGenFramebuffers(1, &fbo);
+    glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+
+    bool hasDepthAttachment = false;
+    for (auto& attachment : specification.attachments.attachments) {
+        switch (attachment.format) {
+        case FramebufferTextureFormat::RGBA8: {
+            uint32_t tex;
+            glGenTextures(1, &tex);
+            glBindTexture(GL_TEXTURE_2D, tex);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, specification.width, specification.height, 0,
+                         GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0 + color_attachments.size(),
+                                   GL_TEXTURE_2D, tex, 0);
+            color_attachments.push_back(tex);
+            break;
+        }
+        case FramebufferTextureFormat::DEPTH_COMPONENT:
+        case FramebufferTextureFormat::DEPTH24STENCIL8: {
+            hasDepthAttachment = true;
+            glGenTextures(1, &depth_attachment);
+            glBindTexture(GL_TEXTURE_2D, depth_attachment);
+
+            if (attachment.format == FramebufferTextureFormat::DEPTH24STENCIL8) {
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH24_STENCIL8, specification.width, specification.height,
+                             0, GL_DEPTH_STENCIL, GL_UNSIGNED_INT_24_8, nullptr);
+                glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_TEXTURE_2D, depth_attachment, 0);
+            } else {
+                glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, specification.width, specification.height,
+                             0, GL_DEPTH_COMPONENT, GL_UNSIGNED_INT, nullptr);
+                glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depth_attachment, 0);
+            }
+
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+            break;
+        }
+        default:
+            break;
+        }
+    }
+
+    if (color_attachments.empty()) {
+        glDrawBuffers(0, nullptr);
+        glReadBuffer(GL_NONE);
+    } else {
+        GLenum buffers[4] = {GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3};
+        glDrawBuffers((GLsizei) color_attachments.size(), buffers);
+    }
+
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE) {
+        spdlog::critical("OpenGLFramebuffer::invalidate - Framebuffer is incomplete! Status: 0x{:x}", status);
+    }
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void OpenGLFramebuffer::bind() {
+    glBindFramebuffer(GL_FRAMEBUFFER, fbo);
+    glViewport(0, 0, specification.width, specification.height);
+}
+
+void OpenGLFramebuffer::unbind() {
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void OpenGLFramebuffer::resize(unsigned int width, unsigned int height) {
+    specification.width  = width;
+    specification.height = height;
+    invalidate();
+}
+
+Uint32 OpenGLFramebuffer::get_color_attachment_id(size_t index) const {
+    return color_attachments[index];
+}
+
+Uint32 OpenGLFramebuffer::get_depth_attachment_id() const {
+    return depth_attachment;
+}
+
+const FramebufferSpecification& OpenGLFramebuffer::get_specification() const {
+    return specification;
+}
+
+void OpenGLFramebuffer::cleanup() {
+    if (depth_attachment)
+        glDeleteTextures(1, &depth_attachment);
+
+    if (!color_attachments.empty())
+        glDeleteTextures((GLsizei) color_attachments.size(), color_attachments.data());
+
+    if (fbo)
+        glDeleteFramebuffers(1, &fbo);
+}
+
 OpenglShader::~OpenglShader() {
     destroy();
 }
@@ -150,6 +393,7 @@ void OpenglShader::set_value(const std::string& name, int value) {
     const Uint32 location = get_uniform_location(name);
     glUniform1i(location, value);
 }
+
 void OpenglShader::set_value(const std::string& name, Uint32 value) {
     const Uint32 location = get_uniform_location(name);
     glUniform1i(location, value);
@@ -173,7 +417,7 @@ void OpenglShader::set_value(const std::string& name, glm::mat4 value, Uint32 co
 
 void OpenglShader::set_value(const std::string& name, const glm::mat4* values, Uint32 count) {
     if (values == nullptr || count == 0) {
-        LOG_WARN("OpenglShader::set_value - Invalid matrix array or count is zero");
+        spdlog::warn("OpenglShader::set_value - Invalid matrix array or count is zero");
         return;
     }
 
@@ -194,95 +438,4 @@ void OpenglShader::set_value(const std::string& name, glm::vec3 value, Uint32 co
 void OpenglShader::set_value(const std::string& name, glm::vec4 value, Uint32 count) {
     const Uint32 location = get_uniform_location(name);
     glUniform4fv(location, count, glm::value_ptr(value));
-}
-
-void OpenglMesh::upload_to_gpu() {
-   
-}
-
-void OpenglMesh::bind() {
-    glBindVertexArray(vao);
-}
-
-void OpenglMesh::draw(EDrawMode mode) {
-
-    auto draw_mode = mode == EDrawMode::TRIANGLES ? GL_TRIANGLES : GL_LINES;
-    if (ebo && !indices.empty()) {
-        glDrawElements(draw_mode, static_cast<GLsizei>(index_count), GL_UNSIGNED_INT, 0);
-    } else {
-        glDrawArrays(draw_mode, 0, static_cast<GLsizei>(vertex_count));
-    }
-}
-
-void OpenglMesh::unbind() {
-    glBindVertexArray(0);
-}
-
-void OpenglMesh::destroy() {
-
-    if (vbo) {
-        glDeleteBuffers(1, &vbo);
-        vbo = 0;
-    }
-
-    if (ebo) {
-        glDeleteBuffers(1, &ebo);
-        ebo = 0;
-    }
-
-    if (bone_id_vbo) {
-        glDeleteBuffers(1, &bone_id_vbo);
-        bone_id_vbo = 0;
-    }
-
-    if (bone_weight_vbo) {
-        glDeleteBuffers(1, &bone_weight_vbo);
-        bone_weight_vbo = 0;
-    }
-
-
-    if (vao) {
-        glDeleteVertexArrays(1, &vao);
-        vao = 0;
-    }
-
-    material.reset(); // free material resource
-
-}
-
-
-OpenglMesh::~OpenglMesh() {
-    destroy();
-}
-
-
-GLuint gl_texture_target_cast(ETextureTarget target) {
-    switch (target) {
-    case ETextureTarget::TEXTURE_2D:
-        return GL_TEXTURE_2D;
-    case ETextureTarget::TEXTURE_3D:
-        return GL_TEXTURE_3D;
-    case ETextureTarget::TEXTURE_CUBE_MAP:
-        return GL_TEXTURE_CUBE_MAP;
-    case ETextureTarget::RENDER_TARGET:
-        SDL_Log("RENDER_TARGET not directly supported in OpenGL");
-        return GL_TEXTURE_2D; // Fallback
-    default:
-        SDL_Log("Unknown texture target");
-        return GL_TEXTURE_2D; // Fallback
-    }
-}
-
-
-void OpenglTexture::bind(Uint32 slot) {
-    glActiveTexture(GL_TEXTURE0 + slot);
-    glBindTexture(gl_texture_target_cast(target), id);
-    // LOG_DEBUG("Binding texture ID %d to slot %d", id, slot);
-}
-
-OpenglTexture::~OpenglTexture() {
-    if (is_valid()) {
-        glDeleteTextures(1, &id);
-        id = -1;
-    }
 }

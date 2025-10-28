@@ -1,35 +1,29 @@
 #pragma once
-
-#include "core/component/components.h"
-
-
-/*!
-
-    @brief Requests a scene change to the specified scene name.
-    
-    This function creates a `SceneChangeRequest` component in the ECS world with the provided scene name. The scene manager system will process this request and handle the actual scene transition.
-
-    @param scene_name The name of the scene to switch to.
-
-    @version 0.0.1
-
-*/
-void change_scene(const std::string& scene_name);
+#include  "core/engine.h"
 
 
-// Entity related API
-flecs::entity get_entity_by_name(const std::string& name);
+void create_camera_entity(
+    const flecs::world& world,
+    const glm::vec3& position = glm::vec3(0),
+    const glm::vec3& rotation = glm::vec3(0),
+    float fov                 = 45.0f,
+    float near_plane          = 0.1f,
+    float far_plane           = 1000.0f);
 
-bool entity_has_component(flecs::entity& e, const std::string& component_name);
+void create_mesh_entity(
+    const char* name,
+    const char* path,
+    const glm::vec3& position = glm::vec3(0),
+    const glm::vec3& rotation = glm::vec3(0),
+    const glm::vec3& scale    = glm::vec3(1.0f),
+    const char* material_tag   = "default_material");
 
-bool entity_add_component(flecs::entity& e, const std::string& component_name);
+void create_model_entity(
+    const char* name,
+    const char* path,
+    const glm::vec3& position = glm::vec3(0),
+    const glm::vec3& rotation = glm::vec3(0),
+    const glm::vec3& scale    = glm::vec3(1.0f));
 
-void entity_remove_component(flecs::entity& e, const std::string& component_name);
 
-bool entity_is_valid(flecs::entity& e);
-
-
-// Input related API
-glm::vec2 get_mouse_position();
-
-bool is_key_pressed(int key_code);
+void create_material(const char* name, const Material& material);

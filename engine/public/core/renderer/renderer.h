@@ -1,146 +1,108 @@
 #pragma once
+#include  "core/component/components.h"
+#include "base_struct.h"
 
-#include "core/component/logic/system_logic.h"
-#include "core/ember_utils.h"
-#include "core/renderer/base_struct.h"
+struct RenderBatch {
+    const MeshInstance3D* mesh;
+    const Material* material;
+    std::vector<glm::mat4> model_matrices;
 
+    void clear() {
+        model_matrices.clear();
+    }
+};
 
-/*!
-    @brief Structure representing a batch of instanced meshes to be rendered.
+struct MeshMaterialKey {
+    const MeshInstance3D* mesh;
+    const Material* material;
 
-    @version 0.0.3
-*/
-struct InstancedBatch {
-    Mesh* mesh; /// Model->meshes[i]
-    Shader* shader = nullptr; /// Shader to use for rendering
-    std::vector<glm::mat4> models; /// model matrices for instancing
-    std::vector<glm::vec3> colors; /// colors for instancing (later)
-    EDrawMode mode = EDrawMode::TRIANGLES;
-    EDrawCommand command = EDrawCommand::MODEL;
-    
-    const glm::mat4* bone_transforms = nullptr;  /// Pointer to bone transforms (if has animation/bones)
-    int bone_count = 0;                          /// Number of bones
+    bool operator==(const MeshMaterialKey& other) const {
+        return mesh == other.mesh && material == other.material;
+    }
+};
+
+struct MeshMaterialKeyHash {
+    std::size_t operator()(const MeshMaterialKey& key) const {
+        std::size_t h1 = std::hash<const void*>{}(key.mesh);
+        std::size_t h2 = std::hash<const void*>{}(key.material);
+        return h1 ^ (h2 << 1);
+    }
 };
 
 
-struct GpuBuffer {
-    Uint32 instance_buffer = 0;
-    Uint32 color_buffer = 0;
-};
-
-/*!
-
-    @brief Abstract base class for different rendering backends.
-    This class defines the interface for rendering operations such as initializing the renderer, clearing the screen, drawing shapes, textures, text and presenting the rendered content.
-
-    @version 0.0.1
-*/
 class Renderer {
 public:
-    virtual bool initialize(SDL_Window* window) = 0;
-
-    virtual void clear(glm::vec4 color = glm::vec4(0, 0, 0, 1)) = 0;
-
-    virtual void present() = 0;
-
-    virtual void* get_context() = 0;
-
-    void set_default_fonts(const std::string& text_font, const std::string& emoji_font);
-
-    virtual bool load_font(const std::string& name, const std::string& path, int size = 16) = 0;
-
-    std::shared_ptr<Texture> load_texture(const std::string& name, const std::string& path = "", const aiTexture* ai_embedded_tex = nullptr);
-    
-    
-    virtual std::unique_ptr<Mesh> load_mesh(aiMesh* mesh, const aiScene* scene, const std::string& base_dir) {
-        LOG_WARN("load_meshes not implemented for this renderer");
-        return nullptr;
-    }
-
-    
-    virtual void draw_texture(const Transform2D& transform, Texture* texture, const glm::vec4& dest, const glm::vec4& source,
-                              bool flip_h = false, bool flip_v = false, const glm::vec4& color = glm::vec4(1, 1, 1, 1)) = 0;
-
-
-    virtual void draw_text(const Transform2D& transform, const glm::vec4& color, const std::string& font_name, const char* fmt, ...) = 0;
-
-    virtual void draw_text_3d(const Transform3D& transform, const glm::mat4& view, const glm::mat4& projection, const glm::vec4& color,
-                              const std::string& font_name, const char* fmt, ...) {
-        LOG_WARN("draw_text_3d not implemented for this renderer");
-    }
-
-    virtual void draw_rect(const Transform2D& transform, float w, float h, glm::vec4 color = glm::vec4(1, 1, 1, 1),
-                           bool is_filled = false) = 0;
-
-
-    virtual void draw_line_3d(const glm::vec3& from, const glm::vec3& to, const glm::vec4& color) {
-        LOG_WARN("draw_line_3d not implemented for this renderer");
-    }
-
-    virtual void draw_triangle_3d(const glm::vec3& v1, const glm::vec3& v2, const glm::vec3& v3, const glm::vec4& color, bool is_filled) {
-        LOG_WARN("draw_triangle_3d not implemented for this renderer");
-    }
-
-    virtual void draw_triangle(const Transform2D& transform, float size, glm::vec4 color = glm::vec4(1, 1, 1, 1),
-                               bool is_filled = false) = 0;
-
-    virtual void draw_line(const Transform2D& transform, glm::vec2 end, glm::vec4 color = glm::vec4(1, 1, 1, 1)) = 0;
-
-    virtual void draw_circle(const Transform2D& transform, float radius, glm::vec4 color = glm::vec4(1, 1, 1, 1),
-                             bool is_filled = false) = 0;
-
-    virtual void draw_polygon(const Transform2D& transform, const std::vector<glm::vec2>& points, glm::vec4 color = glm::vec4(1, 1, 1, 1),
-                              bool is_filled = false) = 0;
-
     virtual ~Renderer() = default;
 
-    virtual void flush(const glm::mat4& view, const glm::mat4& projection) {
-        LOG_WARN("flush not implemented for this renderer");
-    }
+    virtual bool initialize(int width, int height, SDL_Window* window) = 0;
+    virtual void resize(int width, int height) = 0;
+    virtual void cleanup() = 0;
 
-    virtual void draw_model(const Transform3D& t, const Model* model) {
-        LOG_WARN("draw_model not implemented for this renderer");
-    }
+    virtual std::shared_ptr<GpuBuffer> allocate_gpu_buffer(GpuBufferType type) = 0;
 
-       virtual void draw_animated_model(const Transform3D& t, const Model* model, const glm::mat4* bone_transforms, int bone_count){
-        LOG_WARN("draw_animated_model not implemented for this renderer");
-    }
-    
-    // TODO: add shader parameter
-    virtual void draw_mesh(const Transform3D& transform, const MeshInstance3D& cube, const Shader* shader = nullptr) {
-        LOG_WARN("draw_cube not implemented for this renderer");
-    }
+    virtual std::shared_ptr<GpuVertexLayout> create_vertex_layout(
+        const GpuBuffer* vertex_buffer,
+        const GpuBuffer* index_buffer,
+        const std::vector<VertexAttribute>& attributes,
+        uint32_t stride) = 0;
 
- 
-    virtual void draw_environment(const glm::mat4& view, const glm::mat4& projection) {
-        LOG_WARN("draw_environment not implemented for this renderer");
-    }
+    virtual Uint32 load_texture_from_file(const std::string& path) = 0;
+    virtual Uint32 load_texture_from_memory(const unsigned char* buffer, size_t size, const std::string& name = "") = 0;
+    virtual Uint32 load_texture_from_raw_data(const unsigned char* data, int width, int height, int channels = 4,
+                                              const std::string& name                                        = "") = 0;
+    virtual void begin_frame() = 0;
 
-    virtual std::shared_ptr<Model> load_model(const char* path);
+    virtual void begin_shadow_pass() = 0;
+    virtual void render_shadow_pass(const glm::mat4& light_space_matrix) = 0;
+    virtual void end_shadow_pass() = 0;
+
+    virtual void begin_render_target() = 0;
+    virtual void render_main_target(const Camera3D& camera,
+                                    const Transform3D& camera_transform,
+                                    const glm::mat4& light_space_matrix,
+                                    const std::vector<DirectionalLight>& directional_lights,
+                                    const std::vector<std::pair<Transform3D, SpotLight>>& spot_lights) = 0;
+    virtual void end_render_target() = 0;
+
+    virtual void begin_environment_pass() =0;
+    virtual void render_environment_pass(const Camera3D& camera) =0;
+    virtual void end_environment_pass() =0;
+
+    virtual void add_to_render_batch(const Transform3D& transform,
+                                     const MeshRef& mesh_ref, const MaterialRef& mat_ref) = 0;
+
+    virtual void add_to_shadow_batch(const Transform3D& transform,const MeshRef& mesh_ref) = 0;
+
+
+    virtual void swap_chain() = 0;
+
+    std::unordered_map<std::string, Uint32> _textures;
+    std::unordered_map<std::string, std::vector<MeshInstance3D>> _meshes;
+    std::unordered_map<std::string, std::vector<Material>> _materials;
+
+    void register_material(const char* name, const Material& material) {
+        _materials[name].push_back(material);
+    }
 
 protected:
     SDL_Window* _window = nullptr;
 
-    std::string vformat(const char* fmt, va_list args);
+    std::unique_ptr<Shader> _default_shader     = nullptr;
+    std::unique_ptr<Shader> _shadow_shader      = nullptr;
+    std::unique_ptr<Shader> _environment_shader = nullptr;
 
-    virtual std::vector<Tokens> parse_text(const std::string& text) = 0;
+    WorldEnvironment* _world_environment = nullptr;
 
-    virtual void draw_text_internal(const glm::vec2& pos, const glm::vec4& color, const std::string& font_name,
-                                    const std::string& text) = 0;
+    std::shared_ptr<Framebuffer> shadow_map_fbo = nullptr;
 
+    int width = 0, height = 0;
 
-    // TODO: consider using resource manager for models, textures, fonts
-    std::unordered_map<std::string, std::shared_ptr<Model>> _models;
+    std::shared_ptr<GpuBuffer> instance_buffer;
 
-    std::unordered_map<std::string, std::shared_ptr<Texture>> _textures;
+    std::unordered_map<MeshMaterialKey, RenderBatch, MeshMaterialKeyHash> _instanced_batches;
 
-    std::unordered_map<std::string, std::shared_ptr<Font>> _fonts;
+    std::unordered_map<const MeshInstance3D*, RenderBatch> shadow_batches;
 
-    std::string _default_font_name;
-    std::string _emoji_font_name;
+    size_t max_instances = 1000;
 
-    // batching/instancing
-    std::unordered_map<const Mesh*, InstancedBatch> _instanced_batches;
-
-    std::unordered_map<const Mesh*, GpuBuffer> _buffers;
 };
